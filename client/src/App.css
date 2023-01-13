@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.hide {
+  display: none;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -40,21 +44,123 @@
 /* LANDING PAGE  */
 
 #landing-page-container {
-  /* background-color: rgb(255, 255, 255);
-  position: relative;
-  top: 30px;
-  height: 90vh;
-  width: 90vw; */
+  background-color: rgb(227, 231, 208);
+  height: 100vh;
+  width: 100vw; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#landing-top {
+  display: flex;
+  flex-direction: row;
+  margin-top: 8%;
+}
+
+#landing-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 10% 0 0 5%;
+  width: 40%;
+  text-align: left;
+}
+
+#landing-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10%;
+}
+
+#landing-header h1 {
+  font-family: 'Paytone One', sans-serif;
+  font-size: 10em;
+  width: 50%;
+  text-align: left;
+  line-height: 0.75em;
+}
+
+#landing-subheading{
+  margin-top: 8px;
+}
+
+#landing-subheading h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 3em;
+}
+
+#landing-subheading h3 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+#landing-right-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 10% 0 0 10%;
+  width: 40%;
+  text-align: right;
+}
+
+#landing-thumbnail {
+  background-color: grey;
+  height: 300px;
+  width: 500px;
+}
+
+
+
+
+
+
+
+/* NAVBAR */
+#nav-container {
+  /* background-color: orangered;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  z-index: 3; */
+}
+
+#hamburger {
+  /* display: flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  margin-top: 50px;
+  margin-left: 80px;
+  z-index: 3; */
+}
+
+#nav-content {
+  /* margin-top: 50%; */
+}
+
+
+/* SIGNUP PAGE */
+
+#signup-page-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+}
+
+#company-search {
+  width: 50em;
 }
 
 #video-overlay {
-  background: rgb(255, 221, 157);
+  background: rgb(255, 174, 23);
   position: fixed;
   right: 0;
   bottom: 0;
@@ -71,11 +177,11 @@
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  opacity: 20%;
+  opacity: 30%;
   z-index: -2;
-  /* filter: brightness(3); */
-  /* filter: invert(70%); */
-  filter: contrast(2);
+  filter: brightness(3);
+  filter: invert(70%);
+  filter: contrast(3);
   transform: rotate(180deg);
 }
 
@@ -85,54 +191,16 @@
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  opacity: 30%;
+  opacity: 40%;
   z-index: -1;
-  filter: contrast(2);
+  /* filter: contrast(3); */
   transform: scaleX(-1); 
-}
-
-/* @keyframes videocolor {
-  0%   {background: rgb(255, 221, 157);}
-  25%  {background: rgb(255, 188, 63);}
-  75%  {background: rgb(238, 154, 0);}
-  100% {background: rgb(255, 221, 157);}
-} */
-
-/* NAVBAR */
-#nav-container {
-  background-color: orangered;
-  position: fixed;
-  top: 0;
-  height: 100vh;
-  z-index: 3;
-}
-
-#hamburger {
-  display: flex;
-  flex-direction:column;
-  justify-content: flex-start;
-  margin-top: 50px;
-  margin-left: 80px;
-  z-index: 3;
-}
-
-#nav-content {
-  margin-top: 50%;
+  /* filter: invert(70%); */
+  filter: brightness(3);
 }
 
 
-/* SIGNUP PAGE */
 
-#signup-page-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#company-search {
-  width: 50em;
-}
 
 /* SIGNUP FORM */
 

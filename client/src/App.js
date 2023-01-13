@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import SignupPage from './components/SignupPage';
 import Nav from './components/Nav';
+import LoginPage from './components/LoginPage';
 import './App.css';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   
   const [companies, setCompanies] = useState([])
   const [newCompany, setNewCompany] = useState([])
+  const [newCompanyID, setNewCompanyID] = useState([])
   const [newRecruiter, setNewRecruiter] = useState([])
   const [errors, setErrors] = useState([])
 
@@ -39,7 +41,6 @@ function App() {
       if (res.ok){
         res.json().then(data => {
           setNewCompany(data);
-          console.log(newCompany);
         })
       } else {
         res.json().then(data => {setErrors(data.errors); console.log(errors)})
@@ -48,30 +49,30 @@ function App() {
    }
 
 
-     // CREATE NEW RECRUITER
-     const createNewRecruiter = (newRecruiter)=> {
-      fetch('/recruiters', {
-        method: "POST",
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(newRecruiter)
-      })
-      .then(res => {
-        if (res.ok){
-          res.json().then(data => {
-            console.log(data);
-          })
-        } else {
-          res.json().then(data => {setErrors(data.errors); console.log(errors)})
-        }
-      })
-     }
+    // CREATE NEW RECRUITER
+    const createNewRecruiter = (newRecruiter)=> {
+    fetch('/recruiters', {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newRecruiter)
+    })
+    .then(res => {
+      if (res.ok){
+        res.json().then(data => {
+          console.log(data);
+        })
+      } else {
+        res.json().then(data => {setErrors(data.errors); console.log(errors)})
+      }
+    })
+    }
 
 
 
   return (
     <BrowserRouter>
       <div className="App">
-        <Nav />
+        {/* <Nav /> */}
         <Routes>
           <Route index element={<LandingPage />} />
           <Route path='signup' element={<SignupPage 
@@ -80,6 +81,7 @@ function App() {
               createNewRecruiter={createNewRecruiter}
               newCompany={newCompany}
               />} />
+          <Route path='login' element={<LoginPage />} />
         </Routes>
       </div>
 

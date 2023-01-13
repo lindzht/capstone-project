@@ -1,31 +1,42 @@
 import { Button } from 'semantic-ui-react'
 import { useState } from 'react';
 
-function FormSignup ({newCompanyName, companySearchResultID, createNewRecruiter, newCompany}){
-    console.log(newCompany)
+function FormSignup ({newCompanyName, companySearchResult, createNewRecruiter, newCompany}){
+    console.log(newCompanyName)
     const [newRecruiter, setNewRecruiter] = useState({
         first_name: "",
         last_name: "",
         email: "",
         password: "",
         password_confirmation: "",
-        admin: newCompanyName ? true : false,
-        company_id: newCompanyName ? newCompany.id : companySearchResultID
+        // admin: newCompanyName ? true : false,
+        // company_id: newCompanyName ? newCompany.id : companySearchResultID
     });
     
     const handleChange = (e) => {
         const key = e.target.name;
         const value = e.target.value;
-    
-        setNewRecruiter({
-            ...newRecruiter,
-            [key]: value
-        })
+        
+        if (newCompanyName) {
+            setNewRecruiter({
+                ...newRecruiter,
+                [key]: value,
+                admin: true,
+                company_name: newCompany
+            })  
+        } else {
+            setNewRecruiter({
+                ...newRecruiter,
+                [key]: value,
+                admin: false,
+                company_name: companySearchResult
+            })
+        }
     }
+
     const handleRecruiterSubmit = (e) => {
         e.preventDefault();
-        console.log(newRecruiter)
-
+        createNewRecruiter(newRecruiter)
     };
 
 
@@ -74,3 +85,4 @@ function FormSignup ({newCompanyName, companySearchResultID, createNewRecruiter,
 }
 
 export default FormSignup;
+

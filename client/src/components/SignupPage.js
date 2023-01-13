@@ -2,6 +2,7 @@ import FormSignup from "./FormSignup";
 import { useState } from "react";
 import Select from 'react-select';
 import FormCompany from "./FormCompany";
+import landing_video from "../video/landing_video.mp4";
 
 function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompany}){
 
@@ -32,7 +33,7 @@ function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompan
     }) 
 
     const companySelected = (e) => {
-        setCompanySearch(e.value)
+        setCompanySearch(e.label)
     }
 
     const handleDisplayCompanyForm =()=> {
@@ -44,7 +45,7 @@ function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompan
         <div id="signup-page-container">
             <div id="signup-content-container">
             {displayCompanyForm ? (<FormCompany companyFormResult={displayCompanyForm} createNewCompany={createNewCompany}/>) 
-            : ( companySearch ? <FormSignup companySearchResultID={companySearch} createNewRecruiter={createNewRecruiter} newCompany={newCompany}/> : 
+            : ( companySearch ? <FormSignup companySearchResult={companySearch} createNewRecruiter={createNewRecruiter} newCompany={newCompany}/> : 
                 <div>
                     <h3>Look for your company yo!</h3>
                     <Select 
@@ -54,6 +55,15 @@ function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompan
                     <h4 onClick={handleDisplayCompanyForm}>Add yo company here</h4> 
                 </div>
             ) }   
+            </div>
+
+            <div id="video-overlay">
+                <video id="video-background" autoPlay loop muted>
+                    <source src={landing_video} type="video/mp4" />
+                </video>
+                {/* <video id="video-background2" autoPlay loop muted>
+                    <source src={landing_video} type="video/mp4" />
+                </video> */}
             </div>
         </div>
     )
