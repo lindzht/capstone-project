@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +35,75 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+/* LANDING PAGE  */
+
+#video-overlay {
+  background: rgb(255, 221, 157);
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 75%;
+  z-index: -1;
+  /* animation: videocolor 7s infinite; */
 }
+
+#video-background {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 20%;
+  z-index: -2;
+  /* filter: brightness(3); */
+  /* filter: invert(70%); */
+  filter: contrast(2);
+  transform: rotate(180deg);
+}
+
+#video-background2 {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 30%;
+  z-index: -1;
+  filter: contrast(2);
+  transform: scaleX(-1); 
+}
+
+/* @keyframes videocolor {
+  0%   {background: rgb(255, 221, 157);}
+  25%  {background: rgb(255, 188, 63);}
+  75%  {background: rgb(238, 154, 0);}
+  100% {background: rgb(255, 221, 157);}
+} */
+
+
+/* SIGNUP PAGE */
+
+#signup-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#company-search {
+  width: 50em;
+}
+
+/* SIGNUP FORM */
+
+#formsignup-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+

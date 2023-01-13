@@ -1,0 +1,2 @@
+class ReqteamsController < ApplicationController
+end
