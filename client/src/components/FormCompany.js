@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Icon } from 'semantic-ui-react'
 import FormSignup from "./FormSignup";
 
-function FormCompany (){
+function FormCompany ({createNewCompany}){
 
     const [displaySignupForm, setDisplaySignupForm ] = useState(false)
-    const [createCompany, setCreateCompany] = useState({
+    const [newCompany, setNewCompany] = useState({
         name: ""
     });
     
@@ -13,19 +13,20 @@ function FormCompany (){
         const key = e.target.name;
         const value = e.target.value;
     
-        setCreateCompany({
-            ...createCompany,
+        setNewCompany({
+            ...newCompany,
             [key]: value
         })
     }
     const handleCompanySubmit = (e) => {
         e.preventDefault();
-        setCreateCompany(createCompany);
+        createNewCompany(newCompany)
+        setNewCompany({name: ""})
         setDisplaySignupForm(!displaySignupForm); 
     };
 
 
-if (displaySignupForm) return <FormSignup name={createCompany.name} /> 
+if (displaySignupForm) return <FormSignup newCompanyName={newCompany.name} /> 
     return(
         <div id="formcompany-container">
             <form onSubmit={handleCompanySubmit}>
@@ -33,7 +34,7 @@ if (displaySignupForm) return <FormSignup name={createCompany.name} />
                     type="text"
                     name="name"
                     placeholder="Company Name"
-                    value={createCompany.name}
+                    value={newCompany.name}
                     onChange={handleChange} />
                 <Icon name='right arrow' className="icon-right-arrow" onClick={handleCompanySubmit}/>
             </form>

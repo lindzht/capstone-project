@@ -3,7 +3,7 @@ import { useState } from "react";
 import Select from 'react-select';
 import FormCompany from "./FormCompany";
 
-function SignupPage ({companies}){
+function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompany}){
 
     // const [companySearch, setCompanySearch] = useState({
     //     name: ""
@@ -42,10 +42,9 @@ function SignupPage ({companies}){
 
     return(
         <div id="signup-page-container">
-            <h1>Signup Page</h1>
             <div id="signup-content-container">
-            {displayCompanyForm ? (<FormCompany companyFormResult={displayCompanyForm} />) 
-            : ( companySearch ? <FormSignup companySearchResult={companySearch}/> : 
+            {displayCompanyForm ? (<FormCompany companyFormResult={displayCompanyForm} createNewCompany={createNewCompany}/>) 
+            : ( companySearch ? <FormSignup companySearchResultID={companySearch} createNewRecruiter={createNewRecruiter} newCompany={newCompany}/> : 
                 <div>
                     <h3>Look for your company yo!</h3>
                     <Select 
@@ -63,14 +62,3 @@ function SignupPage ({companies}){
 export default SignupPage;
 
 
-{/* <form onSubmit={handleSubmit}>
-    <input
-        type="text"
-        name="name"
-        placeholder="Search here"
-        value={companySearch.name}
-        onChange={handleChange} />
-    <input 
-        type="submit"
-        text="Submit" />
-</form> */}
