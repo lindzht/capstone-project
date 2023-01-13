@@ -1,8 +1,9 @@
-import { Button } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react'
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 function FormSignup ({newCompanyName, companySearchResult, createNewRecruiter, newCompany}){
-    console.log(newCompanyName)
+    const navigate = useNavigate();
     const [newRecruiter, setNewRecruiter] = useState({
         first_name: "",
         last_name: "",
@@ -37,6 +38,7 @@ function FormSignup ({newCompanyName, companySearchResult, createNewRecruiter, n
     const handleRecruiterSubmit = (e) => {
         e.preventDefault();
         createNewRecruiter(newRecruiter)
+        navigate('/');
     };
 
 
@@ -44,7 +46,10 @@ function FormSignup ({newCompanyName, companySearchResult, createNewRecruiter, n
 // if (companySearchResult) return <FormCompany />
     return(
         <div id="formsignup-container">
-            <h1>Join!</h1>
+            <Link to="/" >
+                <Icon name="x" size='large' />
+            </Link>
+            <h1>Join {companySearchResult ? companySearchResult : newCompany}</h1>
             <form onSubmit={handleRecruiterSubmit}>
                 <input
                     type="text"
@@ -76,9 +81,9 @@ function FormSignup ({newCompanyName, companySearchResult, createNewRecruiter, n
                     placeholder="Password Confirmation"
                     value={newRecruiter.password_confirmation} 
                     onChange={handleChange}/>
-                <input 
-                    type="submit"
-                    text="Submit" />
+                <Link to="/" >
+                    <Button color='black' size='large' onClick={(e) => {handleRecruiterSubmit(e)}}>Sign Up</Button>
+                </Link>
             </form>
         </div>
     )

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Icon } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 import FormSignup from "./FormSignup";
 
 function FormCompany ({createNewCompany}){
@@ -29,6 +30,9 @@ function FormCompany ({createNewCompany}){
 if (displaySignupForm) return <FormSignup newCompanyName={newCompany.name} /> 
     return(
         <div id="formcompany-container">
+            <Link to="/" >
+                <Icon name="x" size='large' />
+            </Link>
             <form onSubmit={handleCompanySubmit}>
                 <input
                     type="text"

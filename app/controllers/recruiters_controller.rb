@@ -7,11 +7,20 @@ class RecruitersController < ApplicationController
         render json: recruiter, status: :created
     end
 
+    def show
+        recruiter = find_recruiter
+        render json: recruiter, status: :ok
+    end
+
 
     private
 
     def recruiter_params
         params.permit(:first_name, :last_name, :email, :password, :password_confirmation, :admin)
+    end
+
+    def find_recruiter
+        Recruiter.find(session[:recruiter_id])
     end
 
     def find_company_id

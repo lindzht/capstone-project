@@ -1,8 +1,10 @@
 import FormSignup from "./FormSignup";
 import { useState } from "react";
+import { Icon } from 'semantic-ui-react'
 import Select from 'react-select';
 import FormCompany from "./FormCompany";
 import landing_video from "../video/landing_video.mp4";
+import { Link } from 'react-router-dom';
 
 function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompany}){
 
@@ -43,19 +45,21 @@ function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompan
 
     return(
         <div id="signup-page-container">
-            <div id="signup-content-container">
             {displayCompanyForm ? (<FormCompany companyFormResult={displayCompanyForm} createNewCompany={createNewCompany}/>) 
             : ( companySearch ? <FormSignup companySearchResult={companySearch} createNewRecruiter={createNewRecruiter} newCompany={newCompany}/> : 
-                <div>
-                    <h3>Look for your company yo!</h3>
+                <div id="signup-content-container">
+                    <Link to="/" >
+                        <Icon name="x" size='large' />
+                    </Link>
+                    <h3>Join Your Company:</h3>
                     <Select 
                         id="company-search"
                         options={companiesSearchCompatible} 
                         onChange={companySelected}/>
-                    <h4 onClick={handleDisplayCompanyForm}>Add yo company here</h4> 
+                    <h4 onClick={handleDisplayCompanyForm}>Create Company Account Here</h4> 
                 </div>
             ) }   
-            </div>
+           
 
             <div id="video-overlay">
                 <video id="video-background" autoPlay loop muted>
