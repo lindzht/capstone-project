@@ -31,7 +31,7 @@ if (displaySignupForm) return <FormSignup newCompanyName={newCompany.name} />
     return(
         <div id="formcompany-container">
             <Link to="/" >
-                <Icon name="x" size='large' />
+                <Icon className="exit-icon" name="x" size='large' />
             </Link>
             <form onSubmit={handleCompanySubmit}>
                 <input

@@ -44,7 +44,7 @@
 /* VIDEO BACKGROUNDS */
 
 #video-overlay {
-  background: rgb(188, 160, 108);
+  background: rgb(227, 231, 208);
   position: fixed;
   right: 0;
   bottom: 0;
@@ -63,9 +63,9 @@
   min-height: 100%;
   opacity: 30%;
   z-index: -2;
-  filter: brightness(3);
-  filter: invert(70%);
-  filter: contrast(3);
+  /* filter: brightness(30%); */
+  filter: invert(80%);
+  filter: contrast(0.5);
   transform: rotate(180deg);
 }
 
@@ -76,7 +76,7 @@
   min-width: 100%;
   min-height: 100%;
   opacity: 15%;
-  z-index: -2;
+  /* z-index: -2; */
   /* filter: contrast(3); */
   transform: scaleX(-1); 
   /* filter: invert(70%); */
@@ -196,7 +196,7 @@
 
 /* LOGGED IN HAMBURGER NAVBAR */
 
-/* SIGNUP PAGE */
+/* SIGNUP AND COMPANY PAGE */
 
 #signup-page-container {
   display: flex;
@@ -216,8 +216,8 @@
   justify-content: center;
   align-items: center;
   width: 50em;
-  background-color: rgb(227, 231, 208);
-  border: 5px solid rgb(227, 231, 208);
+  background-color: rgba(255, 255, 255, 0.696);
+  border: 5px solid rgb(255, 255, 255);
   border-radius: 10px;
   padding: 5em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -235,6 +235,11 @@
   font-style: italic;
 }
 
+#exit {
+  position: relative;
+  top: -50px;
+  right: -310px;
+}
 
 /* SIGNUP FORM */
 

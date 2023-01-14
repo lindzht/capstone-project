@@ -48,9 +48,11 @@ function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompan
             {displayCompanyForm ? (<FormCompany companyFormResult={displayCompanyForm} createNewCompany={createNewCompany}/>) 
             : ( companySearch ? <FormSignup companySearchResult={companySearch} createNewRecruiter={createNewRecruiter} newCompany={newCompany}/> : 
                 <div id="signup-content-container">
-                    <Link to="/" >
-                        <Icon name="x" size='large' />
-                    </Link>
+                    <div id="exit">
+                        <Link to="/" >
+                            <Icon name="x" size='large' />
+                        </Link>
+                    </div>
                     <h3>Join Your Company:</h3>
                     <Select 
                         id="company-search"

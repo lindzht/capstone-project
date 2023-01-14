@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import SignupPage from './components/SignupPage';
-import LandingNav from './components/LandingNav';
+import LandingNav from './components/NavLanding';
 import LoginPage from './components/LoginForm';
 import './App.css';
 
@@ -132,6 +132,32 @@ function App() {
     : 
       <div className="App">
        <h1>You logged in fool!</h1>
+       <div className="App">
+        <LandingNav 
+              currentUser={currentUser} 
+              handleLogOut={handleLogOut}
+              handleLoginModal={handleLoginModal}
+              />
+        { displayLoginForm ? <LoginPage 
+              setCurrentUser={setCurrentUser}
+              currentUser={currentUser}
+              setErrors={setErrors}
+              errors={errors}/>
+        : null }
+        <Routes>
+          <Route index element={<LandingPage />} />
+          <Route path='signup' element={<SignupPage 
+              companies={companies}
+              createNewCompany={createNewCompany}
+              createNewRecruiter={createNewRecruiter}
+              newCompany={newCompany}/>} />
+          {/* <Route path='login' element={<LoginPage 
+              setCurrentUser={setCurrentUser}
+              currentUser={currentUser}
+              setErrors={setErrors}
+              errors={errors}/>} /> */}
+        </Routes>
+      </div>
       </div>
     }
     </BrowserRouter>
