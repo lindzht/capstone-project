@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import SignupPage from './components/SignupPage';
-import Nav from './components/LandingNav';
-import LoginPage from './components/LoginPage';
+import LandingNav from './components/LandingNav';
+import LoginPage from './components/LoginForm';
 import './App.css';
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
   const [newCompanyID, setNewCompanyID] = useState([])
   const [newRecruiter, setNewRecruiter] = useState([])
   const [errors, setErrors] = useState([])
+  const [displayLoginForm, setDisplayLoginForm] = useState(false);
 
   //STAY LOGGED IN:
   useEffect(() => {
@@ -25,7 +26,6 @@ function App() {
         res.json()
         .then(user => {
           setCurrentUser(user)
-          console.log(user)
         })
       }
     });
@@ -73,6 +73,7 @@ function App() {
         if (res.ok){
           res.json().then(data => {
             console.log(data);
+            <Link to="/"></Link>
           })
         } else {
           res.json().then(data => {setErrors(data.errors); console.log(errors)})
@@ -80,28 +81,39 @@ function App() {
       })
     }
 
-    // LOGIN 
-    const handleLogin = (currentUser) => {
-      fetch('/login', {
-        method: "POST",
-        headers: {'Content-Type': 'application/json'},
-        body:JSON.stringify(currentUser)
+     // LOGOUT
+     const handleLogOut =()=> {
+      fetch("/logout", {
+      method: "DELETE"
       })
       .then(res => {
-        if (res.ok){
-          res.json().then(data => {
-            setCurrentUser(data);
-          })
-        } else {
-          res.json().then(data => {for (const key in data){setErrors(data[key]);}})
-        }
+      if(res.ok) {
+          setCurrentUser(null)
+      }
       })
     }
 
+    // DISPLAY LOGIN MODAL
+    const handleLoginModal =()=> {
+      setDisplayLoginForm(!displayLoginForm)
+    }
+
+
   return (
     <BrowserRouter>
+    {!currentUser ? 
       <div className="App">
-        <Nav />
+        <LandingNav 
+              currentUser={currentUser} 
+              handleLogOut={handleLogOut}
+              handleLoginModal={handleLoginModal}
+              />
+        { displayLoginForm ? <LoginPage 
+              setCurrentUser={setCurrentUser}
+              currentUser={currentUser}
+              setErrors={setErrors}
+              errors={errors}/>
+        : null }
         <Routes>
           <Route index element={<LandingPage />} />
           <Route path='signup' element={<SignupPage 
@@ -109,11 +121,19 @@ function App() {
               createNewCompany={createNewCompany}
               createNewRecruiter={createNewRecruiter}
               newCompany={newCompany}/>} />
-          <Route path='login' element={<LoginPage 
-              handleLogin={handleLogin}/>} />
+          {/* <Route path='login' element={<LoginPage 
+              setCurrentUser={setCurrentUser}
+              currentUser={currentUser}
+              setErrors={setErrors}
+              errors={errors}/>} /> */}
         </Routes>
       </div>
 
+    : 
+      <div className="App">
+       <h1>You logged in fool!</h1>
+      </div>
+    }
     </BrowserRouter>
   );
 }

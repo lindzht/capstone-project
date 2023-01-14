@@ -2,8 +2,29 @@
 import landing_video from "../video/landing_video.mp4";
 import { Icon } from 'semantic-ui-react'
 import {useState} from "react"
+import { useNavigate } from "react-router-dom";
 
-function LoginPage({handleLogin}) {
+function LoginPage({setCurrentUser, setErrors, errors}) {
+    let navigate = useNavigate();
+
+    // LOGIN 
+    const handleLogin = (currentUser) => {
+        fetch('/login', {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body:JSON.stringify(currentUser)
+        })
+        .then(res => {
+            if (res.ok){
+            res.json().then(data => {
+                setCurrentUser(data);
+                navigate('/')
+            })
+            } else {
+            res.json().then(data => {for (const key in data){setErrors(data[key]);}})
+            }
+        })
+    }
 
     const [user, setUser] = useState({
         email: "",
@@ -31,7 +52,6 @@ function LoginPage({handleLogin}) {
         <div id="login-page-container">
             <div id="login-popup">
                 <h1>Login Page</h1>
-
                 <div id="login-form">
                     <form onSubmit={handleSubmit}>
                         <input
@@ -57,16 +77,6 @@ function LoginPage({handleLogin}) {
 
                 </div>
             </div>
-
-
-            {/* <div id="video-overlay">
-                <video id="video-background" autoPlay loop muted>
-                    <source src={landing_video} type="video/mp4" />
-                </video>
-                <video id="video-background2" autoPlay loop muted>
-                    <source src={landing_video} type="video/mp4" />
-                </video>
-            </div> */}
         </div>
     )
 }

@@ -44,7 +44,7 @@
 /* VIDEO BACKGROUNDS */
 
 #video-overlay {
-  background: rgb(180, 185, 157);
+  background: rgb(188, 160, 108);
   position: fixed;
   right: 0;
   bottom: 0;
@@ -61,7 +61,7 @@
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  opacity: 15%;
+  opacity: 30%;
   z-index: -2;
   filter: brightness(3);
   filter: invert(70%);
@@ -165,7 +165,7 @@
 
 
 
-/* LOGGED OUT NAVBAR */
+/* NAVBAR :LOGGED OUT */
 #landing-nav-container {
   background-color: white;
   width: 100vw;
