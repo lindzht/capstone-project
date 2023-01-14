@@ -48,7 +48,7 @@ function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompan
             {displayCompanyForm ? (<FormCompany companyFormResult={displayCompanyForm} createNewCompany={createNewCompany}/>) 
             : ( companySearch ? <FormSignup companySearchResult={companySearch} createNewRecruiter={createNewRecruiter} newCompany={newCompany}/> : 
                 <div id="signup-content-container">
-                    <div id="exit">
+                    <div className="exit">
                         <Link to="/" >
                             <Icon name="x" size='large' />
                         </Link>

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .hide {
@@ -126,6 +127,7 @@
   width: 50%;
   text-align: left;
   line-height: 0.75em;
+  text-shadow: -15px 0px 0px rgba(255, 255, 255, 1);
 }
 
 #landing-subheading{
@@ -215,17 +217,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50em;
+  width: 40em;
   background-color: rgba(255, 255, 255, 0.696);
   border: 5px solid rgb(255, 255, 255);
   border-radius: 10px;
-  padding: 5em;
+  padding: 4em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #signup-content-container h3 {
   font-family: 'Paytone One', sans-serif;
   font-size: 3em;
+  margin-top: -10px;
 }
 
 #signup-content-container h4 {
@@ -237,17 +240,17 @@
 
 #exit {
   position: relative;
-  top: -50px;
-  right: -310px;
+  top: -40px;
+  right: -245px;
 }
 
 /* SIGNUP FORM */
 
 #formsignup-container {
-  background-color: rgb(227, 231, 208);
-  border: 5px solid rgb(227, 231, 208);
+  background-color: rgba(255, 255, 255, 0.696);
+  border: 5px solid rgb(255, 255, 255);
   border-radius: 10px;
-  padding: 5em;
+  padding: 4em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -263,6 +266,18 @@
   margin-bottom: 1em;
   height: 2em;
   width: 30em;
+}
+
+#formsignup-container h1 {
+  font-family: 'Paytone One', sans-serif;
+  font-size: 3em;
+  margin-top: -10px;
+}
+
+.exit {
+  position: relative;
+  top: -40px;
+  right: -245px;
 }
 
 

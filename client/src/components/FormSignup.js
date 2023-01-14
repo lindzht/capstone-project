@@ -46,9 +46,11 @@ function FormSignup ({newCompanyName, companySearchResult, createNewRecruiter, n
 // if (companySearchResult) return <FormCompany />
     return(
         <div id="formsignup-container">
-            <Link to="/" >
-                <Icon className="exit-icon" name="x" size='large' />
-            </Link>
+            <div className="exit">
+                <Link to="/" >
+                    <Icon className="exit-icon" name="x" size='large' />
+                </Link>
+            </div>
             <h1>Join {companySearchResult ? companySearchResult : newCompany}</h1>
             <form onSubmit={handleRecruiterSubmit}>
                 <input
