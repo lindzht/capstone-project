@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import SignupPage from './components/SignupPage';
-import LandingNav from './components/NavLanding';
-import LoginPage from './components/LoginForm';
+import NavTop from './components/NavTop';
+import LoginPage from './components/LoginModal';
 import './App.css';
+import MyDashboard from './components/MyDashboard';
 
 function App() {
 
@@ -103,7 +104,7 @@ function App() {
     <BrowserRouter>
     {!currentUser ? 
       <div className="App">
-        <LandingNav 
+        <NavTop 
               currentUser={currentUser} 
               handleLogOut={handleLogOut}
               handleLoginModal={handleLoginModal}
@@ -130,34 +131,20 @@ function App() {
       </div>
 
     : 
-      <div className="App">
-       <h1>You logged in fool!</h1>
-       <div className="App">
-        <LandingNav 
-              currentUser={currentUser} 
-              handleLogOut={handleLogOut}
-              handleLoginModal={handleLoginModal}
-              />
-        { displayLoginForm ? <LoginPage 
-              setCurrentUser={setCurrentUser}
-              currentUser={currentUser}
-              setErrors={setErrors}
-              errors={errors}/>
-        : null }
-        <Routes>
-          <Route index element={<LandingPage />} />
-          <Route path='signup' element={<SignupPage 
-              companies={companies}
-              createNewCompany={createNewCompany}
-              createNewRecruiter={createNewRecruiter}
-              newCompany={newCompany}/>} />
-          {/* <Route path='login' element={<LoginPage 
-              setCurrentUser={setCurrentUser}
-              currentUser={currentUser}
-              setErrors={setErrors}
-              errors={errors}/>} /> */}
-        </Routes>
-      </div>
+
+      <div className="App-loggedin">
+        <div className="App">
+          <NavTop 
+                currentUser={currentUser} 
+                handleLogOut={handleLogOut}
+                handleLoginModal={handleLoginModal}
+                />
+          <Routes>
+            <Route index element={<LandingPage />} />
+            <Route path='dashboard' element={<MyDashboard 
+                currentUser={currentUser}/>} />
+          </Routes>
+        </div>
       </div>
     }
     </BrowserRouter>

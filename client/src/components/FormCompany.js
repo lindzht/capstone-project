@@ -30,17 +30,17 @@ function FormCompany ({createNewCompany}){
 if (displaySignupForm) return <FormSignup newCompanyName={newCompany.name} /> 
     return(
         <div id="formcompany-container">
-            <Link to="/" >
+            {/* <Link to="/" >
                 <Icon className="exit-icon" name="x" size='large' />
-            </Link>
+            </Link> */}
             <form onSubmit={handleCompanySubmit}>
                 <input
                     type="text"
                     name="name"
-                    placeholder="Company Name"
+                    placeholder="Company Name..."
                     value={newCompany.name}
                     onChange={handleChange} />
-                <Icon name='right arrow' className="icon-right-arrow" onClick={handleCompanySubmit}/>
+                <Icon name='right arrow' className="arrow circle right" size="big" onClick={handleCompanySubmit}/>
             </form>
         </div>
     )
