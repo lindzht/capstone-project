@@ -117,6 +117,7 @@ function App() {
         if (res.ok){
           res.json().then(data => {
             setNewTeam(data);
+            console.log(data);
           })
         } else {
           res.json().then(data => {setErrors(data.errors); console.log(errors)})

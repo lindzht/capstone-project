@@ -5,14 +5,6 @@ import { Table } from 'semantic-ui-react'
   
 function MyReqs( {currentUser}) {
 
-  console.log(currentUser.reqs)
-
-    // const tableData = [
-    //   { name: 'John', age: 15, gender: 'Male' },
-    //   { name: 'Amber', age: 40, gender: 'Female' },
-    //   { name: 'Leslie', age: 25, gender: 'Other' },
-    //   { name: 'Ben', age: 70, gender: 'Male' },
-    // ]
     const tableData = currentUser.reqs
     
     

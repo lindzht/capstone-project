@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
 
     def create
-        recruiterID = find_recruiter_id
+        # recruiterID = find_recruiter_id
         team = Team.create(team_params)
         # Recruiterteam.create(recruiter_id: recruiterID, team_id: team.id)
         render json: team, status: :created
@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
     private
 
     def team_params
-        params.permit(:name)
+        params.permit(:name, :company_id)
     end
 
     def find_recruiter_id

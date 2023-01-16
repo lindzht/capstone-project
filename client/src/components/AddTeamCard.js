@@ -3,9 +3,7 @@ import { Icon } from 'semantic-ui-react'
 
 
 
-function AddTeamCard ({newTeam, setNewTeam, createNewTeam}){
-
-
+function AddTeamCard ({newTeam, setNewTeam, createNewTeam, currentUser}){
     
     const handleChange = (e) => {
         const key = e.target.name;
@@ -13,7 +11,8 @@ function AddTeamCard ({newTeam, setNewTeam, createNewTeam}){
     
         setNewTeam({
             ...newTeam,
-            [key]: value
+            [key]: value,
+            company_id: currentUser.company.id
         })
     }
     const handleTeamSubmit = (e) => {
