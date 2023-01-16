@@ -1,15 +1,12 @@
 import MyDashboardNav from "./MySubNav";
-import MyReqs from "./MyReqsPage";
-import MyTeamCards from "./MyTeamCards";
+// import MyReqs from "./MyReqsPage";
 import { Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 
 function DashboardCompany ( {currentUser} ){
 
-    const teamCards = currentUser.teams.map((team) => {
-        return (<MyTeamCards key={team.id} team={team} />)
-    })
+
 
     return(
         <div className="dashboard-container">
@@ -20,7 +17,7 @@ function DashboardCompany ( {currentUser} ){
                     <MyDashboardNav />
                 </div>
             </div>
-            <div className="dashboard-content-container">
+            {/* <div className="dashboard-content-container">
                 <div id="dashboard-content-left">
                     <div id="team-block">
                         <h3>My Teams</h3>
@@ -34,7 +31,7 @@ function DashboardCompany ( {currentUser} ){
                         <h3>My Metrics</h3>
                     </div>
                 </div>  
-            </div>
+            </div> */}
         </div> 
     )
 }

@@ -6,12 +6,12 @@ function MyDashboardNav(){
            
 
             <Link to="/dashboard">
-                <button className="dash-nav-button">Home</button>
+                <button className="dash-nav-button">My Dashboard</button>
             </Link>
-            <Link to="/dashboard/myreqs">
+            <Link to="myreqs">
                 <button className="dash-nav-button">My Reqs</button>
             </Link>
-            <Link to="/dashboard/mygoals">
+            <Link to="mygoals">
                 <button className="dash-nav-button">My Goals</button>
             </Link>
             

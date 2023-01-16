@@ -6,8 +6,9 @@ import SignupPage from './components/SignupPage';
 import NavTop from './components/NavTop';
 import LoginModal from './components/LoginModal';
 import MyDashboard from './components/MyDashboard';
-import MyReqs from './components/MyReqsPage';
+import MyReqsPage from './components/MyReqsPage';
 import NavDashboard from './components/NavDashboard';
+import MyDashboardHome from './components/MyDashboardHome';
 
 function App() {
 
@@ -148,12 +149,13 @@ function App() {
                   currentUser={currentUser} 
                   handleLogOut={handleLogOut}
                   handleLoginModal={handleLoginModal}
-                  handleLogOut={handleLogOut}
+
                   />
             <Routes>
               <Route index element={<LandingPage />} />
               <Route path='dashboard' element={<MyDashboard currentUser={currentUser}/>} >
-                <Route path='myreqs'element={<MyReqs />} />
+                <Route index element={<MyDashboardHome currentUser={currentUser}/>} />
+                <Route path='myreqs'element={<MyReqsPage />} />
               </Route>
             </Routes>
         </div>
