@@ -138,16 +138,17 @@ function App() {
     : 
 
       <>
-          <NavTop 
+          {/* <NavTop 
                 currentUser={currentUser} 
                 handleLogOut={handleLogOut}
                 handleLoginModal={handleLoginModal}
-                />
+                /> */}
           <div className="App-loggedin">
             <NavDashboard 
                   currentUser={currentUser} 
                   handleLogOut={handleLogOut}
                   handleLoginModal={handleLoginModal}
+                  handleLogOut={handleLogOut}
                   />
             <Routes>
               <Route index element={<LandingPage />} />

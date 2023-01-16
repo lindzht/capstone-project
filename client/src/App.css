@@ -185,10 +185,6 @@
   color: orangered;
 }
 
-#top-user a{
-  display: flex;
-  flex-direction: row;
-}
 
 
 
@@ -305,18 +301,20 @@
   position: relative;
   /* top: -30px; */
   left: -10px;
-  background-color: rgb(251, 115, 18);
+  background-color: white;
   height: 100vh;
   z-index: 10;
-  width: 20%;
+  width: 18%;
   text-align: center;
   border-radius: 50px;
-  border: 10px solid rgb(251, 115, 18);
+  border: 10px solid white;
 }
 
 #nav-dashboard-container h3 {
-  color: white;
-  font-size: 2em;  
+  color: black;
+  font-size: 2em; 
+  margin-bottom: 2em; 
+  color: orangered;
 }
 
 #nav-dashboard-content {
@@ -329,15 +327,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between; 
+  margin-left: 20px;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
   font-size: 1.4em;
-  line-height: 2em;
-  color: rgb(255, 255, 255);
+  line-height: 2.5em;
+  color: black;
 }
 
 #nav-dashboard-container a:hover {
- color: black;
+ color: orangered;
  background-color: white;
  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
  border-radius: 20px;
@@ -349,7 +348,26 @@
   border-radius: 20px;
  }
 
+ #nav-dashboard-content #logout {
+  position: relative;
+  bottom: -300px;
+ }
+
 /* MY DASHBOARD */
+
+
+#user-display a{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: black;
+}
+
+#user-display a:hover{
+  color:orangered;
+}
 
 .dashboard-container {
   display: flex;

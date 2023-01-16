@@ -1,7 +1,9 @@
 import MyDashboardNav from "./MySubNav";
 import MyReqs from "./MyReqsPage";
 import MyTeamCards from "./MyTeamCards";
-import { Icon } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+
 
 function DashboardCompany ( {currentUser} ){
 
@@ -11,6 +13,7 @@ function DashboardCompany ( {currentUser} ){
 
     return(
         <div className="dashboard-container">
+            <div id="user-display"><Link to="/settings"><Icon name="user circle"></Icon><p>{currentUser && currentUser.first_name}</p></Link></div>
             <div className="dashboard-header">
                 <h1>My {currentUser.company.name} Dashboard</h1>
                 <div className="dashboard-nav-container">
