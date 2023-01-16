@@ -36,8 +36,8 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam}) {
                     {currentUser.admin ? 
                         <div id="admin-team-container">
                             <div id="admin-team-header">
-                                <Icon name="add circle" size="big" className="add-icon" onClick={handleDisplayTeamForm} />
                                 <h3>{currentUser.company.name} Teams</h3>
+                                <Icon name="add circle" size="big" className="add-icon" onClick={handleDisplayTeamForm} />
                             </div>
                             {newTeamForm ? <AddTeamCard newTeam={newTeam} setNewTeam={setNewTeam} createNewTeam={createNewTeam} currentUser={currentUser}/> : null}
                             {companyTeamCards}

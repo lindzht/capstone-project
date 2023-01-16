@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import React from 'react'
-import { Table } from 'semantic-ui-react'
+import { Table, Icon } from 'semantic-ui-react'
 
   
 function MyReqs( {currentUser}) {
@@ -88,6 +88,9 @@ function MyReqs( {currentUser}) {
               >
                 Hired Status
               </Table.HeaderCell>
+              <Table.HeaderCell id="edit-req">
+                Edit
+              </Table.HeaderCell>
             
             </Table.Row>
           </Table.Header>
@@ -101,7 +104,7 @@ function MyReqs( {currentUser}) {
                 <Table.Cell>{open_date}</Table.Cell>
                 <Table.Cell>{hire_goal}</Table.Cell>
                 <Table.Cell>{is_hired ? "True" : "False"}</Table.Cell>
-
+                <Table.Cell><Icon name="pencil alternate" size='small'/></Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>

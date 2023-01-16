@@ -8,8 +8,8 @@ function NavDashboard ({handleLogOut, currentUser}) {
                 <h3> ✴ Logo </h3>
                 <nav>
                     <Link to="dashboard">My Dashboard</Link>
-                    <Link to="dashboard/mygoals">My Goals</Link>
                     <Link to="dashboard/myreqs">My Reqs</Link>
+                    <Link to="dashboard/myhires">My Hires</Link>
                     <Link to="settings">Settings</Link>
                     <Icon name="edit outline" />
                     <h4>{currentUser.admin ? currentUser.company.name : null} Admin</h4>

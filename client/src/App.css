@@ -383,6 +383,9 @@
 
 .dashboard-header {
   text-align: center;
+  background-color: rgba(227, 231, 208, 0.607);
+  padding: 2em;
+  border-radius: 20px;
 }
 
 .dashboard-header h1{
@@ -401,13 +404,15 @@
 }
 
 #dashboard-content-left {
-  background-color: rgba(227, 231, 208, 0.532);
+  background-color: rgba(255, 255, 255, 0.71);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 3em;
   border-radius: 20px;
 }
 
 #dashboard-content-right {
-  background-color: rgba(227, 231, 208, 0.532);
+  background-color: rgba(255, 255, 255, 0.71);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 3em;
   border-radius: 20px;
 }
@@ -487,10 +492,12 @@
 /* MY REQS PAGE  */
 
 .req-container {
-  background-color: rgba(227, 231, 208, 0.607);
+  background-color: rgba(255, 255, 255, 0.71);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 2em;
   border-radius: 20px;
   margin-top: 3%;
+
 }
 
 #req-id-column {
@@ -501,4 +508,58 @@
   background-color: rgb(243, 243, 243);
   color: grey;
   font-style: italic;
+}
+
+/* MY SETTINGS PAGE  */
+
+#settings-card {
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 900px;
+  border: 5px solid white;
+}
+
+#settings-left-content {
+  background-color: rgb(227, 231, 208);
+  padding: 5em;
+  border-radius: 20px 0 0 20px;
+}
+
+#settings-left-content h1 {
+  font-family: 'Paytone One', sans-serif;
+  font-size: 6em;
+  width: 50%;
+  text-align: left;
+  line-height: 0.9em;
+  text-shadow: -15px 0px 0px rgba(255, 255, 255, 1);
+}
+
+#settings-left-content h3 {
+  font-family: 'Ubuntu', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 2em;
+}
+
+#settings-left-content h1 span {
+  color: orangered;
+}
+
+#settings-right-content {
+  background-color: rgba(255, 255, 255, 0.71);
+  padding: 6em;
+  border-radius: 0 20px 20px 0;
+  width: 700px;
+}
+
+#settings-right-content .title {
+  font-weight: 600;
+}
+
+#settings-right-content p {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  font-size: 1.1em;
 }

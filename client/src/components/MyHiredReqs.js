@@ -113,7 +113,7 @@ function MyHiredReqs ( {currentUser}) {
           </Table.Header>
           <Table.Body>
             {data.map(({ req_id, name, org, hiring_manager, open_date, hire_goal, is_hired, hired_date, candidate, candidate_app }) => (
-              <Table.Row id={is_hired? "req-row-hired" : "req-row"} key={req_id}>
+              <Table.Row id="req-row" key={req_id}>
                 <Table.Cell>{req_id}</Table.Cell>
                 <Table.Cell>{name}</Table.Cell>
                 <Table.Cell>{org}</Table.Cell>
