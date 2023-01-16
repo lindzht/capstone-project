@@ -6,12 +6,12 @@ function MyTeamCards ({team, currentUser}){
         <div className="team-card-container">
             <Card>
                 <Card.Content id="card-content-top">
-                    <Icon
+                    {/* <Icon
                     name="arrow circle right"
                     floated='right'
                     size='large'
                     src='/images/avatar/large/steve.jpg'
-                    />
+                    /> */}
                     <Card.Header>{team.name}</Card.Header>
                 </Card.Content>
                 <Card.Content extra>

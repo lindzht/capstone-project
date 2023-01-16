@@ -9,6 +9,7 @@ import MyDashboard from './components/MyDashboard';
 import MyReqsPage from './components/MyReqsPage';
 import NavDashboard from './components/NavDashboard';
 import MyDashboardHome from './components/MyDashboardHome';
+import Settings from './components/Settings';
 
 function App() {
 
@@ -139,24 +140,19 @@ function App() {
     : 
 
       <>
-          {/* <NavTop 
-                currentUser={currentUser} 
-                handleLogOut={handleLogOut}
-                handleLoginModal={handleLoginModal}
-                /> */}
           <div className="App-loggedin">
             <NavDashboard 
                   currentUser={currentUser} 
                   handleLogOut={handleLogOut}
                   handleLoginModal={handleLoginModal}
-
                   />
             <Routes>
-              <Route index element={<LandingPage />} />
-              <Route path='dashboard' element={<MyDashboard currentUser={currentUser}/>} >
-                <Route index element={<MyDashboardHome currentUser={currentUser}/>} />
-                <Route path='myreqs'element={<MyReqsPage />} />
-              </Route>
+              <Route index element={<MyDashboard currentUser={currentUser}/>} />
+                <Route path='dashboard' element={<MyDashboard currentUser={currentUser}/>} >
+                  <Route index element={<MyDashboardHome currentUser={currentUser}/>} />
+                  <Route path='myreqs'element={<MyReqsPage currentUser={currentUser} />} />
+                </Route>
+                <Route path='settings'element={<Settings currentUser={currentUser} />} />
             </Routes>
         </div>
       </>

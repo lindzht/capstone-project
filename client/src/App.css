@@ -168,13 +168,13 @@
   color: orangered;
 }
 
-#top-nav-content-loggedin {
+/* #top-nav-content-loggedin {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
   border-bottom: 1.5px solid rgb(227, 231, 208);
-}
+} */
 
 #top-nav-content-loggedin a {
   margin: 20px 20px 10px 20px;
@@ -330,7 +330,7 @@
   margin-left: 20px;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
-  font-size: 1.4em;
+  font-size: 1em;
   line-height: 2.5em;
   color: black;
 }
@@ -350,7 +350,7 @@
 
  #nav-dashboard-content #logout {
   position: relative;
-  bottom: -300px;
+  bottom: -50px;
  }
 
 /* MY DASHBOARD */
@@ -390,9 +390,11 @@
   font-size: 2.5em;
 }
 
+/* MY DASHBOARD: HOME */
+
 .dashboard-content-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: row; 
   justify-content: space-around;
   width: 900px;
   margin-top: 3em;
@@ -410,13 +412,46 @@
   border-radius: 20px;
 }
 
+#team-block-header {
+  margin-bottom: 2em;
+}
+
+#team-block-header h3{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 1.7em;
+}
+
+#team-block-header .add-icon {
+  font-size: 2.7em;
+}
+
+#team-block-header .add-icon:hover {
+  color: orangered;
+}
+
+/* MY DASHBOARD: ADD NEW TEAM */
+
+#add-team-container {
+  background-color: white;
+  padding: 3em;
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+#add-team-container input {
+  border: 1px solid rgb(207, 207, 207);
+  height: 2em;
+}
+
 /* DASHBOARD SUB-NAV */
 
-.sub-nav-container {
+/* .sub-nav-container {
   display:flex;
   flex-direction: row;
   justify-content: center;
-}
+} */
 
 .sub-nav-container button {
   border: none;
@@ -441,4 +476,9 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+/* TEAM CARDS */
+
+.team-card-container:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 
