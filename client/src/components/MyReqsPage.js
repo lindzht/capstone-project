@@ -2,36 +2,44 @@ import _ from 'lodash'
 import React from 'react'
 import { Table } from 'semantic-ui-react'
 
-const tableData = [
-    { name: 'John', age: 15, gender: 'Male' },
-    { name: 'Amber', age: 40, gender: 'Female' },
-    { name: 'Leslie', age: 25, gender: 'Other' },
-    { name: 'Ben', age: 70, gender: 'Male' },
-  ]
   
-  function exampleReducer(state, action) {
-    switch (action.type) {
-      case 'CHANGE_SORT':
-        if (state.column === action.column) {
-          return {
-            ...state,
-            data: state.data.slice().reverse(),
-            direction:
-              state.direction === 'ascending' ? 'descending' : 'ascending',
+function MyReqs( {currentUser}) {
+
+  console.log(currentUser.reqs)
+
+    // const tableData = [
+    //   { name: 'John', age: 15, gender: 'Male' },
+    //   { name: 'Amber', age: 40, gender: 'Female' },
+    //   { name: 'Leslie', age: 25, gender: 'Other' },
+    //   { name: 'Ben', age: 70, gender: 'Male' },
+    // ]
+    const tableData = currentUser.reqs
+    
+    
+    function exampleReducer(state, action) {
+      switch (action.type) {
+        case 'CHANGE_SORT':
+          if (state.column === action.column) {
+            return {
+              ...state,
+              data: state.data.slice().reverse(),
+              direction:
+                state.direction === 'ascending' ? 'descending' : 'ascending',
+            }
           }
-        }
-  
-        return {
-          column: action.column,
-          data: _.sortBy(state.data, [action.column]),
-          direction: 'ascending',
-        }
-      default:
-        throw new Error()
+
+          return {
+            column: action.column,
+            data: _.sortBy(state.data, [action.column]),
+            direction: 'ascending',
+          }
+        default:
+          throw new Error()
+      }
     }
-  }
-  
-  function MyReqs() {
+
+
+
     const [state, dispatch] = React.useReducer(exampleReducer, {
       column: null,
       data: tableData,
@@ -40,39 +48,91 @@ const tableData = [
     const { column, data, direction } = state
   
     return (
-      <Table sortable celled fixed>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell
-              sorted={column === 'name' ? direction : null}
-              onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'name' })}
-            >
-              Name
-            </Table.HeaderCell>
-            <Table.HeaderCell
-              sorted={column === 'age' ? direction : null}
-              onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'age' })}
-            >
-              Age
-            </Table.HeaderCell>
-            <Table.HeaderCell
-              sorted={column === 'gender' ? direction : null}
-              onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'gender' })}
-            >
-              Gender
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {data.map(({ age, gender, name }) => (
-            <Table.Row key={name}>
-              <Table.Cell>{name}</Table.Cell>
-              <Table.Cell>{age}</Table.Cell>
-              <Table.Cell>{gender}</Table.Cell>
+      <div className='req-container'>
+        <Table sortable celled fixed>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell
+                sorted={column === 'req_id' ? direction : null}
+                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'req_id' })}
+                id="req-id-column"
+              >
+                <p >Req ID</p>
+              </Table.HeaderCell>
+              <Table.HeaderCell
+                sorted={column === 'name' ? direction : null}
+                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'name' })}
+              >
+                Name
+              </Table.HeaderCell>
+              <Table.HeaderCell
+                sorted={column === 'org' ? direction : null}
+                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'org' })}
+              >
+                Team
+              </Table.HeaderCell>
+              <Table.HeaderCell
+                sorted={column === 'hiring_manager' ? direction : null}
+                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'hiring_manager' })}
+              >
+                Hiring Manager
+              </Table.HeaderCell>
+              <Table.HeaderCell
+                sorted={column === 'open_date' ? direction : null}
+                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'open_date' })}
+              >
+                Role Open Date
+              </Table.HeaderCell>
+              <Table.HeaderCell
+                sorted={column === 'hire_goal' ? direction : null}
+                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'hire_goal' })}
+              >
+                Goal Hire Date
+              </Table.HeaderCell>
+              <Table.HeaderCell
+                sorted={column === 'is_hired' ? direction : null}
+                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'is_hired' })}
+              >
+                Hired Status
+              </Table.HeaderCell>
+              <Table.HeaderCell
+                sorted={column === 'hired_date' ? direction : null}
+                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'hired_date' })}
+              >
+                Date Hired
+              </Table.HeaderCell>
+              <Table.HeaderCell
+                sorted={column === 'candidate' ? direction : null}
+                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'candidate' })}
+              >
+                Candidate Hired
+              </Table.HeaderCell>
+              <Table.HeaderCell
+                sorted={column === 'candidate_app' ? direction : null}
+                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'candidate_app' })}
+              >
+                Candidate Application Date
+              </Table.HeaderCell>
             </Table.Row>
-          ))}
-        </Table.Body>
-      </Table>
+          </Table.Header>
+          <Table.Body>
+            {data.map(({ req_id, name, org, hiring_manager, open_date, hire_goal, is_hired, hired_date, candidate, candidate_app }) => (
+              <Table.Row id={is_hired? "req-row-hired" : "req-row"} key={req_id}>
+                <Table.Cell>{req_id}</Table.Cell>
+                <Table.Cell>{name}</Table.Cell>
+                <Table.Cell>{org}</Table.Cell>
+                <Table.Cell>{hiring_manager}</Table.Cell>
+                <Table.Cell>{open_date}</Table.Cell>
+                <Table.Cell>{hire_goal}</Table.Cell>
+                <Table.Cell>{is_hired ? "True" : "False"}</Table.Cell>
+                <Table.Cell>{hired_date}</Table.Cell>
+                <Table.Cell>{candidate}</Table.Cell>
+                <Table.Cell>{candidate_app}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </div>
     )
   }
   

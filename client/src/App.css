@@ -304,7 +304,7 @@
   background-color: white;
   height: 100vh;
   z-index: 10;
-  width: 18%;
+  width: 13%;
   text-align: center;
   border-radius: 50px;
   border: 10px solid white;
@@ -480,5 +480,25 @@
 
 .team-card-container:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: grab;
 }
 
+
+/* MY REQS PAGE  */
+
+.req-container {
+  background-color: rgba(227, 231, 208, 0.532);
+  padding: 2em;
+  border-radius: 20px;
+  margin-top: 3%;
+}
+
+#req-id-column {
+  width: 5%;
+}
+
+#req-row-hired {
+  background-color: rgb(243, 243, 243);
+  color: grey;
+  font-style: italic;
+}
