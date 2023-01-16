@@ -12,7 +12,7 @@ function DashboardCompany ( {currentUser} ){
         <div className="dashboard-container">
             <div id="user-display"><Link to="/settings"><Icon name="user circle"></Icon><p>{currentUser && currentUser.first_name}</p></Link></div>
             <div className="dashboard-header">
-                <h1>{currentUser.first_name}'s Board</h1>
+                <h1>{currentUser.first_name} 's Board</h1>
                 <div className="dashboard-nav-container">
                     <MyDashboardNav />
                 </div>

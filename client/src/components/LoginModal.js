@@ -18,7 +18,7 @@ function LoginModal({setCurrentUser, setErrors, errors}) {
             if (res.ok){
             res.json().then(data => {
                 setCurrentUser(data);
-                navigate('/')
+                navigate('/dashboard')
             })
             } else {
             res.json().then(data => {for (const key in data){setErrors(data[key]);}})

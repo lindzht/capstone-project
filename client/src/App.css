@@ -360,8 +360,8 @@
   display: flex;
   flex-direction: row;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 8px;
+  right: 48px;
   color: black;
 }
 
@@ -374,8 +374,8 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  border: 10px solid rgb(255, 255, 255);
-  border-radius: 20px;
+  border: 30px solid rgb(255, 255, 255);
+  border-radius: 50px;
   background-color: rgba(227, 231, 208, 0.34);
   padding: 7em;
   margin-top: 0;
@@ -390,7 +390,9 @@
 
 .dashboard-header h1{
   font-family: 'Paytone One', sans-serif;
-  font-size: 2.5em;
+  font-size: 4em;
+  text-shadow: -7px 0px 0px rgba(255, 255, 255, 1);
+  margin-bottom: 0;
 }
 
 /* MY DASHBOARD: HOME */
@@ -399,7 +401,7 @@
   display: flex;
   flex-direction: row; 
   justify-content: space-around;
-  width: 900px;
+  width: 1000px;
   margin-top: 3em;
 }
 
@@ -460,25 +462,27 @@
 
 .sub-nav-container button {
   border: none;
-  padding: 1em 2em 1em 2em;
-  margin: 20px 50px 0 50px;
+  padding: 0.8em 1.3em 0.8em 1.3em;
+  margin: 20px 30px 0 30px;
   border-radius: 20px;
   color: grey;
   background-color: white;
-  font-size: 0.9em;
+  font-size: 1em;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
 }
 
 .sub-nav-container button:hover {
-  color: black;
+  color: orangered;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   cursor:grab;
 }
 
 .sub-nav-container button:focus {
-  color: orangered;
+  color: white;
+  background-color: rgba(255, 68, 0, 0.77);
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  font-weight: 600;
 }
 
 /* TEAM CARDS */
@@ -529,7 +533,7 @@
 
 #settings-left-content h1 {
   font-family: 'Paytone One', sans-serif;
-  font-size: 6em;
+  font-size: 7em;
   width: 50%;
   text-align: left;
   line-height: 0.9em;

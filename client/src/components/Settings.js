@@ -8,7 +8,7 @@ function Settings ({currentUser}){
         <div className="dashboard-container">
             <div id="settings-card">
                 <div id="settings-left-content">
-                    <h1><span>Hello</span> {currentUser.first_name}</h1>
+                    <h1>Hello<br /><span>{currentUser.first_name}</span></h1>
                     <h3>{currentUser.admin ? `${currentUser.company.name} Admin`: null}</h3>
                 </div>
                 <div id="settings-right-content">
