@@ -12,11 +12,9 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam}) {
         return (<MyTeamCards key={team.id} team={team} />)
     })
 
-  console.log(currentUser.company.teams)
     const companyTeamCards = currentUser.company.teams.map((team) => {
         return (<AdminTeamCards key={team.id} team={team} />)
     })
-
 
     const handleDisplayTeamForm = () => {
         setNewTeamCard(!newTeamForm);

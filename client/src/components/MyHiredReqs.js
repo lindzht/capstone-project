@@ -3,9 +3,13 @@ import React from 'react'
 import { Table } from 'semantic-ui-react'
 
   
-function MyReqs( {currentUser}) {
+function MyHiredReqs ( {currentUser}) {
 
-    const tableData = currentUser.reqs
+    console.log(currentUser.reqs)
+    
+    const tableData = currentUser.reqs.filter((req) => {
+      return req.is_hired === true
+    })
     
     
     function exampleReducer(state, action) {
@@ -129,4 +133,4 @@ function MyReqs( {currentUser}) {
   }
   
 
-export default MyReqs;
+export default MyHiredReqs;

@@ -6,10 +6,11 @@ import SignupPage from './components/SignupPage';
 import NavTop from './components/NavTop';
 import LoginModal from './components/LoginModal';
 import MyDashboard from './components/MyDashboard';
-import MyReqsPage from './components/MyReqsPage';
+import MyReqsPage from './components/MyReqs';
 import NavDashboard from './components/NavDashboard';
 import MyDashboardHome from './components/MyDashboardHome';
 import Settings from './components/Settings';
+import MyHiredReqs from './components/MyHiredReqs';
 
 function App() {
 
@@ -174,6 +175,7 @@ function App() {
                       setNewTeam={setNewTeam}
                       createNewTeam={createNewTeam}/>} />
                   <Route path='myreqs'element={<MyReqsPage currentUser={currentUser} />} />
+                  <Route path='myhires'element={<MyHiredReqs currentUser={currentUser} />} />
                 </Route>
                 <Route path='settings'element={<Settings currentUser={currentUser} />} />
             </Routes>

@@ -487,14 +487,14 @@
 /* MY REQS PAGE  */
 
 .req-container {
-  background-color: rgba(227, 231, 208, 0.532);
+  background-color: rgba(227, 231, 208, 0.607);
   padding: 2em;
   border-radius: 20px;
   margin-top: 3%;
 }
 
 #req-id-column {
-  width: 5%;
+  width: 70px;
 }
 
 #req-row-hired {
