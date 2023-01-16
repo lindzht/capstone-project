@@ -3,11 +3,9 @@ import { Icon } from 'semantic-ui-react'
 
 
 
-function AddTeamCard (){
+function AddTeamCard ({newTeam, setNewTeam, createNewTeam}){
 
-    const [newTeam, setNewTeam] = useState({
-        name: ""
-    });
+
     
     const handleChange = (e) => {
         const key = e.target.name;
@@ -20,7 +18,7 @@ function AddTeamCard (){
     }
     const handleTeamSubmit = (e) => {
         e.preventDefault();
-        console.log(newTeam);
+        createNewTeam(newTeam);
     };
 
     return(
@@ -33,7 +31,7 @@ function AddTeamCard (){
                     placeholder="Team Name..."
                     value={newTeam.name}
                     onChange={handleChange} />
-                <Icon name='right arrow' className="arrow circle right" size="large" />
+                <Icon name='right arrow' className="arrow circle right" size="large" onClick={handleTeamSubmit}/>
             </form>
         </div>
     )

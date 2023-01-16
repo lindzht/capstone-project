@@ -22,6 +22,7 @@ function App() {
   const [newRecruiter, setNewRecruiter] = useState([])
   const [errors, setErrors] = useState([])
   const [displayLoginForm, setDisplayLoginForm] = useState(false);
+  const [newTeam, setNewTeam] = useState({name: ""});
 
   //STAY LOGGED IN:
   useEffect(() => {
@@ -34,7 +35,7 @@ function App() {
         })
       }
     });
-  }, []);
+  }, [newTeam]);
 
   // FETCH COMPANIES 
   useEffect(() => {
@@ -104,7 +105,24 @@ function App() {
       console.log(displayLoginForm)
     }
 
-    console.log(displayLoginForm);
+    // CREATE NEW TEAM
+    const createNewTeam = (newTeam)=> {
+      console.log(newTeam);
+      fetch('/teams', {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(newTeam)
+      })
+      .then(res => {
+        if (res.ok){
+          res.json().then(data => {
+            setNewTeam(data);
+          })
+        } else {
+          res.json().then(data => {setErrors(data.errors); console.log(errors)})
+        }
+      })
+     }
 
   return (
     <BrowserRouter>
@@ -149,7 +167,11 @@ function App() {
             <Routes>
               <Route index element={<MyDashboard currentUser={currentUser}/>} />
                 <Route path='dashboard' element={<MyDashboard currentUser={currentUser}/>} >
-                  <Route index element={<MyDashboardHome currentUser={currentUser}/>} />
+                  <Route index element={<MyDashboardHome 
+                      currentUser={currentUser} 
+                      newTeam={newTeam} 
+                      setNewTeam={setNewTeam}
+                      createNewTeam={createNewTeam}/>} />
                   <Route path='myreqs'element={<MyReqsPage currentUser={currentUser} />} />
                 </Route>
                 <Route path='settings'element={<Settings currentUser={currentUser} />} />

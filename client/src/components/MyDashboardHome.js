@@ -3,7 +3,7 @@ import { Icon } from 'semantic-ui-react';
 import { useState } from "react";
 import AddTeamCard from "./AddTeamCard";
 
-function MyDashboardHome({currentUser}) {
+function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam}) {
 
     const [newTeamForm, setNewTeamCard] = useState(false);
 
@@ -24,7 +24,7 @@ function MyDashboardHome({currentUser}) {
                         <h3>{currentUser.admin ? currentUser.company.name : "My"} Teams</h3>
                         {currentUser.admin ? <Icon name="add circle" size="big" className="add-icon" onClick={handleDisplayTeamForm} /> : null}
                     </div>
-                    {newTeamForm ? <AddTeamCard /> : null}
+                    {newTeamForm ? <AddTeamCard newTeam={newTeam} setNewTeam={setNewTeam} createNewTeam={createNewTeam}/> : null}
                     {teamCards}
                 </div>
             </div>  
