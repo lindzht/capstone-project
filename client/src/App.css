@@ -1,46 +1,19 @@
+
+
 .App {
   text-align: center;
+}
+
+/* LOGGED IN APP */
+.App-loggedin {
+  display: flex;
+  flex-direction: row;
   
 }
 
 .hide {
   display: none;
 }
-
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
 
 /* VIDEO BACKGROUNDS */
 
@@ -170,8 +143,8 @@
 #top-nav-container {
   background-color: white;
   width: 100vw;
-  height: 50px;
-  z-index: 10;
+  height: 60px;
+  z-index: -10;
 }
 
 #top-nav-content {
@@ -179,7 +152,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* margin: 0 3% 1% 3%; */
+  margin: 1% 3% 0 3%;
 }
 
 #top-nav-logo h3 {
@@ -187,15 +160,37 @@
   font-size: 2em;  
 }
 
-
 #top-nav-links a {
   color: black;
-  padding: 20px;
+}
+
+#top-nav-links a:hover {
+  color: orangered;
+}
+
+#top-nav-content-loggedin {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1.5px solid rgb(227, 231, 208);
+}
+
+#top-nav-content-loggedin a {
+  margin: 20px 20px 10px 20px;
+  color: black;
+}
+
+#top-nav-content-loggedin a:hover {
+  color: orangered;
+}
+
+#top-user a{
+  display: flex;
+  flex-direction: row;
 }
 
 
-
-/* LOGGED IN HAMBURGER NAVBAR */
 
 /* SIGNUP: FIND COMPANY PAGE */
 
@@ -302,5 +297,129 @@
   right: -245px;
 }
 
+
+
+/* NAV HAMBURGER :LOGGED IN */
+
+#nav-dashboard-container {
+  position: relative;
+  /* top: -30px; */
+  left: -10px;
+  background-color: rgb(251, 115, 18);
+  height: 100vh;
+  z-index: 10;
+  width: 20%;
+  text-align: center;
+  border-radius: 50px;
+  border: 10px solid rgb(251, 115, 18);
+}
+
+#nav-dashboard-container h3 {
+  color: white;
+  font-size: 2em;  
+}
+
+#nav-dashboard-content {
+  padding: 1em;
+  margin-top: 8em;
+}
+
+#nav-dashboard-container a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; 
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  font-size: 1.4em;
+  line-height: 2em;
+  color: rgb(255, 255, 255);
+}
+
+#nav-dashboard-container a:hover {
+ color: black;
+ background-color: white;
+ box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+ border-radius: 20px;
+}
+
+#nav-dashboard-container a:focus {
+  color: black;
+  background-color: white;
+  border-radius: 20px;
+ }
+
+/* MY DASHBOARD */
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border: 10px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  background-color: rgba(227, 231, 208, 0.34);
+  padding: 7em;
+  margin-top: 0;
+}
+.dashboard-header {
+  text-align: center;
+}
+
+.dashboard-header h1{
+  font-family: 'Paytone One', sans-serif;
+  font-size: 2.5em;
+}
+
+.dashboard-content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 900px;
+  margin-top: 3em;
+}
+
+#dashboard-content-left {
+  background-color: rgba(227, 231, 208, 0.532);
+  padding: 3em;
+  border-radius: 20px;
+}
+
+#dashboard-content-right {
+  background-color: rgba(227, 231, 208, 0.532);
+  padding: 3em;
+  border-radius: 20px;
+}
+
+/* DASHBOARD SUB-NAV */
+
+.sub-nav-container {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.sub-nav-container button {
+  border: none;
+  padding: 1em 2em 1em 2em;
+  margin: 20px 50px 0 50px;
+  border-radius: 20px;
+  color: grey;
+  background-color: white;
+  font-size: 0.9em;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+}
+
+.sub-nav-container button:hover {
+  color: black;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  cursor:grab;
+}
+
+.sub-nav-container button:focus {
+  color: orangered;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
 
 

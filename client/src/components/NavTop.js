@@ -11,24 +11,46 @@ function Nav ({currentUser, handleLogOut, handleLoginModal}){
 
     return(
         <div id="top-nav-container">
-            <div id="top-nav-content">
-                <div id="top-nav-logo">
-                    <h3 onClick={logoRedirect}> ✴ Logo </h3>
-                </div>
-                <div id="top-nav-links">
-                    {currentUser ? 
-                        <div id="top-nav-loggedin">
-                            <Link to="/settings"><Icon name="user circle"></Icon><p>{currentUser && currentUser.first_name}</p></Link>
-                            <Link onClick={handleLogOut} to="/">Logout</Link>
+            {!currentUser ? 
+                <div id="top-nav-content">
+                    <div id="top-nav-logo">
+                        <h3 onClick={logoRedirect}> ✴ Logo </h3>
+                    </div>
+                    <div id="top-nav-links">
+                        <div id="top-nav-loggedout">
+                                <p onClick={handleLoginModal}> Login </p>
                         </div>
-                    :   <div id="top-nav-loggedout">
-                            <p onClick={handleLoginModal}> Login </p>
-                        </div>
-                    } 
-                </div>
-            </div>
+                    </div>
+                </div>    
+            : <div id="top-nav-content-loggedin">
+                        <div id="top-user"><Link to="/settings"><Icon name="user circle"></Icon><p>{currentUser && currentUser.first_name}</p></Link></div>
+                        <Link onClick={handleLogOut} to="/">Logout</Link>
+               </div>
+            }
+            
         </div>
     )
 }
 
 export default Nav;
+
+
+
+{/* <div id="top-nav-container">
+<div id="top-nav-content">
+    <div id="top-nav-logo">
+        <h3 onClick={logoRedirect}> ✴ Logo </h3>
+    </div>
+    <div id="top-nav-links">
+        {currentUser ? 
+            <div id="top-nav-loggedin">
+                <div id="top-user"><Link to="/settings"><Icon name="user circle"></Icon><p>{currentUser && currentUser.first_name}</p></Link></div>
+                <Link onClick={handleLogOut} to="/">Logout</Link>
+            </div>
+        :   <div id="top-nav-loggedout">
+                <p onClick={handleLoginModal}> Login </p>
+            </div>
+        } 
+    </div>
+</div>
+</div> */}

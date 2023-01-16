@@ -9,10 +9,9 @@ Rails.application.routes.draw do
 
   post "/login", to: "sessions#create"
   delete "/logout", to:"sessions#destroy"
-
   post "/signup", to: "recruiters#create"
 
-  # STAY LOGGED IN: 
+  # STAY LOGGED IN & GET RECRUITER INFO: 
   get "/me", to: "recruiters#show"
 
 

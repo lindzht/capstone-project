@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import './App.css';
 import LandingPage from './components/LandingPage';
 import SignupPage from './components/SignupPage';
 import NavTop from './components/NavTop';
-import LoginPage from './components/LoginModal';
-import './App.css';
+import LoginModal from './components/LoginModal';
 import MyDashboard from './components/MyDashboard';
+import MyReqs from './components/MyReqsPage';
+import NavDashboard from './components/NavDashboard';
 
 function App() {
 
@@ -97,8 +99,10 @@ function App() {
     // DISPLAY LOGIN MODAL
     const handleLoginModal =()=> {
       setDisplayLoginForm(!displayLoginForm)
+      console.log(displayLoginForm)
     }
 
+    console.log(displayLoginForm);
 
   return (
     <BrowserRouter>
@@ -109,14 +113,15 @@ function App() {
               handleLogOut={handleLogOut}
               handleLoginModal={handleLoginModal}
               />
-        { displayLoginForm ? <LoginPage 
+        { displayLoginForm ? <LoginModal
               setCurrentUser={setCurrentUser}
               currentUser={currentUser}
               setErrors={setErrors}
               errors={errors}/>
         : null }
         <Routes>
-          <Route index element={<LandingPage />} />
+          <Route index element={<LandingPage 
+              handleLoginModal={handleLoginModal}/>} />
           <Route path='signup' element={<SignupPage 
               companies={companies}
               createNewCompany={createNewCompany}
@@ -132,20 +137,26 @@ function App() {
 
     : 
 
-      <div className="App-loggedin">
-        <div className="App">
+      <>
           <NavTop 
                 currentUser={currentUser} 
                 handleLogOut={handleLogOut}
                 handleLoginModal={handleLoginModal}
                 />
-          <Routes>
-            <Route index element={<LandingPage />} />
-            <Route path='dashboard' element={<MyDashboard 
-                currentUser={currentUser}/>} />
-          </Routes>
+          <div className="App-loggedin">
+            <NavDashboard 
+                  currentUser={currentUser} 
+                  handleLogOut={handleLogOut}
+                  handleLoginModal={handleLoginModal}
+                  />
+            <Routes>
+              <Route index element={<LandingPage />} />
+              <Route path='dashboard' element={<MyDashboard currentUser={currentUser}/>} >
+                <Route path='myreqs'element={<MyReqs />} />
+              </Route>
+            </Routes>
         </div>
-      </div>
+      </>
     }
     </BrowserRouter>
   );

@@ -4,7 +4,7 @@ import { Icon } from 'semantic-ui-react'
 import {useState} from "react"
 import { useNavigate } from "react-router-dom";
 
-function LoginPage({setCurrentUser, setErrors, errors}) {
+function LoginModal({setCurrentUser, setErrors, errors}) {
     let navigate = useNavigate();
 
     // LOGIN 
@@ -81,4 +81,4 @@ function LoginPage({setCurrentUser, setErrors, errors}) {
     )
 }
 
-export default LoginPage;
+export default LoginModal;
