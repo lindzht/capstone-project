@@ -1,13 +1,31 @@
 import TeamSubNav from "./TeamSubNav";
 // import MyReqs from "./MyReqsPage";
 import { Icon } from 'semantic-ui-react';
-import { Link, Outlet,useParams } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 
-
-function TeamDashboard ( {currentUser} ){
+function TeamDashboard ( {currentUser, teamData} ){
     let params = useParams();
-    console.log(params)
+    // console.log(params)
+    // console.log(teamData);
+
+    let teamID = params.teamId
+    
+    // useEffect(() => {
+    //   fetch(`/teams/${teamID}`)
+    //   .then(res => {
+    //     if (res.ok){
+    //       res.json()
+    //       .then(data => {
+    //         console.log(data)
+    //       })
+    //     }
+    //   })
+    // }, [teamID])
+
+
+
 
     return(
         <div className="dashboard-container">

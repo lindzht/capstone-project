@@ -12,6 +12,19 @@ class RecruitersController < ApplicationController
         render json: recruiter, status: :ok
     end
 
+    def update
+        
+        recruiter = Recruiter.find(session[:recruiter_id])
+        recruiter.update(
+            first_name: params[:first_name],
+            last_name: params[:last_name],
+            email: params[:email],
+            password: params[:password],
+            password_confirmation: params[:password_confirmation]
+        )
+        render json: recruiter, status: :accepted
+    end
+
 
     private
 

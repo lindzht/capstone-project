@@ -1,4 +1,4 @@
-class CompanySerializer < ActiveModel::Serializer
+class TeamCompanyDisplaySerializer < ActiveModel::Serializer
     attributes :id, :name
     
   end

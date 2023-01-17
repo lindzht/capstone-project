@@ -22,10 +22,12 @@ function App() {
   const [companies, setCompanies] = useState([])
   const [newCompany, setNewCompany] = useState({name: ""});
   const [newCompanyID, setNewCompanyID] = useState("")
-  const [newRecruiter, setNewRecruiter] = useState([])
+  // const [newRecruiter, setNewRecruiter] = useState([])
   const [errors, setErrors] = useState([])
   const [displayLoginForm, setDisplayLoginForm] = useState(false);
   const [newTeam, setNewTeam] = useState({name: ""});
+  const [selectTeamID, setSelectTeamID] = useState("")
+  const [teamData, setTeamData] = useState([])
 
   //STAY LOGGED IN:
   useEffect(() => {
@@ -90,6 +92,26 @@ function App() {
       })
     }
 
+    // UPDATE RECRUITER
+    const handleUpdateRecruiter = (updateRecruiterObj)=> {
+      console.log(updateRecruiterObj);
+      fetch(`/recruiters/${currentUser.id}`, {
+        method: "PATCH",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(updateRecruiterObj)
+      })
+      .then(res => {
+        if (res.ok){
+          res.json().then(data => {
+            console.log(data);
+            setCurrentUser(data);
+          })
+        } else {
+          res.json().then(console.log("no go"))
+        }
+      })
+    }
+
      // LOGOUT
      const handleLogOut =()=> {
       fetch("/logout", {
@@ -107,6 +129,8 @@ function App() {
       setDisplayLoginForm(!displayLoginForm)
       console.log(displayLoginForm)
     }
+
+
 
     // CREATE NEW TEAM
     const createNewTeam = (newTeam)=> {
@@ -127,6 +151,22 @@ function App() {
         }
       })
      }
+
+
+    //  FETCH TEAM DATA 
+    const fetchTeamData = (teamID)=> {
+      fetch(`/teams/${teamID}`)
+      .then(res => {
+        if (res.ok){
+          res.json()
+          .then(data => {
+            setTeamData(data)
+            console.log(data);
+          })
+        }
+      })
+    }
+
 
   return (
     <BrowserRouter>
@@ -172,14 +212,16 @@ function App() {
                       currentUser={currentUser} 
                       newTeam={newTeam} 
                       setNewTeam={setNewTeam}
-                      createNewTeam={createNewTeam}/>} />
+                      createNewTeam={createNewTeam}
+                      setSelectTeamID={setSelectTeamID}
+                      fetchTeamData={fetchTeamData}/>} />
                   <Route path='myreqs'element={<MyReqsPage currentUser={currentUser} />} />
                   <Route path='myhires'element={<MyHiredReqs currentUser={currentUser} />} />
                 </Route>
-                <Route path='teams' element={<TeamDashboard currentUser={currentUser} />} >
-                  <Route path=":teamId" element={<TeamReqs currentUser={currentUser} />} />
+                <Route path='teams' element={<TeamDashboard currentUser={currentUser} teamData={teamData} />} >
+                  <Route path=":teamId" element={<TeamReqs currentUser={currentUser} teamData={teamData} />} />
                 </Route>
-                <Route path='settings'element={<Settings currentUser={currentUser} />} />
+                <Route path='settings'element={<Settings currentUser={currentUser} handleUpdateRecruiter={handleUpdateRecruiter}/>} />
             </Routes>
         </div>
       </>

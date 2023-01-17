@@ -5,13 +5,13 @@ import {  Link, useNavigate } from 'react-router-dom';
 import AddTeamCard from "./AddTeamCard";
 import AdminTeamCards from "./AdminTeamCards";
 
-function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam}) {
+function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setSelectTeamID, fetchTeamData}) {
     let navigate = useNavigate();
     const [newTeamForm, setNewTeamCard] = useState(false);
 
     const myTeamCards = currentUser.teams.map((team) => {
         return (
-            <div onClick={()=> {navigate(`/teams/${team.id}`)}} >
+            <div onClick={()=> {fetchTeamData(team.id); navigate(`/teams/${team.id}`)}} >
                 <MyTeamCards key={team.id} team={team} />
             </div>
         )
@@ -19,7 +19,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam}) {
 
     const companyTeamCards = currentUser.company.teams.map((team) => {
         return (
-            <div onClick={()=> {navigate(`/teams/${team.id}`)}} >
+            <div onClick={()=> {fetchTeamData(team.id); navigate(`/teams/${team.id}`)}} >
                 <AdminTeamCards key={team.id} team={team} />
             </div>
         )   

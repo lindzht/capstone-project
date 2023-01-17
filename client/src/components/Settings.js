@@ -2,13 +2,15 @@ import { Button, Icon } from 'semantic-ui-react'
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-function Settings ({currentUser}){
+function Settings ({currentUser, handleUpdateRecruiter }){
 
     const [displayEditForm, setDisplayEditForm] = useState(false)
     const [updateRecruiter, setUpdateRecruiter] = useState({
         first_name: currentUser.first_name,
         last_name: currentUser.last_name,
         email: currentUser.email,
+        password: "",
+        password_confirmation: ""
     });
     
     const handleChange = (e) => {
@@ -16,51 +18,19 @@ function Settings ({currentUser}){
         const value = e.target.value;
         setUpdateRecruiter({
             ...updateRecruiter,
-            [key]: value,
+            [key]: value
         })
     }
 
     const handleRecruiterSubmit = (e) => {
         e.preventDefault();
-        console.log(updateRecruiter);
+        handleUpdateRecruiter(updateRecruiter);
+        handleEditForm();
     };
 
-
-    const SettingsForm = ()=> {
-        return(
-            <div id="form-edit-recruiter-container">
-                <div className="exit">
-                    <Link to="/settings" >
-                        <Icon className="exit-icon" name="x" size='large' onClick={()=> {setDisplayEditForm(!displayEditForm)}} />
-                    </Link>
-                </div>
-                <form onSubmit={handleRecruiterSubmit}>
-                    <input
-                        type="text"
-                        name="first_name"
-                        placeholder="First Name"
-                        value={updateRecruiter.first_name} 
-                        onChange={handleChange}/>
-                    <input
-                        type="text"
-                        name="last_name"
-                        placeholder="Last Name"
-                        value={updateRecruiter.last_name} 
-                        onChange={handleChange}/>
-                    <input
-                        type="text"
-                        name="email"
-                        placeholder="Email Address"
-                        value={updateRecruiter.email} 
-                        onChange={handleChange}/>
-                    <Link to="/settings" >
-                        <Button color='black' size='large' onClick={(e) => {handleRecruiterSubmit(e)}}>Submit</Button>
-                    </Link>
-                </form>
-            </div>
-        )
+    const handleEditForm =()=>{
+        setDisplayEditForm(!displayEditForm)
     }
-    
     
 
     return(
@@ -78,9 +48,52 @@ function Settings ({currentUser}){
                             <p><span className="title">Email:</span> <br />{currentUser.email}</p>
                             <p><span className="title">Company:</span> <br />{currentUser.company.name}</p>
                             {currentUser.admin ? <p><span className="title">Admin Account</span></p> : null}
-                            <Button onClick={()=> {setDisplayEditForm(!displayEditForm)}} color='black'>Edit</Button>
+                            <Button onClick={handleEditForm} color='black'>Edit</Button>
                         </>
-                        : <SettingsForm />}
+                        :
+                        <div id="form-edit-recruiter-container">
+                            <div className="exit">
+                                <Link to="/settings" >
+                                    <Icon className="exit-icon" name="x" size='large' onClick={()=> {setDisplayEditForm(!displayEditForm)}} />
+                                </Link>
+                            </div>
+                            <form onSubmit={handleRecruiterSubmit}>
+                                <input
+                                    type="text"
+                                    name="first_name"
+                                    placeholder="First Name"
+                                    value={updateRecruiter.first_name} 
+                                    onChange={handleChange} />
+                                <input
+                                    type="text"
+                                    name="last_name"
+                                    placeholder="Last Name"
+                                    value={updateRecruiter.last_name} 
+                                    onChange={handleChange}/>
+                                <input
+                                    type="text"
+                                    name="email"
+                                    placeholder="Email Address"
+                                    value={updateRecruiter.email} 
+                                    onChange={handleChange}/>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    placeholder="Password"
+                                    value={updateRecruiter.password}
+                                    onChange={handleChange} />
+                                <input
+                                    type="password"
+                                    name="password_confirmation"
+                                    placeholder="Password Confirmation"
+                                    value={updateRecruiter.password_confirmation}
+                                    onChange={handleChange} />
+                                <Link to="/settings" >
+                                    <Button color='black' size='large' onClick={(e) => {handleRecruiterSubmit(e)}}>Submit</Button>
+                                </Link>
+                            </form>
+                        </div>
+                        }
                 </div>
             </div>
 

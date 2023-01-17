@@ -9,7 +9,7 @@ class TeamsController < ApplicationController
 
     def show
         team = find_team
-        render json: team, serializer: TeamRecruiterDisplaySerializer, status: :ok
+        render json: team, serializer: TeamDetailDisplaySerializer, status: :ok
     end
 
     private
