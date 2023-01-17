@@ -57,9 +57,9 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam}) {
                 <div id="my-metrics-card-container">
                     <h3>My Metrics</h3>
                 </div>
-                <div id="my-goals-card-container">
+                {/* <div id="my-goals-card-container">
                     <h3>My Goals</h3>
-                </div>
+                </div> */}
             </div>
         </div>
     )
