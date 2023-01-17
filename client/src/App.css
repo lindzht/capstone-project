@@ -386,6 +386,7 @@
   background-color: rgba(227, 231, 208, 0.607);
   padding: 2em;
   border-radius: 20px;
+  width: 100%;
 }
 
 .dashboard-header h1{
