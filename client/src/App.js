@@ -20,8 +20,8 @@ function App() {
   
   const [currentUser, setCurrentUser] = useState(null)
   const [companies, setCompanies] = useState([])
-  const [newCompany, setNewCompany] = useState([])
-  const [newCompanyID, setNewCompanyID] = useState([])
+  const [newCompany, setNewCompany] = useState({name: ""});
+  const [newCompanyID, setNewCompanyID] = useState("")
   const [newRecruiter, setNewRecruiter] = useState([])
   const [errors, setErrors] = useState([])
   const [displayLoginForm, setDisplayLoginForm] = useState(false);
@@ -63,7 +63,7 @@ function App() {
     .then(res => {
       if (res.ok){
         res.json().then(data => {
-          setNewCompany(data);
+          setNewCompanyID(data.id);
         })
       } else {
         res.json().then(data => {setErrors(data.errors); console.log(errors)})
@@ -82,7 +82,8 @@ function App() {
         if (res.ok){
           res.json().then(data => {
             console.log(data);
-            <Link to="/"></Link>
+            setCurrentUser(data);
+            <Link to="/dashboard"></Link>
           })
         } else {
           res.json().then(data => {setErrors(data.errors); console.log(errors)})
@@ -132,30 +133,27 @@ function App() {
     <BrowserRouter>
     {!currentUser ? 
       <div className="App">
-        <NavTop 
+          <NavTop 
               currentUser={currentUser} 
               handleLogOut={handleLogOut}
               handleLoginModal={handleLoginModal}
               />
-        { displayLoginForm ? <LoginModal
+        { displayLoginForm ?
+          <LoginModal
               setCurrentUser={setCurrentUser}
               currentUser={currentUser}
               setErrors={setErrors}
               errors={errors}/>
         : null }
         <Routes>
-          <Route index element={<LandingPage 
-              handleLoginModal={handleLoginModal}/>} />
+          <Route index element={<LandingPage handleLoginModal={handleLoginModal}/>} />
           <Route path='signup' element={<SignupPage 
               companies={companies}
               createNewCompany={createNewCompany}
               createNewRecruiter={createNewRecruiter}
-              newCompany={newCompany}/>} />
-          {/* <Route path='login' element={<LoginPage 
-              setCurrentUser={setCurrentUser}
-              currentUser={currentUser}
-              setErrors={setErrors}
-              errors={errors}/>} /> */}
+              newCompany={newCompany}
+              setNewCompany={setNewCompany}
+              newCompanyID={newCompanyID} />} />
         </Routes>
       </div>
 

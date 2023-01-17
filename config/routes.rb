@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :reqteams
   resources :recruiterteams
   resources :reqs
-  resources :teams, only: [:create]
+  resources :teams, only: [:create, :show]
   resources :recruiters
   resources :companies
 
