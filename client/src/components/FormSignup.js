@@ -2,7 +2,8 @@ import { Button, Icon } from 'semantic-ui-react'
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-function FormSignup ({newCompanyName, companySearchResult, createNewRecruiter, newCompany}){
+function FormSignup ({newCompanyName, companySearchName, createNewRecruiter, newCompany, newCompanyCreated, newCompanyID, companySearchID}){
+    // console.log(companySearchResult);
     const navigate = useNavigate();
     const [newRecruiter, setNewRecruiter] = useState({
         first_name: "",
@@ -18,25 +19,26 @@ function FormSignup ({newCompanyName, companySearchResult, createNewRecruiter, n
         const key = e.target.name;
         const value = e.target.value;
         
-        if (newCompanyName) {
+        if (newCompanyID) {
             setNewRecruiter({
                 ...newRecruiter,
                 [key]: value,
                 admin: true,
-                company_name: newCompany
+                company_id: newCompanyID
             })  
         } else {
             setNewRecruiter({
                 ...newRecruiter,
                 [key]: value,
                 admin: false,
-                company_name: companySearchResult
+                company_id: companySearchID
             })
         }
     }
 
     const handleRecruiterSubmit = (e) => {
         e.preventDefault();
+        console.log(newRecruiter)
         createNewRecruiter(newRecruiter)
         navigate('/');
     };
@@ -51,7 +53,7 @@ function FormSignup ({newCompanyName, companySearchResult, createNewRecruiter, n
                     <Icon className="exit-icon" name="x" size='large' />
                 </Link>
             </div>
-            <h1>Join {companySearchResult ? companySearchResult : newCompany}</h1>
+            {/* <h1>Join {companySearchResult ? companySearchResult : newCompany}</h1> */}
             <form onSubmit={handleRecruiterSubmit}>
                 <input
                     type="text"

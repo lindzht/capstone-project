@@ -3,12 +3,9 @@ import { Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import FormSignup from "./FormSignup";
 
-function FormCompany ({createNewCompany}){
+function FormCompany ({newCompany, setNewCompany, createNewCompany, createNewRecruiter, newCompanyID }){
 
     const [displaySignupForm, setDisplaySignupForm ] = useState(false)
-    const [newCompany, setNewCompany] = useState({
-        name: ""
-    });
     
     const handleChange = (e) => {
         const key = e.target.name;
@@ -22,12 +19,11 @@ function FormCompany ({createNewCompany}){
     const handleCompanySubmit = (e) => {
         e.preventDefault();
         createNewCompany(newCompany)
-        setNewCompany({name: ""})
         setDisplaySignupForm(!displaySignupForm); 
+        setNewCompany({name: ""})
     };
 
-
-if (displaySignupForm) return <FormSignup newCompanyName={newCompany.name} /> 
+if (displaySignupForm) return <FormSignup createNewRecruiter={createNewRecruiter} newCompanyID={newCompanyID}/> 
     return(
         <div id="formcompany-container">
             <form onSubmit={handleCompanySubmit}>

@@ -7,10 +7,19 @@ class TeamsController < ApplicationController
         render json: team, status: :created
     end
 
+    def show
+        team = find_team
+        render json: team, serializer: TeamRecruiterDisplaySerializer, status: :ok
+    end
+
     private
 
     def team_params
         params.permit(:name, :company_id)
+    end
+
+    def find_team
+        Team.find(params[:id])
     end
 
     def find_recruiter_id

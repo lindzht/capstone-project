@@ -1,9 +1,9 @@
 class RecruitersController < ApplicationController
 
     def create
-        companyID = find_company_id
+        # companyID = find_company_id
         recruiter = Recruiter.create(recruiter_params)
-        recruiter.update(company_id: companyID)
+        # recruiter.update(company_id: companyID)
         render json: recruiter, status: :created
     end
 
@@ -16,16 +16,16 @@ class RecruitersController < ApplicationController
     private
 
     def recruiter_params
-        params.permit(:first_name, :last_name, :email, :password, :password_confirmation, :admin)
+        params.permit(:first_name, :last_name, :email, :password, :password_confirmation, :admin, :company_id)
     end
 
     def find_recruiter
         Recruiter.find(session[:recruiter_id])
     end
 
-    def find_company_id
-        Company.find_by(name: params[:company_name]).id
-    end
+    # def find_company_id
+    #     Company.find_by(name: params[:company_name]).id
+    # end
 
 
 end

@@ -18,7 +18,11 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam}) {
     })
 
     const companyTeamCards = currentUser.company.teams.map((team) => {
-        return (<AdminTeamCards key={team.id} team={team} />)
+        return (
+            <div onClick={()=> {navigate(`/teams/${team.id}`)}} >
+                <AdminTeamCards key={team.id} team={team} />
+            </div>
+        )   
     })
 
     const handleDisplayTeamForm = () => {

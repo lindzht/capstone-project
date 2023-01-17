@@ -6,28 +6,10 @@ import FormCompany from "./FormCompany";
 import landing_video from "../video/landing_video.mp4";
 import { Link } from 'react-router-dom';
 
-function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompany}){
-
-    // const [companySearch, setCompanySearch] = useState({
-    //     name: ""
-    // });
-
-    // const handleChange = (e) => {
-    //     const key = e.target.name;
-    //     const value = e.target.value;
-
-    //     setCompanySearch({
-    //         ...companySearch,
-    //         [key]: value
-    //     })
-    // }
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     setCompanySearch(companySearch);
-    // };
+function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompany, setNewCompany, newCompanyID}){
 
     const [companySearch, setCompanySearch] = useState(null)
+    const [companySearchID, setCompanySearchID] = useState(null)
     const [displayCompanyForm, setDisplayCompanyForm] = useState(false)
 
     const companiesSearchCompatible = companies.map((company) => {
@@ -36,6 +18,7 @@ function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompan
 
     const companySelected = (e) => {
         setCompanySearch(e.label)
+        setCompanySearchID(e.value)
     }
 
     const handleDisplayCompanyForm =()=> {
@@ -45,7 +28,7 @@ function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompan
 
     return(
         <div id="signup-page-container">
-            { companySearch ? <FormSignup companySearchResult={companySearch} createNewRecruiter={createNewRecruiter} newCompany={newCompany}/> : 
+            { companySearch ? <FormSignup companySearchName={companySearch} createNewRecruiter={createNewRecruiter} newCompanyID={newCompanyID} companySearchID={companySearchID}/> : 
                 <div id="signup-content-container">
                     <div className="exit">
                         <Link to="/" >
@@ -58,7 +41,7 @@ function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompan
                         options={companiesSearchCompatible} 
                         onChange={companySelected}/>
                     <h4 onClick={handleDisplayCompanyForm}>Don't See Your Company? Create Your Company Account Here!</h4> 
-                    {displayCompanyForm ? <FormCompany companyFormResult={displayCompanyForm} createNewCompany={createNewCompany} /> : null}
+                    {displayCompanyForm ? <FormCompany companyFormResult={displayCompanyForm} createNewCompany={createNewCompany} createNewRecruiter={createNewRecruiter} newCompany={newCompany} setNewCompany={setNewCompany} newCompanyID={newCompanyID} /> : null}
                 </div>
                 }   
            
