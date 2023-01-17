@@ -1,8 +1,67 @@
-import { Button } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react'
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Settings ({currentUser}){
 
-    console.log(currentUser)
+    const [displayEditForm, setDisplayEditForm] = useState(false)
+    const [updateRecruiter, setUpdateRecruiter] = useState({
+        first_name: currentUser.first_name,
+        last_name: currentUser.last_name,
+        email: currentUser.email,
+    });
+    
+    const handleChange = (e) => {
+        const key = e.target.name;
+        const value = e.target.value;
+        setUpdateRecruiter({
+            ...updateRecruiter,
+            [key]: value,
+        })
+    }
+
+    const handleRecruiterSubmit = (e) => {
+        e.preventDefault();
+        console.log(updateRecruiter);
+    };
+
+
+    const SettingsForm = ()=> {
+        return(
+            <div id="form-edit-recruiter-container">
+                <div className="exit">
+                    <Link to="/settings" >
+                        <Icon className="exit-icon" name="x" size='large' onClick={()=> {setDisplayEditForm(!displayEditForm)}} />
+                    </Link>
+                </div>
+                <form onSubmit={handleRecruiterSubmit}>
+                    <input
+                        type="text"
+                        name="first_name"
+                        placeholder="First Name"
+                        value={updateRecruiter.first_name} 
+                        onChange={handleChange}/>
+                    <input
+                        type="text"
+                        name="last_name"
+                        placeholder="Last Name"
+                        value={updateRecruiter.last_name} 
+                        onChange={handleChange}/>
+                    <input
+                        type="text"
+                        name="email"
+                        placeholder="Email Address"
+                        value={updateRecruiter.email} 
+                        onChange={handleChange}/>
+                    <Link to="/settings" >
+                        <Button color='black' size='large' onClick={(e) => {handleRecruiterSubmit(e)}}>Submit</Button>
+                    </Link>
+                </form>
+            </div>
+        )
+    }
+    
+    
 
     return(
         <div className="dashboard-container">
@@ -12,11 +71,15 @@ function Settings ({currentUser}){
                     <h3>{currentUser.admin ? `${currentUser.company.name} Admin`: null}</h3>
                 </div>
                 <div id="settings-right-content">
-                    <p><span className="title">First Name:</span> <br /> {currentUser.first_name}</p>
-                    <p><span className="title">Last Name:</span> <br />{currentUser.last_name}</p>
-                    <p><span className="title">Email:</span> <br />{currentUser.email}</p>
-                    <p><span className="title">Company:</span> <br />{currentUser.company.name}</p>
-                    <Button color='black'>Edit</Button>
+                   {  !displayEditForm?
+                          <>
+                            <p><span className="title">First Name:</span> <br /> {currentUser.first_name}</p>
+                            <p><span className="title">Last Name:</span> <br />{currentUser.last_name}</p>
+                            <p><span className="title">Email:</span> <br />{currentUser.email}</p>
+                            <p><span className="title">Company:</span> <br />{currentUser.company.name}</p>
+                            <Button onClick={()=> {setDisplayEditForm(!displayEditForm)}} color='black'>Edit</Button>
+                        </>
+                        : <SettingsForm />}
                 </div>
             </div>
 
