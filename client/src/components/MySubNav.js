@@ -9,6 +9,7 @@ function MyDashboardNav(){
                 <Link to="/dashboard"><button className="dash-nav-button">My Dashboard</button></Link>
                 <Link to="myreqs"><button className="dash-nav-button">My Reqs</button></Link>
                 <Link to="myhires"><button className="dash-nav-button">My Hires</button></Link>
+                <Link to="myhires"><button className="dash-nav-button">My Metrics</button></Link>
                 <Link to="mygoals"><button className="dash-nav-button">My Goals</button></Link>
             </nav>
             
