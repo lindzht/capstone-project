@@ -12,6 +12,7 @@ import MyDashboardHome from './components/MyDashboardHome';
 import Settings from './components/Settings';
 import MyHiredReqs from './components/MyHiredReqs';
 import TeamDashboard from './components/TeamDashboard';
+import TeamReqs from './components/TeamReqs';
 
 function App() {
 
@@ -179,7 +180,7 @@ function App() {
                   <Route path='myhires'element={<MyHiredReqs currentUser={currentUser} />} />
                 </Route>
                 <Route path='teams' element={<TeamDashboard currentUser={currentUser} />} >
-                  <Route path=':teamID' element={<TeamDashboard currentUser={currentUser} />} />
+                  <Route path=":teamId" element={<TeamReqs currentUser={currentUser} />} />
                 </Route>
                 <Route path='settings'element={<Settings currentUser={currentUser} />} />
             </Routes>

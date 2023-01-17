@@ -1,6 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
 import { useState } from "react";
+import hamburger from "../images/hamburger.png";
+
 
 function NavDashboard ({handleLogOut, currentUser}) {
     let navigate = useNavigate();
@@ -15,6 +17,7 @@ function NavDashboard ({handleLogOut, currentUser}) {
     return(
         <div id="nav-dashboard-container">
             <div id="nav-dashboard-content">
+                <img src={hamburger} alt="hamburger" onClick={handleHamburger} style={{width: 35}}/>
                 <h3 onClick={() => {navigate('/dashboard')}}> ✴ Logo </h3>
                 <nav>
                     <Link to="dashboard">My Dashboard</Link>

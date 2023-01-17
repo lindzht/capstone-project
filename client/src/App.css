@@ -377,23 +377,23 @@
   border: 30px solid rgb(255, 255, 255);
   border-radius: 50px;
   background-color: rgba(227, 231, 208, 0.34);
-  padding: 7em;
+  padding: 3em;
   margin-top: 0;
 }
 
 .dashboard-header {
-  text-align: center;
   background-color: rgba(227, 231, 208, 0.607);
-  padding: 2em;
+  padding: 0.8em;
   border-radius: 20px;
   width: 100%;
+  margin-top: -10px;
 }
 
 .dashboard-header h1{
   font-family: 'Paytone One', sans-serif;
-  font-size: 4em;
+  font-size: 2.8em;
   text-shadow: -7px 0px 0px rgba(255, 255, 255, 1);
-  margin-bottom: 0;
+  text-align: left;
 }
 
 /* MY DASHBOARD: HOME */
@@ -402,21 +402,29 @@
   display: flex;
   flex-direction: row; 
   justify-content: space-around;
-  width: 1000px;
-  margin-top: 3em;
+  width: 100%;
+  margin-top: 3.8em;
 }
 
 #dashboard-content-left {
   background-color: rgba(255, 255, 255, 0.71);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 3em;
+  padding: 1.8em;
   border-radius: 20px;
 }
+
+#dashboard-content-middle {
+  background-color: rgba(255, 255, 255, 0.71);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1.8em;
+  border-radius: 20px;
+}
+
 
 #dashboard-content-right {
   background-color: rgba(255, 255, 255, 0.71);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 3em;
+  padding: 1.8em;
   border-radius: 20px;
 }
 
@@ -476,6 +484,10 @@
 
 /* DASHBOARD SUB-NAV */
 
+.sub-nav-container {
+  width: 100%;
+}
+
 .sub-nav-container button {
   border: none;
   padding: 0.8em 1.3em 0.8em 1.3em;
@@ -486,6 +498,7 @@
   font-size: 1em;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
+  
 }
 
 .sub-nav-container button:hover {
@@ -496,7 +509,7 @@
 
 .sub-nav-container button:focus {
   color: white;
-  background-color: rgba(255, 68, 0, 0.77);
+  background-color: rgb(0, 0, 0);
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   font-weight: 600;
 }

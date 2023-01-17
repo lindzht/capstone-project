@@ -77,6 +77,7 @@ function Settings ({currentUser}){
                             <p><span className="title">Last Name:</span> <br />{currentUser.last_name}</p>
                             <p><span className="title">Email:</span> <br />{currentUser.email}</p>
                             <p><span className="title">Company:</span> <br />{currentUser.company.name}</p>
+                            {currentUser.admin ? <p><span className="title">Admin Account</span></p> : null}
                             <Button onClick={()=> {setDisplayEditForm(!displayEditForm)}} color='black'>Edit</Button>
                         </>
                         : <SettingsForm />}
