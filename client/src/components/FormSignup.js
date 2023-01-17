@@ -40,7 +40,7 @@ function FormSignup ({newCompanyName, companySearchName, createNewRecruiter, new
         e.preventDefault();
         console.log(newRecruiter)
         createNewRecruiter(newRecruiter)
-        navigate('/');
+        navigate('/dashboard');
     };
 
 

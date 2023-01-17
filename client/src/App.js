@@ -83,7 +83,6 @@ function App() {
           res.json().then(data => {
             console.log(data);
             setCurrentUser(data);
-            <Link to="/dashboard"></Link>
           })
         } else {
           res.json().then(data => {setErrors(data.errors); console.log(errors)})
