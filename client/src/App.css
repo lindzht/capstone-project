@@ -593,6 +593,14 @@
   font-style: italic;
 }
 
+#edit-req-column {
+  width: 70px;
+}
+
+#delete-req-column {
+  width: 70px;
+}
+
 /* MY SETTINGS PAGE  */
 
 #settings-card {
@@ -645,4 +653,44 @@
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
   font-size: 1.1em;
+}
+
+/* MY SETTINGS PAGE: FORM */
+
+#form-edit-recruiter-container {
+  background-color: rgba(255, 255, 255, 0.696);
+  padding: -10px;
+}
+
+#form-edit-recruiter-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: none;
+}
+
+#form-edit-recruiter-container form input {
+  border: 1px solid rgba(128, 128, 128, 0.331);
+  margin-bottom: 1em;
+  height: 2.5em;
+  border-radius: 5px;
+}
+
+#form-edit-recruiter-container form input::placeholder{
+  color: rgb(135, 135, 135); 
+  font-size: 0.95em;
+}
+
+#form-edit-recruiter-container .exit {
+  position: relative;
+  top: -60px;
+  right: -220px;
+}
+
+#form-edit-recruiter-container .exit a {
+  color: rgb(170, 170, 170);
+}
+
+#form-edit-recruiter-container .exit a:hover {
+  color: black;
 }

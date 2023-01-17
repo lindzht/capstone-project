@@ -26,6 +26,13 @@ function Settings ({currentUser, handleUpdateRecruiter }){
         e.preventDefault();
         handleUpdateRecruiter(updateRecruiter);
         handleEditForm();
+        setUpdateRecruiter({
+            first_name: updateRecruiter.first_name,
+            last_name: updateRecruiter.last_name,
+            email: updateRecruiter.email,
+            password: "",
+            password_confirmation: ""
+        })
     };
 
     const handleEditForm =()=>{
@@ -89,7 +96,7 @@ function Settings ({currentUser, handleUpdateRecruiter }){
                                     value={updateRecruiter.password_confirmation}
                                     onChange={handleChange} />
                                 <Link to="/settings" >
-                                    <Button color='black' size='large' onClick={(e) => {handleRecruiterSubmit(e)}}>Submit</Button>
+                                    <Button color='black' onClick={(e) => {handleRecruiterSubmit(e)}}>Submit</Button>
                                 </Link>
                             </form>
                         </div>
