@@ -1,15 +1,19 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useParams, useNavigate } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react'
 
 function TeamSubNav(){
+
+    let params = useParams();
+    let navigate = useNavigate();
+    console.log(params.teamId);
     return(
         <div className="sub-nav-container">
            
             <nav>
-                <Link to="/teams"><button className="dash-nav-button">Team Dashboard</button></Link>
-                <Link to="hires"><button className="dash-nav-button">Hires</button></Link>
-                <Link to="metrics"><button className="dash-nav-button">Metrics</button></Link>
-                <Link to="teammates"><button className="dash-nav-button">Teammates</button></Link>
+                <button className="dash-nav-button" onClick={()=>{navigate(`/teams/${params.teamId}`)}}>Team Dashboard</button>
+                <Link to="reqs"><button className="dash-nav-button">Hires</button></Link>
+                {/* <Link to="metrics"><button className="dash-nav-button">Metrics</button></Link> */}
+                <Link to="settings"><button className="dash-nav-button">Team Settings</button></Link>
             </nav>
             
             <Outlet />

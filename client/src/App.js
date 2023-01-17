@@ -13,6 +13,8 @@ import Settings from './components/Settings';
 import MyHiredReqs from './components/MyHiredReqs';
 import TeamDashboard from './components/TeamDashboard';
 import TeamReqs from './components/TeamReqs';
+import TeamDashboardHome from './components/TeamDashboardHome';
+import TeamSettings from './components/TeamSettings';
 
 function App() {
 
@@ -154,18 +156,49 @@ function App() {
 
 
     //  FETCH TEAM DATA 
-    const fetchTeamData = (teamID)=> {
+
+    // const fetchTeamData = (teamID)=> {
+    //   fetch(`/teams/${teamID}`)
+    //   .then(res => {
+    //     if (res.ok){
+    //       res.json()
+    //       .then(data => {
+    //         setTeamData(data)
+    //         console.log(data);
+    //       })
+    //     }
+    //   })
+    // }
+
+    const fetchTeamData = (teamID)=>{
+      console.log(teamID);
+      setSelectTeamID(teamID)
       fetch(`/teams/${teamID}`)
       .then(res => {
         if (res.ok){
           res.json()
           .then(data => {
             setTeamData(data)
-            console.log(data);
+            console.log(data)
           })
         }
       })
     }
+
+    // useEffect(() => {
+    //   fetch(`/teams/${selectTeamID}`)
+    //   .then(res => {
+    //     if (res.ok){
+    //       res.json()
+    //       .then(data => {
+    //         setTeamData(data)
+    //         console.log(data)
+    //       })
+    //     }
+    //   })
+    // }, [selectTeamID, currentUser])
+
+    console.log(teamData)
 
 
   return (
@@ -214,12 +247,15 @@ function App() {
                       setNewTeam={setNewTeam}
                       createNewTeam={createNewTeam}
                       setSelectTeamID={setSelectTeamID}
-                      fetchTeamData={fetchTeamData}/>} />
+                      fetchTeamData={fetchTeamData}
+                      />} />
                   <Route path='myreqs'element={<MyReqsPage currentUser={currentUser} />} />
                   <Route path='myhires'element={<MyHiredReqs currentUser={currentUser} />} />
                 </Route>
-                <Route path='teams' element={<TeamDashboard currentUser={currentUser} teamData={teamData} />} >
-                  <Route path=":teamId" element={<TeamReqs currentUser={currentUser} teamData={teamData} />} />
+                <Route path='teams/:teamId' element={<TeamDashboard currentUser={currentUser} teamData={teamData} />} >
+                  <Route index element={<TeamDashboardHome currentUser={currentUser} teamData={teamData}/>}/>
+                  <Route path="reqs" element={<TeamReqs currentUser={currentUser} teamData={teamData} />} />
+                  <Route path="settings" element={<TeamSettings currentUser={currentUser} teamData={teamData} />} />
                 </Route>
                 <Route path='settings'element={<Settings currentUser={currentUser} handleUpdateRecruiter={handleUpdateRecruiter}/>} />
             </Routes>

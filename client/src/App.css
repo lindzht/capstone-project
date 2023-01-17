@@ -561,13 +561,25 @@
 
 #admin-edit-icon {
   position: absolute;
-  right: 10px;
+  right: 45px;
   margin-top: -10px;
   color: rgb(169, 169, 169);
 }
 
 #admin-edit-icon:hover {
   color: black;
+  cursor: grab;
+}
+
+#admin-delete-icon {
+  position: absolute;
+  right: 10px;
+  margin-top: -7px;
+  color: rgb(169, 169, 169);
+}
+
+#admin-delete-icon:hover {
+  color: orangered;
   cursor: grab;
 }
 
@@ -609,13 +621,14 @@
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 900px;
-  border: 5px solid white;
+  border: 20px solid white;
+  margin-top: 5%;
 }
 
 #settings-left-content {
   background-color: rgb(227, 231, 208);
   padding: 5em;
-  border-radius: 20px 0 0 20px;
+  /* border-radius: 10px 0 0 20px; */
 }
 
 #settings-left-content h1 {
@@ -641,7 +654,7 @@
 #settings-right-content {
   background-color: rgba(255, 255, 255, 0.71);
   padding: 6em;
-  border-radius: 0 20px 20px 0;
+  /* border-radius: 0 20px 20px 0; */
   width: 700px;
 }
 
