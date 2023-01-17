@@ -29,6 +29,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam}) {
                         <h3>My Teams</h3>
                     </div>
                     {myTeamCards}
+                    
                 </div>
             </div>  
             <div id="dashboard-content-right">
@@ -45,8 +46,12 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam}) {
                     : 
                         null   
                     }
-                    <h3>My Goals</h3>
-                    <h3>My Metrics</h3>
+                    <div id="my-metrics-card-container">
+                        <h3>My Metrics</h3>
+                    </div>
+                    <div id="my-goals-card-container">
+                        <h3>My Goals</h3>
+                    </div>
                 </div>
             </div>  
         </div>

@@ -1,4 +1,4 @@
-
+import { Button } from 'semantic-ui-react'
 
 function Settings ({currentUser}){
 
@@ -16,6 +16,7 @@ function Settings ({currentUser}){
                     <p><span className="title">Last Name:</span> <br />{currentUser.last_name}</p>
                     <p><span className="title">Email:</span> <br />{currentUser.email}</p>
                     <p><span className="title">Company:</span> <br />{currentUser.company.name}</p>
+                    <Button color='black'>Edit</Button>
                 </div>
             </div>
 

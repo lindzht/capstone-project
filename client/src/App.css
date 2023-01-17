@@ -437,7 +437,28 @@
   color: orangered;
 }
 
-/* MY DASHBOARD: ADD NEW TEAM */
+#my-metrics-card-container {
+  margin: 50px;
+}
+
+#my-content-blocks h3{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 1.7em;
+}
+
+
+/* MY DASHBOARD: HOME ADMIN */
+
+#admin-team-header h3{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 1.7em;
+  
+}
+
+
+/* MY DASHBOARD: ADD NEW TEAM FORM */
 
 #add-team-container {
   background-color: white;
@@ -453,12 +474,6 @@
 }
 
 /* DASHBOARD SUB-NAV */
-
-/* .sub-nav-container {
-  display:flex;
-  flex-direction: row;
-  justify-content: center;
-} */
 
 .sub-nav-container button {
   border: none;
@@ -485,10 +500,60 @@
   font-weight: 600;
 }
 
-/* TEAM CARDS */
+/* MY TEAM CARDS */
+
+.team-card-container {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+#card-content-top #team-data {
+  margin: 10px 0 0 -10px;
+}
+
+#card-content-top #team-data #team-data-icon {
+  width: 100px;
+}
 
 .team-card-container:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: grab;
+}
+
+/* ADMIN: TEAM CARDS  */
+
+#admin-team-header .add-icon:hover {
+  color: orangered;
+  cursor: grab;
+}
+
+.admin-team-card-container {
+  margin: 10px;
+  /* width: 300px; */
+}
+
+.admin-team-card-container:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: grab;
+}
+
+.admin-team-card-container #admin-card-content-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 9px;
+}
+
+#admin-edit-icon {
+  position: absolute;
+  right: 10px;
+  margin-top: -10px;
+  color: rgb(169, 169, 169);
+}
+
+#admin-edit-icon:hover {
+  color: black;
   cursor: grab;
 }
 
