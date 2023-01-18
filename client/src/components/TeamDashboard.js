@@ -6,57 +6,53 @@ import { Link, Outlet, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import TeamReqs from "./TeamReqs";
 import _ from 'lodash'
+import TeamDashboardHome from './TeamDashboardHome';
 
 
-function TeamDashboard ( {currentUser, teamData} ){
-    const [currentTeam, setCurrentTeam] = useState([])
-    
+function TeamDashboard ( {currentTeam, currentUser, setSelectTeamID} ){
+    // const [currentTeam, setCurrentTeam] = useState({reqs: []})
+    // const [currentTeam, setCurrentTeam] = useState(null)
+
     let params = useParams();
-    let teamID = params.teamId
-    console.log(teamID)
-    console.log(currentTeam.reqs)
+    setSelectTeamID(params.teamId)
     
-    useEffect(() => {
-      fetch(`/teams/${teamID}`)
-      .then(res => {
-        if (res.ok){
-          res.json()
-          .then(data => {
-            setCurrentTeam(data)
-          })
-        }
-      })
-    }, [teamID])
+    // useEffect(() => {
+    //   fetch(`/teams/${teamID}`)
+    //   .then(res => {
+    //     if (res.ok){
+    //       res.json()
+    //       .then(data => {
+    //         setCurrentTeam(data)
+    //       })
+    //     }
+    //   })
+    // }, [teamID])
 
-    // const tableData = currentTeam && currentTeam.reqs
-    
-    // function exampleReducer(state, action) {
-    //   switch (action.type) {
-    //     case 'CHANGE_SORT':
-    //       if (state.column === action.column) {
-    //         return {
-    //           ...state,
-    //           data: state.data.slice().reverse(),
-    //           direction:
-    //             state.direction === 'ascending' ? 'descending' : 'ascending',
-    //         }
-    //       }
-    //       return {
-    //         column: action.column,
-    //         data: _.sortBy(state.data, [action.column]),
-    //         direction: 'ascending',
-    //       }
-    //     default:
-    //       throw new Error()
-    //   }
-    // }
+//     console.log(currentUser.reqs)
 
-    // const [state, dispatch] = React.useReducer(exampleReducer, {
-    //   column: null,
-    //   data: tableData,
-    //   direction: null,
-    // })
-    // const { column, data, direction } = state
+//    function test(){
+//        console.log(currentTeam.reqs)
+//        return( currentTeam.reqs.map((req) => {
+//         return(
+//             <p id={req.id}>{req.name}</p>
+//         )
+//         }))
+//    }
+
+   function renderOpenReqTable (){
+        return(<TeamReqs currentTeam={currentTeam}/>)
+   }
+
+
+//    const sam = false 
+//    sam ? 
+//         let lindsay = ":)" 
+//         : 
+//         lindsay = ":("
+
+
+
+
 
     return(
         <div className="dashboard-container">
@@ -69,13 +65,21 @@ function TeamDashboard ( {currentUser, teamData} ){
                 </Link>
             </div>
             <div className="dashboard-header">
-                <h1>{currentTeam.name} 's Board</h1>
+                {currentTeam ? <h1>{currentTeam.name} 's Board</h1> : "Nope"}
             </div>
-            <TeamSubNav />
-            {/* <TeamReqs currentTeam={currentTeam} currentUser={currentUser}/> */}
-            
+                <TeamSubNav />
+            {/* {!currentTeam  ? 
+                
+                <h3>"Loading..."</h3>
+                : 
+                <div className='req-container'>
+                    <h1>Open Reqs</h1>
+                    {test()} 
+                    {renderOpenReqTable()}
+                    <TeamDashboardHome />
 
-
+              </div>
+            } */}
 
         </div> 
     )

@@ -4,18 +4,13 @@ import { Table, Icon } from 'semantic-ui-react'
 import { Link, Outlet, useParams } from 'react-router-dom';
 
   
-function TeamReqs( {currentUser, teamData, currentTeam}) {
+function TeamReqs( {currentTeam}) {
 
-//  {currentTeam && currentTeam.reqs}
-    
-    // let params = useParams();
-    // console.log(params)
-  
-    // console.log(currentUser.teams);
-    // console.log(currentUser.reqs);
-    // const tableData = teamData.reqs && teamData.reqs ? teamData.reqs : []
-    const tableData = currentUser.reqs
-    
+    console.log(currentTeam)
+
+
+    const tableData = currentTeam.reqs
+
     function exampleReducer(state, action) {
       switch (action.type) {
         case 'CHANGE_SORT':
@@ -27,7 +22,6 @@ function TeamReqs( {currentUser, teamData, currentTeam}) {
                 state.direction === 'ascending' ? 'descending' : 'ascending',
             }
           }
-
           return {
             column: action.column,
             data: _.sortBy(state.data, [action.column]),
@@ -38,17 +32,16 @@ function TeamReqs( {currentUser, teamData, currentTeam}) {
       }
     }
 
-
-
     const [state, dispatch] = React.useReducer(exampleReducer, {
       column: null,
       data: tableData,
       direction: null,
     })
     const { column, data, direction } = state
-  
+
+  // if (!currentTeam) return ("Loading...")
     return (
-      <div className='req-container'>
+      <>
         <Table sortable celled fixed>
           <Table.Header>
             <Table.Row>
@@ -116,7 +109,7 @@ function TeamReqs( {currentUser, teamData, currentTeam}) {
             ))}
           </Table.Body>
         </Table>
-      </div>
+      </>
     )
   }
   
