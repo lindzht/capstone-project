@@ -19,7 +19,7 @@ function TeamRecruiterCard({currentTeam, recruiter, deleteRecruiterFromTeam}){
 
     return(
         <div className="recruiter-card-container">    
-            <Card>
+            <Card >
                 <Card.Content id="recruiter-card-content">
                     <Card.Header ><h5>{recruiter.first_name} {recruiter.last_name}</h5></Card.Header>
                     <Icon id="recruiter-delete-icon" circular name="x" size="small" onClick={handleDelete} />

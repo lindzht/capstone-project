@@ -68,18 +68,6 @@ function TeamDashboard ( {currentTeam, currentUser, setSelectTeamID} ){
                 {currentTeam ? <h1>{currentTeam.name} 's Board</h1> : "Nope"}
             </div>
                 <TeamSubNav />
-            {/* {!currentTeam  ? 
-                
-                <h3>"Loading..."</h3>
-                : 
-                <div className='req-container'>
-                    <h1>Open Reqs</h1>
-                    {test()} 
-                    {renderOpenReqTable()}
-                    <TeamDashboardHome />
-
-              </div>
-            } */}
 
         </div> 
     )

@@ -311,15 +311,14 @@
 
 #hamburger-content #hamburger-icon:hover {
   animation-name: wave;
-  animation-duration: 3s;
+  animation-duration: 0.9s;
   animation-iteration-count: infinite;
 }
 
 @keyframes wave {
-  0%   {transform: rotate(0);}
-  25%  {transform: rotate(90deg);}
-  50%  {transform: rotate(0);}
-  100% {transform: rotate(-170);}
+  0%   {transform: rotate(-100deg);}
+  50%  {transform: rotate(20deg);}
+  100% {transform: rotate(-100deg);}
 }
 
 #nav-dashboard-content #hamburger-icon {
@@ -572,7 +571,7 @@
 .sub-nav-container button {
   border: none;
   padding: 0.8em 1.3em 0.8em 1.3em;
-  margin: 20px 10px 0 10px;
+  margin: 20px 5px 0 5px;
   border-radius: 20px;
   color: grey;
   background-color: white;
@@ -811,10 +810,10 @@
 }
 
 #team-container-right {
-  margin: 2em;
-  background-color: rgba(255, 255, 255, 0.737);
+  margin-left: 3em;
+  background-color: rgba(0, 0, 0, 0.634);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 1em;
+  padding: 0.8em;
   /* border-radius: 20px; */
   margin-top: 3%;
   border-radius: 20px;
@@ -828,6 +827,7 @@
 #team-container-right #team-block h3 {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
+  color: white;
 }
 
 #recruiter-name {
@@ -836,13 +836,8 @@
   background-color: rgba(255, 255, 255, 0.696);
 }
 
-#recruiter-name .delete-icon {
-  margin-right: 10px;
-}
-
-#recruiter-name .delete-icon:hover {
-  color: orangered;
-  cursor: grab;
+#team-container .req-container .edit-req{
+  width: 60px;
 }
 
 /* TEAM RECRUITER CARD */
@@ -851,15 +846,23 @@
   margin-bottom: 10px; 
 }
 
+
 #recruiter-card-content {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 8px;
+  background-color: rgba(61, 61, 61, 0.832);
+}
+
+#recruiter-card-content:hover {
+  background-color: rgba(101, 101, 101, 0.613);
 }
 
 #recruiter-card-content h5 {
   font-size: 0.7em;
+  color: white;
+  font-weight: 300;
 }
 
 #recruiter-delete-icon {

@@ -1,12 +1,8 @@
-import MyTeamCards from "./MyTeamCards";
 import { Icon } from 'semantic-ui-react';
 import { useState } from "react";
-import {  Link, useNavigate } from 'react-router-dom';
-import AddTeamCard from "./AddTeamCard";
-import AdminTeamCards from "./AdminTeamCards";
 import TeamReqs from "./TeamReqs";
-import TeamRecruiters from "./TeamRecruiterCard";
 import TeamRecruiterCard from "./TeamRecruiterCard";
+import AddRecruiterCard from './AddRecruiterCard';
 
 function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) {
 
@@ -44,6 +40,13 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) 
                     <div id="dashboard-content-middle">
                         <div id="my-metrics-card-container">
                             <h3>Reqs Open</h3>
+                           
+                        </div>
+                    </div>
+
+                    <div id="dashboard-content-middle">
+                        <div id="my-metrics-card-container">
+                            
                             <h3>Reqs Hired</h3>
                         </div>
                     </div>
@@ -73,6 +76,8 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) 
                             : 
                             <div className='team-recruiters'>
                                 {renderRecruiters()}
+                                <Icon size="big" name="add circle" />
+                                <AddRecruiterCard />
                             </div>
                         }
                 </div>

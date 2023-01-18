@@ -10,7 +10,7 @@ class CompaniesController < ApplicationController
     end
 
     def show
-        company = Company.find(params[:company_id])
+        company = Company.find(params[:id])
         render json: company, serializer: CompanyTeamDetailSerializer, status: :ok
     end
 
