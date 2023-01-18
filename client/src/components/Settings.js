@@ -47,7 +47,7 @@ function Settings ({currentUser, handleUpdateRecruiter }){
                     <Icon id="icon-home" name="home"></Icon>
                 </Link>
                 <Link to="/settings">
-                    <Icon name="user circle"></Icon><p>{currentUser && currentUser.first_name} {currentUser.admin? "(Admin)" : null}</p>
+                    <Icon name="user circle"></Icon><p>{currentUser && currentUser.first_name} <span>{currentUser.admin? `(Admin)` : null}</span></p>
                 </Link>
             </div>
             <div id="settings-card">
