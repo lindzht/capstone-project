@@ -797,7 +797,7 @@
   color: black;
 }
 
-/* TEAM DASHBOARD */
+/*************** TEAM DASHBOARD ****************/
 
 #user-display #icon-home {
   margin-left: -190px;
@@ -812,7 +812,7 @@
 
 #team-container-right {
   margin: 2em;
-  background-color: rgba(227, 231, 208, 0.737);
+  background-color: rgba(255, 255, 255, 0.737);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 1em;
   /* border-radius: 20px; */
@@ -842,5 +842,34 @@
 
 #recruiter-name .delete-icon:hover {
   color: orangered;
+  cursor: grab;
+}
+
+/* TEAM RECRUITER CARD */
+
+.recruiter-card-container {
+  margin-bottom: 10px; 
+}
+
+#recruiter-card-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+}
+
+#recruiter-card-content h5 {
+  font-size: 0.7em;
+}
+
+#recruiter-delete-icon {
+  color: white;
+  background-color: rgb(187, 187, 187);
+  position: absolute;
+  right: 3px;
+}
+
+#recruiter-delete-icon:hover {
+  background-color: black;
   cursor: grab;
 }

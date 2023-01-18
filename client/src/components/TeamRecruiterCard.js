@@ -22,7 +22,7 @@ function TeamRecruiterCard({currentTeam, recruiter, deleteRecruiterFromTeam}){
             <Card>
                 <Card.Content id="recruiter-card-content">
                     <Card.Header ><h5>{recruiter.first_name} {recruiter.last_name}</h5></Card.Header>
-                    <Icon id="admin-delete-icon" name="x" onClick={handleDelete} />
+                    <Icon id="recruiter-delete-icon" circular name="x" size="small" onClick={handleDelete} />
                 </Card.Content>
             </Card>
         </div>
