@@ -7,30 +7,7 @@ import AdminTeamCards from "./AdminTeamCards";
 import TeamReqs from "./TeamReqs";
 
 function TeamDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setSelectTeamID, fetchTeamData, teamData}) {
-    let navigate = useNavigate();
-    const [newTeamForm, setNewTeamCard] = useState(false);
 
-    // const myTeamCards = currentUser.teams.map((team) => {
-    //     return (
-    //         <div onClick={()=> {fetchTeamData(team.id); navigate(`/teams/${team.id}`)}} >
-    //             <MyTeamCards key={team.id} team={team} />
-    //         </div>
-    //     )
-    // })
-
-    // const companyTeamCards = currentUser.company.teams.map((team) => {
-    //     return (
-    //         <div onClick={()=> {fetchTeamData(team.id); navigate(`/teams/${team.id}`)}} >
-    //             <AdminTeamCards key={team.id} team={team} />
-    //         </div>
-    //     )   
-    // })
-
-    const handleDisplayTeamForm = () => {
-        setNewTeamCard(!newTeamForm);
-    }
-
-    // console.log(currentUser.reqs)
 
     return(
         <div id="team-container">
@@ -57,7 +34,7 @@ function TeamDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, set
                     </div>
                 </div>
             </div>
-            <TeamReqs currentUser={currentUser} teamData={teamData} />
+            {/* <TeamReqs currentUser={currentUser} teamData={teamData} /> */}
         </div>
     )
 }

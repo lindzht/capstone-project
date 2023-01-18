@@ -29,7 +29,7 @@ function App() {
   const [displayLoginForm, setDisplayLoginForm] = useState(false);
   const [newTeam, setNewTeam] = useState({name: ""});
   const [selectTeamID, setSelectTeamID] = useState("")
-  const [teamData, setTeamData] = useState([])
+  // const [teamData, setTeamData] = useState([])
   const [companyTeamData, setCompanyTeamData] = useState([]);
 
   let params = useParams();
@@ -160,19 +160,7 @@ function App() {
 
 
     //  FETCH TEAM DATA 
-    //  useEffect(() => {
-    //   fetch(`/companies/${company.id}`)
-    //   .then(res => {
-    //     if(res.ok){
-    //       res.json()
-    //       .then(user => {
-    //         setCompanyTeamData(user)
-    //       })
-    //     }
-    //   });
-    // }, [newTeam, currentUser]);
-    // console.log(params);
-
+     
 
 
 
@@ -227,10 +215,10 @@ function App() {
                   <Route path='myreqs'element={<MyReqsPage currentUser={currentUser} />} />
                   <Route path='myhires'element={<MyHiredReqs currentUser={currentUser} />} />
                 </Route>
-                <Route path='teams/:teamId' element={<TeamDashboard currentUser={currentUser} teamData={teamData} />} >
-                  <Route index element={<TeamDashboardHome currentUser={currentUser} teamData={teamData}/>}/>
-                  <Route path="reqs" element={<TeamReqs currentUser={currentUser} teamData={teamData} />} />
-                  <Route path="settings" element={<TeamSettings currentUser={currentUser} teamData={teamData} />} />
+                <Route path='teams/:teamId' element={<TeamDashboard currentUser={currentUser}  />} >
+                  <Route index element={<TeamDashboardHome currentUser={currentUser} />}/>
+                  <Route path="reqs" element={<TeamReqs currentUser={currentUser}  />} />
+                  <Route path="settings" element={<TeamSettings currentUser={currentUser}  />} />
                 </Route>
                 <Route path='settings'element={<Settings currentUser={currentUser} handleUpdateRecruiter={handleUpdateRecruiter}/>} />
             </Routes>

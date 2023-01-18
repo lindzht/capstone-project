@@ -5,7 +5,7 @@ function TeamSubNav(){
 
     let params = useParams();
     let navigate = useNavigate();
-    console.log(params.teamId);
+    // console.log(params.teamId);
     return(
         <div className="sub-nav-container">
            
