@@ -319,7 +319,7 @@
   0%   {transform: rotate(0);}
   25%  {transform: rotate(90deg);}
   50%  {transform: rotate(0);}
-  100% {transform: rotate(-180);}
+  100% {transform: rotate(-170);}
 }
 
 #nav-dashboard-content #hamburger-icon {
