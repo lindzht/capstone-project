@@ -4,9 +4,10 @@ import { Table, Icon } from 'semantic-ui-react'
 import { Link, Outlet, useParams } from 'react-router-dom';
 
   
-function TeamReqs( {currentUser, teamData}) {
+function TeamReqs( {currentUser, teamData, currentTeam}) {
 
-    console.log(teamData)
+//  {currentTeam && currentTeam.reqs}
+    
     // let params = useParams();
     // console.log(params)
   

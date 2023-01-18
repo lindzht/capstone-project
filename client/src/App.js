@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useParams} from 'react-router-dom';
 import './App.css';
 import LandingPage from './components/LandingPage';
 import SignupPage from './components/SignupPage';
@@ -30,6 +30,10 @@ function App() {
   const [newTeam, setNewTeam] = useState({name: ""});
   const [selectTeamID, setSelectTeamID] = useState("")
   const [teamData, setTeamData] = useState([])
+  const [companyTeamData, setCompanyTeamData] = useState([]);
+
+  let params = useParams();
+
 
   //STAY LOGGED IN:
   useEffect(() => {
@@ -156,49 +160,20 @@ function App() {
 
 
     //  FETCH TEAM DATA 
-
-    // const fetchTeamData = (teamID)=> {
-    //   fetch(`/teams/${teamID}`)
+    //  useEffect(() => {
+    //   fetch(`/companies/${company.id}`)
     //   .then(res => {
-    //     if (res.ok){
+    //     if(res.ok){
     //       res.json()
-    //       .then(data => {
-    //         setTeamData(data)
-    //         console.log(data);
+    //       .then(user => {
+    //         setCompanyTeamData(user)
     //       })
     //     }
-    //   })
-    // }
+    //   });
+    // }, [newTeam, currentUser]);
+    // console.log(params);
 
-    const fetchTeamData = (teamID)=>{
-      console.log(teamID);
-      setSelectTeamID(teamID)
-      // fetch(`/teams/${teamID}`)
-      // .then(res => {
-      //   if (res.ok){
-      //     res.json()
-      //     .then(data => {
-      //       setTeamData(data)
-      //       console.log(data)
-      //     })
-      //   }
-      // })
-    }
 
-    useEffect(() => {
-      fetch(`/teams/${selectTeamID}`)
-      .then(res => {
-        if (res.ok){
-          res.json()
-          .then(data => {
-            setTeamData(data)
-            console.log(data)
-          })
-        }
-      })
-    }, [selectTeamID])
-
-    console.log(teamData)
 
 
   return (
@@ -247,7 +222,7 @@ function App() {
                       setNewTeam={setNewTeam}
                       createNewTeam={createNewTeam}
                       setSelectTeamID={setSelectTeamID}
-                      fetchTeamData={fetchTeamData}
+                      // fetchTeamData={fetchTeamData}
                       />} />
                   <Route path='myreqs'element={<MyReqsPage currentUser={currentUser} />} />
                   <Route path='myhires'element={<MyHiredReqs currentUser={currentUser} />} />

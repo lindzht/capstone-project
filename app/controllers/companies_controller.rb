@@ -9,6 +9,11 @@ class CompaniesController < ApplicationController
         render json: company, status: :created
     end
 
+    def show
+        company = Company.find(params[:company_id])
+        render json: company, serializer: CompanyTeamDetailSerializer, status: :ok
+    end
+
 
     private
 
