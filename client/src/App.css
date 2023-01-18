@@ -814,9 +814,10 @@
   margin: 2em;
   background-color: rgba(227, 231, 208, 0.737);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 2em;
+  padding: 1em;
   /* border-radius: 20px; */
   margin-top: 3%;
+  border-radius: 20px;
 
 }
 
@@ -830,8 +831,9 @@
 }
 
 #recruiter-name {
-  margin-top: 20px;
-  border-bottom: 3px solid rgb(255, 255, 255);
+  margin-top: 10px;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.696);
 }
 
 #recruiter-name .delete-icon {

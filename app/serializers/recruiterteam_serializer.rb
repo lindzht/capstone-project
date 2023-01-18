@@ -1,5 +1,6 @@
 class RecruiterteamSerializer < ActiveModel::Serializer
-  attributes :id
-  has_one :recruiter
-  has_one :team
+  attributes :id, :recruiter
+
+  has_one :recruiter,  serializer: RecruiterTeamDisplaySerializer
+  
 end

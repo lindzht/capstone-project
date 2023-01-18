@@ -32,6 +32,7 @@ function App() {
   // const [teamData, setTeamData] = useState([])
   const [companyTeamData, setCompanyTeamData] = useState([]);
   const [currentTeam, setCurrentTeam] = useState(null)
+  const [newData, setNewData] = useState([]);
 
 
   let params = useParams();
@@ -172,7 +173,24 @@ function App() {
           })
         }
       })
-    }, [selectTeamID])
+    }, [selectTeamID, newData])
+
+
+    //  DELETE RECRUITER FROM TEAM
+    const deleteRecruiterFromTeam =(recTeamID)=>{
+      fetch(`/recruiterteams/${recTeamID}`, {
+        method: "DELETE"
+        })
+        .then(res => {
+        if(res.ok) {
+            res.json()
+            .then(data => {
+              setNewData(data)
+            })
+          }
+        })
+    }
+    
 
 
 
@@ -233,7 +251,8 @@ function App() {
                   <Route index element={<TeamDashboardHome 
                       currentUser={currentUser}
                       // setSelectTeamID={setSelectTeamID}
-                      currentTeam={currentTeam} />}/>
+                      currentTeam={currentTeam} 
+                      deleteRecruiterFromTeam={deleteRecruiterFromTeam}/>}/>
                   <Route path="reqs" element={<TeamReqs currentUser={currentUser} currentTeam={currentTeam} />} />
                   <Route path="settings" element={<TeamSettings currentUser={currentUser}  />} />
                 </Route>

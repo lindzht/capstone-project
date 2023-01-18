@@ -5,17 +5,18 @@ import {  Link, useNavigate } from 'react-router-dom';
 import AddTeamCard from "./AddTeamCard";
 import AdminTeamCards from "./AdminTeamCards";
 import TeamReqs from "./TeamReqs";
-import TeamRecruiters from "./TeamRecruiters";
+import TeamRecruiters from "./TeamRecruiterCard";
+import TeamRecruiterCard from "./TeamRecruiterCard";
 
-function TeamDashboardHome({currentUser, currentTeam}) {
+function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) {
 
     function renderOpenReqTable (){
         return(<TeamReqs currentTeam={currentTeam}/>)
     }
 
-    function renderRecruiters(){
-        return(<TeamRecruiters currentTeam={currentTeam}/>)
-    } 
+    // function renderRecruiters(){
+    //     return(<TeamRecruiters currentTeam={currentTeam}/>)
+    // } 
 
     // function renderRecruiters(){
     //     return(
@@ -25,6 +26,13 @@ function TeamDashboardHome({currentUser, currentTeam}) {
     //     )
     // } 
 
+    function renderRecruiters (){
+        return( 
+            currentTeam.recruiters.map((recruiter) => {
+                return(<TeamRecruiterCard currentTeam={currentTeam} recruiter={recruiter} deleteRecruiterFromTeam={deleteRecruiterFromTeam}/>)
+            })
+        )
+    }
 
 
 
