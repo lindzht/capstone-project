@@ -42,6 +42,14 @@ function Settings ({currentUser, handleUpdateRecruiter }){
 
     return(
         <div className="dashboard-container">
+            <div id="user-display">
+                <Link to="/dashboard">
+                    <Icon id="icon-home" name="home"></Icon>
+                </Link>
+                <Link to="/settings">
+                    <Icon name="user circle"></Icon><p>{currentUser && currentUser.first_name} {currentUser.admin? "(Admin)" : null}</p>
+                </Link>
+            </div>
             <div id="settings-card">
                 <div id="settings-left-content">
                     <h1>Hello<br /><span>{currentUser.first_name}</span></h1>
