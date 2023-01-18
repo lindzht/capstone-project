@@ -10,7 +10,7 @@ function MyDashboard ( {currentUser} ){
 
     return(
         <div className="dashboard-container">
-            <div id="user-display"><Link to="/settings"><Icon name="user circle"></Icon><p>{currentUser && currentUser.first_name} {currentUser.admin? "(Admin)" : null}</p></Link></div>
+            <div id="user-display"><Link to="/settings"><Icon name="user circle"></Icon><p>{currentUser && currentUser.first_name} <span>{currentUser.admin? `(Admin)` : null}</span></p></Link></div>
             <div className="dashboard-header">
                 <h1>{currentUser.first_name} 's Board</h1>
             </div>

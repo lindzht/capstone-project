@@ -311,7 +311,7 @@
 
 #hamburger-content #hamburger-icon:hover {
   animation-name: wave;
-  animation-duration: 4s;
+  animation-duration: 3s;
   animation-iteration-count: infinite;
 }
 
@@ -319,7 +319,7 @@
   0%   {transform: rotate(0);}
   25%  {transform: rotate(90deg);}
   50%  {transform: rotate(0);}
-  100% {transform: rotate(-90);}
+  100% {transform: rotate(-180);}
 }
 
 #nav-dashboard-content #hamburger-icon {
@@ -412,6 +412,10 @@
 
 #user-display a:hover{
   color:orangered;
+}
+
+#user-display span {
+  font-weight: 600;
 }
 
 .dashboard-container {
@@ -638,6 +642,10 @@
   flex-direction: row;
   align-items: center;
   padding: 9px;
+}
+
+#admin-card-content-top h5:hover {
+  color: orangered;
 }
 
 #admin-edit-icon {
