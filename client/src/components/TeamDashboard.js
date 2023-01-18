@@ -60,7 +60,14 @@ function TeamDashboard ( {currentUser, teamData} ){
 
     return(
         <div className="dashboard-container">
-            <div id="user-display"><Link to="/settings"><Icon name="user circle"></Icon><p>{currentUser && currentUser.first_name} {currentUser.admin? "(Admin)" : null}</p></Link></div>
+            <div id="user-display">
+                <Link to="/dashboard">
+                    <Icon id="icon-home" name="home"></Icon>
+                </Link>
+                <Link to="/settings">
+                    <Icon name="user circle"></Icon><p>{currentUser && currentUser.first_name} {currentUser.admin? "(Admin)" : null}</p>
+                </Link>
+            </div>
             <div className="dashboard-header">
                 <h1>{currentTeam.name} 's Board</h1>
             </div>
