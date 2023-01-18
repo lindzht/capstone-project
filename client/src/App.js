@@ -115,15 +115,15 @@ function App() {
     }
 
      // LOGOUT
-     const handleLogOut =()=> {
-      fetch("/logout", {
-      method: "DELETE"
-      })
-      .then(res => {
-      if(res.ok) {
-          setCurrentUser(null)
+    const handleLogOut =()=> {
+    fetch("/logout", {
+    method: "DELETE"
+    })
+    .then(res => {
+    if(res.ok) {
+        setCurrentUser(null)
       }
-      })
+     })
     }
 
     // DISPLAY LOGIN MODAL
@@ -173,7 +173,20 @@ function App() {
     const fetchTeamData = (teamID)=>{
       console.log(teamID);
       setSelectTeamID(teamID)
-      fetch(`/teams/${teamID}`)
+      // fetch(`/teams/${teamID}`)
+      // .then(res => {
+      //   if (res.ok){
+      //     res.json()
+      //     .then(data => {
+      //       setTeamData(data)
+      //       console.log(data)
+      //     })
+      //   }
+      // })
+    }
+
+    useEffect(() => {
+      fetch(`/teams/${selectTeamID}`)
       .then(res => {
         if (res.ok){
           res.json()
@@ -183,20 +196,7 @@ function App() {
           })
         }
       })
-    }
-
-    // useEffect(() => {
-    //   fetch(`/teams/${selectTeamID}`)
-    //   .then(res => {
-    //     if (res.ok){
-    //       res.json()
-    //       .then(data => {
-    //         setTeamData(data)
-    //         console.log(data)
-    //       })
-    //     }
-    //   })
-    // }, [selectTeamID, currentUser])
+    }, [selectTeamID])
 
     console.log(teamData)
 

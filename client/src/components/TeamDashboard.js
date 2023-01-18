@@ -3,6 +3,7 @@ import TeamSubNav from "./TeamSubNav";
 import { Icon } from 'semantic-ui-react';
 import { Link, Outlet, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import TeamReqs from "./TeamReqs";
 
 
 function TeamDashboard ( {currentUser, teamData} ){
@@ -36,6 +37,7 @@ function TeamDashboard ( {currentUser, teamData} ){
                 <h1>{currentTeam.name} 's Board</h1>
             </div>
             <TeamSubNav />
+            {/* <TeamReqs /> */}
         </div> 
     )
 }
