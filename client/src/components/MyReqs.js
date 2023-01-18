@@ -108,7 +108,7 @@ function MyReqs( {currentUser}) {
                 <Table.Cell>{hire_goal}</Table.Cell>
                 <Table.Cell>{is_hired ? "True" : "False"}</Table.Cell>
                 <Table.Cell><Icon name="pencil alternate" size='small'/></Table.Cell>
-                <Table.Cell><Icon name="pencil alternate" size='small'/></Table.Cell>
+                <Table.Cell><Icon name="x" size='small'/></Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>

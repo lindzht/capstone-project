@@ -12,6 +12,10 @@ class TeamsController < ApplicationController
         render json: team, serializer: TeamDetailDisplaySerializer, status: :ok
     end
 
+    def all_team_data
+        
+    end
+
     private
 
     def team_params

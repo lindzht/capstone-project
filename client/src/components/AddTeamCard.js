@@ -22,7 +22,7 @@ function AddTeamCard ({newTeam, setNewTeam, createNewTeam, currentUser}){
 
     return(
         <div id="add-team-container">
-            <h3>Add A New Team</h3>
+            <h3>Add Team</h3>
             <form onSubmit={handleTeamSubmit}>
                 <input
                     type="text"
@@ -30,7 +30,7 @@ function AddTeamCard ({newTeam, setNewTeam, createNewTeam, currentUser}){
                     placeholder="Team Name..."
                     value={newTeam.name}
                     onChange={handleChange} />
-                <Icon name='right arrow' className="arrow circle right" size="large" onClick={handleTeamSubmit}/>
+                <Icon name='right arrow' className="arrow circle right" size="large" id="arrow-right" onClick={handleTeamSubmit}/>
             </form>
         </div>
     )

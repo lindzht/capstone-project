@@ -11,7 +11,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setSe
 
     const myTeamCards = currentUser.teams.map((team) => {
         return (
-            <div onClick={()=> {fetchTeamData(team.id); navigate(`/teams/${team.id}`)}} >
+            <div onClick={()=> { navigate(`/teams/${team.id}`)}} >
                 <MyTeamCards key={team.id} team={team} />
             </div>
         )
@@ -19,8 +19,8 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setSe
 
     const companyTeamCards = currentUser.company.teams.map((team) => {
         return (
-            <div onClick={()=> {fetchTeamData(team.id); navigate(`/teams/${team.id}`)}} >
-                <AdminTeamCards key={team.id} team={team} />
+            <div >
+                <AdminTeamCards key={team.id} team={team} navigate={navigate}/>
             </div>
         )   
     })
@@ -40,6 +40,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setSe
                     </div>
                     {myTeamCards} 
                 </div>
+                
             </div>  
 
             {currentUser.admin ? 
@@ -52,6 +53,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setSe
                         {newTeamForm ? <AddTeamCard newTeam={newTeam} setNewTeam={setNewTeam} createNewTeam={createNewTeam} currentUser={currentUser}/> : null}
                         {companyTeamCards}
                     </div>
+                    
                 </div>
                 : 
                 null   

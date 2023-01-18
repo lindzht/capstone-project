@@ -297,6 +297,37 @@
 
 /* NAV HAMBURGER :LOGGED IN */
 
+#hamburger-icon {
+  color: orangered;
+  font-size: 45px;
+  cursor: grab;
+}
+
+#hamburger-content #hamburger-icon {
+  position: relative;
+  top: 30px;
+  left: 20px;
+}
+
+#hamburger-content #hamburger-icon:hover {
+  animation-name: wave;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes wave {
+  0%   {transform: rotate(0);}
+  25%  {transform: rotate(90deg);}
+  50%  {transform: rotate(0);}
+  100% {transform: rotate(-90);}
+}
+
+#nav-dashboard-content #hamburger-icon {
+ position: relative;
+ left: 20%;
+ top: -50px;
+}
+
 #nav-dashboard-container {
   position: relative;
   /* top: -30px; */
@@ -313,8 +344,23 @@
 #nav-dashboard-container h3 {
   color: black;
   font-size: 2em; 
-  margin-bottom: 2em; 
+  margin: -1em 0 1em 0;
   color: orangered;
+  position: relative;
+  left: 10%;
+}
+
+#nav-dashboard-container h4 {
+  text-align: center;
+  position: relative;
+  left: 10%;
+}
+
+#nav-dashboard-container #peaceout-icon{
+  position: relative;
+  left: 10%;
+  color: orangered;
+  margin-top: 50%;
 }
 
 #nav-dashboard-content {
@@ -350,7 +396,6 @@
 
  #nav-dashboard-content #logout {
   position: relative;
-  bottom: -50px;
  }
 
 /* MY DASHBOARD */
@@ -420,6 +465,26 @@
   border-radius: 20px;
 }
 
+#admin-team-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#admin-team-container #admin-team-header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#admin-team-header h3 {
+  text-align: left;
+}
+
+
+
 
 #dashboard-content-right {
   background-color: rgb(227, 231, 208);
@@ -469,17 +534,29 @@
 
 /* MY DASHBOARD: ADD NEW TEAM FORM */
 
-#add-team-container {
+#add-team-container { 
   background-color: white;
-  padding: 3em;
+  padding: 0.5em;
   border: 1px solid rgb(207, 207, 207);
   border-radius: 5px;
   margin-bottom: 1em;
+  width: 290px;
+}
+
+#add-team-container h3 {
+  color: orangered;
+  font-size: 1.3em;
+  margin: 5px;
+}
+
+#add-team-container #arrow-right {
+  margin-left: 10px;
 }
 
 #add-team-container input {
   border: 1px solid rgb(207, 207, 207);
   height: 2em;
+  width: 80%;
 }
 
 /* DASHBOARD SUB-NAV */
@@ -537,6 +614,10 @@
 
 /* ADMIN: TEAM CARDS  */
 
+#admin-team-header .add-icon {
+  margin: 5px;
+}
+
 #admin-team-header .add-icon:hover {
   color: orangered;
   cursor: grab;
@@ -561,13 +642,25 @@
 
 #admin-edit-icon {
   position: absolute;
-  right: 10px;
+  right: 45px;
   margin-top: -10px;
   color: rgb(169, 169, 169);
 }
 
 #admin-edit-icon:hover {
   color: black;
+  cursor: grab;
+}
+
+#admin-delete-icon {
+  position: absolute;
+  right: 10px;
+  margin-top: -7px;
+  color: rgb(169, 169, 169);
+}
+
+#admin-delete-icon:hover {
+  color: orangered;
   cursor: grab;
 }
 
@@ -609,13 +702,14 @@
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 900px;
-  border: 5px solid white;
+  border: 20px solid white;
+  margin-top: 3%;
 }
 
 #settings-left-content {
   background-color: rgb(227, 231, 208);
   padding: 5em;
-  border-radius: 20px 0 0 20px;
+  /* border-radius: 10px 0 0 20px; */
 }
 
 #settings-left-content h1 {
@@ -641,7 +735,7 @@
 #settings-right-content {
   background-color: rgba(255, 255, 255, 0.71);
   padding: 6em;
-  border-radius: 0 20px 20px 0;
+  /* border-radius: 0 20px 20px 0; */
   width: 700px;
 }
 

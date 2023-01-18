@@ -4,16 +4,17 @@ import { Table, Icon } from 'semantic-ui-react'
 import { Link, Outlet, useParams } from 'react-router-dom';
 
   
-function TeamReqs( {currentUser, teamData}) {
-  
+function TeamReqs( {currentUser, teamData, currentTeam}) {
+
+//  {currentTeam && currentTeam.reqs}
+    
     // let params = useParams();
     // console.log(params)
   
-    console.log(currentUser.teams);
+    // console.log(currentUser.teams);
     // console.log(currentUser.reqs);
     // const tableData = teamData.reqs && teamData.reqs ? teamData.reqs : []
     const tableData = currentUser.reqs
-    
     
     function exampleReducer(state, action) {
       switch (action.type) {
