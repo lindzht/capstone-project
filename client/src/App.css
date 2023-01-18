@@ -796,3 +796,9 @@
 #form-edit-recruiter-container .exit a:hover {
   color: black;
 }
+
+/* TEAM DASHBOARD */
+
+#user-display #icon-home {
+  margin-left: -190px;
+}
