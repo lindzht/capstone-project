@@ -31,6 +31,8 @@ function App() {
   const [selectTeamID, setSelectTeamID] = useState("")
   // const [teamData, setTeamData] = useState([])
   const [companyTeamData, setCompanyTeamData] = useState([]);
+  const [currentTeam, setCurrentTeam] = useState(null)
+
 
   let params = useParams();
 
@@ -160,7 +162,17 @@ function App() {
 
 
     //  FETCH TEAM DATA 
-     
+    useEffect(() => {
+      fetch(`/teams/${selectTeamID}`)
+      .then(res => {
+        if (res.ok){
+          res.json()
+          .then(data => {
+            setCurrentTeam(data)
+          })
+        }
+      })
+    }, [selectTeamID])
 
 
 
@@ -210,14 +222,19 @@ function App() {
                       setNewTeam={setNewTeam}
                       createNewTeam={createNewTeam}
                       setSelectTeamID={setSelectTeamID}
-                      // fetchTeamData={fetchTeamData}
                       />} />
                   <Route path='myreqs'element={<MyReqsPage currentUser={currentUser} />} />
                   <Route path='myhires'element={<MyHiredReqs currentUser={currentUser} />} />
                 </Route>
-                <Route path='teams/:teamId' element={<TeamDashboard currentUser={currentUser}  />} >
-                  <Route index element={<TeamDashboardHome currentUser={currentUser} />}/>
-                  <Route path="reqs" element={<TeamReqs currentUser={currentUser}  />} />
+                <Route path='teams/:teamId' element={<TeamDashboard 
+                      currentUser={currentUser}
+                      setSelectTeamID={setSelectTeamID}
+                      currentTeam={currentTeam}  />} >
+                  <Route index element={<TeamDashboardHome 
+                      currentUser={currentUser}
+                      // setSelectTeamID={setSelectTeamID}
+                      currentTeam={currentTeam} />}/>
+                  <Route path="reqs" element={<TeamReqs currentUser={currentUser} currentTeam={currentTeam} />} />
                   <Route path="settings" element={<TeamSettings currentUser={currentUser}  />} />
                 </Route>
                 <Route path='settings'element={<Settings currentUser={currentUser} handleUpdateRecruiter={handleUpdateRecruiter}/>} />

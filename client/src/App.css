@@ -802,3 +802,43 @@
 #user-display #icon-home {
   margin-left: -190px;
 }
+
+/* TEAM DASHBOARD: HOME */
+
+#team-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#team-container-right {
+  margin: 2em;
+  background-color: rgba(227, 231, 208, 0.737);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2em;
+  /* border-radius: 20px; */
+  margin-top: 3%;
+
+}
+
+#team-container-right #team-block{
+  width: 180px
+}
+
+#team-container-right #team-block h3 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+}
+
+#recruiter-name {
+  margin-top: 20px;
+  border-bottom: 3px solid rgb(255, 255, 255);
+}
+
+#recruiter-name .delete-icon {
+  margin-right: 10px;
+}
+
+#recruiter-name .delete-icon:hover {
+  color: orangered;
+  cursor: grab;
+}

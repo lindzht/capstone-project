@@ -8,6 +8,7 @@ function TeamReqs( {currentTeam}) {
 
     console.log(currentTeam)
 
+
     const tableData = currentTeam.reqs
 
     function exampleReducer(state, action) {
@@ -40,7 +41,7 @@ function TeamReqs( {currentTeam}) {
 
   // if (!currentTeam) return ("Loading...")
     return (
-      <div className='req-container'>
+      <>
         <Table sortable celled fixed>
           <Table.Header>
             <Table.Row>
@@ -108,7 +109,7 @@ function TeamReqs( {currentTeam}) {
             ))}
           </Table.Body>
         </Table>
-      </div>
+      </>
     )
   }
   
