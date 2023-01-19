@@ -80,7 +80,7 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) 
                             : 
                             <div className='team-recruiters'>
                                 {renderRecruiters()}
-                                <Icon name="add circle" className='add-icon' />
+                                <Icon name="add" className='add-icon' />
                                 <AddRecruiterCard />
                             </div>
                         }

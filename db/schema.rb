@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_13_021954) do
+ActiveRecord::Schema.define(version: 2023_01_19_165952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2023_01_13_021954) do
     t.bigint "recruiter_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "company_id", null: false
+    t.index ["company_id"], name: "index_reqs_on_company_id"
     t.index ["recruiter_id"], name: "index_reqs_on_recruiter_id"
   end
 
@@ -79,6 +81,7 @@ ActiveRecord::Schema.define(version: 2023_01_13_021954) do
   add_foreign_key "recruiters", "companies"
   add_foreign_key "recruiterteams", "recruiters"
   add_foreign_key "recruiterteams", "teams"
+  add_foreign_key "reqs", "companies"
   add_foreign_key "reqs", "recruiters"
   add_foreign_key "reqteams", "reqs"
   add_foreign_key "reqteams", "teams"

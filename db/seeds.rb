@@ -22,8 +22,10 @@ rt2 = Recruiterteam.create(recruiter_id: r2.id, team_id: t1.id)
 rt3 = Recruiterteam.create(recruiter_id: r2.id, team_id: t2.id)
 
 
-q1 = Req.create(req_id: "TEST1", name: "Sales Executive", org: "Sales", hiring_manager: "Test Hiring Manager", is_hired: false)
-q2 = Req.create(req_id: "TEST2", name: "Engineer", org: "Engineering", hiring_manager: "Test Hiring Manager 2", is_hired: false, recruiter_id: r2.id)
+q1 = Req.create(req_id: "TEST1", name: "Sales Executive", org: "Sales", hiring_manager: "Test Hiring Manager", is_hired: false, company_id: c1.id)
+q2 = Req.create(req_id: "TEST2", name: "Engineer", org: "Engineering", hiring_manager: "Test Hiring Manager 2", is_hired: false, recruiter_id: r2.id, company_id: c1.id)
+q3 = Req.create(req_id: "TEST3", name: "Engineer II", org: "Engineering", hiring_manager: "Test Hiring Manager 2", is_hired: true, recruiter_id: r2.id, company_id: c1.id)
+
 
 qt1 = Reqteam.create(req_id: q1.id, team_id: t1.id)
 qt2 = Reqteam.create(req_id: q2.id, team_id: t1.id)

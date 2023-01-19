@@ -11,6 +11,7 @@ function TeamSubNav(){
            
             <nav>
                 <button className="dash-nav-button" onClick={()=>{navigate(`/teams/${params.teamId}`)}}>Team Dashboard</button>
+                <Link to="add"><button className="dash-nav-button">Add</button></Link>
                 <Link to="reqs"><button className="dash-nav-button">Hires</button></Link>
                 {/* <Link to="metrics"><button className="dash-nav-button">Metrics</button></Link> */}
                 <Link to="settings"><button className="dash-nav-button">Team Settings</button></Link>
