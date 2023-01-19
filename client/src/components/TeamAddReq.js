@@ -29,7 +29,7 @@ function TeamAddReq ( {currentUser, teamData, companies, currentTeam} ){
     // console.log(currentCompanyReqs)
 
     const companyReqsSearchInput = currentCompanyReqs[0].reqs.map((req) => {
-        return( {label: req.name, value: req.id})
+        return( {label: `${req.req_id} — ${req.name} `, value: req.id})
     }) 
 
     const companySelected = (e) => {
