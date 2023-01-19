@@ -39,15 +39,15 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) 
                 <div className="dashboard-content-container">
                     <div id="dashboard-content-middle">
                         <div id="my-metrics-card-container">
-                            <h3>Reqs Open</h3>
-                           
+                            <h1>{!currentTeam ? "Loading..." : currentTeam.open_reqs}</h1>
+                            <h3>Open Reqs</h3>
                         </div>
                     </div>
 
                     <div id="dashboard-content-middle">
-                        <div id="my-metrics-card-container">
-                            
-                            <h3>Reqs Hired</h3>
+                        <div id="my-metrics-card-container">   
+                            <h1>{!currentTeam ? "Loading..." : currentTeam.hired_reqs}</h1>
+                            <h3>Hired Reqs</h3>
                         </div>
                     </div>
                     

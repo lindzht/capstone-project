@@ -577,9 +577,6 @@ transform: rotate(-10deg);
   color: orangered;
 }
 
-#my-metrics-card-container {
-  margin: 50px;
-}
 
 #my-content-blocks h3{
   font-family: 'Ubuntu', sans-serif;
@@ -899,6 +896,10 @@ transform: rotate(-10deg);
   color: white;
 }
 
+#team-container-left #dashboard-content-right {
+  width: 38em;
+}
+
 .team-recruiters .add-icon {
   color: rgba(255, 255, 255, 0.754);
   position: relative;
@@ -920,6 +921,21 @@ transform: rotate(-10deg);
 
 #team-container .req-container .edit-req{
   width: 60px;
+}
+
+#my-metrics-card-container {
+  padding: 0.5em;
+  text-align: center;
+}
+#my-metrics-card-container h1 {
+  font-size: 3.8em;
+  margin: -10px;
+}
+
+#my-metrics-card-container h3 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 1.3em;
 }
 
 /* TEAM RECRUITER CARD */
