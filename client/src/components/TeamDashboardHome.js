@@ -36,7 +36,7 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) 
     return(
         <div id="team-container">
             <div id="team-container-left">
-                <div className="dashboard-content-container">
+                {/* <div className="dashboard-content-container">
                     <div id="dashboard-content-middle">
                         <div id="my-metrics-card-container">
                             <h1>{!currentTeam ? "Loading..." : currentTeam.open_reqs}</h1>
@@ -56,7 +56,7 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) 
                             <h3>Metrics</h3>
                         </div>
                     </div>
-                </div>
+                </div> */}
                     {!currentTeam  ?      
                         <h3>"Loading..."</h3>
                         : 
@@ -73,6 +73,20 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) 
                     }
             </div>
             <div id="team-container-right">
+
+                <div id="dashboard-content-middle">
+                        <div id="my-metrics-card-container">
+                            <h1>{!currentTeam ? "Loading..." : currentTeam.open_reqs}</h1>
+                            <h3>Open Reqs</h3>
+                        </div>
+                </div>
+                <div id="dashboard-content-middle">
+                    <div id="my-metrics-card-container">   
+                            <h1>{!currentTeam ? "Loading..." : currentTeam.hired_reqs}</h1>
+                            <h3>Hired Reqs</h3>
+                    </div>
+                </div>
+
                 <div id="team-block">
                         <h3>Teammates</h3>
                         {!currentTeam  ?      
@@ -85,6 +99,7 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) 
                             </div>
                         }
                 </div>
+                
             </div>
 
         </div>

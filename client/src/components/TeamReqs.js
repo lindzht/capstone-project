@@ -68,6 +68,12 @@ function TeamReqs( {currentTeam}) {
                 sorted={column === 'hiring_manager' ? direction : null}
                 onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'hiring_manager' })}
               >
+                Recruiter
+              </Table.HeaderCell>
+              <Table.HeaderCell
+                sorted={column === 'hiring_manager' ? direction : null}
+                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'hiring_manager' })}
+              >
                 Hiring Manager
               </Table.HeaderCell>
               <Table.HeaderCell
@@ -88,9 +94,10 @@ function TeamReqs( {currentTeam}) {
               >
                 Hired Status
               </Table.HeaderCell>
-              <Table.HeaderCell className="edit-req">
+              <Table.HeaderCell id="edit-req-column">
                 Edit
               </Table.HeaderCell>
+
             
             </Table.Row>
           </Table.Header>
@@ -100,11 +107,12 @@ function TeamReqs( {currentTeam}) {
                 <Table.Cell>{req_id}</Table.Cell>
                 <Table.Cell>{name}</Table.Cell>
                 <Table.Cell>{org}</Table.Cell>
+                <Table.Cell>Recruiter</Table.Cell>
                 <Table.Cell>{hiring_manager}</Table.Cell>
                 <Table.Cell>{open_date}</Table.Cell>
                 <Table.Cell>{hire_goal}</Table.Cell>
                 <Table.Cell>{is_hired ? "True" : "False"}</Table.Cell>
-                <Table.Cell className="edit-req"><Icon name="pencil alternate" size='small'/></Table.Cell>
+                <Table.Cell><Icon name="pencil alternate" size='large'/><Icon name="x" size='large'/></Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>

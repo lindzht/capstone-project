@@ -2,29 +2,29 @@
 import landing_video from "../video/landing_video.mp4";
 import { Icon } from 'semantic-ui-react'
 import {useState} from "react"
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, Navigate } from "react-router-dom";
 
-function LoginModal({setCurrentUser, setErrors, errors, handleLoginModal}) {
+function LoginModal({errors, handleLoginModal, handleLogin}) {
     let navigate = useNavigate();
 
     // LOGIN 
-    const handleLogin = (currentUser) => {
-        fetch('/login', {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body:JSON.stringify(currentUser)
-        })
-        .then(res => {
-            if (res.ok){
-            res.json().then(data => {
-                setCurrentUser(data);
-                navigate('/dashboard')
-            })
-            } else {
-            res.json().then(data => {for (const key in data){setErrors(data[key]);}})
-            }
-        })
-    }
+    // const handleLogin = (currentUser) => {
+    //     fetch('/login', {
+    //         method: "POST",
+    //         headers: {'Content-Type': 'application/json'},
+    //         body:JSON.stringify(currentUser)
+    //     })
+    //     .then(res => {
+    //         if (res.ok){
+    //         res.json().then(data => {
+    //             setCurrentUser(data);
+    //             navigate('/dashboard')
+    //         })
+    //         } else {
+    //         res.json().then(data => {for (const key in data){setErrors(data[key]);}})
+    //         }
+    //     })
+    // }
 
     const [user, setUser] = useState({
         email: "",
@@ -45,6 +45,9 @@ function LoginModal({setCurrentUser, setErrors, errors, handleLoginModal}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         handleLogin(user)
+        if (errors) {
+            navigate('/dashboard')
+        }
     };
 
 
@@ -75,7 +78,7 @@ function LoginModal({setCurrentUser, setErrors, errors, handleLoginModal}) {
                             onChange={handleChange} />
                         <Icon size="big" name='arrow circle right' className="icon-right-arrow" onClick={handleSubmit}/>
                     </form>
-
+                    {/* {errors ? "error baby" : null} */}
                 </div>
                 
             </div>
