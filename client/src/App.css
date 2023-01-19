@@ -62,21 +62,40 @@
 #landing-page-container {
   /* background-color: rgb(227, 231, 208); */
   /* background-image: linear-gradient(90deg, rgb(227, 231, 208), rgba(255, 164, 36, 0.376)); */
+  /* background-image: linear-gradient(155deg, rgb(227, 231, 208) 50%, rgba(255, 164, 36, 0.376) 90%); */
+
+  background: linear-gradient(310deg, #d9e1b3, #fbd49e, #d9e1b3);
+  background-size: 600% 600%;
+
+  -webkit-animation: AnimationName 8s ease infinite;
+  -moz-animation: AnimationName 8s ease infinite;
+  animation: AnimationName 8s ease infinite;
+
   height: 100vh;
   width: 100vw; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   z-index: -10;
-  animation-name: landwave;
-  animation-duration: 3.8s;
-  animation-iteration-count: infinite;  /* margin-top: -5%; */
+  /* animation: landwave 4s linear 0s infinite normal;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out; */
 }
 
-@keyframes landwave {
-  0%   {  background-image: linear-gradient(45deg, rgb(227, 231, 208), rgba(255, 164, 36, 0.376));}
-  50%   {  background-image: linear-gradient(50deg, rgb(227, 231, 208), rgba(255, 164, 36, 0.376));}
-  100%   {  background-image: linear-gradient(90deg, rgb(227, 231, 208), rgba(255, 164, 36, 0.376));}
+/* @keyframes landwave {
+  0%   {   background-image: linear-gradient(155deg, rgb(227, 231, 208) 100%, rgba(255, 164, 36, 0.376) 100%);}
+  20%   {  background-image: linear-gradient(155deg, rgb(227, 231, 208) 80%, rgba(255, 164, 36, 0.376) 100%);}
+  45%   {  background-image: linear-gradient(155deg, rgb(227, 231, 208) 50%, rgba(255, 164, 36, 0.376) 100%);}
+  50%   {  background-image: linear-gradient(155deg, rgb(227, 231, 208) 30%, rgba(255, 164, 36, 0.376) 100%);}
+  65%   {  background-image: linear-gradient(155deg, rgb(227, 231, 208) 50%, rgba(255, 164, 36, 0.376) 100%);}
+  80%   {  background-image: linear-gradient(155deg, rgb(227, 231, 208) 80%, rgba(255, 164, 36, 0.376) 100%);}
+  100%   {  background-image: linear-gradient(155deg, rgb(227, 231, 208) 100%, rgba(255, 164, 36, 0.376) 100%);}
+} */
+
+@keyframes AnimationName {
+  0%{background-position:0% 14%}
+  50%{background-position:100% 87%}
+  100%{background-position:0% 14%}
 }
 
 #landing-top {
