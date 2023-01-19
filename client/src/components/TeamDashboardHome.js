@@ -62,18 +62,18 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam, c
             </div>
             <div id="team-container-right">
 
-                <div id="dashboard-content-middle">
-                        <div id="my-metrics-card-container">
-                            <h1>{!currentTeam ? "Loading..." : currentTeam.open_reqs}</h1>
-                            <h3>Open Reqs</h3>
-                        </div>
+                
+                <div id="team-metrics-card-container">
+                    <h1>{!currentTeam ? "Loading..." : currentTeam.open_reqs}</h1>
+                    <h3>Open Reqs</h3>
                 </div>
-                <div id="dashboard-content-middle">
-                    <div id="my-metrics-card-container">   
-                            <h1>{!currentTeam ? "Loading..." : currentTeam.hired_reqs}</h1>
-                            <h3>Hired Reqs</h3>
-                    </div>
+                
+                
+                <div id="team-metrics-card-container">   
+                        <h1>{!currentTeam ? "Loading..." : currentTeam.hired_reqs}</h1>
+                        <h3>Hired Reqs</h3>
                 </div>
+            
 
                 <div id="team-block">
                         <h3>Teammates</h3>
@@ -82,7 +82,7 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam, c
                             : 
                             <div className='team-recruiters'>
                                 {renderRecruiters()}
-                                <Icon name="add" className='add-icon' />
+                                <Icon name="circle add" className='add-icon' />
                                 <AddRecruiterCard />
                             </div>
                         }

@@ -894,6 +894,10 @@ transform: rotate(-10deg);
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   color: white;
+  margin-top: 30px;
+  text-align: center;
+  border-top: 1px solid white;
+  padding: 1.5em 0 0.5em 0;
 }
 
 #team-container-left #dashboard-content-right {
@@ -923,19 +927,23 @@ transform: rotate(-10deg);
   width: 60px;
 }
 
-#my-metrics-card-container {
+#team-metrics-card-container {
   padding: 0.5em;
   text-align: center;
+  color: white;
+  margin-bottom: 10px;
+
 }
-#my-metrics-card-container h1 {
+#team-metrics-card-container h1 {
   font-size: 3.8em;
   margin: -10px;
 }
 
-#my-metrics-card-container h3 {
+#team-metrics-card-container h3 {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   font-size: 1.3em;
+  margin: -10px;
 }
 
 /* TEAM RECRUITER CARD */
