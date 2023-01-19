@@ -1,6 +1,7 @@
 import { Icon } from "semantic-ui-react";
 import { Link, useNavigate } from 'react-router-dom';
 // import { useState } from "react";
+import hand from "../images/hand.png";
 
 function Nav ({currentUser, handleLogOut, handleLoginModal}){
     let navigate = useNavigate();
@@ -18,7 +19,7 @@ function Nav ({currentUser, handleLogOut, handleLoginModal}){
                     </div>
                     <div id="top-nav-links">
                         <div id="top-nav-loggedout">
-                                <p onClick={handleLoginModal}> Login </p>
+                            <img onClick={handleLoginModal} src={hand} alt="Login" />
                         </div>
                     </div>
                 </div>    

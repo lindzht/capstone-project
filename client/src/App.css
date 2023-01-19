@@ -18,7 +18,7 @@
 /* VIDEO BACKGROUNDS */
 
 #video-overlay {
-  background: rgb(242, 254, 237);
+  background: rgb(227, 255, 234);
   position: fixed;
   right: 0;
   bottom: 0;
@@ -37,8 +37,8 @@
   min-height: 100%;
   opacity: 30%;
   z-index: -2;
-  filter: invert(80%);
-  filter: contrast(-1.5);
+  filter: invert(100%);
+  filter: contrast(-0.5);
   transform: rotate(180deg);
 }
 
@@ -48,16 +48,16 @@
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  opacity: 15%;
+  opacity: 35%;
   /* z-index: -2; */
-  /* filter: contrast(3); */
+  filter: contrast(3);
   transform: scaleX(-1); 
   /* filter: invert(70%); */
   filter: brightness(3);
 }
 
 
-/* LANDING PAGE  */
+/************* LANDING PAGE  **************/
 
 #landing-page-container {
   background-color: rgb(227, 231, 208);
@@ -90,7 +90,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 10%;
+  margin: 3em 10em 0 7em;
+  width: 30%;
 }
 
 #landing-header h1 {
@@ -139,12 +140,13 @@
 
 
 
-/* NAVBAR :LOGGED OUT */
+/************** NAVBAR :LOGGED OUT **************/
 #top-nav-container {
   background-color: white;
   width: 100vw;
-  height: 60px;
-  z-index: -10;
+  height: 78px;
+  z-index: 10;
+  position: absolute;
 }
 
 #top-nav-content {
@@ -160,21 +162,22 @@
   font-size: 2em;  
 }
 
-#top-nav-links a {
-  color: black;
+#top-nav-links img {
+transform: rotate(-10deg);
 }
 
-#top-nav-links a:hover {
-  color: orangered;
+#top-nav-links img:hover {
+  cursor: grab;
+  animation-name: handwave;
+  animation-duration: 0.6s;
+  animation-iteration-count: infinite;
 }
 
-/* #top-nav-content-loggedin {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  border-bottom: 1.5px solid rgb(227, 231, 208);
-} */
+@keyframes handwave {
+  0%   {transform: rotate(28deg);}
+  50%  {transform: rotate(-28deg);}
+  100% {transform: rotate(28deg);}
+}
 
 #top-nav-content-loggedin a {
   margin: 20px 20px 10px 20px;
@@ -188,7 +191,7 @@
 
 
 
-/* SIGNUP: FIND COMPANY PAGE */
+/************** SIGNUP: FIND COMPANY PAGE **************/
 
 #signup-page-container {
   display: flex;
@@ -234,7 +237,7 @@
   right: -245px;
 }
 
-/* SIGNUP: ADD COMPANY FORM */
+/************** SIGNUP: ADD COMPANY FORM **************/
 
 #formcompany-container form input{
   border: 1px solid rgba(128, 128, 128, 0.331);
@@ -293,9 +296,69 @@
   right: -245px;
 }
 
+/************** LOGIN MODAL **************/
+
+#login-page-container {
+  z-index: 15;
+  top: 20%;
+  right: 30%;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  border: 5px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 4em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  animation: modal 1.3s;
+}
+
+@keyframes modal {
+  0% {opacity: 0%;}
+  0% {top: 15%;}
+  100% {top: 20%;}
+}
 
 
-/* NAV HAMBURGER :LOGGED IN */
+#login-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-form form input {
+  border: 1px solid rgba(128, 128, 128, 0.331);
+  margin-bottom: 1em;
+  height: 2.5em;
+  width: 25em;
+  border-radius: 5px;
+}
+
+#login-form form input::placeholder{
+  color: rgb(135, 135, 135);
+  text-align: center;
+  font-size: 0.95em;
+}
+
+#login-popup h1 {
+  font-family: 'Paytone One', sans-serif;
+  font-size: 3em;
+  margin-top: -10px;
+}
+
+#login-exit {
+  position: relative;
+  top: -40px;
+  right: -200px;
+  color: rgb(170, 170, 170);
+  font-size: 1.8em;
+}
+
+#login-exit:hover {
+  color: black;
+  cursor: grab;
+}
+
+/************** NAV HAMBURGER :LOGGED IN **************/
 
 #hamburger-icon {
   color: orangered;
@@ -397,7 +460,7 @@
   position: relative;
  }
 
-/* MY DASHBOARD */
+/************** MY DASHBOARD **************/
 
 
 #user-display a{

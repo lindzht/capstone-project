@@ -2,9 +2,9 @@
 import landing_video from "../video/landing_video.mp4";
 import { Icon } from 'semantic-ui-react'
 import {useState} from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
-function LoginModal({setCurrentUser, setErrors, errors}) {
+function LoginModal({setCurrentUser, setErrors, errors, handleLoginModal}) {
     let navigate = useNavigate();
 
     // LOGIN 
@@ -50,8 +50,9 @@ function LoginModal({setCurrentUser, setErrors, errors}) {
 
     return(
         <div id="login-page-container">
-            <div id="login-popup">
-                <h1>Login Page</h1>
+            <div id="login-popup"> 
+                <Icon id="login-exit" name="x" size='large' onClick={handleLoginModal}/>
+                <h1>Login</h1>
                 <div id="login-form">
                     <form onSubmit={handleSubmit}>
                         <input
@@ -72,10 +73,11 @@ function LoginModal({setCurrentUser, setErrors, errors}) {
                             placeholder="Password Confirmation"
                             value={user.password_confirmation}
                             onChange={handleChange} />
-                        <Icon name='right arrow' className="icon-right-arrow" onClick={handleSubmit}/>
+                        <Icon size="big" name='arrow circle right' className="icon-right-arrow" onClick={handleSubmit}/>
                     </form>
 
                 </div>
+                
             </div>
         </div>
     )

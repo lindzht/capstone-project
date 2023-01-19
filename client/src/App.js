@@ -208,7 +208,8 @@ function App() {
               setCurrentUser={setCurrentUser}
               currentUser={currentUser}
               setErrors={setErrors}
-              errors={errors}/>
+              errors={errors}
+              handleLoginModal={handleLoginModal}/>
         : null }
         <Routes>
           <Route index element={<LandingPage handleLoginModal={handleLoginModal}/>} />
