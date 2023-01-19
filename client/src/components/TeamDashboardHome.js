@@ -4,10 +4,11 @@ import { useState } from "react";
 import TeamReqs from "./TeamReqs";
 import TeamRecruiterCard from "./TeamRecruiterCard";
 import AddRecruiterCard from './AddRecruiterCard';
+import TeamAddReq from './TeamAddReq';
 
-function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) {
+function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam, companies}) {
+    const [displayAddForm, setDisplayAddForm] = useState(false)
     let params = useParams();
-    console.log(params);
 
     function renderOpenReqTable (){
         return(<TeamReqs currentTeam={currentTeam}/>)
@@ -34,7 +35,9 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) 
     }
 
 
-    console.log(currentTeam)
+    function handleDisplayAddForm(){
+        setDisplayAddForm(!displayAddForm);
+    }
 
 
     return(
@@ -43,8 +46,10 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) 
                     {currentTeam && currentTeam.id == params.teamId ?      
                         <div className='req-container'>
                             <div id="req-top-container">
-                                <h1>Open Reqs</h1>
-                                <Icon size="big" name="add circle" />
+                                <h1>Reqs</h1>
+                                <Icon size="big" name="add circle" onClick={handleDisplayAddForm} />
+                                {displayAddForm ? <TeamAddReq companies={companies} currentTeam={currentTeam} /> : null}
+                            
                             </div>
 
                             {/* {test()} */}

@@ -15,7 +15,7 @@ import TeamDashboard from './components/TeamDashboard';
 import TeamReqs from './components/TeamReqs';
 import TeamDashboardHome from './components/TeamDashboardHome';
 import TeamSettings from './components/TeamSettings';
-import TeamAddReqsPage from './components/TeamAddReqsPage';
+import TeamAddReqsPage from './components/TeamAddReq';
 
 function App() {
 
@@ -38,7 +38,7 @@ function App() {
 
   let params = useParams();
   // let navigate = useNavigate();
-console.log(errors)
+
 
   //STAY LOGGED IN:
   useEffect(() => {
@@ -65,7 +65,7 @@ console.log(errors)
           if (res.ok){
           res.json().then(data => {
               setCurrentUser(data);
-              setCurrentCompany(data.company)
+              // setCurrentCompany(data.company)
               setNewData(data.first_name);
               // <Link to="/"></Link>
               // navigate('/dashboard')
@@ -76,7 +76,6 @@ console.log(errors)
       })
   }
 
-console.log(currentCompany)
 
   // FETCH COMPANIES 
   useEffect(() => {
@@ -290,7 +289,8 @@ console.log(currentCompany)
                   <Route index element={<TeamDashboardHome 
                       currentUser={currentUser}
                       currentTeam={currentTeam} 
-                      deleteRecruiterFromTeam={deleteRecruiterFromTeam}/>}/>
+                      deleteRecruiterFromTeam={deleteRecruiterFromTeam}
+                      companies={companies}/>}/>
                   <Route path="reqs" element={<TeamReqs currentUser={currentUser} currentTeam={currentTeam} />} />
                   <Route path="settings" element={<TeamSettings currentUser={currentUser}  />} />
                   <Route path="add" element={<TeamAddReqsPage currentUser={currentUser} companies={companies} />} />

@@ -1,16 +1,36 @@
 import Select from 'react-select';
 import { useState } from "react";
+import { useParams} from 'react-router-dom';
 
 
-function TeamAddReqsPage ( {currentUser, teamData} ){
 
+function TeamAddReq ( {currentUser, teamData, companies, currentTeam} ){
+    let params = useParams();
     const [reqSearch, setReqSearch] = useState(null)
     const [reqSearchID, setReqSearchID] = useState(null)
     // const [displayNewReqForm, setdisplayNewReqForm] = useState(false)
 
+
+
     // const companiesSearchCompatible = companies.map((company) => {
     //     return( {label: company.name, value: company.id})
     // }) 
+
+    // console.log(currentTeam.company.id)
+    const currentCompanyReqs = companies.filter((company) => {
+        if (company.id === currentTeam.company.id) {
+            return(company.reqs)
+        }
+    })
+
+
+    console.log(currentCompanyReqs[0].reqs)
+
+    // console.log(currentCompanyReqs)
+
+    const companyReqsSearchInput = currentCompanyReqs[0].reqs.map((req) => {
+        return( {label: req.name, value: req.id})
+    }) 
 
     const companySelected = (e) => {
         setReqSearch(e.label)
@@ -21,13 +41,14 @@ function TeamAddReqsPage ( {currentUser, teamData} ){
         <div className="team-settings-container">
             <div id="team-findreq-container">
                 <h1>Find Reqs</h1>
-                {/* <Select 
+                <Select 
                     id="company-search"
-                    options={companiesSearchCompatible} 
-                    onChange={companySelected}/> */}
+                    options={companyReqsSearchInput} 
+                    onChange={companySelected}/>
             </div>
             <div id="team-addreq-container">
                 <h1>Add Reqs</h1>
+
             </div>
           
           
@@ -35,4 +56,4 @@ function TeamAddReqsPage ( {currentUser, teamData} ){
     )
 }
 
-export default TeamAddReqsPage;
+export default TeamAddReq;
