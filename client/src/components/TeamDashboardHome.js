@@ -47,10 +47,11 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam, c
                         <div className='req-container'>
                             <div id="req-top-container">
                                 <h1>Reqs</h1>
-                                <Icon size="big" name="add circle" onClick={handleDisplayAddForm} />
-                                {displayAddForm ? <TeamAddReq companies={companies} currentTeam={currentTeam} /> : null}
+                                <Icon size="big" name="add circle" onClick={handleDisplayAddForm} />   
                             
                             </div>
+                            
+                            {displayAddForm ? <TeamAddReq companies={companies} currentTeam={currentTeam} /> : null}
 
                             {/* {test()} */}
                             {renderOpenReqTable()}

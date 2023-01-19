@@ -1,8 +1,6 @@
-
-import landing_video from "../video/landing_video.mp4";
 import { Icon } from 'semantic-ui-react'
 import {useState} from "react"
-import { useNavigate, Link, Navigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 function LoginModal({errors, handleLoginModal, handleLogin}) {
     let navigate = useNavigate();

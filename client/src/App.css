@@ -60,14 +60,23 @@
 /************* LANDING PAGE  **************/
 
 #landing-page-container {
-  background-color: rgb(227, 231, 208);
+  /* background-color: rgb(227, 231, 208); */
+  /* background-image: linear-gradient(90deg, rgb(227, 231, 208), rgba(255, 164, 36, 0.376)); */
   height: 100vh;
   width: 100vw; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   z-index: -10;
-  /* margin-top: -5%; */
+  animation-name: landwave;
+  animation-duration: 3.8s;
+  animation-iteration-count: infinite;  /* margin-top: -5%; */
+}
+
+@keyframes landwave {
+  0%   {  background-image: linear-gradient(45deg, rgb(227, 231, 208), rgba(255, 164, 36, 0.376));}
+  50%   {  background-image: linear-gradient(50deg, rgb(227, 231, 208), rgba(255, 164, 36, 0.376));}
+  100%   {  background-image: linear-gradient(90deg, rgb(227, 231, 208), rgba(255, 164, 36, 0.376));}
 }
 
 #landing-top {
