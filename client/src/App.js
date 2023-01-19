@@ -191,7 +191,19 @@ function App() {
         })
     }
     
-
+    // FETCH COMPANY DATA
+    // useEffect(() => {
+    //   fetch(`/companies/${id}`)
+    //   .then(res => {
+    //     if (res.ok){
+    //       res.json()
+    //       .then(data => {
+    //         console.log(data)
+    //       })
+    //     }
+    //   })
+    // }, [])
+    
 
 
   return (

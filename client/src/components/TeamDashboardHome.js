@@ -61,7 +61,11 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) 
                         <h3>"Loading..."</h3>
                         : 
                         <div className='req-container'>
-                            <h1>Open Reqs</h1>
+                            <div id="req-top-container">
+                                <h1>Open Reqs</h1>
+                                <Icon size="big" name="add circle" />
+                            </div>
+
                             {/* {test()} */}
                             {renderOpenReqTable()}
                             {/* <TeamDashboardHome /> */}
@@ -76,7 +80,7 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) 
                             : 
                             <div className='team-recruiters'>
                                 {renderRecruiters()}
-                                <Icon size="big" name="add circle" />
+                                <Icon name="add circle" className='add-icon' />
                                 <AddRecruiterCard />
                             </div>
                         }
