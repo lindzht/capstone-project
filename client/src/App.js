@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, useParams} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useParams, Link} from 'react-router-dom';
 import './App.css';
 import LandingPage from './components/LandingPage';
 import SignupPage from './components/SignupPage';
@@ -15,6 +15,7 @@ import TeamDashboard from './components/TeamDashboard';
 import TeamReqs from './components/TeamReqs';
 import TeamDashboardHome from './components/TeamDashboardHome';
 import TeamSettings from './components/TeamSettings';
+import TeamAddReqsPage from './components/TeamAddReq';
 
 function App() {
 
@@ -30,12 +31,13 @@ function App() {
   const [newTeam, setNewTeam] = useState({name: ""});
   const [selectTeamID, setSelectTeamID] = useState("")
   // const [teamData, setTeamData] = useState([])
-  const [companyTeamData, setCompanyTeamData] = useState([]);
+  const [currentCompany, setCurrentCompany] = useState(null);
   const [currentTeam, setCurrentTeam] = useState(null)
   const [newData, setNewData] = useState([]);
 
 
   let params = useParams();
+  // let navigate = useNavigate();
 
 
   //STAY LOGGED IN:
@@ -50,6 +52,30 @@ function App() {
       }
     });
   }, [newTeam]);
+
+
+    // LOGIN 
+  const handleLogin = (currentUser) => {
+      fetch('/login', {
+          method: "POST",
+          headers: {'Content-Type': 'application/json'},
+          body:JSON.stringify(currentUser)
+      })
+      .then(res => {
+          if (res.ok){
+          res.json().then(data => {
+              setCurrentUser(data);
+              // setCurrentCompany(data.company)
+              setNewData(data.first_name);
+              // <Link to="/"></Link>
+              // navigate('/dashboard')
+          })
+          } else {
+          res.json().then(data => {for (const key in data){setErrors(data[key]);}})
+          }
+      })
+  }
+
 
   // FETCH COMPANIES 
   useEffect(() => {
@@ -133,14 +159,6 @@ function App() {
      })
     }
 
-    // DISPLAY LOGIN MODAL
-    const handleLoginModal =()=> {
-      setDisplayLoginForm(!displayLoginForm)
-      console.log(displayLoginForm)
-    }
-
-
-
     // CREATE NEW TEAM
     const createNewTeam = (newTeam)=> {
       console.log(newTeam);
@@ -161,7 +179,6 @@ function App() {
       })
      }
 
-
     //  FETCH TEAM DATA 
     useEffect(() => {
       fetch(`/teams/${selectTeamID}`)
@@ -174,6 +191,8 @@ function App() {
         }
       })
     }, [selectTeamID, newData])
+
+
 
 
     //  DELETE RECRUITER FROM TEAM
@@ -204,7 +223,11 @@ function App() {
     //   })
     // }, [])
     
-
+    // DISPLAY LOGIN MODAL
+    const handleLoginModal =()=> {
+      setDisplayLoginForm(!displayLoginForm)
+      console.log(displayLoginForm)
+    }
 
   return (
     <BrowserRouter>
@@ -221,7 +244,8 @@ function App() {
               currentUser={currentUser}
               setErrors={setErrors}
               errors={errors}
-              handleLoginModal={handleLoginModal}/>
+              handleLoginModal={handleLoginModal}
+              handleLogin={handleLogin}/>
         : null }
         <Routes>
           <Route index element={<LandingPage handleLoginModal={handleLoginModal}/>} />
@@ -253,6 +277,7 @@ function App() {
                       setNewTeam={setNewTeam}
                       createNewTeam={createNewTeam}
                       setSelectTeamID={setSelectTeamID}
+                      setNewData={setNewData}
                       />} />
                   <Route path='myreqs'element={<MyReqsPage currentUser={currentUser} />} />
                   <Route path='myhires'element={<MyHiredReqs currentUser={currentUser} />} />
@@ -263,11 +288,12 @@ function App() {
                       currentTeam={currentTeam}  />} >
                   <Route index element={<TeamDashboardHome 
                       currentUser={currentUser}
-                      // setSelectTeamID={setSelectTeamID}
                       currentTeam={currentTeam} 
-                      deleteRecruiterFromTeam={deleteRecruiterFromTeam}/>}/>
+                      deleteRecruiterFromTeam={deleteRecruiterFromTeam}
+                      companies={companies}/>}/>
                   <Route path="reqs" element={<TeamReqs currentUser={currentUser} currentTeam={currentTeam} />} />
                   <Route path="settings" element={<TeamSettings currentUser={currentUser}  />} />
+                  <Route path="add" element={<TeamAddReqsPage currentUser={currentUser} companies={companies} />} />
                 </Route>
                 <Route path='settings'element={<Settings currentUser={currentUser} handleUpdateRecruiter={handleUpdateRecruiter}/>} />
             </Routes>

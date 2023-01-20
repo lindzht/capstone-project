@@ -1,10 +1,16 @@
 import { Icon } from 'semantic-ui-react';
+import { useParams, } from 'react-router-dom';
 import { useState } from "react";
 import TeamReqs from "./TeamReqs";
 import TeamRecruiterCard from "./TeamRecruiterCard";
 import AddRecruiterCard from './AddRecruiterCard';
+import TeamAddReq from './TeamAddReq';
+import Loading from './Loading';
 
-function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) {
+function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam, companies}) {
+    const [displayAddForm, setDisplayAddForm] = useState(false)
+    const [displayRecruiterForm, setDisplayRecruiterForm] = useState(false)
+    let params = useParams();
 
     function renderOpenReqTable (){
         return(<TeamReqs currentTeam={currentTeam}/>)
@@ -31,61 +37,62 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) 
     }
 
 
+    function handleDisplayAddForm(){
+        setDisplayAddForm(!displayAddForm);
+    }
 
 
     return(
         <div id="team-container">
-            <div id="team-container-left">
-                <div className="dashboard-content-container">
-                    <div id="dashboard-content-middle">
-                        <div id="my-metrics-card-container">
-                            <h1>{!currentTeam ? "Loading..." : currentTeam.open_reqs}</h1>
-                            <h3>Open Reqs</h3>
-                        </div>
-                    </div>
-
-                    <div id="dashboard-content-middle">
-                        <div id="my-metrics-card-container">   
-                            <h1>{!currentTeam ? "Loading..." : currentTeam.hired_reqs}</h1>
-                            <h3>Hired Reqs</h3>
-                        </div>
-                    </div>
-                    
-                    <div id="dashboard-content-right">
-                        <div id="my-metrics-card-container">
-                            <h3>Metrics</h3>
-                        </div>
-                    </div>
-                </div>
-                    {!currentTeam  ?      
-                        <h3>"Loading..."</h3>
-                        : 
+            {currentTeam && currentTeam.id == params.teamId ? 
+            <>
+            <div id="team-container-left"> 
                         <div className='req-container'>
                             <div id="req-top-container">
-                                <h1>Open Reqs</h1>
-                                <Icon size="big" name="add circle" />
+                                <h1>Reqs</h1>
+                                <Icon size="big" name="add circle" onClick={handleDisplayAddForm} />   
+                            
                             </div>
+                            
+                            {displayAddForm ? <TeamAddReq companies={companies} currentTeam={currentTeam} /> : null}
 
                             {/* {test()} */}
                             {renderOpenReqTable()}
                             {/* <TeamDashboardHome /> */}
                         </div>
-                    }
+                       
             </div>
             <div id="team-container-right">
+
+                
+                <div id="team-metrics-card-container">
+                    <h1>{currentTeam.open_reqs}</h1>
+                    <h3>Open Reqs</h3>
+                </div>
+                
+                
+                <div id="team-metrics-card-container">   
+                        <h1>{currentTeam.hired_reqs}</h1>
+                        <h3>Hired Reqs</h3>
+                </div>
+            
+
                 <div id="team-block">
                         <h3>Teammates</h3>
-                        {!currentTeam  ?      
-                            <h3>"Loading..."</h3>
-                            : 
+                        
                             <div className='team-recruiters'>
                                 {renderRecruiters()}
-                                <Icon name="add circle" className='add-icon' />
-                                <AddRecruiterCard />
+                                <Icon name="circle add" className='add-icon' onClick={()=> {setDisplayRecruiterForm(!displayRecruiterForm)}} />
+                                {displayRecruiterForm ? <AddRecruiterCard companies={companies} currentTeam={currentTeam} /> : null}
                             </div>
-                        }
+                        
                 </div>
+
             </div>
+            </>
+            : 
+            <Loading />
+            }
 
         </div>
     )

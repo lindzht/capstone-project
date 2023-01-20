@@ -2,7 +2,7 @@ class TeamDetailDisplaySerializer < ActiveModel::Serializer
     attributes :id, :name, :recruiters, :reqs, :open_reqs, :hired_reqs
 
     has_one :company, serializer: TeamCompanyDisplaySerializer
-    has_many :recruiters, through: :recruiterteams
+    has_many :recruiters, through: :recruiterteams, serializer: RecruiterReqsDisplaySerializer
     has_many :reqs, through: :reqteams
     has_many :recruiterteams, serializer: RecruiterteamSerializer
     

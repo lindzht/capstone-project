@@ -39,9 +39,9 @@ function TeamDashboard ( {currentTeam, currentUser, setSelectTeamID} ){
 //         }))
 //    }
 
-   function renderOpenReqTable (){
-        return(<TeamReqs currentTeam={currentTeam}/>)
-   }
+//    function renderOpenReqTable (){
+//         return(<TeamReqs currentTeam={currentTeam}/>)
+//    }
 
 
 //    const sam = false 
