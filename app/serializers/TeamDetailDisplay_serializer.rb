@@ -1,5 +1,5 @@
 class TeamDetailDisplaySerializer < ActiveModel::Serializer
-    attributes :id, :name, :recruiters, :reqs
+    attributes :id, :name, :recruiters, :reqs, :open_reqs, :hired_reqs
 
     has_one :company, serializer: TeamCompanyDisplaySerializer
     has_many :recruiters, through: :recruiterteams, serializer: RecruiterReqsDisplaySerializer
@@ -14,6 +14,14 @@ class TeamDetailDisplaySerializer < ActiveModel::Serializer
     # def hired_reqs
     #   object.reqs.where(is_hired: true).count
     # end
+
+    def open_reqs
+      object.reqs.where.not(hired_status: "Hired").count
+    end
+  
+    def hired_reqs
+      object.reqs.where(hired_status: "Hired").count
+    end
 
   end
   
