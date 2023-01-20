@@ -82,15 +82,7 @@
   -webkit-animation-timing-function: ease-in-out; */
 }
 
-/* @keyframes landwave {
-  0%   {   background-image: linear-gradient(155deg, rgb(227, 231, 208) 100%, rgba(255, 164, 36, 0.376) 100%);}
-  20%   {  background-image: linear-gradient(155deg, rgb(227, 231, 208) 80%, rgba(255, 164, 36, 0.376) 100%);}
-  45%   {  background-image: linear-gradient(155deg, rgb(227, 231, 208) 50%, rgba(255, 164, 36, 0.376) 100%);}
-  50%   {  background-image: linear-gradient(155deg, rgb(227, 231, 208) 30%, rgba(255, 164, 36, 0.376) 100%);}
-  65%   {  background-image: linear-gradient(155deg, rgb(227, 231, 208) 50%, rgba(255, 164, 36, 0.376) 100%);}
-  80%   {  background-image: linear-gradient(155deg, rgb(227, 231, 208) 80%, rgba(255, 164, 36, 0.376) 100%);}
-  100%   {  background-image: linear-gradient(155deg, rgb(227, 231, 208) 100%, rgba(255, 164, 36, 0.376) 100%);}
-} */
+
 
 @keyframes AnimationName {
   0%{background-position:0% 14%}
@@ -101,7 +93,6 @@
 #landing-top {
   display: flex;
   flex-direction: row;
-  /* margin-top: 8%; */
 }
 
 #landing-header {
@@ -512,7 +503,8 @@ transform: rotate(-10deg);
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   border: 30px solid rgb(255, 255, 255);
   border-radius: 50px;
   background-color: rgba(227, 231, 208, 0.34);
