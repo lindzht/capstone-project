@@ -6,9 +6,6 @@ import { Link, Outlet, useParams } from 'react-router-dom';
   
 function TeamReqs( {currentTeam}) {
 
-    console.log(currentTeam)
-
-
     const tableData = currentTeam.reqs
 
     function exampleReducer(state, action) {
@@ -89,8 +86,8 @@ function TeamReqs( {currentTeam}) {
                 Goal Hire Date
               </Table.HeaderCell>
               <Table.HeaderCell
-                sorted={column === 'is_hired' ? direction : null}
-                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'is_hired' })}
+                sorted={column === 'hired_status' ? direction : null}
+                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'hired_status' })}
               >
                 Hired Status
               </Table.HeaderCell>
@@ -102,16 +99,16 @@ function TeamReqs( {currentTeam}) {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {data.map(({ req_id, name, org, hiring_manager, open_date, hire_goal, is_hired, hired_date, candidate, candidate_app }) => (
-              <Table.Row id={is_hired? "req-row-hired" : "req-row"} key={req_id}>
+            {data.map(({ req_id, name, org, hiring_manager, open_date, hire_goal, hired_status, hired_date, candidate, candidate_app, recruiter }) => (
+              <Table.Row id={hired_status === "Hired" ? "req-row-hired" : "req-row"} key={req_id}>
                 <Table.Cell>{req_id}</Table.Cell>
                 <Table.Cell>{name}</Table.Cell>
                 <Table.Cell>{org}</Table.Cell>
-                <Table.Cell>Recruiter</Table.Cell>
+                <Table.Cell>{recruiter.first_name} {recruiter.last_name}</Table.Cell>
                 <Table.Cell>{hiring_manager}</Table.Cell>
                 <Table.Cell>{open_date}</Table.Cell>
                 <Table.Cell>{hire_goal}</Table.Cell>
-                <Table.Cell>{is_hired ? "True" : "False"}</Table.Cell>
+                <Table.Cell>{hired_status}</Table.Cell>
                 {/* <Table.Cell><Icon name="pencil alternate" size='large'/><Icon name="x" size='large'/></Table.Cell> */}
               </Table.Row>
             ))}

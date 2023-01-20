@@ -83,8 +83,8 @@ function MyReqs( {currentUser}) {
                 Goal Hire Date
               </Table.HeaderCell>
               <Table.HeaderCell
-                sorted={column === 'is_hired' ? direction : null}
-                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'is_hired' })}
+                sorted={column === 'hired_status' ? direction : null}
+                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'hired_status' })}
               >
                 Hired Status
               </Table.HeaderCell>
@@ -98,15 +98,15 @@ function MyReqs( {currentUser}) {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {data.map(({ req_id, name, org, hiring_manager, open_date, hire_goal, is_hired, hired_date, candidate, candidate_app }) => (
-              <Table.Row id={is_hired? "req-row-hired" : "req-row"} key={req_id}>
+            {data.map(({ req_id, name, org, hiring_manager, open_date, hire_goal, hired_status, hired_date, candidate, candidate_app }) => (
+              <Table.Row id={hired_status === "Hired" ? "req-row-hired" : "req-row"} key={req_id}>
                 <Table.Cell>{req_id}</Table.Cell>
                 <Table.Cell>{name}</Table.Cell>
                 <Table.Cell>{org}</Table.Cell>
                 <Table.Cell>{hiring_manager}</Table.Cell>
                 <Table.Cell>{open_date}</Table.Cell>
                 <Table.Cell>{hire_goal}</Table.Cell>
-                <Table.Cell>{is_hired ? "True" : "False"}</Table.Cell>
+                <Table.Cell>{hired_status}</Table.Cell>
                 <Table.Cell><Icon name="pencil alternate" size='small'/></Table.Cell>
                 <Table.Cell><Icon name="x" size='small'/></Table.Cell>
               </Table.Row>
