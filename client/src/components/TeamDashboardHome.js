@@ -71,9 +71,11 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam, c
                 </div>
                 
                 
-                <div id="team-metrics-card-container">   
-                    <h1>{currentTeam.hired_reqs}</h1>
-                    <h3>Hired Reqs</h3>
+                <div id="team-metrics-card-container"> 
+                    <div className={currentTeam.hired_reqs > 0 ? "hired-highlight" : null }>
+                        <h1>{currentTeam.hired_reqs}</h1>
+                        <h3>Hired Reqs</h3>
+                    </div>  
                 </div>
             
 
