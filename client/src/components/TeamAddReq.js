@@ -102,7 +102,7 @@ function TeamAddReq ( {companies, currentTeam, addNewReq, newTeamReq, setNewTeam
                         onChange={handleChange}    />
                     <br />
                     <br />
-                    <br />
+                    
                     <label id="label-1">Req Open Date:</label>
                     <input
                         type="date"

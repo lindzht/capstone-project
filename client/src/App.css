@@ -504,7 +504,7 @@ transform: rotate(-10deg);
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   border: 30px solid rgb(255, 255, 255);
   border-radius: 50px;
   background-color: rgba(227, 231, 208, 0.34);
@@ -812,7 +812,7 @@ transform: rotate(-10deg);
   width: 70px;
 }
 
-/* MY SETTINGS PAGE  */
+/******************* MY SETTINGS PAGE  ********************/
 
 #settings-card {
   display: flex;
@@ -867,7 +867,7 @@ transform: rotate(-10deg);
   font-size: 1.1em;
 }
 
-/* MY SETTINGS PAGE: FORM */
+/**************** MY SETTINGS PAGE: FORM *****************/
 
 #form-edit-recruiter-container {
   background-color: rgba(255, 255, 255, 0.696);
@@ -918,6 +918,7 @@ transform: rotate(-10deg);
 #team-container {
   display: flex;
   flex-direction: row;
+  height: 100%;
 }
 
 #team-container-right {
@@ -927,6 +928,7 @@ transform: rotate(-10deg);
   padding: 0.7em;
   margin-top: 3%;
   border-radius: 20px;
+  height: 80%;
 
 }
 
@@ -1059,14 +1061,22 @@ transform: rotate(-10deg);
   /* display: flex;
   flex-wrap: wrap; */
   /* width: 50%; */
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 1em;
 }
 
 #team-add-req form input {
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1.4px dotted rgb(0, 0, 0);
   margin-right: 20px;
   /* background-color: rgb(207, 207, 207); */
   height: 30px;
+  width: 20%;
+}
+
+#team-add-req form input[type="date"] {
+  color: gray;
 }
 
 #team-add-req form select {
@@ -1075,11 +1085,15 @@ transform: rotate(-10deg);
   margin-right: 20px;
   /* background-color: rgb(207, 207, 207); */
   height: 30px;
+  width: 14%;
+  color: gray
+
 }
 
 #team-add-req form label {
  font-weight: bold;
  margin-right: 0.5em;
+ font-style: italic;
 }
 
 
