@@ -47,7 +47,7 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam}) 
                     <div id="dashboard-content-middle">
                         <div id="my-metrics-card-container">   
                             <h1>{!currentTeam ? "Loading..." : currentTeam.hired_reqs}</h1>
-                            <h3>Hired Reqs</h3>
+                            <h3>Hired Reqs!</h3>
                         </div>
                     </div>
                     
