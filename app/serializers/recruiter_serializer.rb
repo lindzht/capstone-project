@@ -6,11 +6,11 @@ class RecruiterSerializer < ActiveModel::Serializer
   has_many :reqs 
 
   def open_reqs
-    object.reqs.where(is_hired: false).count
+    object.reqs.where.not(hired_status: "Hired").count
   end
 
   def hired_reqs
-    object.reqs.where(is_hired: true).count
+    object.reqs.where(hired_status: "Hired").count
   end
 
 end

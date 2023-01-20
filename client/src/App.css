@@ -922,7 +922,7 @@ transform: rotate(-10deg);
 
 #team-container-right {
   margin-left: 3em;
-  background-color: rgba(0, 0, 0, 0.576);
+  background-image: linear-gradient(170deg, rgb(227, 231, 208), rgba(255, 255, 255, 0.168));
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 0.7em;
   margin-top: 3%;
@@ -937,10 +937,10 @@ transform: rotate(-10deg);
 #team-container-right #team-block h3 {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
-  color: white;
+  color: black;
   margin-top: 30px;
   text-align: center;
-  border-top: 1px solid white;
+  border-top: 1px solid black;
   padding: 1.5em 0 0.5em 0;
 }
 
@@ -949,7 +949,7 @@ transform: rotate(-10deg);
 }
 
 .team-recruiters .add-icon {
-  color: rgba(255, 255, 255, 0.754);
+  color: rgba(188, 188, 188, 0.779);;
   position: relative;
   left: 27%;
   margin: 0.5em;
@@ -957,7 +957,7 @@ transform: rotate(-10deg);
 }
 
 .team-recruiters .add-icon:hover {
-  color: white;
+  color: black;
   cursor: grab;
 }
 
@@ -974,7 +974,7 @@ transform: rotate(-10deg);
 #team-metrics-card-container {
   padding: 0.5em;
   text-align: center;
-  color: white;
+  color: black;
   margin-bottom: 10px;
 
 }
@@ -1002,21 +1002,21 @@ transform: rotate(-10deg);
   flex-direction: row;
   align-items: center;
   padding: 8px;
-  background-color: rgba(61, 61, 61, 0.832);
+  background-color: rgba(61, 61, 61, 0);
 }
 
 #recruiter-card-content:hover {
-  background-color: rgba(32, 32, 32, 0.863);
+  background-color: rgba(208, 208, 208, 0.61);
 }
 
 #recruiter-card-content h5 {
   font-size: 0.7em;
-  color: white;
+  color: black;
   font-weight: 300;
 }
 
 #recruiter-delete-icon {
-  color: rgba(255, 255, 255, 0.569);
+  color: rgba(188, 188, 188, 0.779);
   position: absolute;
   right: 0;
   top: 3.5px;
@@ -1025,7 +1025,7 @@ transform: rotate(-10deg);
 
 #recruiter-delete-icon:hover {
   cursor: grab;
-  color: white;
+  color: black;
 }
 
 #add-recruiter-container {
@@ -1038,5 +1038,5 @@ transform: rotate(-10deg);
 }
 
 #recruiter-add-button:hover {
-  background-color: white;
+  background-color: rgba(188, 188, 188, 0.779);
 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_19_165952) do
+ActiveRecord::Schema.define(version: 2023_01_20_160449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2023_01_19_165952) do
     t.string "hiring_manager"
     t.date "open_date"
     t.date "hire_goal"
-    t.boolean "is_hired"
+    t.string "hired_status"
     t.date "hired_date"
     t.string "candidate"
     t.date "candidate_app"
