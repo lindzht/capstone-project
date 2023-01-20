@@ -94,9 +94,9 @@ function TeamReqs( {currentTeam}) {
               >
                 Hired Status
               </Table.HeaderCell>
-              <Table.HeaderCell id="edit-req-column">
+              {/* <Table.HeaderCell id="edit-req-column">
                 Edit
-              </Table.HeaderCell>
+              </Table.HeaderCell> */}
 
             
             </Table.Row>
@@ -112,7 +112,7 @@ function TeamReqs( {currentTeam}) {
                 <Table.Cell>{open_date}</Table.Cell>
                 <Table.Cell>{hire_goal}</Table.Cell>
                 <Table.Cell>{is_hired ? "True" : "False"}</Table.Cell>
-                <Table.Cell><Icon name="pencil alternate" size='large'/><Icon name="x" size='large'/></Table.Cell>
+                {/* <Table.Cell><Icon name="pencil alternate" size='large'/><Icon name="x" size='large'/></Table.Cell> */}
               </Table.Row>
             ))}
           </Table.Body>

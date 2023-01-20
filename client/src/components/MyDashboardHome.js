@@ -34,24 +34,26 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setNe
     return(
         <div className="dashboard-content-container">
 
-            <div id="dashboard-content-left">
+            <div id="dashboard-content-top">
                 <div id="team-block">
                     <div id="team-block-header">
                         <h3>My Team Boards</h3>
                     </div>
                     {myTeamCards} 
                 </div>
-                
-            </div>  
 
-            <div id="dashboard-content-right">
                 <div id="my-metrics-card-container">
                     <h3>My Metrics</h3>
                 </div>
-            </div>
+                
+            </div>  
+
+            
+                
+            
 
             {currentUser.admin ? 
-                <div id="dashboard-content-right">
+                <div id="dashboard-content-bottom">
                     <div id="admin-team-container">
                         <div id="admin-team-header">
                             <h3>{currentUser.company.name} Team Boards</h3>

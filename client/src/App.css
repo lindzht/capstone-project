@@ -416,7 +416,7 @@ transform: rotate(-10deg);
   background-color: white;
   height: 100vh;
   z-index: 10;
-  width: 13%;
+  width: 15%;
   text-align: center;
   border-radius: 50px;
   border: 10px solid white;
@@ -527,29 +527,44 @@ transform: rotate(-10deg);
   text-align: left;
 }
 
-/* MY DASHBOARD: HOME */
+/*************** MY DASHBOARD: HOME ****************/
 
 .dashboard-content-container {
   display: flex;
-  flex-direction: row; 
+  flex-direction: column; 
   justify-content: space-around;
   width: 100%;
   margin-top: 3.8em;
 }
 
-#dashboard-content-left {
+#dashboard-content-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 3em;
+}
+
+#dashboard-content-top #team-block {
   background-color: rgba(255, 255, 255, 0.71);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 1.8em;
   border-radius: 20px;
 }
 
-#dashboard-content-middle {
+#dashboard-content-top #my-metrics-card-container {
   background-color: rgba(255, 255, 255, 0.71);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 1.8em;
   border-radius: 20px;
+  width: 500px;
 }
+
+/* #dashboard-content-middle {
+  background-color: rgba(255, 255, 255, 0.71);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1.8em;
+  border-radius: 20px;
+} */
 
 #admin-team-container {
   display: flex;
@@ -572,12 +587,16 @@ transform: rotate(-10deg);
 
 
 
-#dashboard-content-right {
-  background-color: rgb(227, 231, 208);
+#dashboard-content-bottom {
+  background-color: rgba(227, 231, 208, 0.681);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 1.8em;
   border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
 }
+
+
 
 #team-block-header {
   margin-bottom: 2em;
@@ -707,7 +726,7 @@ transform: rotate(-10deg);
 }
 
 .admin-team-card-container {
-  margin: 10px;
+  margin: 3px;
   /* width: 300px; */
 }
 
@@ -897,10 +916,9 @@ transform: rotate(-10deg);
 
 #team-container-right {
   margin-left: 3em;
-  background-color: rgba(0, 0, 0, 0.634);
+  background-color: rgba(0, 0, 0, 0.576);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 0.8em;
-  /* border-radius: 20px; */
+  padding: 0.7em;
   margin-top: 3%;
   border-radius: 20px;
 
@@ -966,7 +984,7 @@ transform: rotate(-10deg);
   margin: -10px;
 }
 
-/* TEAM RECRUITER CARD */
+/* TEAM RECRUITER CARD DISPLAY */
 
 .recruiter-card-container {
   margin-bottom: 10px; 
@@ -1002,4 +1020,17 @@ transform: rotate(-10deg);
 #recruiter-delete-icon:hover {
   cursor: grab;
   color: white;
+}
+
+#add-recruiter-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#recruiter-add-button {
+  margin: 1em;
+}
+
+#recruiter-add-button:hover {
+  background-color: white;
 }

@@ -5,9 +5,11 @@ import TeamReqs from "./TeamReqs";
 import TeamRecruiterCard from "./TeamRecruiterCard";
 import AddRecruiterCard from './AddRecruiterCard';
 import TeamAddReq from './TeamAddReq';
+import Loading from './Loading';
 
 function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam, companies}) {
     const [displayAddForm, setDisplayAddForm] = useState(false)
+    const [displayRecruiterForm, setDisplayRecruiterForm] = useState(false)
     let params = useParams();
 
     function renderOpenReqTable (){
@@ -42,8 +44,9 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam, c
 
     return(
         <div id="team-container">
-            <div id="team-container-left">
-                    {currentTeam && currentTeam.id == params.teamId ?      
+            {currentTeam && currentTeam.id == params.teamId ? 
+            <>
+            <div id="team-container-left"> 
                         <div className='req-container'>
                             <div id="req-top-container">
                                 <h1>Reqs</h1>
@@ -57,39 +60,39 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam, c
                             {renderOpenReqTable()}
                             {/* <TeamDashboardHome /> */}
                         </div>
-                        : 
-                        <h3>"Loading..."</h3>
-                    }
+                       
             </div>
             <div id="team-container-right">
 
                 
                 <div id="team-metrics-card-container">
-                    <h1>{!currentTeam ? "Loading..." : currentTeam.open_reqs}</h1>
+                    <h1>{currentTeam.open_reqs}</h1>
                     <h3>Open Reqs</h3>
                 </div>
                 
                 
                 <div id="team-metrics-card-container">   
-                        <h1>{!currentTeam ? "Loading..." : currentTeam.hired_reqs}</h1>
+                        <h1>{currentTeam.hired_reqs}</h1>
                         <h3>Hired Reqs</h3>
                 </div>
             
 
                 <div id="team-block">
                         <h3>Teammates</h3>
-                        {!currentTeam  ?      
-                            <h3>"Loading..."</h3>
-                            : 
+                        
                             <div className='team-recruiters'>
                                 {renderRecruiters()}
-                                <Icon name="circle add" className='add-icon' />
-                                <AddRecruiterCard />
+                                <Icon name="circle add" className='add-icon' onClick={()=> {setDisplayRecruiterForm(!displayRecruiterForm)}} />
+                                {displayRecruiterForm ? <AddRecruiterCard companies={companies} currentTeam={currentTeam} /> : null}
                             </div>
-                        }
+                        
                 </div>
 
             </div>
+            </>
+            : 
+            <Loading />
+            }
 
         </div>
     )

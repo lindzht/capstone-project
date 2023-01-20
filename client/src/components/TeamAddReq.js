@@ -6,7 +6,7 @@ import { Button } from 'semantic-ui-react'
 
 
 
-function TeamAddReq ( {currentUser, teamData, companies, currentTeam} ){
+function TeamAddReq ( {companies, currentTeam} ){
     let params = useParams();
     const [reqSearchID, setReqSearchID] = useState(null)
     // const [displayNewReqForm, setdisplayNewReqForm] = useState(false)
