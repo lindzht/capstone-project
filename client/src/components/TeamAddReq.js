@@ -4,18 +4,18 @@ import { useParams} from 'react-router-dom';
 import { Button } from 'semantic-ui-react'
 
 
-function TeamAddReq ( {companies, currentTeam, addNewReq} ){
+function TeamAddReq ( {companies, currentTeam, addNewReq, newTeamReq, setNewTeamReq} ){
     let params = useParams();
     const [reqSearchID, setReqSearchID] = useState(null)
-    const [newTeamReq, setNewTeamReq] = useState({
-        req_id: "",
-        name: "",
-        org: "",
-        hiring_manager: "",
-        open_date: "",
-        hire_goal: "",
-        hired_status: "",
-    })
+    // const [newTeamReq, setNewTeamReq] = useState({
+    //     req_id: "",
+    //     name: "",
+    //     org: "",
+    //     hiring_manager: "",
+    //     open_date: "",
+    //     hire_goal: "",
+    //     hired_status: "",
+    // })
 
     console.log(currentTeam.company.id)
     // const [displayNewReqForm, setdisplayNewReqForm] = useState(false)
@@ -40,7 +40,8 @@ function TeamAddReq ( {companies, currentTeam, addNewReq} ){
         setNewTeamReq({
             ...newTeamReq, 
             [key]: value,
-            company_id: currentTeam.company.id
+            company_id: currentTeam.company.id,
+            team_id: currentTeam.id
         })
     }
 

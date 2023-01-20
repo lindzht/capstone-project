@@ -104,7 +104,7 @@ function TeamReqs( {currentTeam}) {
                 <Table.Cell>{req_id}</Table.Cell>
                 <Table.Cell>{name}</Table.Cell>
                 <Table.Cell>{org}</Table.Cell>
-                <Table.Cell>{recruiter.first_name} {recruiter.last_name}</Table.Cell>
+                {recruiter && recruiter.first_name ? <Table.Cell>{recruiter.first_name} {recruiter.last_name}</Table.Cell> : <Table.Cell></Table.Cell>}
                 <Table.Cell>{hiring_manager}</Table.Cell>
                 <Table.Cell>{open_date}</Table.Cell>
                 <Table.Cell>{hire_goal}</Table.Cell>
