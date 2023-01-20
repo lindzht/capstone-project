@@ -551,20 +551,21 @@ transform: rotate(-10deg);
   border-radius: 20px;
 }
 
-#dashboard-content-top #my-metrics-card-container {
+#my-metrics-card-container {
   background-color: rgba(255, 255, 255, 0.71);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 1.8em;
   border-radius: 20px;
-  width: 30%;
+  width: 18%;
+  height: 100%;
+  text-align: center;
 }
 
-/* #dashboard-content-middle {
-  background-color: rgba(255, 255, 255, 0.71);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 1.8em;
-  border-radius: 20px;
-} */
+#my-metrics-card-container h1 {
+  font-size: 3.8em;
+  margin-bottom: -30px;
+}
+
 
 #admin-team-container {
   display: flex;
@@ -585,10 +586,15 @@ transform: rotate(-10deg);
 }
 
 
+.hired-highlight h1 {
+  color: green;
+  font-size: 3.8em;
+}
+
 
 
 #dashboard-content-bottom {
-  background-color: rgba(227, 231, 208, 0.681);
+  background-image: linear-gradient(170deg, rgb(227, 231, 208), rgba(255, 255, 255, 0.168));
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 1.8em;
   border-radius: 20px;

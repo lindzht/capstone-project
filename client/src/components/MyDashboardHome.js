@@ -8,7 +8,6 @@ import AdminTeamCards from "./AdminTeamCards";
 function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setNewData}) {
     let navigate = useNavigate();
     
-
     const [newTeamForm, setNewTeamCard] = useState(false);
     const myTeamCards = currentUser.teams.map((team) => {
         return (
@@ -23,6 +22,14 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setNe
             <div>
                 <AdminTeamCards key={team.id} team={team} navigate={navigate} />
             </div>
+        )   
+    })
+
+    const companyRecruiterList = currentUser.company.recruiters.map((recruiter) => {
+        return (
+            <p>
+                {recruiter.first_name} {recruiter.last_name}
+            </p>
         )   
     })
 
@@ -43,11 +50,23 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setNe
                 </div>
 
                 <div id="my-metrics-card-container">
-                    <h3>My Metrics</h3>
+                    <h1>{currentUser.open_reqs}</h1>
+                    <h3>Open Reqs</h3>
+                </div>
+                
+                
+                <div id="my-metrics-card-container">   
+                    <div className={currentUser.hired_reqs > 0 ? "hired-highlight" : null }>
+                        <h1>{currentUser.hired_reqs}</h1>
+                        <h3>Hired Reqs</h3>
+                    </div>
                 </div>
 
-                <div id="my-metrics-card-container">
-                    <h3>My Metrics</h3>
+                <div id="my-metrics-card-container">   
+                    {/* <h1>{currentUser.open_reqs}</h1> */}
+                    <h1>X</h1>
+                    <h3>Avg Time to Hire</h3>
+                    <p>Time req open to req closed</p>
                 </div>
                 
             </div>  
@@ -69,7 +88,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setNe
                     <div id="admin-recruiter-container">
                         <div id="admin-team-header">
                             <h3>{currentUser.company.name} Recruiters</h3>
-                            {/* <Icon name="add circle" size="big" className="add-icon"  /> */}
+                            {companyRecruiterList}
                         </div>
                     </div>
                     

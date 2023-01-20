@@ -3,13 +3,9 @@ import { Icon, Card } from 'semantic-ui-react'
 
 function TeamRecruiterCard({currentTeam, recruiter, deleteRecruiterFromTeam}){
 
-
-    // console.log(currentTeam.recruiterteams)
     const findRelationshipID = currentTeam.recruiterteams.find((recteam) => {
         return(recteam.recruiter.id === recruiter.id)
     })
-
-    // console.log(findRelationshipID)
 
     function handleDelete (){
         return(
