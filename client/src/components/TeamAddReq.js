@@ -4,7 +4,7 @@ import { useParams} from 'react-router-dom';
 import { Button } from 'semantic-ui-react'
 
 
-function TeamAddReq ( {companies, currentTeam, addNewReq, newTeamReq, setNewTeamReq} ){
+function TeamAddReq ( {companies, currentTeam, addNewReq, newTeamReq, setNewTeamReq, setNewData} ){
     let params = useParams();
     const [reqSearchID, setReqSearchID] = useState(null)
     // const [newTeamReq, setNewTeamReq] = useState({
@@ -48,6 +48,15 @@ function TeamAddReq ( {companies, currentTeam, addNewReq, newTeamReq, setNewTeam
     const handleSubmit =(e)=>{
         e.preventDefault();
         addNewReq(newTeamReq)
+        setNewData(newTeamReq)
+        setNewTeamReq({
+            req_id: "",
+            name: "",
+            org: "",
+            hiring_manager: "",
+            open_date: "",
+            hire_goal: "",
+            hired_status: "",})
     }
 
 
@@ -55,11 +64,13 @@ function TeamAddReq ( {companies, currentTeam, addNewReq, newTeamReq, setNewTeam
         <div className="team-addreq-container">
             <div id="team-find-req">
                 <h4>Add Existing Req</h4>
-                <Select 
-                    id="company-search"
-                    options={companyReqsSearchInput} 
-                    onChange={reqSelected}/>
-                <Button>Add</Button>
+                <div id="team-find-search">
+                    <Select 
+                        id="company-search"
+                        options={companyReqsSearchInput} 
+                        onChange={reqSelected}/>
+                    <Button color="black">Add</Button>
+                </div>
             </div>
             <br />
             <div id="team-add-req">
@@ -89,14 +100,17 @@ function TeamAddReq ( {companies, currentTeam, addNewReq, newTeamReq, setNewTeam
                         placeholder="Hiring Manager"
                         value={newTeamReq.hiring_manager}
                         onChange={handleChange}    />
-                    Req Open Date
+                    <br />
+                    <br />
+                    <br />
+                    <label id="label-1">Req Open Date:</label>
                     <input
                         type="date"
                         name="open_date"
                         placeholder="Open Date"
                         onChange={handleChange} 
                         value={newTeamReq.open_date}   />
-                    Goal Hire Date
+                    <label id="label-2">Goal Hire Date:</label>
                     <input
                         type="date"
                         name="hire_goal"
@@ -109,8 +123,8 @@ function TeamAddReq ( {companies, currentTeam, addNewReq, newTeamReq, setNewTeam
                         <option value="On Track">On Track</option>
                         <option value="Off Track">Off Track</option>
                     </select>
-                    <input type="submit" value="Submit" />
-                    {/* <Button>Add</Button> */}
+                    {/* <input type="submit" value="Submit" /> */}
+                    <Button color="black" onSubmit={handleSubmit}>Add</Button>
                 </form>
             
             </div>

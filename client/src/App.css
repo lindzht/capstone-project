@@ -1040,3 +1040,56 @@ transform: rotate(-10deg);
 #recruiter-add-button:hover {
   background-color: rgba(188, 188, 188, 0.779);
 }
+
+
+/* TEAM ADD REQ PAGE */
+
+#team-find-search {
+  display: flex;
+  
+}
+
+#team-find-search #company-search{
+  width: 40%;
+  margin-right: 10px;
+}
+
+#team-add-req form {
+  margin-bottom: 3em;
+  /* display: flex;
+  flex-wrap: wrap; */
+  /* width: 50%; */
+}
+
+#team-add-req form input {
+  border: none;
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+  /* background-color: rgb(207, 207, 207); */
+  height: 30px;
+}
+
+#team-add-req form select {
+  border: none;
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+  /* background-color: rgb(207, 207, 207); */
+  height: 30px;
+}
+
+#team-add-req form label {
+ font-weight: bold;
+ margin-right: 0.5em;
+}
+
+
+
+
+/* #team-add-req form #label-1,
+#team-add-req form #label-2 {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+} */
+
+

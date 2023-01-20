@@ -36,9 +36,16 @@ function TeamReqs( {currentTeam}) {
     })
     const { column, data, direction } = state
 
+    const reqArray = currentTeam.reqs.map((req)=> {
+      return(
+        <p>{req.name}</p>
+      )
+    })
+
   // if (!currentTeam) return ("Loading...")
     return (
       <>
+        {/* {reqArray} */}
         <Table sortable celled fixed>
           <Table.Header>
             <Table.Row>

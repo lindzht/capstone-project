@@ -198,7 +198,7 @@ function App() {
           })
         }
       })
-    }, [selectTeamID, newData])
+    }, [selectTeamID, newData, newTeamReq])
 
 
 
@@ -308,7 +308,8 @@ function App() {
                       companies={companies}
                       addNewReq={addNewReq}
                       setNewTeamReq={setNewTeamReq}
-                      newTeamReq={newTeamReq}/>}/>
+                      newTeamReq={newTeamReq}
+                      setNewData={setNewData}/>}/>
                   <Route path="reqs" element={<TeamReqs currentUser={currentUser} currentTeam={currentTeam} />} />
                   <Route path="settings" element={<TeamSettings currentUser={currentUser}  />} />
                   <Route path="add" element={<TeamAddReqsPage currentUser={currentUser} companies={companies} />} />
