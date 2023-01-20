@@ -210,18 +210,25 @@ function App() {
         })
     }
     
-    // FETCH COMPANY DATA
-    // useEffect(() => {
-    //   fetch(`/companies/${id}`)
-    //   .then(res => {
-    //     if (res.ok){
-    //       res.json()
-    //       .then(data => {
-    //         console.log(data)
-    //       })
-    //     }
-    //   })
-    // }, [])
+    // ADD NEW REQ
+    const addNewReq = (newReq)=> {
+      console.log(newReq);
+      fetch('/reqs', {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(newReq)
+      })
+      .then(res => {
+        if (res.ok){
+          res.json().then(data => {
+            // setNewTeam(data);
+            console.log(data);
+          })
+        } else {
+          res.json().then(data => {setErrors(data.errors); console.log(errors)})
+        }
+      })
+     }
     
     // DISPLAY LOGIN MODAL
     const handleLoginModal =()=> {
@@ -290,7 +297,8 @@ function App() {
                       currentUser={currentUser}
                       currentTeam={currentTeam} 
                       deleteRecruiterFromTeam={deleteRecruiterFromTeam}
-                      companies={companies}/>}/>
+                      companies={companies}
+                      addNewReq={addNewReq}/>}/>
                   <Route path="reqs" element={<TeamReqs currentUser={currentUser} currentTeam={currentTeam} />} />
                   <Route path="settings" element={<TeamSettings currentUser={currentUser}  />} />
                   <Route path="add" element={<TeamAddReqsPage currentUser={currentUser} companies={companies} />} />
