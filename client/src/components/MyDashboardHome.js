@@ -45,6 +45,10 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setNe
                 <div id="my-metrics-card-container">
                     <h3>My Metrics</h3>
                 </div>
+
+                <div id="my-metrics-card-container">
+                    <h3>My Metrics</h3>
+                </div>
                 
             </div>  
 
