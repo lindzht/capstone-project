@@ -41,7 +41,8 @@ function App() {
     hiring_manager: "",
     open_date: "",
     hire_goal: "",
-    hired_status: "",})
+    hired_status: "",
+    recruiter_id: ""})
 
 
   let params = useParams();

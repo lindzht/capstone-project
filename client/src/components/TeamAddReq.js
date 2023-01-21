@@ -17,7 +17,7 @@ function TeamAddReq ( {companies, currentTeam, addNewReq, newTeamReq, setNewTeam
     //     hired_status: "",
     // })
 
-    console.log(currentTeam.company.id)
+    // console.log(currentTeam.company.id)
     // const [displayNewReqForm, setdisplayNewReqForm] = useState(false)
 
     const currentCompanyReqs = companies.filter((company) => {
@@ -59,6 +59,13 @@ function TeamAddReq ( {companies, currentTeam, addNewReq, newTeamReq, setNewTeam
             hired_status: "",})
     }
 
+    const recruiterListOptions = currentTeam.recruiters.map((recruiter)=> {
+        return(
+            <option value={recruiter.id}>{recruiter.first_name} {recruiter.last_name}</option>
+        )
+    })
+
+    // <option value="Open">Open</option>
 
     return(
         <div className="team-addreq-container">
@@ -117,11 +124,20 @@ function TeamAddReq ( {companies, currentTeam, addNewReq, newTeamReq, setNewTeam
                         placeholder="Goal Hire Date"
                         value={newTeamReq.hire_goal}
                         onChange={handleChange}    />
+                    <br />
+                    <br />
+                    <label id="label-2">Req Status:</label>
                     <select name='hired_status' value={newTeamReq.hired_status} onChange={handleChange}>
+                        <option value="">Select</option>
                         <option value="Open">Open</option>
                         <option value="Hired">Hired</option>
                         <option value="On Track">On Track</option>
                         <option value="Off Track">Off Track</option>
+                    </select>
+                    <label id="label-2">Recruiter:</label>
+                    <select name='recruiter_id' value={newTeamReq.recruiter_id} onChange={handleChange}>
+                        <option value="">Select</option>
+                        {recruiterListOptions}
                     </select>
                     {/* <input type="submit" value="Submit" /> */}
                     <Button color="black" onSubmit={handleSubmit}>Add</Button>
