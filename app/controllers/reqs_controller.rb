@@ -1,10 +1,14 @@
 class ReqsController < ApplicationController
 
     def create
-
-        req = Req.create!(req_params)
-        relationship = Reqteam.create!(req_id: req.id, team_id: params[:team_id])
-        render json: req, status: :created
+        if params[:id]
+            relationship = Reqteam.create!(req_id: params[:id], team_id: params[:team_id])
+            render json: relationship, status: :created
+        else 
+            req = Req.create!(req_params)
+            relationship = Reqteam.create!(req_id: req.id, team_id: params[:team_id])
+            render json: req, status: :created
+        end
     end
 
     private
