@@ -31,23 +31,32 @@ function TeamAddReq ( {companies, currentTeam, addNewReq, newTeamReq, setNewTeam
     }) 
 
     const reqSelected = (e) => {
-        setReqSearchID(e.value)
+        setReqSearchID({id: e.value, team_id: currentTeam.id})
     }
+
+   
 
     const handleChange = (e) => { 
         const key = e.target.name;
         const value = e.target.value;
+        
         setNewTeamReq({
             ...newTeamReq, 
             [key]: value,
             company_id: currentTeam.company.id,
-            team_id: currentTeam.id
+            team_id: currentTeam.id,
         })
     }
 
+    console.log(reqSearchID)
     const handleSubmit =(e)=>{
         e.preventDefault();
-        addNewReq(newTeamReq)
+
+        if (reqSearchID !== null) {
+            addNewReq(reqSearchID)
+        } else {
+            addNewReq(newTeamReq)
+        }
         setNewData(newTeamReq)
         setNewTeamReq({
             req_id: "",
@@ -76,7 +85,7 @@ function TeamAddReq ( {companies, currentTeam, addNewReq, newTeamReq, setNewTeam
                         id="company-search"
                         options={companyReqsSearchInput} 
                         onChange={reqSelected}/>
-                    <Button color="black">Add</Button>
+                    <Button color="black" onClick={handleSubmit}>Add</Button>
                 </div>
             </div>
             <br />

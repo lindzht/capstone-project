@@ -34,6 +34,7 @@ function App() {
   const [currentCompany, setCurrentCompany] = useState(null);
   const [currentTeam, setCurrentTeam] = useState(null)
   const [newData, setNewData] = useState([]);
+  const [reqSearchID, setReqSearchID] = useState(null)
   const [newTeamReq, setNewTeamReq] = useState({
     req_id: "",
     name: "",
@@ -238,7 +239,28 @@ function App() {
         }
       })
      }
+
+    // ADD EXISTING REQ TO TEAM
+    // const addReqTeamRelationship = (reqID)=> {
+    //   console.log(reqID);
+    //   fetch('/reqteams', {
+    //     method: "POST",
+    //     headers: {'Content-Type': 'application/json'},
+    //     body: JSON.stringify(reqID)
+    //   })
+    //   .then(res => {
+    //     if (res.ok){
+    //       res.json().then(data => {
+    //         setNewData(data);
+    //         console.log(data);
+    //       })
+    //     } else {
+    //       res.json().then(data => {setErrors(data.errors); console.log(errors)})
+    //     }
+    //   })
+    //  }
     
+
     // DISPLAY LOGIN MODAL
     const handleLoginModal =()=> {
       setDisplayLoginForm(!displayLoginForm)
@@ -310,7 +332,9 @@ function App() {
                       addNewReq={addNewReq}
                       setNewTeamReq={setNewTeamReq}
                       newTeamReq={newTeamReq}
-                      setNewData={setNewData}/>}/>
+                      setNewData={setNewData}
+                      setReqSearchID={setReqSearchID}
+                      />}/>
                   <Route path="reqs" element={<TeamReqs currentUser={currentUser} currentTeam={currentTeam} />} />
                   <Route path="settings" element={<TeamSettings currentUser={currentUser}  />} />
                   <Route path="add" element={<TeamAddReqsPage currentUser={currentUser} companies={companies} />} />
