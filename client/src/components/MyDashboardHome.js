@@ -40,64 +40,69 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setNe
 
     return(
         <div className="dashboard-content-container">
+            <div id="my-dashboard-container">
 
-            <div id="dashboard-content-top">
-                <div id="team-block">
-                    <div id="team-block-header">
-                        <h3>My Team Boards</h3>
-                    </div>
-                    {myTeamCards} 
-                </div>
-
-                <div id="my-metrics-card-container">
-                    <h1>{currentUser.open_reqs}</h1>
-                    <h3>Open Reqs</h3>
-                </div>
-                
-                
-                <div id="my-metrics-card-container">   
-                    <div className={currentUser.hired_reqs > 0 ? "hired-highlight" : null }>
-                        <h1>{currentUser.hired_reqs}</h1>
-                        <h3>Hired Reqs</h3>
-                    </div>
-                </div>
-
-                <div id="my-metrics-card-container">   
-                    {/* <h1>{currentUser.open_reqs}</h1> */}
-                    <h1>X</h1>
-                    <h3>Avg Time to Hire</h3>
-                    <p>Time req open to req closed</p>
-                </div>
-                
-            </div>  
-
-            
-                
-            
-
-            {currentUser.admin ? 
-                <div id="dashboard-content-bottom">
-                    <div id="admin-team-container">
-                        <div id="admin-team-header">
-                            <h3>{currentUser.company.name} Team Boards</h3>
-                            <Icon name="add circle" size="big" className="add-icon" onClick={handleDisplayTeamForm} />
+                <div id="my-dashboard-content-left">
+                    <div id="team-block">
+                        <div id="team-block-header">
+                            <h3>My Team Boards</h3>
                         </div>
-                        {newTeamForm ? <AddTeamCard newTeam={newTeam} setNewTeam={setNewTeam} createNewTeam={createNewTeam} currentUser={currentUser}/> : null}
-                        {companyTeamCards}
+                        {myTeamCards} 
                     </div>
-                    <div id="admin-recruiter-container">
-                        <div id="admin-team-header">
-                            <h3>{currentUser.company.name} Recruiters</h3>
-                            {companyRecruiterList}
+
+                    <div id="my-dashboard-content-middle">
+                        <div id="my-metrics-card-container-top">
+                            <div id="my-open-reqs">
+                                <h1>{currentUser.open_reqs}</h1>
+                                <h3>Open Reqs</h3>
+                            </div>
+                            <div className={currentUser.hired_reqs > 0 ? "hired-highlight" : "hired-reqs" }>
+                                <h1>{currentUser.hired_reqs}</h1>
+                                <h3>Hired Reqs</h3>
+                            </div>
                         </div>
+                        <div id="my-metrics-card-container-bottom">
+                            <h1>X</h1>
+                            <h3>Avg Time to Hire</h3>
+                            <p>Time req open to req closed</p>
+                        </div>
+
                     </div>
                     
-                </div>
-                : 
-                null   
-            }
-              
+                    
+{/* 
+                    <div id="my-metrics-card-container">   
+                        <h1>X</h1>
+                        <h3>Avg Time to Hire</h3>
+                        <p>Time req open to req closed</p>
+                    </div> */}
 
+                </div>
+
+                {currentUser.admin ? 
+                    <div id="dashboard-content-right">
+                        <div id="admin-team-container">
+                            <div id="admin-team-header">
+                                <h3>{currentUser.company.name} Team Boards</h3>
+                                <Icon name="add circle" size="big" className="add-icon" onClick={handleDisplayTeamForm} />
+                            </div>
+                            {newTeamForm ? <AddTeamCard newTeam={newTeam} setNewTeam={setNewTeam} createNewTeam={createNewTeam} currentUser={currentUser}/> : null}
+                            {companyTeamCards}
+                        </div>
+                        <div id="admin-recruiter-container">
+                            <div id="admin-team-header">
+                                <h3>{currentUser.company.name} Recruiters</h3>
+                                {companyRecruiterList}
+                            </div>
+                        </div>
+                        
+                    </div>
+                    : 
+                    null }
+
+
+            </div>    
+             
         </div>
     )
 }

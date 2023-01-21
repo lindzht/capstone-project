@@ -537,19 +537,26 @@ transform: rotate(-10deg);
   margin-top: 3.8em;
 }
 
-#dashboard-content-top {
+#my-dashboard-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#my-dashboard-content-left {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 3em;
 }
 
-#dashboard-content-top #team-block {
+#my-dashboard-content-left #team-block {
   background-color: rgba(255, 255, 255, 0.71);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 1.8em;
   border-radius: 20px;
 }
+
 
 #my-metrics-card-container {
   background-color: rgba(255, 255, 255, 0.71);
@@ -565,6 +572,25 @@ transform: rotate(-10deg);
   font-size: 3.8em;
   margin-bottom: -30px;
 }
+
+#my-dashboard-content-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#my-metrics-card-container-top {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.71);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1.8em;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
 
 
 #admin-team-container {
@@ -589,17 +615,6 @@ transform: rotate(-10deg);
 .hired-highlight h1 {
   color: green;
   font-size: 3.8em;
-}
-
-
-
-#dashboard-content-bottom {
-  background-image: linear-gradient(170deg, rgb(227, 231, 208), rgba(255, 255, 255, 0.168));
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 1.8em;
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-between;
 }
 
 
@@ -632,12 +647,32 @@ transform: rotate(-10deg);
 
 /* MY DASHBOARD: HOME ADMIN */
 
+#dashboard-content-right {
+  background-image: linear-gradient(170deg, rgb(227, 231, 208), rgba(255, 255, 255, 0.168));
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1.8em;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 #admin-team-header h3{
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   font-size: 1.7em;
   
 }
+
+#admin-recruiter-container #admin-team-header {
+  border-top: 1px solid black;
+  margin-top: 2.5em;
+}
+
+#admin-recruiter-container #admin-team-header h3 {
+  margin-top: 1.1em;
+}
+
 
 
 /* MY DASHBOARD: ADD NEW TEAM FORM */
