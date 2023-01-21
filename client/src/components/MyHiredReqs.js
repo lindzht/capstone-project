@@ -8,7 +8,7 @@ function MyHiredReqs ( {currentUser}) {
     console.log(currentUser.reqs)
     
     const tableData = currentUser.reqs.filter((req) => {
-      return req.is_hired === true
+      return req.hired_status === "Hired"
     })
     
     
@@ -112,7 +112,7 @@ function MyHiredReqs ( {currentUser}) {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {data.map(({ req_id, name, org, hiring_manager, open_date, hire_goal, is_hired, hired_date, candidate, candidate_app }) => (
+            {data.map(({ req_id, name, org, hiring_manager, open_date, hire_goal, hired_status, hired_date, candidate, candidate_app }) => (
               <Table.Row id="req-row" key={req_id}>
                 <Table.Cell>{req_id}</Table.Cell>
                 <Table.Cell>{name}</Table.Cell>
@@ -120,7 +120,7 @@ function MyHiredReqs ( {currentUser}) {
                 <Table.Cell>{hiring_manager}</Table.Cell>
                 <Table.Cell>{open_date}</Table.Cell>
                 <Table.Cell>{hire_goal}</Table.Cell>
-                <Table.Cell>{is_hired ? "True" : "False"}</Table.Cell>
+                <Table.Cell>{hired_status}</Table.Cell>
                 <Table.Cell>{hired_date}</Table.Cell>
                 <Table.Cell>{candidate}</Table.Cell>
                 <Table.Cell>{candidate_app}</Table.Cell>
