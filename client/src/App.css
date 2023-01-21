@@ -795,7 +795,7 @@ transform: rotate(-10deg);
 }
 
 #req-id-column {
-  width: 70px;
+  width: 90px;
 }
 
 #req-row-hired {
@@ -805,7 +805,7 @@ transform: rotate(-10deg);
 }
 
 #edit-req-column {
-  width: 70px;
+  width: 100%;
 }
 
 #delete-req-column {

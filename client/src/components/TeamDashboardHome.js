@@ -59,7 +59,7 @@ function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, add
 
                             {/* {test()} */}
                             {/* {renderOpenReqTable()} */}
-                            <TeamReqs currentTeam={currentTeam} /> 
+                            <TeamReqs currentTeam={currentTeam}  /> 
                             {/* <TeamDashboardHome /> */}
                         </div>
                        
