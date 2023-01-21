@@ -36,9 +36,16 @@ function TeamReqs( {currentTeam}) {
     })
     const { column, data, direction } = state
 
+    const reqArray = currentTeam.reqs.map((req)=> {
+      return(
+        <p>{req.name}</p>
+      )
+    })
+
   // if (!currentTeam) return ("Loading...")
     return (
       <>
+        {/* {reqArray} */}
         <Table sortable celled fixed>
           <Table.Header>
             <Table.Row>
@@ -104,7 +111,7 @@ function TeamReqs( {currentTeam}) {
                 <Table.Cell>{req_id}</Table.Cell>
                 <Table.Cell>{name}</Table.Cell>
                 <Table.Cell>{org}</Table.Cell>
-                <Table.Cell>{recruiter.first_name} {recruiter.last_name}</Table.Cell>
+                {recruiter && recruiter.first_name ? <Table.Cell>{recruiter.first_name} {recruiter.last_name}</Table.Cell> : <Table.Cell></Table.Cell>}
                 <Table.Cell>{hiring_manager}</Table.Cell>
                 <Table.Cell>{open_date}</Table.Cell>
                 <Table.Cell>{hire_goal}</Table.Cell>

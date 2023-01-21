@@ -7,7 +7,7 @@ import AddRecruiterCard from './AddRecruiterCard';
 import TeamAddReq from './TeamAddReq';
 import Loading from './Loading';
 
-function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam, companies, addNewReq}) {
+function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, addNewReq, setNewTeamReq, newTeamReq, setNewData}) {
     const [displayAddForm, setDisplayAddForm] = useState(false)
     const [displayRecruiterForm, setDisplayRecruiterForm] = useState(false)
     let params = useParams();
@@ -15,6 +15,7 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam, c
     function renderOpenReqTable (){
         return(<TeamReqs currentTeam={currentTeam}/>)
     }
+    console.log(currentTeam)
 
     // function renderRecruiters(){
     //     return(<TeamRecruiters currentTeam={currentTeam}/>)
@@ -54,10 +55,11 @@ function TeamDashboardHome({currentUser, currentTeam, deleteRecruiterFromTeam, c
                             
                             </div>
                             
-                            {displayAddForm ? <TeamAddReq companies={companies} currentTeam={currentTeam} addNewReq={addNewReq}/> : null}
+                            {displayAddForm ? <TeamAddReq companies={companies} currentTeam={currentTeam} addNewReq={addNewReq} setNewTeamReq={setNewTeamReq} newTeamReq={newTeamReq} setNewData={setNewData}/> : null}
 
                             {/* {test()} */}
-                            {renderOpenReqTable()}
+                            {/* {renderOpenReqTable()} */}
+                            <TeamReqs currentTeam={currentTeam} /> 
                             {/* <TeamDashboardHome /> */}
                         </div>
                        

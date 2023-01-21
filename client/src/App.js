@@ -34,6 +34,14 @@ function App() {
   const [currentCompany, setCurrentCompany] = useState(null);
   const [currentTeam, setCurrentTeam] = useState(null)
   const [newData, setNewData] = useState([]);
+  const [newTeamReq, setNewTeamReq] = useState({
+    req_id: "",
+    name: "",
+    org: "",
+    hiring_manager: "",
+    open_date: "",
+    hire_goal: "",
+    hired_status: "",})
 
 
   let params = useParams();
@@ -190,7 +198,7 @@ function App() {
           })
         }
       })
-    }, [selectTeamID, newData])
+    }, [selectTeamID, newData, newTeamReq])
 
 
 
@@ -221,7 +229,7 @@ function App() {
       .then(res => {
         if (res.ok){
           res.json().then(data => {
-            // setNewTeam(data);
+            setNewData(data);
             console.log(data);
           })
         } else {
@@ -298,7 +306,10 @@ function App() {
                       currentTeam={currentTeam} 
                       deleteRecruiterFromTeam={deleteRecruiterFromTeam}
                       companies={companies}
-                      addNewReq={addNewReq}/>}/>
+                      addNewReq={addNewReq}
+                      setNewTeamReq={setNewTeamReq}
+                      newTeamReq={newTeamReq}
+                      setNewData={setNewData}/>}/>
                   <Route path="reqs" element={<TeamReqs currentUser={currentUser} currentTeam={currentTeam} />} />
                   <Route path="settings" element={<TeamSettings currentUser={currentUser}  />} />
                   <Route path="add" element={<TeamAddReqsPage currentUser={currentUser} companies={companies} />} />

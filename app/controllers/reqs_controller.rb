@@ -1,7 +1,9 @@
 class ReqsController < ApplicationController
 
     def create
+        # byebug
         req = Req.create!(req_params)
+        relationship = Reqteam.create!(req_id: req.id, team_id: params[:team_id])
         render json: req, status: :created
     end
 
