@@ -25,15 +25,14 @@ function App() {
   const [companies, setCompanies] = useState([])
   const [newCompany, setNewCompany] = useState({name: ""});
   const [newCompanyID, setNewCompanyID] = useState("")
-  // const [newRecruiter, setNewRecruiter] = useState([])
   const [errors, setErrors] = useState([])
   const [displayLoginForm, setDisplayLoginForm] = useState(false);
   const [newTeam, setNewTeam] = useState({name: ""});
   const [selectTeamID, setSelectTeamID] = useState("")
-  // const [teamData, setTeamData] = useState([])
-  const [currentCompany, setCurrentCompany] = useState(null);
+  // const [currentCompany, setCurrentCompany] = useState(null);
   const [currentTeam, setCurrentTeam] = useState(null)
   const [newData, setNewData] = useState([]);
+  const [recruiterSearchID, setRecruiterSearchID] = useState(null)
   const [reqSearchID, setReqSearchID] = useState(null)
   const [newTeamReq, setNewTeamReq] = useState({
     req_id: "",
@@ -203,6 +202,26 @@ function App() {
     }, [selectTeamID, newData, newTeamReq])
 
 
+    //  ADD RECRUITER TO TEAM
+    const createRecruiterTeamRelationship = (recruiterSearchObj)=> {
+      console.log(recruiterSearchObj);
+      fetch('/recruiterteams', {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(recruiterSearchObj)
+      })
+      .then(res => {
+        if (res.ok){
+          res.json().then(data => {
+            // setNewTeam(data);
+            console.log(data);
+            setNewData(data)
+          })
+        } else {
+          res.json().then(data => {setErrors(data.errors); console.log(errors)})
+        }
+      })
+     }
 
 
     //  DELETE RECRUITER FROM TEAM
@@ -240,26 +259,6 @@ function App() {
       })
      }
 
-    // ADD EXISTING REQ TO TEAM
-    // const addReqTeamRelationship = (reqID)=> {
-    //   console.log(reqID);
-    //   fetch('/reqteams', {
-    //     method: "POST",
-    //     headers: {'Content-Type': 'application/json'},
-    //     body: JSON.stringify(reqID)
-    //   })
-    //   .then(res => {
-    //     if (res.ok){
-    //       res.json().then(data => {
-    //         setNewData(data);
-    //         console.log(data);
-    //       })
-    //     } else {
-    //       res.json().then(data => {setErrors(data.errors); console.log(errors)})
-    //     }
-    //   })
-    //  }
-    
 
     // DISPLAY LOGIN MODAL
     const handleLoginModal =()=> {
@@ -334,6 +333,10 @@ function App() {
                       newTeamReq={newTeamReq}
                       setNewData={setNewData}
                       setReqSearchID={setReqSearchID}
+                      reqSearchID={reqSearchID}
+                      setRecruiterSearchID={setRecruiterSearchID}
+                      recruiterSearchID={recruiterSearchID}
+                      createRecTeamRelationship={createRecruiterTeamRelationship}
                       />}/>
                   <Route path="reqs" element={<TeamReqs currentUser={currentUser} currentTeam={currentTeam} />} />
                   <Route path="settings" element={<TeamSettings currentUser={currentUser}  />} />

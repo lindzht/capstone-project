@@ -4,7 +4,7 @@ import Select from 'react-select';
 
 
 
-function AddRecruiterCard ({companies, currentTeam}){
+function AddRecruiterCard ({companies, currentTeam, setRecruiterSearchID, recruiterSearchID, createRecTeamRelationship}){
     
     const currentCompanyRecruiters = companies.filter((company) => {
        return( company.id === currentTeam.company.id ? 
@@ -17,7 +17,11 @@ function AddRecruiterCard ({companies, currentTeam}){
     }) 
 
     const recruiterSelected = (e) => {
-        console.log(e.value)
+        setRecruiterSearchID(e.value)
+    }
+
+    const handleSubmit =()=> {
+        createRecTeamRelationship({recruiter_id: recruiterSearchID, team_id: currentTeam.id})
     }
 
     return(
@@ -26,7 +30,7 @@ function AddRecruiterCard ({companies, currentTeam}){
                     id="recruiter-search"
                     options={companyRecruiterSearchInput} 
                     onChange={recruiterSelected}/>
-            <Button id="recruiter-add-button" >Add</Button>
+            <Button onClick={handleSubmit} id="recruiter-add-button" >Add</Button>
         </div>
     )
 }

@@ -7,7 +7,8 @@ import AddRecruiterCard from './AddRecruiterCard';
 import TeamAddReq from './TeamAddReq';
 import Loading from './Loading';
 
-function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, addNewReq, setNewTeamReq, newTeamReq, setNewData, setReqSearchID}) {
+function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, addNewReq, setNewTeamReq, newTeamReq, setNewData, setReqSearchID, reqSearchID, setRecruiterSearchID, recruiterSearchID, createRecTeamRelationship}) {
+
     const [displayAddForm, setDisplayAddForm] = useState(false)
     const [displayRecruiterForm, setDisplayRecruiterForm] = useState(false)
     let params = useParams();
@@ -55,11 +56,12 @@ function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, add
                             
                             </div>
                             
-                            {displayAddForm ? <TeamAddReq companies={companies} currentTeam={currentTeam} addNewReq={addNewReq} setNewTeamReq={setNewTeamReq} newTeamReq={newTeamReq} setNewData={setNewData} setReqSearchID={setReqSearchID}/> : null}
+                            {displayAddForm ? <TeamAddReq companies={companies} currentTeam={currentTeam} addNewReq={addNewReq} setNewTeamReq={setNewTeamReq} newTeamReq={newTeamReq} setNewData={setNewData} setReqSearchID={setReqSearchID}
+                            reqSearchID={reqSearchID}/> : null}
 
                             {/* {test()} */}
-                            {/* {renderOpenReqTable()} */}
-                            <TeamReqs currentTeam={currentTeam}  /> 
+                            {renderOpenReqTable()}
+                            {/* <TeamReqs currentTeam={currentTeam}  />  */}
                             {/* <TeamDashboardHome /> */}
                         </div>
                        
@@ -85,10 +87,15 @@ function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, add
                     <h3>Teammates</h3>
                     <div className='team-recruiters'>
                         {renderRecruiters()}
-                        
-                        <Icon name="circle add" className='add-icon' onClick={()=> {setDisplayRecruiterForm(!displayRecruiterForm)}} />
-                        
-                        {displayRecruiterForm ? <AddRecruiterCard companies={companies} currentTeam={currentTeam} /> : null}
+                        {displayRecruiterForm ? 
+                        <>
+                            <Icon name="minus circle" className='add-icon' onClick={()=> {setDisplayRecruiterForm(!displayRecruiterForm)}}/>
+
+                            <AddRecruiterCard companies={companies} currentTeam={currentTeam} setRecruiterSearchID={setRecruiterSearchID}
+                            recruiterSearchID={recruiterSearchID}
+                            createRecTeamRelationship={createRecTeamRelationship} /> 
+                        </> :  
+                            <Icon name="circle add" className='add-icon' onClick={()=> {setDisplayRecruiterForm(!displayRecruiterForm)}} /> }
                     </div>  
                 </div>
 
