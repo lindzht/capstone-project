@@ -1,5 +1,4 @@
 import { Link, Outlet } from 'react-router-dom';
-import { Icon } from 'semantic-ui-react'
 
 function MyDashboardNav(){
     return(

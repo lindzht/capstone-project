@@ -1,6 +1,6 @@
 import { Button, Icon } from 'semantic-ui-react'
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Settings ({currentUser, handleUpdateRecruiter }){
 

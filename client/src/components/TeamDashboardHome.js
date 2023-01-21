@@ -82,14 +82,14 @@ function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, add
             
 
                 <div id="team-block">
-                        <h3>Teammates</h3>
+                    <h3>Teammates</h3>
+                    <div className='team-recruiters'>
+                        {renderRecruiters()}
                         
-                            <div className='team-recruiters'>
-                                {renderRecruiters()}
-                                <Icon name="circle add" className='add-icon' onClick={()=> {setDisplayRecruiterForm(!displayRecruiterForm)}} />
-                                {displayRecruiterForm ? <AddRecruiterCard companies={companies} currentTeam={currentTeam} /> : null}
-                            </div>
+                        <Icon name="circle add" className='add-icon' onClick={()=> {setDisplayRecruiterForm(!displayRecruiterForm)}} />
                         
+                        {displayRecruiterForm ? <AddRecruiterCard companies={companies} currentTeam={currentTeam} /> : null}
+                    </div>  
                 </div>
 
             </div>

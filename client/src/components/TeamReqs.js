@@ -1,7 +1,6 @@
 import _ from 'lodash'
 import React from 'react'
-import { Table, Icon } from 'semantic-ui-react'
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Table} from 'semantic-ui-react'
 
   
 function TeamReqs( {currentTeam}) {
