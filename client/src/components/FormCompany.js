@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Icon } from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
 import FormSignup from "./FormSignup";
 
 function FormCompany ({newCompany, setNewCompany, createNewCompany, createNewRecruiter, newCompanyID }){

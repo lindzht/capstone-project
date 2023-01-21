@@ -15,7 +15,7 @@ function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, add
     function renderOpenReqTable (){
         return(<TeamReqs currentTeam={currentTeam}/>)
     }
-    console.log(currentTeam)
+    // console.log(currentTeam)
 
     // function renderRecruiters(){
     //     return(<TeamRecruiters currentTeam={currentTeam}/>)
@@ -32,7 +32,7 @@ function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, add
     function renderRecruiters (){
         return( 
             currentTeam.recruiters.map((recruiter) => {
-                return(<TeamRecruiterCard currentTeam={currentTeam} recruiter={recruiter} deleteRecruiterFromTeam={deleteRecruiterFromTeam}/>)
+                return(<TeamRecruiterCard key={recruiter.id} currentTeam={currentTeam} recruiter={recruiter} deleteRecruiterFromTeam={deleteRecruiterFromTeam}/>)
             })
         )
     }
@@ -59,7 +59,7 @@ function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, add
 
                             {/* {test()} */}
                             {/* {renderOpenReqTable()} */}
-                            <TeamReqs currentTeam={currentTeam} /> 
+                            <TeamReqs currentTeam={currentTeam}  /> 
                             {/* <TeamDashboardHome /> */}
                         </div>
                        
@@ -82,14 +82,14 @@ function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, add
             
 
                 <div id="team-block">
-                        <h3>Teammates</h3>
+                    <h3>Teammates</h3>
+                    <div className='team-recruiters'>
+                        {renderRecruiters()}
                         
-                            <div className='team-recruiters'>
-                                {renderRecruiters()}
-                                <Icon name="circle add" className='add-icon' onClick={()=> {setDisplayRecruiterForm(!displayRecruiterForm)}} />
-                                {displayRecruiterForm ? <AddRecruiterCard companies={companies} currentTeam={currentTeam} /> : null}
-                            </div>
+                        <Icon name="circle add" className='add-icon' onClick={()=> {setDisplayRecruiterForm(!displayRecruiterForm)}} />
                         
+                        {displayRecruiterForm ? <AddRecruiterCard companies={companies} currentTeam={currentTeam} /> : null}
+                    </div>  
                 </div>
 
             </div>

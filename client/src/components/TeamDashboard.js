@@ -1,12 +1,8 @@
 import React from 'react'
 import TeamSubNav from "./TeamSubNav";
-// import MyReqs from "./MyReqsPage";
-import { Icon, Table } from 'semantic-ui-react';
-import { Link, Outlet, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import TeamReqs from "./TeamReqs";
-import _ from 'lodash'
-import TeamDashboardHome from './TeamDashboardHome';
+import { Icon, } from 'semantic-ui-react';
+import { Link,  useParams } from 'react-router-dom';
+
 
 
 function TeamDashboard ( {currentTeam, currentUser, setSelectTeamID} ){

@@ -1,7 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
 import { useState } from "react";
-import hamburger from "../images/hamburger.png";
 
 
 function NavDashboard ({handleLogOut, currentUser}) {

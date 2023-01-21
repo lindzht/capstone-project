@@ -1,4 +1,4 @@
-import { Button, Card, Image, Icon, Grid } from 'semantic-ui-react'
+import { Card,  Icon } from 'semantic-ui-react'
 
 function MyTeamCards ({team, currentUser}){
     

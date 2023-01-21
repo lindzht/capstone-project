@@ -1,7 +1,7 @@
 import MySubNav from "./MySubNav";
 // import MyReqs from "./MyReqsPage";
 import { Icon } from 'semantic-ui-react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 
 function MyDashboard ( {currentUser} ){

@@ -1,7 +1,7 @@
 import MyTeamCards from "./MyTeamCards";
 import { Icon } from 'semantic-ui-react';
 import { useState } from "react";
-import {  Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import AddTeamCard from "./AddTeamCard";
 import AdminTeamCards from "./AdminTeamCards";
 
