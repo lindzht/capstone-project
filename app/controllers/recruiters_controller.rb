@@ -1,14 +1,27 @@
 class RecruitersController < ApplicationController
 
     def create
-        # companyID = find_company_id
         recruiter = Recruiter.create(recruiter_params)
+        session[:recruiter_id] = recruiter.id
         if recruiter.admin == true 
             company = find_company_name
             team = Team.create(name: "All #{company} Reqs", company_id: params[:company_id])
             Recruiterteam.create(recruiter_id: recruiter.id, team_id: team.id)
         end
         render json: recruiter, status: :created
+
+        # recruiter = Recruiter.create!(recruiter_params)
+        # if recruiter.admin == true 
+        #     company = find_company_name
+        #     team = Team.create(name: "All #{company} Reqs", company_id: params[:company_id])
+        #     Recruiterteam.create(recruiter_id: recruiter.id, team_id: team.id)
+        #     session[:recruiter_id] = recruiter.id 
+        #     # render json: recruiter, status: :created
+        # else 
+        #    recruiter = Recruiter.create(recruiter_params)
+        #    session[:recruiter_id] = recruiter.id 
+        # end
+        # render json: recruiter, status: :created
     end
 
     def show
@@ -46,3 +59,4 @@ class RecruitersController < ApplicationController
 
 
 end
+

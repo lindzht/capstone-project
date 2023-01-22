@@ -44,7 +44,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setNe
             <div id="dashboard-content-top">
                 <div id="team-block">
                     <div id="team-block-header">
-                        <h3>My Team Boards</h3>
+                        <h3>My Boards</h3>
                     </div>
                     {myTeamCards} 
                 </div>
@@ -79,7 +79,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setNe
                 <div id="dashboard-content-bottom">
                     <div id="admin-team-container">
                         <div id="admin-team-header">
-                            <h3>{currentUser.company.name} Team Boards</h3>
+                            <h3>{currentUser.company.name} Boards</h3>
                             <Icon name="add circle" size="big" className="add-icon" onClick={handleDisplayTeamForm} />
                         </div>
                         {newTeamForm ? <AddTeamCard newTeam={newTeam} setNewTeam={setNewTeam} createNewTeam={createNewTeam} currentUser={currentUser}/> : null}
