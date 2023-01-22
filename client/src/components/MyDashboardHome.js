@@ -66,7 +66,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setNe
                     {/* <h1>{currentUser.open_reqs}</h1> */}
                     <h1>X</h1>
                     <h3>Avg Time to Hire</h3>
-                    <p>Time req open to req closed</p>
+                    {/* <p>Time req open to req closed</p> */}
                 </div>
                 
             </div>  
