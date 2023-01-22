@@ -1,7 +1,8 @@
 class RecruitersController < ApplicationController
 
     def create
-        if params[:company] && params[:admin] == true
+        # byebug
+        if params[:admin] == true
             company = Company.create!(name: params[:company])
             recruiter = Recruiter.create!(
                 first_name: params[:first_name],

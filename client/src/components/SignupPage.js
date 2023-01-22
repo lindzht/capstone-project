@@ -11,6 +11,7 @@ function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompan
     const [companySearch, setCompanySearch] = useState(null)
     const [companySearchID, setCompanySearchID] = useState(null)
     const [displayCompanyForm, setDisplayCompanyForm] = useState(false)
+    const [displaySignupForm, setDisplaySignupForm] = useState(false)
 
     const companiesSearchCompatible = companies.map((company) => {
         return( {label: company.name, value: company.id})
@@ -25,10 +26,9 @@ function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompan
         setDisplayCompanyForm(!displayCompanyForm)
     }
 
-
     return(
         <div id="signup-page-container">
-            { companySearch ? <FormSignup companySearchName={companySearch} createNewRecruiter={createNewRecruiter} newCompanyID={newCompanyID} companySearchID={companySearchID}/> : 
+            { companySearch || displaySignupForm ? <FormSignup companySearchName={companySearch} createNewRecruiter={createNewRecruiter} newCompanyID={newCompanyID} companySearchID={companySearchID} newCompany={newCompany}/> : 
                 <div id="signup-content-container">
                     <div className="exit">
                         <Link to="/" >
@@ -41,7 +41,7 @@ function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompan
                         options={companiesSearchCompatible} 
                         onChange={companySelected}/>
                     <h4 onClick={handleDisplayCompanyForm}>Don't See Your Company? Create Your Company Account Here!</h4> 
-                    {displayCompanyForm ? <FormCompany companyFormResult={displayCompanyForm} createNewCompany={createNewCompany} createNewRecruiter={createNewRecruiter} newCompany={newCompany} setNewCompany={setNewCompany} newCompanyID={newCompanyID} /> : null}
+                    {displayCompanyForm ? <FormCompany createNewRecruiter={createNewRecruiter} newCompany={newCompany} setNewCompany={setNewCompany} newCompanyID={newCompanyID} setDisplaySignupForm={setDisplaySignupForm} /> : null}
                 </div>
                 }   
            

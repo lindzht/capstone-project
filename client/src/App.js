@@ -97,7 +97,7 @@ function App() {
         })
       }
     })
-  }, [newCompany])
+  }, [newCompany, newData])
 
   // CREATE NEW COMPANY AND ADD NEW COMPANY ID
   //  const createNewCompany = (newCompany)=> {
@@ -119,6 +119,7 @@ function App() {
 
     // CREATE NEW RECRUITER
     const createNewRecruiter = (newRecruiter)=> {
+      console.log(newRecruiter)
       fetch('/recruiters', {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
@@ -129,6 +130,8 @@ function App() {
           res.json().then(data => {
             console.log(data);
             setCurrentUser(data);
+            setNewData(data);
+            setNewCompany({name: ""})
           })
         } else {
           res.json().then(data => {setErrors(data.errors); console.log(errors)})
@@ -322,7 +325,7 @@ function App() {
               setDisplayLoginForm={setDisplayLoginForm}/>
         : null }
         <Routes>
-          <Route index element={<LandingPage handleLoginModal={handleLoginModal}/>} />
+          <Route index element={<LandingPage handleLoginModal={handleLoginModal} setNewCompany={setNewCompany}/>} />
           <Route path='signup' element={<SignupPage 
               companies={companies}
               // createNewCompany={createNewCompany}

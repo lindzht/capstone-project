@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Icon } from 'semantic-ui-react'
 import FormSignup from "./FormSignup";
 
-function FormCompany ({newCompany, setNewCompany, createNewCompany, createNewRecruiter, newCompanyID }){
+function FormCompany ({newCompany, setNewCompany, createNewRecruiter, newCompanyID, setDisplaySignupForm }){
 
-    const [displaySignupForm, setDisplaySignupForm ] = useState(false)
+    // const [displaySignupForm, setDisplaySignupForm ] = useState(false)
     
     const handleChange = (e) => {
         const key = e.target.name;
@@ -17,13 +17,14 @@ function FormCompany ({newCompany, setNewCompany, createNewCompany, createNewRec
     }
     const handleCompanySubmit = (e) => {
         e.preventDefault();
-        // createNewCompany(newCompany)
-        setDisplaySignupForm(!displaySignupForm); 
+        // setDisplaySignupForm(!displaySignupForm); 
         setNewCompany(newCompany)
+        setDisplaySignupForm(true)
+        
         // setNewCompany({name: ""})
     };
 
-if (displaySignupForm) return <FormSignup createNewRecruiter={createNewRecruiter} newCompanyID={newCompanyID} newCompany={newCompany}/> 
+// if (displaySignupForm) return <FormSignup createNewRecruiter={createNewRecruiter} newCompanyID={newCompanyID} newCompany={newCompany}/> 
     return(
         <div id="formcompany-container">
             <form onSubmit={handleCompanySubmit}>
