@@ -259,6 +259,26 @@ function App() {
       })
      }
 
+     //UPDATE REQ
+     const handleUpdateReq = (updateReqObj)=> {
+      console.log(updateRecruiterObj);
+      fetch(`/recruiters/${currentUser.id}`, {
+        method: "PATCH",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(updateRecruiterObj)
+      })
+      .then(res => {
+        if (res.ok){
+          res.json().then(data => {
+            console.log(data);
+            setCurrentUser(data);
+          })
+        } else {
+          res.json().then(console.log("no go"))
+        }
+      })
+    }
+
 
     // DISPLAY LOGIN MODAL
     const handleLoginModal =()=> {
