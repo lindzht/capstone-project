@@ -630,17 +630,22 @@ transform: rotate(-10deg);
   margin: 1em;
   /* margin: 10px 0 30px 10px; */
   /* padding: 1em;  */
-  width: 18em;
+  width: 22em;
   border: none;
 }
+
+/* #my-team-block-header {
+  width: 100%;
+  margin: 0 10% 0 10%;
+} */
+
 #card-content-top #team-data {
   margin: 10px 0 0 -10px;
 }
 
 #card-content-top {
-  height: 80px;
-  background: linear-gradient(450deg, rgba(227, 231, 208, 0.629), #ffffff);
-  
+  height: 90px;
+  background-color: rgba(227, 231, 208, 0.34);  
 }
 
 #card-content-top:hover {
