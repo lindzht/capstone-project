@@ -2,12 +2,13 @@ import MySubNav from "./MySubNav";
 // import MyReqs from "./MyReqsPage";
 import { Icon } from 'semantic-ui-react';
 import { Link} from 'react-router-dom';
+import Loading from "./Loading";
 
 
 function MyDashboard ( {currentUser} ){
 
 
-
+if (!currentUser) return <Loading />
     return(
         <div className="dashboard-container">
             <div id="user-display">

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 
-function LandingPage({handleLoginModal}) {
+function LandingPage({handleLoginModal, setNewCompany}) {
     return(
         <div id="landing-page-container">
             <div id="landing-top">
@@ -23,7 +23,7 @@ function LandingPage({handleLoginModal}) {
             </div>
             <div id="landing-bottom">
                 <Link to="/signup" >
-                    <Button color='black' size='large'>Sign Up</Button>
+                    <Button onClick={() => {setNewCompany({name: ""})}} color='black' size='large'>Sign Up</Button>
                 </Link>
                     <Button color='black' size='large' onClick={handleLoginModal}>Login</Button>
                 <div id="contact">Contact Icons</div>

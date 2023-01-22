@@ -250,13 +250,9 @@ transform: rotate(-10deg);
   font-style: italic;
 }
 
-#exit {
-  position: relative;
-  top: -40px;
-  right: -245px;
-}
 
-/************** SIGNUP: ADD COMPANY FORM **************/
+
+/************** SIGNUP: ADD  COMPANY FORM **************/
 
 #formcompany-container form input{
   border: 1px solid rgba(128, 128, 128, 0.331);
@@ -312,8 +308,17 @@ transform: rotate(-10deg);
 .exit {
   position: relative;
   top: -40px;
-  right: -245px;
+  right: 55%;
 }
+
+.exit a {
+  color: rgb(187, 187, 187);
+}
+
+.exit a:hover {
+  color: black;
+}
+
 
 /************** LOGIN MODAL **************/
 

@@ -63,7 +63,7 @@ function App() {
   }, [newTeam]);
 
 
-    // LOGIN 
+  // LOGIN 
   const handleLogin = (currentUser) => {
       fetch('/login', {
           method: "POST",
@@ -97,28 +97,29 @@ function App() {
         })
       }
     })
-  }, [newCompany])
+  }, [newCompany, newData])
 
   // CREATE NEW COMPANY AND ADD NEW COMPANY ID
-   const createNewCompany = (newCompany)=> {
-    fetch('/companies', {
-      method: "POST",
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(newCompany)
-    })
-    .then(res => {
-      if (res.ok){
-        res.json().then(data => {
-          setNewCompanyID(data.id);
-        })
-      } else {
-        res.json().then(data => {setErrors(data.errors); console.log(errors)})
-      }
-    })
-   }
+  //  const createNewCompany = (newCompany)=> {
+  //   fetch('/companies', {
+  //     method: "POST",
+  //     headers: {'Content-Type': 'application/json'},
+  //     body: JSON.stringify(newCompany)
+  //   })
+  //   .then(res => {
+  //     if (res.ok){
+  //       res.json().then(data => {
+  //         setNewCompanyID(data.id);
+  //       })
+  //     } else {
+  //       res.json().then(data => {setErrors(data.errors); console.log(errors)})
+  //     }
+  //   })
+  //  }
 
     // CREATE NEW RECRUITER
     const createNewRecruiter = (newRecruiter)=> {
+      console.log(newRecruiter)
       fetch('/recruiters', {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
@@ -129,6 +130,8 @@ function App() {
           res.json().then(data => {
             console.log(data);
             setCurrentUser(data);
+            setNewData(data);
+            setNewCompany({name: ""})
           })
         } else {
           res.json().then(data => {setErrors(data.errors); console.log(errors)})
@@ -318,13 +321,14 @@ function App() {
               setErrors={setErrors}
               errors={errors}
               handleLoginModal={handleLoginModal}
-              handleLogin={handleLogin}/>
+              handleLogin={handleLogin}
+              setDisplayLoginForm={setDisplayLoginForm}/>
         : null }
         <Routes>
-          <Route index element={<LandingPage handleLoginModal={handleLoginModal}/>} />
+          <Route index element={<LandingPage handleLoginModal={handleLoginModal} setNewCompany={setNewCompany}/>} />
           <Route path='signup' element={<SignupPage 
               companies={companies}
-              createNewCompany={createNewCompany}
+              // createNewCompany={createNewCompany}
               createNewRecruiter={createNewRecruiter}
               newCompany={newCompany}
               setNewCompany={setNewCompany}

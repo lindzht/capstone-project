@@ -1,27 +1,25 @@
 class RecruitersController < ApplicationController
 
     def create
-        recruiter = Recruiter.create(recruiter_params)
-        session[:recruiter_id] = recruiter.id
-        if recruiter.admin == true 
-            company = find_company_name
-            team = Team.create(name: "All #{company} Reqs", company_id: params[:company_id])
-            Recruiterteam.create(recruiter_id: recruiter.id, team_id: team.id)
+        # byebug
+        if params[:admin] == true
+            company = Company.create!(name: params[:company])
+            recruiter = Recruiter.create!(
+                first_name: params[:first_name],
+                last_name: params[:last_name],
+                email: params[:email],
+                password: params[:password],
+                password_confirmation: params[:password_confirmation],
+                admin: params[:admin],
+                company_id: company.id
+                )
+            team = Team.create(name: "All #{company.name} Reqs", company_id: company.id)
+            Recruiterteam.create(recruiter_id: recruiter.id, team_id: team.id)      
+        else 
+            recruiter = Recruiter.create(recruiter_params)   
         end
+        session[:recruiter_id] = recruiter.id
         render json: recruiter, status: :created
-
-        # recruiter = Recruiter.create!(recruiter_params)
-        # if recruiter.admin == true 
-        #     company = find_company_name
-        #     team = Team.create(name: "All #{company} Reqs", company_id: params[:company_id])
-        #     Recruiterteam.create(recruiter_id: recruiter.id, team_id: team.id)
-        #     session[:recruiter_id] = recruiter.id 
-        #     # render json: recruiter, status: :created
-        # else 
-        #    recruiter = Recruiter.create(recruiter_params)
-        #    session[:recruiter_id] = recruiter.id 
-        # end
-        # render json: recruiter, status: :created
     end
 
     def show
@@ -47,6 +45,10 @@ class RecruitersController < ApplicationController
 
     def recruiter_params
         params.permit(:first_name, :last_name, :email, :password, :password_confirmation, :admin, :company_id)
+    end
+
+    def admin_recruiter_params
+        params.permit(:first_name, :last_name, :email, :password, :password_confirmation, :admin)
     end
 
     def find_recruiter

@@ -3,35 +3,34 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 function FormSignup ({newCompanyName, companySearchName, createNewRecruiter, newCompany, newCompanyCreated, newCompanyID, companySearchID}){
-    // console.log(companySearchResult);
+    
+
     const navigate = useNavigate();
     const [newRecruiter, setNewRecruiter] = useState({
         first_name: "",
         last_name: "",
         email: "",
         password: "",
-        password_confirmation: "",
-        // admin: newCompanyName ? true : false,
-        // company_id: newCompanyName ? newCompany.id : companySearchResultID
+        password_confirmation: ""
     });
     
     const handleChange = (e) => {
         const key = e.target.name;
         const value = e.target.value;
         
-        if (newCompanyID) {
-            setNewRecruiter({
-                ...newRecruiter,
-                [key]: value,
-                admin: true,
-                company_id: newCompanyID
-            })  
-        } else {
+        if (companySearchID) {
             setNewRecruiter({
                 ...newRecruiter,
                 [key]: value,
                 admin: false,
                 company_id: companySearchID
+            })  
+        } else {
+            setNewRecruiter({
+                ...newRecruiter,
+                [key]: value,
+                admin: true,
+                company: newCompany.name
             })
         }
     }
@@ -44,7 +43,6 @@ function FormSignup ({newCompanyName, companySearchName, createNewRecruiter, new
     };
 
 
-
 // if (companySearchResult) return <FormCompany />
     return(
         <div id="formsignup-container">
@@ -53,7 +51,7 @@ function FormSignup ({newCompanyName, companySearchName, createNewRecruiter, new
                     <Icon className="exit-icon" name="x" size='large' />
                 </Link>
             </div>
-            {/* <h1>Join {companySearchResult ? companySearchResult : newCompany}</h1> */}
+            <h1>Join {companySearchName || newCompany.name }</h1>
             <form onSubmit={handleRecruiterSubmit}>
                 <input
                     type="text"
