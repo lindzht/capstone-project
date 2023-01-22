@@ -1,7 +1,6 @@
 class ReqteamsController < ApplicationController
 
     def destroy_req_from_team
-        byebug
         reqteam = find_reqteam 
         reqteam.destroy
         render json: reqteam, status: :accepted

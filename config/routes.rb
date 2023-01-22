@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get "/me", to: "recruiters#show"
 
   #DELETE REQ FROM UNIQUE TEAM:
-  post "/reqteamdelete", to: "reqteams#destroy_req_from_team"
+  post "/reqteamdestroy", to: "reqteams#destroy_req_from_team"
 
 
   # Routing logic: fallback requests for React Router.

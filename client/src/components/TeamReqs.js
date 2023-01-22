@@ -3,14 +3,15 @@ import React, {useState} from 'react'
 import { Table, Icon, Button } from 'semantic-ui-react'
 
   
-function TeamReqs( {currentTeam, deleteReqFromTeam}) {
+function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam}) {
     
-    // const handleDelete =() => {
-    //   if (currentTeam.name !== "All Reqs")
-    // }
-  
-    console.log(currentTeam)
-
+    const handleDelete =(id) => {
+      if (currentTeam.name.includes(currentTeam.company.name)){
+        deleteReq(id)
+      } else {
+        deleteReqFromTeam({req_id: id, team_id: currentTeam.id})
+      }
+    }
 
 
     function RenderTable (){
@@ -117,7 +118,7 @@ function TeamReqs( {currentTeam, deleteReqFromTeam}) {
                     <Table.Cell>{open_date}</Table.Cell>
                     <Table.Cell>{hire_goal}</Table.Cell>
                     <Table.Cell>{hired_status}</Table.Cell> 
-                    <Table.Cell id="edit-req-row" ><Icon name="pencil" id="edit-req-icon"/><Icon name="x" id="delete-req-icon" onClick={()=>{deleteReqFromTeam(id)}}/></Table.Cell>
+                    <Table.Cell id="edit-req-row" ><Icon name="pencil" id="edit-req-icon"/><Icon name="x" id="delete-req-icon" onClick={() => {handleDelete(id)}}/></Table.Cell>
                   </Table.Row>
                 
                 ))}

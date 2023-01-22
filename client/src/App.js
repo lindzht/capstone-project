@@ -259,8 +259,9 @@ function App() {
       })
      }
 
-    //  DELETE REQ FROM TEAM
-    const deleteReqFromTeam =(reqID)=>{
+    //  DELETE REQ FROM ALL TEAMS (From the All Reqs board)
+    const deleteReq =(reqID)=>{
+      // console.log(reqID)
     fetch(`/reqs/${reqID}`, {
       method: "DELETE"
       })
@@ -268,8 +269,28 @@ function App() {
       if(res.ok) {
           res.json()
           .then(data => {
-            console.log(data)
+            setNewData(data);
           })
+        }
+      })
+    }
+
+    //  DELETE REQ FROM ALL TEAMS (From the All Reqs board)
+    const deleteReqFromTeam =(reqObj)=>{
+      console.log(reqObj)
+      fetch('/reqteamdestroy', {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(reqObj)
+      })
+      .then(res => {
+        if (res.ok){
+          res.json().then(data => {
+            setNewData(data);
+            console.log(data);
+          })
+        } else {
+          res.json().then(data => {setErrors(data.errors); console.log(errors)})
         }
       })
     }
@@ -352,6 +373,7 @@ function App() {
                       setRecruiterSearchID={setRecruiterSearchID}
                       recruiterSearchID={recruiterSearchID}
                       createRecTeamRelationship={createRecruiterTeamRelationship}
+                      deleteReq={deleteReq}
                       deleteReqFromTeam={deleteReqFromTeam}
                       />}/>
                   <Route path="reqs" element={<TeamReqs currentUser={currentUser} currentTeam={currentTeam} />} />

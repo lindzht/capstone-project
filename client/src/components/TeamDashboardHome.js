@@ -7,14 +7,14 @@ import AddRecruiterCard from './AddRecruiterCard';
 import TeamAddReq from './TeamAddReq';
 import Loading from './Loading';
 
-function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, addNewReq, setNewTeamReq, newTeamReq, setNewData, setReqSearchID, reqSearchID, setRecruiterSearchID, recruiterSearchID, createRecTeamRelationship, deleteReqFromTeam}) {
+function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, addNewReq, setNewTeamReq, newTeamReq, setNewData, setReqSearchID, reqSearchID, setRecruiterSearchID, recruiterSearchID, createRecTeamRelationship, deleteReq, deleteReqFromTeam}) {
 
     const [displayAddForm, setDisplayAddForm] = useState(false)
     const [displayRecruiterForm, setDisplayRecruiterForm] = useState(false)
     let params = useParams();
 
     function renderOpenReqTable (){
-        return(<TeamReqs currentTeam={currentTeam} deleteReqFromTeam={deleteReqFromTeam}/>)
+        return(<TeamReqs currentTeam={currentTeam} deleteReq={deleteReq} deleteReqFromTeam={deleteReqFromTeam}/>)
     }
     // console.log(currentTeam)
 
