@@ -3,7 +3,11 @@ class RecruitersController < ApplicationController
     def create
         # companyID = find_company_id
         recruiter = Recruiter.create(recruiter_params)
-        # recruiter.update(company_id: companyID)
+        if recruiter.admin == true 
+            company = find_company_name
+            team = Team.create(name: "All #{company} Reqs", company_id: params[:company_id])
+            Recruiterteam.create(recruiter_id: recruiter.id, team_id: team.id)
+        end
         render json: recruiter, status: :created
     end
 
@@ -36,9 +40,9 @@ class RecruitersController < ApplicationController
         Recruiter.find(session[:recruiter_id])
     end
 
-    # def find_company_id
-    #     Company.find_by(name: params[:company_name]).id
-    # end
+    def find_company_name
+        Company.find(params[:company_id]).name
+    end
 
 
 end

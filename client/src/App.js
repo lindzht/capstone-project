@@ -259,6 +259,21 @@ function App() {
       })
      }
 
+    //  DELETE REQ FROM TEAM
+    const deleteReqFromTeam =(reqID)=>{
+    fetch(`/reqs/${reqID}`, {
+      method: "DELETE"
+      })
+      .then(res => {
+      if(res.ok) {
+          res.json()
+          .then(data => {
+            console.log(data)
+          })
+        }
+      })
+    }
+
 
     // DISPLAY LOGIN MODAL
     const handleLoginModal =()=> {
@@ -337,6 +352,7 @@ function App() {
                       setRecruiterSearchID={setRecruiterSearchID}
                       recruiterSearchID={recruiterSearchID}
                       createRecTeamRelationship={createRecruiterTeamRelationship}
+                      deleteReqFromTeam={deleteReqFromTeam}
                       />}/>
                   <Route path="reqs" element={<TeamReqs currentUser={currentUser} currentTeam={currentTeam} />} />
                   <Route path="settings" element={<TeamSettings currentUser={currentUser}  />} />

@@ -805,11 +805,11 @@ transform: rotate(-10deg);
 }
 
 #req-row:hover {
-  background-color: rgba(0, 0, 0, 0.095);
+  background-color: rgba(245, 245, 245, 0.561);
 }
 
 #edit-req-column {
-  width: 60px;
+  width: 65px;
   border-left: none;
   background-color: rgba(245, 245, 245, 0.561);
 
@@ -830,7 +830,8 @@ transform: rotate(-10deg);
 
 #delete-req-icon:hover,
 #edit-req-icon:hover {
-  color: black
+  color: black;
+  cursor: grab;
 }
 
 

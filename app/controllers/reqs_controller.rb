@@ -11,10 +11,20 @@ class ReqsController < ApplicationController
         end
     end
 
+    def destroy
+        req = find_req
+        req.destroy
+        render json: req, status: :accepted
+    end
+
     private
 
     def req_params
         params.permit(:req_id, :name, :org, :hiring_manager, :open_date, :hire_goal, :hired_status, :hired_date, :candidate, :candidate_app, :recruiter_id, :company_id)
+    end
+
+    def find_req 
+        Req.find(params[:id])
     end
 
 end

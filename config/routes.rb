@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   # STAY LOGGED IN & GET RECRUITER INFO: 
   get "/me", to: "recruiters#show"
 
+  #DELETE REQ FROM UNIQUE TEAM:
+  post "/reqteamdelete", to: "reqteams#destroy_req_from_team"
+
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
