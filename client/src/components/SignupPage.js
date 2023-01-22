@@ -50,9 +50,6 @@ function SignupPage ({companies, createNewCompany, createNewRecruiter, newCompan
                 <video id="video-background" autoPlay loop muted>
                     <source src={landing_video} type="video/mp4" />
                 </video>
-                {/* <video id="video-background2" autoPlay loop muted>
-                    <source src={landing_video} type="video/mp4" />
-                </video> */}
             </div>
         </div>
     )

@@ -17,12 +17,13 @@ function FormCompany ({newCompany, setNewCompany, createNewCompany, createNewRec
     }
     const handleCompanySubmit = (e) => {
         e.preventDefault();
-        createNewCompany(newCompany)
+        // createNewCompany(newCompany)
         setDisplaySignupForm(!displaySignupForm); 
-        setNewCompany({name: ""})
+        setNewCompany(newCompany)
+        // setNewCompany({name: ""})
     };
 
-if (displaySignupForm) return <FormSignup createNewRecruiter={createNewRecruiter} newCompanyID={newCompanyID}/> 
+if (displaySignupForm) return <FormSignup createNewRecruiter={createNewRecruiter} newCompanyID={newCompanyID} newCompany={newCompany}/> 
     return(
         <div id="formcompany-container">
             <form onSubmit={handleCompanySubmit}>

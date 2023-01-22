@@ -2,7 +2,7 @@ import { Icon } from 'semantic-ui-react'
 import {useState} from "react"
 import { useNavigate} from "react-router-dom";
 
-function LoginModal({errors, handleLoginModal, handleLogin}) {
+function LoginModal({errors, handleLoginModal, handleLogin, setDisplayLoginForm}) {
     let navigate = useNavigate();
 
     // LOGIN 
@@ -43,9 +43,13 @@ function LoginModal({errors, handleLoginModal, handleLogin}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         handleLogin(user)
-        if (errors) {
+       
+        // navigate('/dashboard')
+        console.log(errors)
+        if (errors && errors.length === 0) {
             navigate('/dashboard')
         }
+        setDisplayLoginForm(false);
     };
 
 

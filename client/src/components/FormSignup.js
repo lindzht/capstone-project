@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 function FormSignup ({newCompanyName, companySearchName, createNewRecruiter, newCompany, newCompanyCreated, newCompanyID, companySearchID}){
-    // console.log(companySearchResult);
+    console.log(newCompany);
     const navigate = useNavigate();
     const [newRecruiter, setNewRecruiter] = useState({
         first_name: "",
@@ -19,12 +19,12 @@ function FormSignup ({newCompanyName, companySearchName, createNewRecruiter, new
         const key = e.target.name;
         const value = e.target.value;
         
-        if (newCompanyID) {
+        if (newCompany) {
             setNewRecruiter({
                 ...newRecruiter,
                 [key]: value,
                 admin: true,
-                company_id: newCompanyID
+                company: newCompany.name
             })  
         } else {
             setNewRecruiter({
@@ -53,7 +53,7 @@ function FormSignup ({newCompanyName, companySearchName, createNewRecruiter, new
                     <Icon className="exit-icon" name="x" size='large' />
                 </Link>
             </div>
-            {/* <h1>Join {companySearchResult ? companySearchResult : newCompany}</h1> */}
+            <h1>Join {companySearchName}</h1>
             <form onSubmit={handleRecruiterSubmit}>
                 <input
                     type="text"
