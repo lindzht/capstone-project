@@ -1,12 +1,14 @@
 import _ from 'lodash'
-import React from 'react'
-import { Table} from 'semantic-ui-react'
+import React, {useState} from 'react'
+import { Table, Icon, Button } from 'semantic-ui-react'
 
   
 function TeamReqs( {currentTeam}) {
-
+    const [displayButtons, setDisplayButtons] = useState(false)
     function RenderTable (){
-      const tableData = currentTeam.reqs
+      const tableData = currentTeam.reqs.filter((req) => {
+        return req.hired_status !== "Hired"
+      })
 
       function exampleReducer(state, action) {
         switch (action.type) {
@@ -90,20 +92,26 @@ function TeamReqs( {currentTeam}) {
                   >
                     Hired Status
                   </Table.HeaderCell>
+                  <Table.HeaderCell id="edit-req-column">
+                  </Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
               <Table.Body>
-                {data.map(({ req_id, name, org, hiring_manager, open_date, hire_goal, hired_status, hired_date, candidate, candidate_app, recruiter }) => (
+                
+                {data.map(({ id, req_id, name, org, hiring_manager, open_date, hire_goal, hired_status, hired_date, candidate, candidate_app, recruiter }) => (
+               
                   <Table.Row id={hired_status === "Hired" ? "req-row-hired" : "req-row"} key={req_id}>
                     <Table.Cell>{req_id}</Table.Cell>
-                    <Table.Cell>{name}</Table.Cell>
+                    <Table.Cell onClick={()=>{console.log(id)}}>{name}</Table.Cell>
                     <Table.Cell>{org}</Table.Cell>
                     {recruiter && recruiter.first_name ? <Table.Cell>{recruiter.first_name} {recruiter.last_name}</Table.Cell> : <Table.Cell></Table.Cell>}
                     <Table.Cell>{hiring_manager}</Table.Cell>
                     <Table.Cell>{open_date}</Table.Cell>
                     <Table.Cell>{hire_goal}</Table.Cell>
-                    <Table.Cell>{hired_status}</Table.Cell>
+                    <Table.Cell>{hired_status}</Table.Cell> 
+                    <Table.Cell id="edit-req-row" onClick={()=> {console.log(id)}}><Icon name="pencil" id="edit-req-icon"/><Icon name="x" id="delete-req-icon" /></Table.Cell>
                   </Table.Row>
+                
                 ))}
               </Table.Body>
             </Table>

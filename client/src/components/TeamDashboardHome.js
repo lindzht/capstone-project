@@ -51,7 +51,7 @@ function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, add
             <div id="team-container-left"> 
                         <div className='req-container'>
                             <div id="req-top-container">
-                                <h1>Reqs</h1>
+                                <h1>Open Reqs</h1>
                                 <Icon size="big" name="add circle" onClick={handleDisplayAddForm} />   
                             
                             </div>
