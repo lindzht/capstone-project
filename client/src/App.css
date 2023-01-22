@@ -558,9 +558,9 @@ transform: rotate(-10deg);
   /* margin-bottom: 3em; */
 }
 
-#dashboard-content-bottom {
-  margin-top: 2em;
-}
+/* #dashboard-content-bottom {
+  margin: 1em 2em 0 1em;
+} */
 
 
 #my-boards-container {
@@ -738,11 +738,11 @@ transform: rotate(-10deg);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: -3em 2em 0 0;
+  margin: -3em 2em 0 3em;
 }
 
 #dashboard-content-left {
-  width: 70%;
+  width: 100%;
 }
 
 #admin-team-container, 
