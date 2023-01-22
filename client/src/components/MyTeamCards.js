@@ -1,6 +1,6 @@
 import { Card,  Icon } from 'semantic-ui-react'
 
-function MyTeamCards ({team, currentUser}){
+function MyTeamCards ({team}){
     
     return(
         <div className="team-card-container">
