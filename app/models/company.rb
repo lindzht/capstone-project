@@ -1,7 +1,7 @@
 class Company < ApplicationRecord
-    has_many :recruiters
-    has_many :teams
-    has_many :reqs
+    has_many :recruiters, dependent: :destroy
+    has_many :teams, dependent: :destroy
+    has_many :reqs, dependent: :destroy
     
 
     validates :name, presence: true
