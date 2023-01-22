@@ -377,7 +377,16 @@ transform: rotate(-10deg);
   font-size: 1.8em;
 }
 
-#login-exit:hover {
+#login-exit:hover{
+  color: black;
+  cursor: grab;
+}
+
+.icon-right-arrow {
+  color: rgb(170, 170, 170);
+}
+
+.icon-right-arrow:hover {
   color: black;
   cursor: grab;
 }
