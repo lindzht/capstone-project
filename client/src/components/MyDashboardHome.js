@@ -47,7 +47,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setNe
                         <h1>{currentUser.open_reqs}</h1>
                         <h3>Open Reqs</h3>
                     </div>
-                    
+
                     
                     <div id="my-metrics-card-container">   
                         <div className={currentUser.hired_reqs > 0 ? "hired-highlight" : null }>
