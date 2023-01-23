@@ -13,4 +13,16 @@ class RecruiterSerializer < ActiveModel::Serializer
     object.reqs.where(hired_status: "Hired").count
   end
 
+  def teams
+    object.teams.order(name: :asc)
+  end
+
+
+
+  # def req_due_this_month
+  #   beginning_of_month = Time.current.beginning_of_month
+  #   end_of_month = beginning_of_month.end_of_month  
+  #   object.reqs.where(hire_goal: beginning_of_month..end_of_month )
+  # end
+
 end
