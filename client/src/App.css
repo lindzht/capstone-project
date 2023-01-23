@@ -1110,7 +1110,7 @@ transform: rotate(-10deg);
   margin-top: 2%;
   border-radius: 20px;
   height: 80%;
-  width: 15em;
+  width: 18em;
 }
 
 #team-block{
@@ -1127,9 +1127,9 @@ transform: rotate(-10deg);
   padding: 1.5em 0 0.5em 0;
 }
 
-/* #team-container-left #dashboard-content-right {
-  width: 30em;
-} */
+#team-container-left  {
+  width: 100%;
+}
 
 .team-recruiters .add-icon {
   color: rgba(188, 188, 188, 0.779);;
