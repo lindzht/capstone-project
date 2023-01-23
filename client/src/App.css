@@ -518,7 +518,7 @@ transform: rotate(-10deg);
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   border: 30px solid rgb(255, 255, 255);
   border-radius: 50px;
   background-color: rgba(227, 231, 208, 0.34);
@@ -591,15 +591,19 @@ transform: rotate(-10deg);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 1.8em;
   border-radius: 20px;
-  /* width: 18%; */
-  height: 11em;
+  width: 18%;
+  height: 8em;
   text-align: center;
   margin: 1em;
 }
 
 #my-metrics-card-container h1 {
-  font-size: 3.8em;
-  margin-bottom: -20px;
+  font-size: 3em;
+  margin: -12px 0 -20px 0;
+}
+
+#my-metrics-card-container h3 {
+  font-size: 1em;
 }
 
 
@@ -636,11 +640,6 @@ transform: rotate(-10deg);
 
 /* MY TEAM CARDS */
 
-
-/* #my-team-block-header {
-  width: 100%;
-  margin: 0 10% 0 10%;
-} */
 
 .scrollbar::-webkit-scrollbar {
   width: 5px;
@@ -684,7 +683,7 @@ transform: rotate(-10deg);
   padding: 1em;
 } */
 #team-card-top {
-  background: linear-gradient(180deg, rgb(227, 231, 208), rgba(0, 0, 0, 0.118));
+  background: linear-gradient(180deg, rgb(227, 231, 208), rgb(227, 231, 208));
   /* background-color: rgba(227, 231, 208, 0.703); */
   /* background-color: rgb(227, 231, 208); */
   border-radius: 10px 10px 0 0;
@@ -830,11 +829,12 @@ transform: rotate(-10deg);
   flex-direction: column;
   justify-content: space-between;
   margin: -3em 2em 0 3em;
+  height: 100%;
 }
 
-#dashboard-content-left {
-  width: 100%;
-}
+/* #dashboard-content-left {
+  width: 90%;
+} */
 
 #admin-team-container, 
 #admin-team-container #admin-team-header {

@@ -1,6 +1,6 @@
 import _ from 'lodash'
-import React, {useState} from 'react'
-import { Table, Icon, Button } from 'semantic-ui-react'
+import React from 'react'
+import { Table, Icon } from 'semantic-ui-react'
 
   
 function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam}) {
@@ -118,7 +118,9 @@ function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam}) {
                     <Table.Cell>{open_date}</Table.Cell>
                     <Table.Cell>{hire_goal}</Table.Cell>
                     <Table.Cell>{hired_status}</Table.Cell> 
-                    <Table.Cell id="edit-req-row" ><Icon name="pencil" id="edit-req-icon"/><Icon name="x" id="delete-req-icon" onClick={() => {handleDelete(id)}}/></Table.Cell>
+                    <Table.Cell id="edit-req-row" ><Icon name="x" id="delete-req-icon" onClick={() => {handleDelete(id)}}/></Table.Cell>
+                    {/* <Table.Cell id="edit-req-row" ><Icon name="pencil" id="edit-req-icon"/><Icon name="x" id="delete-req-icon" onClick={() => {handleDelete(id)}}/></Table.Cell> */}
+
                   </Table.Row>
                 
                 ))}

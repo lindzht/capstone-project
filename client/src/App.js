@@ -16,6 +16,7 @@ import TeamReqs from './components/TeamReqs';
 import TeamDashboardHome from './components/TeamDashboardHome';
 import TeamSettings from './components/TeamSettings';
 import TeamAddReqsPage from './components/TeamAddReq';
+import TeamHiredReqs from './components/TeamHiredReqs';
 
 function App() {
 
@@ -398,9 +399,8 @@ function App() {
                       deleteReq={deleteReq}
                       deleteReqFromTeam={deleteReqFromTeam}
                       />}/>
-                  <Route path="reqs" element={<TeamReqs currentUser={currentUser} currentTeam={currentTeam} />} />
+                  <Route path="hires" element={<TeamHiredReqs currentUser={currentUser} currentTeam={currentTeam} />} />
                   <Route path="settings" element={<TeamSettings currentUser={currentUser}  />} />
-                  <Route path="add" element={<TeamAddReqsPage currentUser={currentUser} companies={companies} />} />
                 </Route>
                 <Route path='settings'element={<Settings currentUser={currentUser} handleUpdateRecruiter={handleUpdateRecruiter}/>} />
             </Routes>
