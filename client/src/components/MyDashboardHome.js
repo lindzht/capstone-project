@@ -72,10 +72,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, delet
                     <div id="my-boards-container">
                         <h3>My Boards</h3>
                         <div id="my-teams-container" className="scrollbar">
-                            
                             {myTeamCards} 
-                              
-    
                         </div>
                         
                     </div>

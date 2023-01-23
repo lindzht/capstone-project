@@ -66,11 +66,10 @@ function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, add
                             <div id="req-top-container">
                                 <h1>Open Reqs</h1>
                                 <div id="icons">
-
-                                </div>
-                                <Icon size="big" name="add circle" onClick={handleDisplayAddForm} />   
-                                <Icon size='big' name="pencil" onClick={displayEditIcons} /> 
-                                <Icon size="big" name="trash alternate outline" onClick={displayDeleteIcons} />
+                                    <Icon id="add" name="add circle" onClick={handleDisplayAddForm} />   
+                                    <Icon id="edit" name="pencil" onClick={displayEditIcons} /> 
+                                    <Icon id="delete" name="trash alternate outline" onClick={displayDeleteIcons} />
+                                </div>   
                             </div>
                             {renderOpenReqTable()}
 

@@ -99,7 +99,10 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
                                     placeholder="Hiring Manager"
                                     value={editTeamReq.hiring_manager}
                                     onChange={handleChange} />
-                                <label id="label-1">Req Open Date:</label>
+                                <br />
+                                <br />
+                                <br />
+                                <label id="label-2">Req Open Date:</label>
                                 <input
                                     type="date"
                                     name="open_date"
@@ -121,13 +124,14 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
                                     <option value="On Track">On Track</option>
                                     <option value="Off Track">Off Track</option>
                                 </select>
+                                <br />
+                                <br />
+                                <br />
                                 <label id="label-2">Recruiter:</label>
                                 <select name='recruiter_id' value={editTeamReq.recruiter_id} onChange={handleChange}>
                                     <option value="">Select</option>
                                     {recruiterListOptions}
                                 </select>
-                                <br />
-                                <br />
                                 <input
                                     type="text"
                                     name="candidate"
@@ -141,6 +145,9 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
                                     placeholder="Date Candidate Hired"
                                     value={editTeamReq.hired_date}
                                     onChange={handleChange} />
+                                <br />
+                                <br />
+                                <br />
                                 <label id="label-2">Date Candidate Applied:</label>
                                 <input
                                     type="date"
@@ -149,7 +156,8 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
                                     value={editTeamReq.candidate_app}
                                     onChange={handleChange} />
                                 <Button color="black" onSubmit={handleSubmit}>Add</Button>
-                                <Icon name="x" onClick={() => { setDisplayEditForm(!displayEditForm) }} />
+                                <Button color="black" onClick={() => { setDisplayEditForm(!displayEditForm) }}>Cancel</Button>
+                                
                             </form>
                         </Table.Cell>
                     </Table.Row>
