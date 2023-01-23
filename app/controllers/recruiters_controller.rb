@@ -28,7 +28,6 @@ class RecruitersController < ApplicationController
     end
 
     def update
-        
         recruiter = Recruiter.find(session[:recruiter_id])
         recruiter.update(
             first_name: params[:first_name],
