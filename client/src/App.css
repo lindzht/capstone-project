@@ -1177,6 +1177,7 @@ transform: rotate(-10deg);
 
 .recruiter-card-container {
   margin-bottom: 10px; 
+  width: 180px;
 }
 
 
