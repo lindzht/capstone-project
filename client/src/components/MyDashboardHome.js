@@ -75,12 +75,15 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, setNe
                 <div id="dashboard-content-bottom">
                     <div id="my-boards-container">
                         <h3>My Boards</h3>
-                        <div id="my-team-block-header">
-                            <Grid>
+                        <div id="my-teams-container" className="scrollbar">
+                            
+                            {myTeamCards} 
+                              
+                            {/* <Grid>
                                 <Grid.Row columns={2}>
                                     {myTeamCards} 
                                 </Grid.Row>
-                            </Grid>
+                            </Grid> */}
                         </div>
                         
                     </div>

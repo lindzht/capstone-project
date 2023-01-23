@@ -48,6 +48,17 @@ function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, add
         <div id="team-container">
             {currentTeam && currentTeam.id == params.teamId ? 
             <>
+                {displayAddForm ? 
+                    <TeamAddReq 
+                    companies={companies} 
+                    currentTeam={currentTeam} 
+                    addNewReq={addNewReq} 
+                    setNewTeamReq={setNewTeamReq} 
+                    newTeamReq={newTeamReq} 
+                    setNewData={setNewData} 
+                    setReqSearchID={setReqSearchID}
+                    reqSearchID={reqSearchID}/> 
+                : null}
             <div id="team-container-left"> 
                         <div className='req-container'>
                             <div id="req-top-container">
@@ -56,8 +67,8 @@ function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, add
                             
                             </div>
                             
-                            {displayAddForm ? <TeamAddReq companies={companies} currentTeam={currentTeam} addNewReq={addNewReq} setNewTeamReq={setNewTeamReq} newTeamReq={newTeamReq} setNewData={setNewData} setReqSearchID={setReqSearchID}
-                            reqSearchID={reqSearchID}/> : null}
+                            {/* {displayAddForm ? <TeamAddReq companies={companies} currentTeam={currentTeam} addNewReq={addNewReq} setNewTeamReq={setNewTeamReq} newTeamReq={newTeamReq} setNewData={setNewData} setReqSearchID={setReqSearchID}
+                            reqSearchID={reqSearchID}/> : null} */}
 
                             {/* {test()} */}
                             {renderOpenReqTable()}

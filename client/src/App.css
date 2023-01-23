@@ -558,19 +558,25 @@ transform: rotate(-10deg);
   /* margin-bottom: 3em; */
 }
 
-/* #dashboard-content-bottom {
-  margin: 1em 2em 0 1em;
-} */
-
 
 #my-boards-container {
-  background-color: rgba(255, 255, 255, 0.71);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 3em;
-  border-radius: 20px;
+  /* background-color: rgba(255, 255, 255, 0.71); */
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  /* padding: 3em; */
+  /* border-radius: 20px; */
   height: 100%;
   display: flex;
   flex-direction: column;
+  margin: 1em;
+  /* border-top: 3px solid white; */
+  padding-top: 1.5em;
+}
+
+#my-boards-container h3 {
+  /* margin-left: 0.5em; */
+  background-color: white;
+  border-radius: 10px;
+  padding: 0.3em;
 }
 
 #my-metrics-card-container {
@@ -586,7 +592,7 @@ transform: rotate(-10deg);
 
 #my-metrics-card-container h1 {
   font-size: 3.8em;
-  margin-bottom: -30px;
+  margin-bottom: -20px;
 }
 
 
@@ -623,29 +629,101 @@ transform: rotate(-10deg);
 
 /* MY TEAM CARDS */
 
-.team-card-container {
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  margin: 1em;
-  /* margin: 10px 0 30px 10px; */
-  /* padding: 1em;  */
-  width: 22em;
-  border: none;
-}
 
 /* #my-team-block-header {
   width: 100%;
   margin: 0 10% 0 10%;
 } */
 
-#card-content-top #team-data {
+.scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: white; 
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #000;
+}
+
+#my-teams-container {
+  display: flex;
+  overflow-x: scroll;
+  width: 64em;
+  height: 25em;
+}
+
+.team-card-container {
+  width: 20em;
+  height: 20em;
+  background-color: white;
+  /* padding: 2em; */
+  border-radius: 20px;
+  margin: 1em;
+}
+
+/* .team-card-container {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  width: 100%;
+  border: none;
+  padding: 1em;
+} */
+#team-card-top {
+  background: linear-gradient(310deg, rgb(227, 231, 208), #ffffff);
+  /* background-color: rgba(227, 231, 208, 0.703); */
+  /* background-color: rgb(227, 231, 208); */
+  border-radius: 20px 20px 0 0;
+  padding: 1em;
+  text-align: center;
+  height: 8em;
+}
+
+#team-card-top:hover {
+  background: linear-gradient(310deg, rgb(227, 231, 208), #fbd49e);
+  height: 10em;
+  cursor: grab;
+  margin-bottom: -1em;
+}
+
+#team-description {
+  padding: 2em;
+}
+
+#team-description h2{
+  font-size: 1.3em;
+}
+
+/* #team-description:hover {
+  padding: 0;
+  margin-top: -50em;
+} */
+
+/* #team-card-thumbnail {
+  color: orangered;
+  transform: rotate(45deg);
+  font-size: 3.8em;
+  margin-top: 0.5em;
+} */
+
+#team-description #team-data {
+  display: flex;
+  flex-direction: column;
+}
+
+#team-data-icon {
+  font-size: 1.6em;
+  margin-top: 10px;
+}
+
+/* #card-content-top #team-data {
   margin: 10px 0 0 -10px;
 }
 
 #card-content-top {
   height: 90px;
-  background-color: rgba(227, 231, 208, 0.34);  
+  background-color: rgba(255, 255, 255, 0.34);  
 }
 
 #card-content-top:hover {
@@ -655,7 +733,7 @@ transform: rotate(-10deg);
 
 #card-content-top #team-data #team-data-icon {
   width: 100px;
-}
+} */
 
 /* .team-card-container:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -856,6 +934,7 @@ transform: rotate(-10deg);
 
 .admin-recruiter-list {
   background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 1px;
   border-radius: 2px;
   padding: 0.3em;
   margin: 8px;
@@ -1133,6 +1212,15 @@ transform: rotate(-10deg);
 
 
 /* TEAM ADD REQ PAGE */
+
+.team-addreq-container {
+  position: absolute;
+  background-color: white;
+  margin-left: 10%;
+  padding: 2em;
+  border-radius: 20px;
+  z-index: 15;
+}
 
 #team-find-search {
   display: flex;

@@ -3,6 +3,7 @@ class TeamRecruiterDisplaySerializer < ActiveModel::Serializer
     has_one :company
     has_many :recruiters, through: :recruiterteams
     has_many :reqs, through: :reqteams
-    
+  
+
   end
   
