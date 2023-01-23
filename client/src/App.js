@@ -60,7 +60,7 @@ function App() {
         })
       }
     });
-  }, [newTeam]);
+  }, [newTeam, newData]);
 
 
   // LOGIN 
@@ -203,6 +203,23 @@ function App() {
         }
       })
     }, [selectTeamID, newData, newTeamReq])
+
+    //DELETE TEAM
+    const deleteTeam =(teamID)=>{
+      // console.log(reqID)
+    fetch(`/teams/${teamID}`, {
+      method: "DELETE"
+      })
+      .then(res => {
+      if(res.ok) {
+          res.json()
+          .then(data => {
+            setNewData(data);
+          })
+        }
+      })
+    }
+
 
 
     //  ADD RECRUITER TO TEAM
@@ -355,6 +372,7 @@ function App() {
                       createNewTeam={createNewTeam}
                       setSelectTeamID={setSelectTeamID}
                       setNewData={setNewData}
+                      deleteTeam={deleteTeam}
                       />} />
                   <Route path='myreqs'element={<MyReqsPage currentUser={currentUser} />} />
                   <Route path='myhires'element={<MyHiredReqs currentUser={currentUser} />} />

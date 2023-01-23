@@ -1,6 +1,6 @@
 import { Card, Icon } from 'semantic-ui-react'
 
-function AdminTeamCards ({team, navigate}){
+function AdminTeamCards ({team, navigate, deleteTeam}){
     
     return(
         <div className="admin-team-card-container">
@@ -8,7 +8,7 @@ function AdminTeamCards ({team, navigate}){
                 <Card.Content id="admin-card-content-top">
                     <Card.Header onClick={()=> {navigate(`/teams/${team.id}`)}} ><h5>{team.name}</h5></Card.Header>
                     {/* <Icon id="admin-edit-icon" name="pencil alternate" /> */}
-                    <Icon id="admin-delete-icon" name="x" />
+                    <Icon onClick={() => {deleteTeam(team.id)}} id="admin-delete-icon" name="x" />
                 </Card.Content>
             </Card>
         </div>

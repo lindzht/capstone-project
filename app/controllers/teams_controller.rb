@@ -12,9 +12,16 @@ class TeamsController < ApplicationController
         render json: team, serializer: TeamDetailDisplaySerializer, status: :ok
     end
 
-    def all_team_data
-        
+    def destroy
+        team = find_team
+        team.destroy
+        recruiter = Recruiter.find(session[:recruiter_id])
+        render json: recruiter, status: :accepted
     end
+
+    # def all_team_data
+        
+    # end
 
     private
 
