@@ -138,9 +138,9 @@ function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam, displayDeleteIcon
 
 
 
+console.log(currentTeam)
 
-
-  // if (!currentTeam) return ("Loading...")
+  // if (currentTeam && currentTeam.reqs !== null) return ("Loading...")
     return (
       <>
         <RenderTable />
