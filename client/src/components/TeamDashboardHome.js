@@ -7,40 +7,38 @@ import AddRecruiterCard from './AddRecruiterCard';
 import TeamAddReq from './TeamAddReq';
 import Loading from './Loading';
 
-function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, addNewReq, setNewTeamReq, newTeamReq, setNewData, setReqSearchID, reqSearchID, setRecruiterSearchID, recruiterSearchID, createRecTeamRelationship, deleteReq, deleteReqFromTeam}) {
+function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, addNewReq, setNewTeamReq, newTeamReq, setNewData, setReqSearchID, reqSearchID, setRecruiterSearchID, recruiterSearchID, createRecTeamRelationship, deleteReq, deleteReqFromTeam, updateReq}) {
 
     const [displayAddForm, setDisplayAddForm] = useState(false)
+    const [displayEditIcon, setDisplayEditIcon] = useState(false)
+    const [displayDeleteIcon, setDisplayDeleteIcon] = useState(false)
+
     const [displayRecruiterForm, setDisplayRecruiterForm] = useState(false)
     let params = useParams();
 
     function renderOpenReqTable (){
-        return(<TeamReqs currentTeam={currentTeam} deleteReq={deleteReq} deleteReqFromTeam={deleteReqFromTeam}/>)
+        return(<TeamReqs currentTeam={currentTeam} deleteReq={deleteReq} deleteReqFromTeam={deleteReqFromTeam} displayEditIcon={displayEditIcon} displayDeleteIcon={displayDeleteIcon} updateReq={updateReq}/>)
     }
-    // console.log(currentTeam)
-
-    // function renderRecruiters(){
-    //     return(<TeamRecruiters currentTeam={currentTeam}/>)
-    // } 
-
-    // function renderRecruiters(){
-    //     return(
-    //         currentTeam.recruiters.map((recruiter)=>{
-    //             return(<p>{recruiter.first_name}</p>)
-    //         })
-    //     )
-    // } 
 
     function renderRecruiters (){
         return( 
             currentTeam.recruiters.map((recruiter) => {
                 return(<TeamRecruiterCard key={recruiter.id} currentTeam={currentTeam} recruiter={recruiter} deleteRecruiterFromTeam={deleteRecruiterFromTeam}/>)
-            })
-        )
+            }))
     }
-
 
     function handleDisplayAddForm(){
         setDisplayAddForm(!displayAddForm);
+    }
+
+    function displayEditIcons(){
+        setDisplayEditIcon(!displayEditIcon)
+        setDisplayDeleteIcon(false)
+    }
+
+    function displayDeleteIcons(){
+        setDisplayDeleteIcon(!displayDeleteIcon)
+        setDisplayEditIcon(false)
     }
 
 
@@ -67,17 +65,14 @@ function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, add
                         <div className='req-container'>
                             <div id="req-top-container">
                                 <h1>Open Reqs</h1>
-                                <Icon size="big" name="add circle" onClick={handleDisplayAddForm} />   
-                            
+                                <div id="icons">
+                                    <Icon id="add" name="add circle" onClick={handleDisplayAddForm} />   
+                                    <Icon id="edit" name="pencil" onClick={displayEditIcons} /> 
+                                    <Icon id="delete" name="trash alternate outline" onClick={displayDeleteIcons} />
+                                </div>   
                             </div>
-                            
-                            {/* {displayAddForm ? <TeamAddReq companies={companies} currentTeam={currentTeam} addNewReq={addNewReq} setNewTeamReq={setNewTeamReq} newTeamReq={newTeamReq} setNewData={setNewData} setReqSearchID={setReqSearchID}
-                            reqSearchID={reqSearchID}/> : null} */}
-
-                            {/* {test()} */}
                             {renderOpenReqTable()}
-                            {/* <TeamReqs currentTeam={currentTeam}  />  */}
-                            {/* <TeamDashboardHome /> */}
+
                         </div>
                        
             </div>

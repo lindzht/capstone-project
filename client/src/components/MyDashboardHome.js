@@ -57,17 +57,13 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, delet
                     </div>
 
                     <div id="my-metrics-card-container">   
-                        {/* <h1>{currentUser.open_reqs}</h1> */}
                         <h1>X</h1>
                         <h3>Avg Time to Hire</h3>
-                        {/* <p>Time req open to req closed</p> */}
                     </div>
 
                     <div id="my-metrics-card-container">   
-                        {/* <h1>{currentUser.open_reqs}</h1> */}
                         <h1>X</h1>
                         <h3>Avg Time to Hire</h3>
-                        {/* <p>Time req open to req closed</p> */}
                     </div>
                     
                 </div>
@@ -76,14 +72,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, delet
                     <div id="my-boards-container">
                         <h3>My Boards</h3>
                         <div id="my-teams-container" className="scrollbar">
-                            
                             {myTeamCards} 
-                              
-                            {/* <Grid>
-                                <Grid.Row columns={2}>
-                                    {myTeamCards} 
-                                </Grid.Row>
-                            </Grid> */}
                         </div>
                         
                     </div>
