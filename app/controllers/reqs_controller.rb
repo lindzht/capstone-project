@@ -17,6 +17,12 @@ class ReqsController < ApplicationController
         render json: req, status: :accepted
     end
 
+    def update
+        req = find_req
+        req.update(req_params)
+        render json: req, status: :accepted
+    end
+
     private
 
     def req_params

@@ -35,6 +35,7 @@ function App() {
   const [newData, setNewData] = useState([]);
   const [recruiterSearchID, setRecruiterSearchID] = useState(null)
   const [reqSearchID, setReqSearchID] = useState(null)
+  const [updatedReq, setUpdatedReq] = useState(null)
   const [newTeamReq, setNewTeamReq] = useState({
     req_id: "",
     name: "",
@@ -203,7 +204,7 @@ function App() {
           })
         }
       })
-    }, [selectTeamID, newData, newTeamReq])
+    }, [selectTeamID, newData, newTeamReq, updatedReq])
 
     //DELETE TEAM
     const deleteTeam =(teamID)=>{
@@ -220,8 +221,6 @@ function App() {
         }
       })
     }
-
-
 
     //  ADD RECRUITER TO TEAM
     const createRecruiterTeamRelationship = (recruiterSearchObj)=> {
@@ -245,7 +244,7 @@ function App() {
      }
 
 
-    //  DELETE RECRUITER FROM TEAM
+    //  DELETE RECRUITER FROM TEAM (ACROSS ALL TEAMS + UNIQUE TEAM)
     const deleteRecruiterFromTeam =(recTeamID)=>{
       fetch(`/recruiterteams/${recTeamID}`, {
         method: "DELETE"
@@ -296,7 +295,7 @@ function App() {
       })
     }
 
-    //  DELETE REQ FROM ALL TEAMS (From the All Reqs board)
+    //  DELETE REQ FROM SPECIFIC TEAM
     const deleteReqFromTeam =(reqObj)=>{
       console.log(reqObj)
       fetch('/reqteamdestroy', {
@@ -315,6 +314,25 @@ function App() {
         }
       })
     }
+
+      // UPDATE REQ
+      const updateReq = (updateReqObj)=> {
+        console.log(updateReqObj);
+        fetch(`/reqs/${updateReqObj.id}`, {
+          method: "PATCH",
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(updateReqObj)
+        })
+        .then(res => {
+          if (res.ok){
+            res.json().then(data => {
+              setUpdatedReq(data);
+            })
+          } else {
+            res.json().then(console.log("no go"))
+          }
+        })
+      }
 
 
     // DISPLAY LOGIN MODAL
@@ -398,6 +416,7 @@ function App() {
                       createRecTeamRelationship={createRecruiterTeamRelationship}
                       deleteReq={deleteReq}
                       deleteReqFromTeam={deleteReqFromTeam}
+                      updateReq={updateReq}
                       />}/>
                   <Route path="hires" element={<TeamHiredReqs currentUser={currentUser} currentTeam={currentTeam} />} />
                   <Route path="settings" element={<TeamSettings currentUser={currentUser}  />} />

@@ -1,38 +1,162 @@
-import { Table, Icon } from 'semantic-ui-react'
+import { Table, Icon, Button } from 'semantic-ui-react'
+import { useState } from 'react'
 
 
-function TeamReqRow ({deleteReq, deleteReqFromTeam, id, req_id, name, org, hiring_manager, open_date, hire_goal, hired_status, hired_date, candidate, candidate_app, recruiter, displayDeleteIcon, displayEditIcon, currentTeam }){
-    
-    const handleDelete =(id) => {
-        if (currentTeam.name.includes(currentTeam.company.name)){
-          deleteReq(id)
+function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hiring_manager, open_date, hire_goal, hired_status, hired_date, candidate, candidate_app, recruiter, displayDeleteIcon, displayEditIcon, currentTeam, updateReq }) {
+
+    const [displayEditForm, setDisplayEditForm] = useState(false)
+    const [editTeamReq, setEditTeamReq] = useState({
+        id: id,
+        req_id: req_id,
+        name: name,
+        org: org,
+        hiring_manager: hiring_manager,
+        open_date: open_date,
+        hire_goal: hire_goal,
+        hired_status: hired_status,
+        recruiter_id: recruiter.id ? recruiter.id : "",
+        hired_date: hired_date ? hired_date : "",
+        candidate: candidate ? candidate : "",
+        candidate_app: candidate_app ? candidate_app : ""
+        })
+
+    const handleDelete = (id) => {
+        if (currentTeam.name.includes(currentTeam.company.name)) {
+            deleteReq(id)
         } else {
-          deleteReqFromTeam({req_id: id, team_id: currentTeam.id})
+            deleteReqFromTeam({ req_id: id, team_id: currentTeam.id })
         }
-      }
-  
+    }
+
+    const recruiterListOptions = currentTeam.recruiters.map((recruiter) => {
+        return (
+            <option value={recruiter.id}>{recruiter.first_name} {recruiter.last_name}</option>
+        )
+    })
+
+    const handleChange = (e) => {
+        const key = e.target.name;
+        const value = e.target.value;
+        setEditTeamReq({
+            ...editTeamReq,
+            [key]: value,
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); 
+        updateReq(editTeamReq)
+    } 
 
 
 
-    return(
-        <Table.Body>
-                       
-          <Table.Row id={hired_status === "Hired" ? "req-row-hired" : "req-row"} key={req_id}>
-            <Table.Cell>{req_id}</Table.Cell>
-            <Table.Cell onClick={()=>{console.log(id)}}>{name}</Table.Cell>
-            <Table.Cell>{org}</Table.Cell>
-            {recruiter && recruiter.first_name ? <Table.Cell>{recruiter.first_name} {recruiter.last_name}</Table.Cell> : <Table.Cell></Table.Cell>}
-            <Table.Cell>{hiring_manager}</Table.Cell>
-            <Table.Cell>{open_date}</Table.Cell>
-            <Table.Cell>{hire_goal}</Table.Cell>
-            <Table.Cell>{hired_status}</Table.Cell> 
-            {displayDeleteIcon ? <Table.Cell id="edit-req-row" ><Icon name="x" id="delete-req-icon" onClick={() => {handleDelete(id)}} /></Table.Cell> : null}
-            {displayEditIcon ? <Table.Cell id="edit-req-row" ><Icon name="pencil" id="edit-req-icon" /></Table.Cell> : null}
-            {/* <Table.Cell id="edit-req-row" ><Icon name="pencil" id="edit-req-icon"/><Icon name="x" id="delete-req-icon" onClick={() => {handleDelete(id)}}/></Table.Cell> */}
 
-          </Table.Row>
+    return (
+        <>
+            {!displayEditForm ?
+                <Table.Body>
+                    <Table.Row id={hired_status === "Hired" ? "req-row-hired" : "req-row"} key={req_id}>
+                        <Table.Cell>{req_id}</Table.Cell>
+                        <Table.Cell onClick={() => { console.log(id) }}>{name}</Table.Cell>
+                        <Table.Cell>{org}</Table.Cell>
+                        {recruiter && recruiter.first_name ? <Table.Cell>{recruiter.first_name} {recruiter.last_name}</Table.Cell> : <Table.Cell></Table.Cell>}
+                        <Table.Cell>{hiring_manager}</Table.Cell>
+                        <Table.Cell>{open_date}</Table.Cell>
+                        <Table.Cell>{hire_goal}</Table.Cell>
+                        <Table.Cell>{hired_status}</Table.Cell>
+                        {displayDeleteIcon ? <Table.Cell id="edit-req-row" ><Icon name="x" id="delete-req-icon" onClick={() => { handleDelete(id) }} /></Table.Cell> : null}
+                        {displayEditIcon ? <Table.Cell id="edit-req-row" ><Icon name="pencil" id="edit-req-icon" onClick={() => { setDisplayEditForm(!displayEditForm) }} /></Table.Cell> : null}
+                    </Table.Row>
+                </Table.Body>
 
-      </Table.Body>
+                :
+
+                <Table.Body>
+                    <Table.Row id={displayEditForm ? "req-form" : null} key={req_id}>
+                        <Table.Cell id="req-form-cell">
+                            <form onSubmit={handleSubmit}>
+                                <input
+                                    type="text"
+                                    name="req_id"
+                                    placeholder="Req ID"
+                                    value={editTeamReq.req_id}
+                                    onChange={handleChange} />
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Title"
+                                    value={editTeamReq.name}
+                                    onChange={handleChange} />
+                                <input
+                                    type="text"
+                                    name="org"
+                                    placeholder="Team/Org"
+                                    value={editTeamReq.org}
+                                    onChange={handleChange} />
+                                <input
+                                    type="text"
+                                    name="hiring_manager"
+                                    placeholder="Hiring Manager"
+                                    value={editTeamReq.hiring_manager}
+                                    onChange={handleChange} />
+                                <label id="label-1">Req Open Date:</label>
+                                <input
+                                    type="date"
+                                    name="open_date"
+                                    placeholder="Open Date"
+                                    onChange={handleChange}
+                                    value={editTeamReq.open_date} />
+                                <label id="label-2">Goal Hire Date:</label>
+                                <input
+                                    type="date"
+                                    name="hire_goal"
+                                    placeholder="Goal Hire Date"
+                                    value={editTeamReq.hire_goal}
+                                    onChange={handleChange} />
+                                <label id="label-2">Req Status:</label>
+                                <select name='hired_status' value={editTeamReq.hired_status} onChange={handleChange}>
+                                    <option value="">Select</option>
+                                    <option value="Open">Open</option>
+                                    <option value="Hired">Hired</option>
+                                    <option value="On Track">On Track</option>
+                                    <option value="Off Track">Off Track</option>
+                                </select>
+                                <label id="label-2">Recruiter:</label>
+                                <select name='recruiter_id' value={editTeamReq.recruiter_id} onChange={handleChange}>
+                                    <option value="">Select</option>
+                                    {recruiterListOptions}
+                                </select>
+                                <br />
+                                <br />
+                                <input
+                                    type="text"
+                                    name="candidate"
+                                    placeholder="Hired Candidate Name"
+                                    value={editTeamReq.candidate}
+                                    onChange={handleChange} />
+                                <label id="label-2">Date Candidate Hired:</label>
+                                <input
+                                    type="date"
+                                    name="hired_date"
+                                    placeholder="Date Candidate Hired"
+                                    value={editTeamReq.hired_date}
+                                    onChange={handleChange} />
+                                <label id="label-2">Date Candidate Applied:</label>
+                                <input
+                                    type="date"
+                                    name="candidate_app"
+                                    placeholder="Date Candidate Applied"
+                                    value={editTeamReq.candidate_app}
+                                    onChange={handleChange} />
+                                <Button color="black" onSubmit={handleSubmit}>Add</Button>
+                                <Icon name="x" onClick={() => { setDisplayEditForm(!displayEditForm) }} />
+                            </form>
+                        </Table.Cell>
+                    </Table.Row>
+                </Table.Body>}
+                
+        </>
+
     )
 }
 

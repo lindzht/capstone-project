@@ -7,7 +7,7 @@ import AddRecruiterCard from './AddRecruiterCard';
 import TeamAddReq from './TeamAddReq';
 import Loading from './Loading';
 
-function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, addNewReq, setNewTeamReq, newTeamReq, setNewData, setReqSearchID, reqSearchID, setRecruiterSearchID, recruiterSearchID, createRecTeamRelationship, deleteReq, deleteReqFromTeam}) {
+function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, addNewReq, setNewTeamReq, newTeamReq, setNewData, setReqSearchID, reqSearchID, setRecruiterSearchID, recruiterSearchID, createRecTeamRelationship, deleteReq, deleteReqFromTeam, updateReq}) {
 
     const [displayAddForm, setDisplayAddForm] = useState(false)
     const [displayEditIcon, setDisplayEditIcon] = useState(false)
@@ -17,7 +17,7 @@ function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, add
     let params = useParams();
 
     function renderOpenReqTable (){
-        return(<TeamReqs currentTeam={currentTeam} deleteReq={deleteReq} deleteReqFromTeam={deleteReqFromTeam} displayEditIcon={displayEditIcon} displayDeleteIcon={displayDeleteIcon}/>)
+        return(<TeamReqs currentTeam={currentTeam} deleteReq={deleteReq} deleteReqFromTeam={deleteReqFromTeam} displayEditIcon={displayEditIcon} displayDeleteIcon={displayDeleteIcon} updateReq={updateReq}/>)
     }
 
     function renderRecruiters (){
@@ -33,10 +33,12 @@ function TeamDashboardHome({currentTeam, deleteRecruiterFromTeam, companies, add
 
     function displayEditIcons(){
         setDisplayEditIcon(!displayEditIcon)
+        setDisplayDeleteIcon(false)
     }
 
     function displayDeleteIcons(){
         setDisplayDeleteIcon(!displayDeleteIcon)
+        setDisplayEditIcon(false)
     }
 
 

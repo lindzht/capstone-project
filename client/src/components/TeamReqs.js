@@ -4,7 +4,7 @@ import { Table, Icon } from 'semantic-ui-react'
 import TeamReqRow from './TeamReqRow'
 
   
-function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam, displayDeleteIcon, displayEditIcon}) {
+function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam, displayDeleteIcon, displayEditIcon, updateReq}) {
     
     // const handleDelete =(id) => {
     //   if (currentTeam.name.includes(currentTeam.company.name)){
@@ -49,7 +49,7 @@ function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam, displayDeleteIcon
       const { column, data, direction } = state
 
       const renderRows = data.map((eachReq) => {
-        return(<TeamReqRow {...eachReq} key={eachReq.id} deleteReq={deleteReq} deleteReqFromTeam={deleteReqFromTeam} displayDeleteIcon={displayDeleteIcon} displayEditIcon={displayEditIcon} currentTeam={currentTeam}/>)
+        return(<TeamReqRow {...eachReq} key={eachReq.id} deleteReq={deleteReq} deleteReqFromTeam={deleteReqFromTeam} displayDeleteIcon={displayDeleteIcon} displayEditIcon={displayEditIcon} currentTeam={currentTeam} updateReq={updateReq}/>)
       })
 
       return(

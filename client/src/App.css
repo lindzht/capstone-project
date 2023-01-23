@@ -1323,3 +1323,19 @@ transform: rotate(-10deg);
 } */
 
 
+/* TEAM REQ EDIT FORM */
+#req-form {
+  display: flex;
+  width: 50em;
+  height: 15em;
+  /* overflow-wrap: break-word; */
+}
+
+#req-form form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#req-form form input {
+  margin-bottom: 1em;
+}
