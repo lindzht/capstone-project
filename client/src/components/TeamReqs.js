@@ -1,17 +1,18 @@
 import _ from 'lodash'
 import React from 'react'
 import { Table, Icon } from 'semantic-ui-react'
+import TeamReqRow from './TeamReqRow'
 
   
-function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam}) {
+function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam, displayDeleteIcon, displayEditIcon}) {
     
-    const handleDelete =(id) => {
-      if (currentTeam.name.includes(currentTeam.company.name)){
-        deleteReq(id)
-      } else {
-        deleteReqFromTeam({req_id: id, team_id: currentTeam.id})
-      }
-    }
+    // const handleDelete =(id) => {
+    //   if (currentTeam.name.includes(currentTeam.company.name)){
+    //     deleteReq(id)
+    //   } else {
+    //     deleteReqFromTeam({req_id: id, team_id: currentTeam.id})
+    //   }
+    // }
 
 
     function RenderTable (){
@@ -46,6 +47,10 @@ function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam}) {
         direction: null,
       })
       const { column, data, direction } = state
+
+      const renderRows = data.map((eachReq) => {
+        return(<TeamReqRow {...eachReq} key={eachReq.id} deleteReq={deleteReq} deleteReqFromTeam={deleteReqFromTeam} displayDeleteIcon={displayDeleteIcon} displayEditIcon={displayEditIcon} currentTeam={currentTeam}/>)
+      })
 
       return(
         <>
@@ -101,11 +106,11 @@ function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam}) {
                   >
                     Hired Status
                   </Table.HeaderCell>
-                  <Table.HeaderCell id="edit-req-column">
-                  </Table.HeaderCell>
+                  {displayDeleteIcon || displayEditIcon ? <Table.HeaderCell id="edit-req-column"></Table.HeaderCell> : null}
                 </Table.Row>
               </Table.Header>
-              <Table.Body>
+                {renderRows}
+              {/* <Table.Body>
                 
                 {data.map(({ id, req_id, name, org, hiring_manager, open_date, hire_goal, hired_status, hired_date, candidate, candidate_app, recruiter }) => (
                
@@ -119,12 +124,12 @@ function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam}) {
                     <Table.Cell>{hire_goal}</Table.Cell>
                     <Table.Cell>{hired_status}</Table.Cell> 
                     <Table.Cell id="edit-req-row" ><Icon name="x" id="delete-req-icon" onClick={() => {handleDelete(id)}}/></Table.Cell>
-                    {/* <Table.Cell id="edit-req-row" ><Icon name="pencil" id="edit-req-icon"/><Icon name="x" id="delete-req-icon" onClick={() => {handleDelete(id)}}/></Table.Cell> */}
+                    <Table.Cell id="edit-req-row" ><Icon name="pencil" id="edit-req-icon"/><Icon name="x" id="delete-req-icon" onClick={() => {handleDelete(id)}}/></Table.Cell>
 
                   </Table.Row>
                 
                 ))}
-              </Table.Body>
+              </Table.Body> */}
             </Table>
         </>
       )
