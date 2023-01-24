@@ -13,7 +13,7 @@ import Settings from './components/Settings';
 import MyHiredReqs from './components/MyHiredReqs';
 import TeamDashboard from './components/TeamDashboard';
 import TeamDashboardHome from './components/TeamDashboardHome';
-import TeamSettings from './components/TeamSettings';
+import TeamMetrics from './components/TeamMetrics';
 import TeamHiredReqs from './components/TeamHiredReqs';
 
 function App() {
@@ -439,7 +439,10 @@ function App() {
                   updateReq={updateReq}
                   deleteReq={deleteReq}
                 />} />
-                <Route path="settings" element={<TeamSettings currentUser={currentUser} />} />
+                <Route path="metrics" element={<TeamMetrics 
+                  currentUser={currentUser}
+                  setSelectTeamID={setSelectTeamID}
+                  currentTeam={currentTeam} />} />
               </Route>
               <Route path='settings' element={<Settings currentUser={currentUser} handleUpdateRecruiter={handleUpdateRecruiter} />} />
             </Routes>

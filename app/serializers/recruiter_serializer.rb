@@ -18,8 +18,6 @@ class RecruiterSerializer < ActiveModel::Serializer
     object.teams.order(name: :asc)
   end
 
-
-
   def avg_time_to_fill
     hired_reqs = object.reqs.where.not(hired_date: nil)
     total_date_difference = hired_reqs.sum do |req|
@@ -30,7 +28,6 @@ class RecruiterSerializer < ActiveModel::Serializer
     else
       return 0
     end
-
   end
 
   def avg_time_to_hire

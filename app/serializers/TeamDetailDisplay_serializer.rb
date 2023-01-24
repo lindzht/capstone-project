@@ -33,7 +33,6 @@ class TeamDetailDisplaySerializer < ActiveModel::Serializer
       else
         return 0
       end
-
     end
 
     def avg_time_to_hire

@@ -11,8 +11,6 @@ function TeamHiredReqs({ currentTeam, deleteReq, deleteReqFromTeam, displayDelet
     
     let params = useParams();
     setSelectTeamID(params.teamId)
-    console.log(displayDeleteIcon)
-    console.log(displayEditIcon)
 
     function RenderTable() {
         const tableData = currentTeam.reqs.filter((req) => {

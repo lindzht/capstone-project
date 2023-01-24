@@ -1440,3 +1440,51 @@ transform: rotate(-10deg);
  font-style: italic;
  margin-top: 10px
 }
+
+
+/************** TEAM METRICS *********/
+
+
+#team-metrics-headers,
+#recruiter-metrics-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#recruiter-metrics-row:hover {
+  background-color: rgba(228, 228, 228, 0.658);
+}
+
+#recruiter-metrics-row h3{
+  margin-top: 20px;
+  text-align: right;
+}
+
+#recruiter-metrics-row h4 {
+  font-size: 1.3em;
+  margin: 20px 0 10px 0;
+}
+
+#team-metrics-headers h3,
+#recruiter-metrics-row h3,
+#recruiter-metrics-row h4{
+  width: 200px;
+}
+#recruiter-metrics-row h4,
+#team-metrics-headers h3 {
+  text-align: center;
+}
+
+#team-metrics-headers {
+  border-bottom: 1px solid rgb(178, 178, 178);
+}
+
+#team-metrics-headers h3 {
+  font-size: 1.5em;
+}
+
+#team-metrics-headers :first-child{
+  margin-top: 25px;
+  text-align: right;
+}
