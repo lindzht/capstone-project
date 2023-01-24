@@ -60,12 +60,12 @@ function TeamDashboardHome({ currentTeam, deleteRecruiterFromTeam, companies, ad
                         <div id="team-metrics-card-container">
                             <h1>{currentTeam.avg_time_to_hire} <span>days</span></h1>
                             <h3>Avg Time To Hire</h3>
-                            <h5>Req Open -> Hired Date</h5>
+                            <h5>Req Open to Hired Date</h5>
                         </div>
                         <div id="team-metrics-card-container">
                             <h1>{currentTeam.avg_time_to_offer} <span>days</span></h1>
                             <h3>Avg Time To Offer</h3>
-                            <h5>Candidate Applied -> Candidate Hired</h5>
+                            <h5>Candidate Applied to Candidate Hired</h5>
                         </div>
                         <div id="team-metrics-card-container">
                             <h1>{currentTeam.open_reqs}</h1>

@@ -28,7 +28,12 @@ class TeamDetailDisplaySerializer < ActiveModel::Serializer
       total_date_difference = hired_reqs.sum do |req|
         (req.hired_date.to_date - req.open_date.to_date).to_i
       end
-      total_date_difference / hired_reqs.length
+      if hired_reqs.length > 0
+        total_date_difference / hired_reqs.length
+      else
+        return 0
+      end
+
     end
 
     def avg_time_to_offer
@@ -36,7 +41,11 @@ class TeamDetailDisplaySerializer < ActiveModel::Serializer
       total_date_difference = hired_reqs.sum do |req|
         (req.hired_date.to_date - req.candidate_app.to_date).to_i
       end
-      total_date_difference / hired_reqs.length
+      if hired_reqs.length > 0
+        total_date_difference / hired_reqs.length
+      else
+        return 0
+      end
     end
 
 
