@@ -17,8 +17,8 @@ function TeamMetrics ( {currentUser, currentTeam, setSelectTeamID} ){
               <h3>{recruiter.first_name} {recruiter.last_name}</h3>
               <h4>{recruiter.open_reqs}</h4>
               <h4>{recruiter.hired_reqs}</h4>
-              <h4>{recruiter.avg_time_to_fill}</h4>
-              <h4>{recruiter.avg_time_to_hire}</h4>
+              <h4>{recruiter.avg_time_to_fill} <span>Days</span></h4>
+              <h4>{recruiter.avg_time_to_hire} <span>Days</span></h4>
             </div>
           )
         })

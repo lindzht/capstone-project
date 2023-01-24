@@ -68,7 +68,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, delet
 
                 <div id="dashboard-content-bottom">
                     <div id="my-boards-container">
-                        <h3>My Boards</h3>
+                        <h3>My {currentUser.company.name} Boards</h3>
                         <div id="my-teams-container" className="scrollbar">
                             {myTeamCards} 
                         </div>
@@ -84,7 +84,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, delet
                     <div id="admin-team-container">
                         <div id="admin-team-header">
                             <h4>Admin Settings</h4>
-                            <h3>{currentUser.company.name} Boards</h3>
+                            <h3>All {currentUser.company.name} Boards</h3>
                             <Icon name="add circle" size="big" className="add-icon" onClick={handleDisplayTeamForm} />
                         </div>
                         {newTeamForm ? <AddTeamCard newTeam={newTeam} setNewTeam={setNewTeam} createNewTeam={createNewTeam} currentUser={currentUser}/> : null}
@@ -92,7 +92,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, delet
                     </div>
                     <div id="admin-recruiter-container">
                         <div id="admin-team-header">
-                            <h3>{currentUser.company.name} Recruiters</h3>
+                            <h3>All {currentUser.company.name} Recruiters</h3>
                             {companyRecruiterList}
                         </div>
                     </div>

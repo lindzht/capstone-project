@@ -419,8 +419,20 @@ transform: rotate(-10deg);
 
 #nav-dashboard-content #hamburger-icon {
  position: relative;
- left: 20%;
+ left: 15%;
  top: -50px;
+}
+
+#logo h3{
+  font-family: 'Paytone One', sans-serif;
+  font-size: 2.8em;
+  text-shadow: -5px 0px 0px orangered;
+  -webkit-text-stroke: 0.1px orangered;
+  color: white;
+}
+
+#logo h3:hover {
+  cursor: grab;
 }
 
 #nav-dashboard-container {
@@ -437,10 +449,8 @@ transform: rotate(-10deg);
 }
 
 #nav-dashboard-container h3 {
-  color: black;
   font-size: 2em; 
   margin: -1em 0 1em 0;
-  color: orangered;
   position: relative;
   left: 10%;
 }
@@ -819,7 +829,7 @@ transform: rotate(-10deg);
 }
 
 #req-row:hover {
-  background-color: rgba(245, 245, 245, 0.561);
+  background-color: rgba(228, 228, 228, 0.561);
 }
 
 #edit-req-column {
@@ -901,6 +911,11 @@ transform: rotate(-10deg);
 #admin-team-header h4{
   margin-bottom: -15px;
   font-style: italic;
+}
+
+.arrow-circle-right:hover {
+  color: orangered;
+  cursor: grab;
 }
 
 
@@ -1453,7 +1468,7 @@ transform: rotate(-10deg);
 }
 
 #recruiter-metrics-row:hover {
-  background-color: rgba(228, 228, 228, 0.658);
+  background-color: rgba(228, 228, 228, 0.561);
 }
 
 #recruiter-metrics-row h3{
@@ -1487,4 +1502,9 @@ transform: rotate(-10deg);
 #team-metrics-headers :first-child{
   margin-top: 25px;
   text-align: right;
+}
+
+#recruiter-metrics-row span {
+  font-style: italic;
+  font-size: 0.7em;
 }

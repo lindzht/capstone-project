@@ -162,10 +162,11 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
                                     <option value="">Select</option>
                                     {recruiterListOptions}
                                 </select>
+                                <label id="label-2">Candidate Hired:</label>
                                 <input
                                     type="text"
                                     name="candidate"
-                                    placeholder="Hired Candidate Name"
+                                    placeholder="Full Name"
                                     value={editTeamReq.candidate}
                                     onChange={handleChange} />
                                 <label id="label-2">Date Candidate Hired:</label>

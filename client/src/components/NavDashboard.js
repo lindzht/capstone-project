@@ -35,8 +35,10 @@ function NavDashboard ({handleLogOut, currentUser}) {
         
         : <div id="nav-dashboard-container">
                 <div id="nav-dashboard-content">
-                    <Icon onClick={handleHamburger} size="big" name="pencil" id="hamburger-icon" />
-                    <h3 onClick={() => {navigate('/dashboard')}}> ✴ Logo </h3>
+                    <div id="logo">
+                        <Icon onClick={handleHamburger} size="big" name="pencil" id="hamburger-icon" />
+                        <h3 onClick={handleHamburger}>✴ RB ✴</h3>
+                    </div>
                     <nav>
                         <p id="nav-teams" onClick={()=> {setDisplayMine(!displayMine)}}>+ My Board</p>
                         {displayMine ? 
@@ -46,7 +48,7 @@ function NavDashboard ({handleLogOut, currentUser}) {
                             <Link to="dashboard/myhires">- My Hires</Link>
                             </>
                         : null }
-                        <p id="nav-teams" onClick={()=> {setDisplayTeams(!displayTeams)}}>+ My Team Boards</p>
+                        <p id="nav-teams" onClick={()=> {setDisplayTeams(!displayTeams)}}>+ Team Boards</p>
                         {displayTeams? renderTeams : null}
                         <Link to="settings">Settings</Link>
                         <br />
