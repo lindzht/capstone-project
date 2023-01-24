@@ -1,13 +1,28 @@
 import { Table, Icon, Button } from 'semantic-ui-react'
 import { useState } from 'react'
+import { format, addDays, subDays } from 'date-fns'
 
 
 function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hiring_manager, open_date, hire_goal, hired_status, hired_date, candidate, candidate_app, recruiter, displayDeleteIcon, displayEditIcon, currentTeam, updateReq }) {
     
-    const date = new Date()
-    console.log(date)
+    // const todaysDate2 = format(addDays(new Date(), 10), 'yyyy-MM-dd')
+    // const twoWeeksAgo = format(subDays(hire_goal, 14), 'yyyy-MM-dd')
+    // console.log(hire_goal)
 
+    // const rowColors = ()=> {
+    //     console.log(hire_goal)
+    //     const today = format(new Date(), 'yyyy-MM-dd')
+    //     const goal = format(new hire_goal, 'yyyy-MM-dd')
+    //     const twoWeeksAgo = format(subDays(hire_goal, 14), 'yyyy-MM-dd')
+    //     console.log(twoWeeksAgo)
+        // if (today >= twoWeeksAgo ) {
+        //     return("req-row-alert")
+        // } else {
+        //     return("req-row")
+        // }
+    }
 
+    
 
     const [displayEditForm, setDisplayEditForm] = useState(false)
     const [editTeamReq, setEditTeamReq] = useState({
@@ -67,7 +82,7 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
                         {recruiter && recruiter.first_name ? <Table.Cell>{recruiter.first_name} {recruiter.last_name}</Table.Cell> : <Table.Cell></Table.Cell>}
                         <Table.Cell>{hiring_manager}</Table.Cell>
                         <Table.Cell>{open_date}</Table.Cell>
-                        <Table.Cell>{hire_goal}</Table.Cell>
+                        <Table.Cell id={rowColors()} >{hire_goal}</Table.Cell>
                         <Table.Cell>{hired_status}</Table.Cell>
                         {hired_status === "Hired" ? 
                             <>

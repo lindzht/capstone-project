@@ -766,7 +766,7 @@ transform: rotate(-10deg);
 } */
 
 
-/* MY REQS PAGE  */
+/***************** MY & TEAM REQS PAGE  ******************/
 
 .req-container {
   background-color: rgba(255, 255, 255, 0.71);
@@ -825,6 +825,10 @@ transform: rotate(-10deg);
   cursor: grab;
 }
 
+#req-row-alert {
+  background-color: rgba(255, 68, 0, 0.289);
+  font-weight: bold;
+}
 
 /**************** MY DASHBOARD: HOME ADMIN ****************/
 
@@ -1108,7 +1112,7 @@ transform: rotate(-10deg);
   margin-left: -190px;
 }
 
-/* TEAM DASHBOARD: HOME */
+/************* TEAM DASHBOARD: HOME **********/
 
 
 #team-container {
@@ -1205,7 +1209,7 @@ transform: rotate(-10deg);
 }
 
 
-/* TEAM RECRUITER CARD DISPLAY */
+/************** TEAM RECRUITER CARD DISPLAY *********/
 
 .recruiter-card-container {
   margin-bottom: 10px; 
@@ -1259,7 +1263,7 @@ transform: rotate(-10deg);
 }
 
 
-/* TEAM ADD REQ PAGE */
+/****************** TEAM ADD REQ PAGE **************/
 
 #container-overlay {
   background-color: rgba(0, 0, 0, 0.317);
@@ -1342,21 +1346,7 @@ transform: rotate(-10deg);
 
 
 
-
-/* #team-add-req form #label-1,
-#team-add-req form #label-2 {
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-} */
-
-
-
-
-
-
-
-/* TEAM REQ EDIT FORM */
+/******************* TEAM REQ EDIT FORM **************/
 #req-form {
   display: flex;
   width: 63em;
