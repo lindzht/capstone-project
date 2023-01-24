@@ -20,7 +20,7 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
         // } else {
         //     return("req-row")
         // }
-    }
+  
 
     
 
@@ -82,7 +82,7 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
                         {recruiter && recruiter.first_name ? <Table.Cell>{recruiter.first_name} {recruiter.last_name}</Table.Cell> : <Table.Cell></Table.Cell>}
                         <Table.Cell>{hiring_manager}</Table.Cell>
                         <Table.Cell>{open_date}</Table.Cell>
-                        <Table.Cell id={rowColors()} >{hire_goal}</Table.Cell>
+                        <Table.Cell >{hire_goal}</Table.Cell>
                         <Table.Cell>{hired_status}</Table.Cell>
                         {hired_status === "Hired" ? 
                             <>

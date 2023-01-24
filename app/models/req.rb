@@ -7,7 +7,7 @@ class Req < ApplicationRecord
   validates :company, presence: true
 
 
-
+  
 
   def self.req_goals_due_this_month
     beginning_of_month = Time.current.beginning_of_month

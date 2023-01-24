@@ -15,7 +15,6 @@ import TeamDashboard from './components/TeamDashboard';
 import TeamDashboardHome from './components/TeamDashboardHome';
 import TeamSettings from './components/TeamSettings';
 import TeamHiredReqs from './components/TeamHiredReqs';
-// import TeamReqs from './components/TeamReqs';
 
 function App() {
 
@@ -50,7 +49,7 @@ function App() {
   const [displayDeleteIcon, setDisplayDeleteIcon] = useState(false)
 
 
-  let params = useParams();
+  // let params = useParams();
   // let navigate = useNavigate();
 
 
@@ -79,10 +78,7 @@ function App() {
         if (res.ok) {
           res.json().then(data => {
             setCurrentUser(data);
-            // setCurrentCompany(data.company)
             setNewData(data.first_name);
-            // <Link to="/"></Link>
-            // navigate('/dashboard')
           })
         } else {
           res.json().then(data => { for (const key in data) { setErrors(data[key]); } })
@@ -104,24 +100,6 @@ function App() {
       })
   }, [newCompany, newData])
 
-  // CREATE NEW COMPANY AND ADD NEW COMPANY ID
-  //  const createNewCompany = (newCompany)=> {
-  //   fetch('/companies', {
-  //     method: "POST",
-  //     headers: {'Content-Type': 'application/json'},
-  //     body: JSON.stringify(newCompany)
-  //   })
-  //   .then(res => {
-  //     if (res.ok){
-  //       res.json().then(data => {
-  //         setNewCompanyID(data.id);
-  //       })
-  //     } else {
-  //       res.json().then(data => {setErrors(data.errors); console.log(errors)})
-  //     }
-  //   })
-  //  }
-
   // CREATE NEW RECRUITER
   const createNewRecruiter = (newRecruiter) => {
     console.log(newRecruiter)
@@ -139,7 +117,7 @@ function App() {
             setNewCompany({ name: "" })
           })
         } else {
-          res.json().then(data => { setErrors(data.errors); console.log(errors) })
+          res.json().then(data => { setErrors(data.errors) })
         }
       })
   }
@@ -159,7 +137,7 @@ function App() {
             setCurrentUser(data);
           })
         } else {
-          res.json().then(console.log("no go"))
+          res.json().then(data => { setErrors(data.errors) })
         }
       })
   }
@@ -191,7 +169,7 @@ function App() {
             console.log(data);
           })
         } else {
-          res.json().then(data => { setErrors(data.errors); console.log(errors) })
+          res.json().then(data => { setErrors(data.errors)})
         }
       })
   }
@@ -332,7 +310,7 @@ function App() {
             setUpdatedReq(data);
           })
         } else {
-          res.json().then(console.log("no go"))
+          res.json().then(data => { setErrors(data.errors); console.log(errors) })
         }
       })
   }
