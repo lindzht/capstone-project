@@ -14,8 +14,8 @@ function Nav ({currentUser, handleLogOut, handleLoginModal}){
         <div id="top-nav-container">
             {!currentUser ? 
                 <div id="top-nav-content">
-                    <div id="top-nav-logo">
-                        <h3 onClick={logoRedirect}> ✴ Logo </h3>
+                    <div id="logo">
+                        <h3 onClick={logoRedirect}>✴ RB ✴</h3>
                     </div>
                     <div id="top-nav-links">
                         <div id="top-nav-loggedout">
@@ -35,23 +35,3 @@ function Nav ({currentUser, handleLogOut, handleLoginModal}){
 
 export default Nav;
 
-
-
-{/* <div id="top-nav-container">
-<div id="top-nav-content">
-    <div id="top-nav-logo">
-        <h3 onClick={logoRedirect}> ✴ Logo </h3>
-    </div>
-    <div id="top-nav-links">
-        {currentUser ? 
-            <div id="top-nav-loggedin">
-                <div id="top-user"><Link to="/settings"><Icon name="user circle"></Icon><p>{currentUser && currentUser.first_name}</p></Link></div>
-                <Link onClick={handleLogOut} to="/">Logout</Link>
-            </div>
-        :   <div id="top-nav-loggedout">
-                <p onClick={handleLoginModal}> Login </p>
-            </div>
-        } 
-    </div>
-</div>
-</div> */}

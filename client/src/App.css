@@ -66,20 +66,15 @@
 
   background: linear-gradient(310deg, #d9e1b3, #fbd49e, #d9e1b3);
   background-size: 600% 600%;
-
   -webkit-animation: AnimationName 8s ease infinite;
   -moz-animation: AnimationName 8s ease infinite;
   animation: AnimationName 8s ease infinite;
-
   height: 100vh;
   width: 100vw; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   z-index: -10;
-  /* animation: landwave 4s linear 0s infinite normal;
-  animation-timing-function: ease-in-out;
-  -webkit-animation-timing-function: ease-in-out; */
 }
 
 
@@ -100,7 +95,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin: 10% 0 0 5%;
+  margin: 5% 0 0 5%;
   width: 40%;
   text-align: left;
 }
@@ -109,8 +104,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   margin: 3em 10em 0 7em;
-  width: 30%;
+  width: 20%;
 }
 
 #landing-header h1 {
@@ -530,13 +526,23 @@ transform: rotate(-10deg);
 
 /************** MY DASHBOARD CONTAINER **************/
 
+#user-display {
+  display: flex;
+  position: absolute;
+  width: 400px;
+  top: 8px;
+  right: -130px;
+}
+
 
 #user-display a{
   display: flex;
   flex-direction: row;
-  position: absolute;
-  top: 8px;
-  right: 48px;
+  justify-content: space-around;
+
+  /* position: absolute; */
+  /* top: 8px;
+  right: 48px; */
   color: black;
 }
 
@@ -1148,9 +1154,7 @@ transform: rotate(-10deg);
 
 /*************** TEAM DASHBOARD ****************/
 
-#user-display #icon-home {
-  margin-left: -190px;
-}
+
 
 /************* TEAM DASHBOARD: HOME **********/
 

@@ -1,4 +1,4 @@
-import { Button } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 
@@ -15,9 +15,9 @@ function LandingPage({handleLoginModal, setNewCompany}) {
                     </div>
                 </div> 
                 <div id='landing-right-content'>
-                    <div id="landing-thumbnail">
+                    {/* <div id="landing-thumbnail">
                         <p>images</p>
-                    </div>
+                    </div> */}
                 </div> 
                 
             </div>
@@ -26,7 +26,7 @@ function LandingPage({handleLoginModal, setNewCompany}) {
                     <Button onClick={() => {setNewCompany({name: ""})}} color='black' size='large'>Sign Up</Button>
                 </Link>
                     <Button color='black' size='large' onClick={handleLoginModal}>Login</Button>
-                <div id="contact">Contact Icons</div>
+                <Icon name="mail" size='big'></Icon>
             </div>  
         </div>
     )
