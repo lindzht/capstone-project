@@ -17,6 +17,14 @@ class Req < ApplicationRecord
     total_date_difference / hired_reqs.length
   end
 
+  def self.avg_time_to_offer
+    hired_reqs = self.where.not(hired_date: nil).where.not(candidate_app: nil)
+    total_date_difference = hired_reqs.sum do |req|
+      (req.hired_date.to_date - req.candidate_app.to_date).to_i
+    end
+    total_date_difference / hired_reqs.length
+  end
+
 
 
 
