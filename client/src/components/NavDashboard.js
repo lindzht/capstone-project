@@ -8,6 +8,7 @@ function NavDashboard ({handleLogOut, currentUser}) {
 
     const [displayNav, setDisplayNav] = useState(false);
     const [displayTeams, setDisplayTeams] = useState(false);
+    const [displayMine, setDisplayMine] = useState(false);
 
     const handleHamburger = ()=> {
         setDisplayNav(!displayNav);
@@ -37,12 +38,17 @@ function NavDashboard ({handleLogOut, currentUser}) {
                     <Icon onClick={handleHamburger} size="big" name="pencil" id="hamburger-icon" />
                     <h3 onClick={() => {navigate('/dashboard')}}> ✴ Logo </h3>
                     <nav>
-                        <Link to="dashboard">My Dashboard</Link>
-                        <Link to="dashboard/myreqs">My Reqs</Link>
-                        <Link to="dashboard/myhires">My Hires</Link>
-                        <Link to="settings">Settings</Link>
+                        <p id="nav-teams" onClick={()=> {setDisplayMine(!displayMine)}}>+ My Board</p>
+                        {displayMine ? 
+                            <>  
+                            <Link to="dashboard">- Dashboard</Link>
+                            <Link to="dashboard/myreqs">- My Reqs</Link>
+                            <Link to="dashboard/myhires">- My Hires</Link>
+                            </>
+                        : null }
                         <p id="nav-teams" onClick={()=> {setDisplayTeams(!displayTeams)}}>+ My Team Boards</p>
                         {displayTeams? renderTeams : null}
+                        <Link to="settings">Settings</Link>
                         <br />
                         <br />
                         <h4>{currentUser.admin ? currentUser.company.name : null} Admin</h4>

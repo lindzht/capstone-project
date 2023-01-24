@@ -57,12 +57,12 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, delet
                     </div>
 
                     <div id="my-metrics-card-container">   
-                        <h1>X</h1>
+                        <h1>{currentUser.avg_time_to_hire}<span>days</span></h1>
                         <h3>Avg Time to Hire</h3>
                     </div>
 
                     <div id="my-metrics-card-container">   
-                        <h1>X</h1>
+                        <h1>{currentUser.avg_time_to_offer}<span>days</span></h1>
                         <h3>Avg Time to Hire</h3>
                     </div>
                     
@@ -78,13 +78,7 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, delet
                     </div>
                 </div>
             </div>
-
-           
-                
-            
-
-            
-                
+   
             
 
             {currentUser.admin ? 
