@@ -3,6 +3,11 @@ import { useState } from 'react'
 
 
 function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hiring_manager, open_date, hire_goal, hired_status, hired_date, candidate, candidate_app, recruiter, displayDeleteIcon, displayEditIcon, currentTeam, updateReq }) {
+    
+    const date = new Date()
+    console.log(date)
+
+
 
     const [displayEditForm, setDisplayEditForm] = useState(false)
     const [editTeamReq, setEditTeamReq] = useState({
@@ -55,7 +60,7 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
         <>
             {!displayEditForm ?
                 <Table.Body>
-                    <Table.Row id="req-row" key={req_id}>
+                    <Table.Row id={"req-row"} key={req_id}>
                         <Table.Cell>{req_id}</Table.Cell>
                         <Table.Cell onClick={() => { console.log(id) }}>{name}</Table.Cell>
                         <Table.Cell>{org}</Table.Cell>
