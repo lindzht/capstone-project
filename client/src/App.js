@@ -15,7 +15,7 @@ import TeamDashboard from './components/TeamDashboard';
 import TeamDashboardHome from './components/TeamDashboardHome';
 import TeamSettings from './components/TeamSettings';
 import TeamHiredReqs from './components/TeamHiredReqs';
-import TeamReqs from './components/TeamReqs';
+// import TeamReqs from './components/TeamReqs';
 
 function App() {
 
@@ -45,6 +45,9 @@ function App() {
     hired_status: "",
     recruiter_id: ""
   })
+  const [displayAddForm, setDisplayAddForm] = useState(false)
+  const [displayEditIcon, setDisplayEditIcon] = useState(false)
+  const [displayDeleteIcon, setDisplayDeleteIcon] = useState(false)
 
 
   let params = useParams();
@@ -341,6 +344,20 @@ function App() {
     console.log(displayLoginForm)
   }
 
+  //CRUD REQS
+  function handleDisplayAddForm() {
+    setDisplayAddForm(!displayAddForm);
+  }
+  function handleDisplayEditIcons() {
+    setDisplayEditIcon(!displayEditIcon)
+    setDisplayDeleteIcon(false)
+  }
+  function handleDisplayDeleteIcons() {
+    setDisplayDeleteIcon(!displayDeleteIcon)
+    setDisplayEditIcon(false)
+  }
+
+
   return (
     <BrowserRouter>
       {!currentUser ?
@@ -417,8 +434,33 @@ function App() {
                   deleteReq={deleteReq}
                   deleteReqFromTeam={deleteReqFromTeam}
                   updateReq={updateReq}
+                  handleDisplayAddForm={handleDisplayAddForm}
+                  displayEditIcon={displayEditIcon}
+                  displayDeleteIcon={displayDeleteIcon}
+                  handleDisplayEditIcons={handleDisplayEditIcons}
+                  handleDisplayDeleteIcons={handleDisplayDeleteIcons}
+                  displayAddForm={displayAddForm}
                 />} />
-                <Route path="hires" element={<TeamReqs currentUser={currentUser} currentTeam={currentTeam} />} />
+                <Route path="hires" element={<TeamHiredReqs
+                  currentUser={currentUser}
+                  currentTeam={currentTeam}
+                  setSelectTeamID={setSelectTeamID}
+                  handleDisplayAddForm={handleDisplayAddForm}
+                  displayEditIcon={displayEditIcon}
+                  displayDeleteIcon={displayDeleteIcon}
+                  displayAddForm={displayAddForm}
+                  companies={companies}
+                  addNewReq={addNewReq}
+                  setNewTeamReq={setNewTeamReq}
+                  newTeamReq={newTeamReq}
+                  setNewData={setNewData}
+                  setReqSearchID={setReqSearchID}
+                  reqSearchID={reqSearchID}
+                  handleDisplayEditIcons={handleDisplayEditIcons}
+                  handleDisplayDeleteIcons={handleDisplayDeleteIcons}
+                  updateReq={updateReq}
+                  deleteReq={deleteReq}
+                />} />
                 <Route path="settings" element={<TeamSettings currentUser={currentUser} />} />
               </Route>
               <Route path='settings' element={<Settings currentUser={currentUser} handleUpdateRecruiter={handleUpdateRecruiter} />} />

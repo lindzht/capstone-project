@@ -14,7 +14,7 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
         open_date: open_date,
         hire_goal: hire_goal,
         hired_status: hired_status,
-        recruiter_id: recruiter.id ? recruiter.id : "",
+        recruiter_id: "",
         hired_date: hired_date ? hired_date : "",
         candidate: candidate ? candidate : "",
         candidate_app: candidate_app ? candidate_app : ""
@@ -55,7 +55,7 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
         <>
             {!displayEditForm ?
                 <Table.Body>
-                    <Table.Row id={hired_status === "Hired" ? "req-row-hired" : "req-row"} key={req_id}>
+                    <Table.Row id="req-row" key={req_id}>
                         <Table.Cell>{req_id}</Table.Cell>
                         <Table.Cell onClick={() => { console.log(id) }}>{name}</Table.Cell>
                         <Table.Cell>{org}</Table.Cell>
@@ -64,6 +64,13 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
                         <Table.Cell>{open_date}</Table.Cell>
                         <Table.Cell>{hire_goal}</Table.Cell>
                         <Table.Cell>{hired_status}</Table.Cell>
+                        {hired_status === "Hired" ? 
+                            <>
+                            <Table.Cell>{hired_date}</Table.Cell>
+                            <Table.Cell>{candidate}</Table.Cell>
+                            <Table.Cell>{candidate_app}</Table.Cell>
+                            </>
+                        : null}
                         {displayDeleteIcon ? <Table.Cell id="edit-req-row" ><Icon name="x" id="delete-req-icon" onClick={() => { handleDelete(id) }} /></Table.Cell> : null}
                         {displayEditIcon ? <Table.Cell id="edit-req-row" ><Icon name="pencil" id="edit-req-icon" onClick={() => { setDisplayEditForm(!displayEditForm) }} /></Table.Cell> : null}
                     </Table.Row>
