@@ -20,8 +20,11 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
         // } else {
         //     return("req-row")
         // }
-  
-
+    const now = new Date();
+    const goal = new Date(hire_goal)
+    const msUntilGoal = goal.getTime() - now.getTime();
+    const daysUntilGoal = Math.floor(msUntilGoal / (1000 * 60 * 60 * 24))
+    console.log(daysUntilGoal)
     
 
     const [displayEditForm, setDisplayEditForm] = useState(false)
@@ -82,7 +85,7 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
                         {recruiter && recruiter.first_name ? <Table.Cell>{recruiter.first_name} {recruiter.last_name}</Table.Cell> : <Table.Cell></Table.Cell>}
                         <Table.Cell>{hiring_manager}</Table.Cell>
                         <Table.Cell>{open_date}</Table.Cell>
-                        <Table.Cell >{hire_goal}</Table.Cell>
+                        <Table.Cell id={daysUntilGoal < 10 && hired_status !== "Hired" ? "req-row-alert": null}>{hire_goal}</Table.Cell>
                         <Table.Cell>{hired_status}</Table.Cell>
                         {hired_status === "Hired" ? 
                             <>

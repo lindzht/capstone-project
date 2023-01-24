@@ -1,5 +1,7 @@
 class RecruiterSerializer < ActiveModel::Serializer
   attributes :id, :first_name, :last_name, :email, :admin, :open_reqs, :hired_reqs, :avg_time_to_fill, :avg_time_to_hire
+
+
   has_one :company
   has_many :teams, through: :recruiterteams, serializer: TeamRecruiterDisplaySerializer
   has_many :reqs
@@ -15,6 +17,8 @@ class RecruiterSerializer < ActiveModel::Serializer
   def teams
     object.teams.order(name: :asc)
   end
+
+
 
   def avg_time_to_fill
     hired_reqs = object.reqs.where.not(hired_date: nil)
