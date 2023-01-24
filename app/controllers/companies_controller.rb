@@ -1,5 +1,7 @@
 class CompaniesController < ApplicationController
 
+    skip_before_action :authorized,  only: [:create, :index, :show]
+
     def index
         render json: Company.all, status: :ok
     end

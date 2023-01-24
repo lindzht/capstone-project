@@ -1,5 +1,7 @@
 class RecruiterteamsController < ApplicationController
 
+    skip_before_action :authorized,  only: [:create, :destroy]
+
     def create
         # byebug
         relationship = Recruiterteam.create!(recruiter_id: params[:recruiter_id], team_id: params[:team_id])

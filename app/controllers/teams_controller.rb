@@ -1,9 +1,9 @@
 class TeamsController < ApplicationController
 
+    skip_before_action :authorized,  only: [:create, :show]
+
     def create
-        # recruiterID = find_recruiter_id
         team = Team.create(team_params)
-        # Recruiterteam.create(recruiter_id: recruiterID, team_id: team.id)
         render json: team, status: :created
     end
 

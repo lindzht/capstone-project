@@ -34,7 +34,7 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
         open_date: open_date,
         hire_goal: hire_goal,
         hired_status: hired_status,
-        recruiter_id: "",
+        recruiter_id: recruiter ? recruiter : "",
         hired_date: hired_date ? hired_date : "",
         candidate: candidate ? candidate : "",
         candidate_app: candidate_app ? candidate_app : ""

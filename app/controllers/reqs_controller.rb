@@ -1,5 +1,7 @@
 class ReqsController < ApplicationController
 
+    skip_before_action :authorized,  only: [:create, :update, :destroy]
+
     def create
         if params[:id]
             relationship = Reqteam.create!(req_id: params[:id], team_id: params[:team_id])

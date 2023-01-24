@@ -1118,7 +1118,7 @@ transform: rotate(-10deg);
 #team-container {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  /* height: 100%; */
 }
 
 #team-container-right {
@@ -1132,9 +1132,9 @@ transform: rotate(-10deg);
   width: 18em;
 }
 
-#team-block{
+/* #team-block{
   height: 100%;
-}
+} */
 
 #team-container-right #team-block h3 {
   font-family: 'Ubuntu', sans-serif;
@@ -1154,7 +1154,7 @@ transform: rotate(-10deg);
   color: rgba(188, 188, 188, 0.779);;
   position: relative;
   left: 30%;
-  margin: 0.5em 0.5em 1em 0.6em;
+  margin: 0.5em 0.5em 0em 0.6em;
   font-size: 2.3em;
 }
 

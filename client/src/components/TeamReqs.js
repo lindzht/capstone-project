@@ -5,18 +5,9 @@ import TeamReqRow from './TeamReqRow'
 
   
 function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam, displayDeleteIcon, displayEditIcon, updateReq}) {
-    
-    // const handleDelete =(id) => {
-    //   if (currentTeam.name.includes(currentTeam.company.name)){
-    //     deleteReq(id)
-    //   } else {
-    //     deleteReqFromTeam({req_id: id, team_id: currentTeam.id})
-    //   }
-    // }
 
 
     function RenderTable (){
-      // const tableData = currentTeam.reqs
 
       const tableData = currentTeam.reqs.filter((req) => {
         return req.hired_status !== "Hired"
@@ -106,7 +97,7 @@ function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam, displayDeleteIcon
                     sorted={column === 'hired_status' ? direction : null}
                     onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'hired_status' })}
                   >
-                    Hired Status
+                    Status
                   </Table.HeaderCell>
                   {displayDeleteIcon || displayEditIcon ? <Table.HeaderCell id="edit-req-column"></Table.HeaderCell> : null}
                 </Table.Row>
@@ -117,12 +108,6 @@ function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam, displayDeleteIcon
       )
     }
 
-
-
-
-console.log(currentTeam)
-
-  // if (currentTeam && currentTeam.reqs !== null) return ("Loading...")
     return (
       <>
         <RenderTable />

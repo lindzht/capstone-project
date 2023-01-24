@@ -255,7 +255,7 @@ function App() {
             console.log(data);
           })
         } else {
-          res.json().then(data => { setErrors(data.errors); console.log(errors) })
+          res.json().then(data => {for (const key in data){setErrors(data[key]);}; console.log(errors)})
         }
       })
   }

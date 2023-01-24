@@ -1,7 +1,9 @@
 class RecruitersController < ApplicationController
 
+    skip_before_action :authorized, only: [:create, :show, :update]
+
+
     def create
-        # byebug
         if params[:admin] == true
             company = Company.create!(name: params[:company])
             recruiter = Recruiter.create!(
