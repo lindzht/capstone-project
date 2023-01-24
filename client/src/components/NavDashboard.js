@@ -42,7 +42,7 @@ function NavDashboard ({handleLogOut, currentUser}) {
                         {displayMine ? 
                             <>  
                             <Link to="dashboard">- Dashboard</Link>
-                            <Link to="dashboard/myreqs">- My Reqs</Link>
+                            <Link to="dashboard/myreqs">- My Open Reqs</Link>
                             <Link to="dashboard/myhires">- My Hires</Link>
                             </>
                         : null }

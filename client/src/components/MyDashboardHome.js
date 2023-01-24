@@ -45,24 +45,22 @@ function MyDashboardHome({currentUser, newTeam, setNewTeam, createNewTeam, delet
                 <div id="dashboard-content-top">
                     <div id="my-metrics-card-container">
                         <h1>{currentUser.open_reqs}</h1>
-                        <h3>Open Reqs</h3>
+                        <h3>Total Open Reqs</h3>
                     </div>
 
                     
-                    <div id="my-metrics-card-container">   
-                        <div className={currentUser.hired_reqs > 0 ? "hired-highlight" : null }>
-                            <h1>{currentUser.hired_reqs}</h1>
-                            <h3>Hired Reqs</h3>
-                        </div>
+                    <div id={currentUser.hired_reqs > 0 ? "hired-highlight" : "my-metrics-card-container" }>   
+                        <h1>{currentUser.hired_reqs}</h1>
+                        <h3>Total Reqs Hired</h3>
                     </div>
 
                     <div id="my-metrics-card-container">   
-                        <h1>{currentUser.avg_time_to_hire}<span>days</span></h1>
-                        <h3>Avg Time to Hire</h3>
+                        <h1>{currentUser.avg_time_to_fill} <span>Days</span></h1>
+                        <h3>Avg Time to Fill Req</h3>
                     </div>
 
                     <div id="my-metrics-card-container">   
-                        <h1>{currentUser.avg_time_to_offer}<span>days</span></h1>
+                        <h1>{currentUser.avg_time_to_hire} <span>Days</span></h1>
                         <h3>Avg Time to Hire</h3>
                     </div>
                     

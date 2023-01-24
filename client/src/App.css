@@ -467,8 +467,20 @@ transform: rotate(-10deg);
   margin-top: 5em;
 }
 
-#nav-dashboard-container a,
 #nav-dashboard-container p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; 
+  margin: 1em 0 0 2.5em;
+  padding: 0.5em;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  color: black;
+}
+
+#nav-dashboard-container a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -607,19 +619,34 @@ transform: rotate(-10deg);
   margin: 1em;
 }
 
-#my-metrics-card-container h1 {
+#my-metrics-card-container h1,
+#hired-highlight h1 {
   font-size: 3em;
-  margin: -12px 0 -20px 0;
+  margin: -12px 0 0 0;
 }
 
-#my-metrics-card-container h3 {
+#my-metrics-card-container h1 span, 
+#hired-highlight h1 span{
+  font-size: 0.6em;
+  font-style: italic;
+}
+
+#my-metrics-card-container h3,
+#hired-highlight h3 {
   font-size: 1em;
+  margin-top: 0;
 }
 
 
-.hired-highlight h1 {
-  color: green;
-  font-size: 3.8em;
+#hired-highlight {
+  background: linear-gradient(310deg, rgb(227, 231, 208), #fbd49e);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1.8em;
+  border-radius: 20px;
+  width: 18%;
+  height: 8em;
+  text-align: center;
+  margin: 1em;
 }
 
 
@@ -1127,7 +1154,7 @@ transform: rotate(-10deg);
   margin-top: 2%;
   border-radius: 20px;
   height: 80%;
-  width: 18em;
+  width: 15em;
 }
 
 /* #team-block{
@@ -1183,11 +1210,29 @@ transform: rotate(-10deg);
   margin: 0px;
 }
 
+#team-metrics-card-container h1 span {
+  font-size: 0.45em;
+  font-style: italic;
+  margin: 0px;
+}
+
 #team-metrics-card-container h3 {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
-  font-size: 1.3em;
-  margin: -10px;
+  font-size: 1.1em;
+  margin: -5px;
+}
+
+#team-metrics-card-container h4 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  margin: -5px;
+}
+
+.divider {
+  border-top: 1px solid black;
+  margin: 2em 0 1em 0;
 }
 
 
@@ -1211,7 +1256,7 @@ transform: rotate(-10deg);
 
 .recruiter-card-container {
   margin-bottom: 10px; 
-  width: 180px;
+  width: 100%;
 }
 
 

@@ -182,7 +182,7 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
                                     placeholder="Date Candidate Applied"
                                     value={editTeamReq.candidate_app}
                                     onChange={handleChange} />
-                                <Button color="black" onSubmit={handleSubmit}>Add</Button>
+                                <Button color="black" onSubmit={handleSubmit}>Submit</Button>
                                 <Button color="black" onClick={() => { setDisplayEditForm(!displayEditForm) }}>Cancel</Button>
                                 
                             </form>
