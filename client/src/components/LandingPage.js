@@ -1,5 +1,5 @@
 import { Button, Icon } from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 
 
@@ -11,7 +11,7 @@ function LandingPage({handleLoginModal, setNewCompany}) {
                     <h1>Req Board</h1>
                     <div id="landing-subheading">
                         <h2>Let's Get Organized</h2>
-                        <h3>Welcome to the space where you & your talent acquisition team can performance manage from a birds eye view.</h3>
+                        <h3>Where you & your talent acquisition team can manage headcount from a birds eye view.</h3>
                     </div>
                 </div> 
                 <div id='landing-right-content'>
@@ -26,7 +26,11 @@ function LandingPage({handleLoginModal, setNewCompany}) {
                     <Button onClick={() => {setNewCompany({name: ""})}} color='black' size='large'>Sign Up</Button>
                 </Link>
                     <Button color='black' size='large' onClick={handleLoginModal}>Login</Button>
-                <Icon name="mail" size='big'></Icon>
+                <Link to="#" onClick={(e) => {window.location.href = "mailto:llindsayttaylor@gmail.com";
+                e.preventDefault();}}>
+                    <Icon name="mail" size='big'></Icon>
+                </Link>
+                    
             </div>  
         </div>
     )
