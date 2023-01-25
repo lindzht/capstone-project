@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-    skip_before_action :authorized, only: [:create, :destroy]
+    skip_before_action :authorized, only: [:create]
 
     # CREATE /login
     def create

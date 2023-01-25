@@ -1,6 +1,6 @@
 class ReqteamsController < ApplicationController
 
-    skip_before_action :authorized,  only: [:destroy_req_from_team]
+    # skip_before_action :authorized,  only: [:destroy_req_from_team]
 
     def destroy_req_from_team
         reqteam = find_reqteam 

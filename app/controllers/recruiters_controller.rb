@@ -1,6 +1,6 @@
 class RecruitersController < ApplicationController
 
-    skip_before_action :authorized, only: [:create, :show, :update]
+    skip_before_action :authorized, only: [:create]
 
 
     def create

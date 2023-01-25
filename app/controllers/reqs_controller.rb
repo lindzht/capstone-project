@@ -1,6 +1,6 @@
 class ReqsController < ApplicationController
 
-    skip_before_action :authorized,  only: [:create, :update, :destroy]
+    # skip_before_action :authorized,  only: [:create, :update, :destroy]
 
     def create
         if params[:id]
