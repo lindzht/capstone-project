@@ -407,14 +407,14 @@ transform: rotate(-10deg);
 
 #hamburger-content #hamburger-icon:hover {
   animation-name: wave;
-  animation-duration: 0.8s;
+  animation-duration: 0.6s;
   animation-iteration-count: infinite;
 }
 
 @keyframes wave {
-  0%   {transform: rotate(-100deg);}
+  0%   {transform: rotate(-60deg);}
   50%  {transform: rotate(20deg);}
-  100% {transform: rotate(-100deg);}
+  100% {transform: rotate(-70deg);}
 }
 
 #nav-dashboard-content #hamburger-icon {
