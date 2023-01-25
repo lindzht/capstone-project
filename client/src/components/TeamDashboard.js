@@ -21,7 +21,7 @@ function TeamDashboard ( {currentTeam, currentUser, setSelectTeamID} ){
                 </Link>
             </div>
             <div className="dashboard-header">
-                {currentTeam ? <h1>{currentTeam.name} 's Board</h1> : "Nope"}
+                {currentTeam ? <h1>{currentTeam.name} 's Board</h1> : null}
             </div>
                 <TeamSubNav />
 

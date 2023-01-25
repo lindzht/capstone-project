@@ -60,28 +60,28 @@ function App() {
             })
         }
       });
-  }, []);
+  }, [newTeam, newData]);
 // }, [newTeam, newData]);
 
 
   // LOGIN 
-  const handleLogin = (currentUser) => {
-    fetch('/login', {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(currentUser)
-    })
-      .then(res => {
-        if (res.ok) {
-          res.json().then(data => {
-            setCurrentUser(data);
-            setNewData(data.first_name);
-          })
-        } else {
-          res.json().then(data => { for (const key in data) { setErrors(data[key]); } })
-        }
-      })
-  }
+  // const handleLogin = (currentUser) => {
+  //   fetch('/login', {
+  //     method: "POST",
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify(currentUser)
+  //   })
+  //     .then(res => {
+  //       if (res.ok) {
+  //         res.json().then(data => {
+  //           setCurrentUser(data);
+  //           setNewData(data.first_name);
+  //         })
+  //       } else {
+  //         res.json().then(data => { for (const key in data) { setErrors(data[key]); } })
+  //       }
+  //     })
+  // }
 
 
   // FETCH COMPANIES 
@@ -249,6 +249,7 @@ function App() {
         if (res.ok) {
           res.json().then(data => {
             setNewData(data);
+            setErrors([])
             console.log(data);
           })
         } else {
@@ -315,7 +316,7 @@ function App() {
   // DISPLAY LOGIN MODAL
   const handleLoginModal = () => {
     setDisplayLoginForm(!displayLoginForm)
-    console.log(displayLoginForm)
+    setErrors([])
   }
 
   //CRUD REQS
@@ -348,8 +349,9 @@ function App() {
               setErrors={setErrors}
               errors={errors}
               handleLoginModal={handleLoginModal}
-              handleLogin={handleLogin}
-              setDisplayLoginForm={setDisplayLoginForm} />
+              // handleLogin={handleLogin}
+              setDisplayLoginForm={setDisplayLoginForm}
+              setNewData={setNewData} />
             : null}
           <Routes>
             <Route index element={<LandingPage handleLoginModal={handleLoginModal} setNewCompany={setNewCompany} />} />
@@ -391,6 +393,7 @@ function App() {
                 setSelectTeamID={setSelectTeamID}
                 currentTeam={currentTeam} />} >
                 <Route index element={<TeamDashboardHome
+                  errors={errors}
                   currentUser={currentUser}
                   currentTeam={currentTeam}
                   deleteRecruiterFromTeam={deleteRecruiterFromTeam}

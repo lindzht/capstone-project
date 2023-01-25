@@ -8,7 +8,6 @@ class Req < ApplicationRecord
   validates :hired_status, presence: true
 
 
-
   def self.avg_time_to_hire
     hired_reqs = self.where.not(hired_date: nil)
     total_date_difference = hired_reqs.sum do |req|

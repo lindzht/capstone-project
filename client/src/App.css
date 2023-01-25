@@ -775,17 +775,9 @@ transform: rotate(-10deg);
   font-size: 1.3em;
 }
 
-/* #team-description:hover {
-  padding: 0;
-  margin-top: -50em;
-} */
-
-/* #team-card-thumbnail {
-  color: orangered;
-  transform: rotate(45deg);
-  font-size: 3.8em;
-  margin-top: 0.5em;
-} */
+#team-description h2 span{
+  text-decoration: underline;
+}
 
 #team-description #team-data {
   display: flex;

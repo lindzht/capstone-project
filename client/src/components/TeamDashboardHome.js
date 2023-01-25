@@ -7,7 +7,7 @@ import AddRecruiterCard from './AddRecruiterCard';
 import TeamAddReq from './TeamAddReq';
 import Loading from './Loading';
 
-function TeamDashboardHome({ currentTeam, deleteRecruiterFromTeam, companies, addNewReq, setNewTeamReq, newTeamReq, setNewData, setReqSearchID, reqSearchID, setRecruiterSearchID, recruiterSearchID, createRecTeamRelationship, deleteReq, deleteReqFromTeam, updateReq, displayEditIcon, displayDeleteIcon, handleDisplayAddForm, handleDisplayEditIcons, handleDisplayDeleteIcons, displayAddForm }) {
+function TeamDashboardHome({ currentTeam, deleteRecruiterFromTeam, companies, addNewReq, setNewTeamReq, newTeamReq, setNewData, setReqSearchID, reqSearchID, setRecruiterSearchID, recruiterSearchID, createRecTeamRelationship, deleteReq, deleteReqFromTeam, updateReq, displayEditIcon, displayDeleteIcon, handleDisplayAddForm, handleDisplayEditIcons, handleDisplayDeleteIcons, displayAddForm, errors }) {
 
     const [displayRecruiterForm, setDisplayRecruiterForm] = useState(false)
     let params = useParams();
@@ -39,13 +39,15 @@ function TeamDashboardHome({ currentTeam, deleteRecruiterFromTeam, companies, ad
                                 setNewData={setNewData}
                                 setReqSearchID={setReqSearchID}
                                 reqSearchID={reqSearchID}
-                                handleDisplayAddForm={handleDisplayAddForm} />
+                                handleDisplayAddForm={handleDisplayAddForm}
+                                errors={errors} />
                         </>
                         : null}
                     <div id="team-container-left">
                         <div className='req-container'>
                             <div id="req-top-container">
                                 <h1>Open Reqs</h1>
+                                {displayDeleteIcon && currentTeam.name.includes(currentTeam.company.name)? <h5>Note: Deleting reqs on this board will delete across all team boards.</h5>: null}
                                 <div id="icons">
                                     <Icon id="add" name="add circle" onClick={handleDisplayAddForm} />
                                     <Icon id="edit" name="pencil" onClick={handleDisplayEditIcons} />

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Button, Icon } from 'semantic-ui-react'
 
 
-function TeamAddReq({ companies, currentTeam, addNewReq, newTeamReq, setNewTeamReq, setNewData, reqSearchID, setReqSearchID, handleDisplayAddForm }) {
+function TeamAddReq({ errors, companies, currentTeam, addNewReq, newTeamReq, setNewTeamReq, setNewData, reqSearchID, setReqSearchID, handleDisplayAddForm }) {
     let params = useParams();
 
     const currentCompanyReqs = companies.filter((company) => {
@@ -135,7 +135,7 @@ function TeamAddReq({ companies, currentTeam, addNewReq, newTeamReq, setNewTeamR
                         {/* <input type="submit" value="Submit" /> */}
                         <Button color="black" onSubmit={handleSubmit}>Add</Button>
                     </form>
-
+                {errors.length > 0? errors.map((error)=> {return(<li>{error}</li>)}):null}
                 </div>
 
 

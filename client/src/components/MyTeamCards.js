@@ -1,6 +1,6 @@
 import {  Icon } from 'semantic-ui-react'
 
-function MyTeamCards ({team}){
+function MyTeamCards ({team, currentUser}){
 
 
     return(
@@ -9,12 +9,11 @@ function MyTeamCards ({team}){
                 {/* <Icon name="thumbtack" id="team-card-thumbnail"/> */}
             </div>
             <div id="team-description">
-                <h2>{team.name}</h2>
+                {team.name.includes(currentUser.company.name) ? <h2><span>{team.name} </span></h2> : <h2>{team.name}</h2>}
                 <div id="team-data">
                     <div><Icon id="team-data-icon" name="user circle" /> {team.recruiters.length} Recruiters</div>
                     <div><Icon id="team-data-icon" name="check circle outline"/> {team.reqs.length} Reqs</div>
-                </div>
-                
+                </div> 
             </div>
         </div>
     )

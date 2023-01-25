@@ -14,7 +14,7 @@ function MyDashboardHome({ currentUser, newTeam, setNewTeam, createNewTeam, dele
     const myTeamCards = currentUser.teams.map((team) => {
         return (
             <div onClick={() => { navigate(`/teams/${team.id}`) }} >
-                <MyTeamCards key={team.id} team={team} />
+                <MyTeamCards key={team.id} team={team} currentUser={currentUser}/>
             </div>
         )
     })
