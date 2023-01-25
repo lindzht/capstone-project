@@ -94,7 +94,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin: 5% 0 0 5%;
+  margin: 3% 0 0 5%;
   width: 40%;
   text-align: left;
 }
@@ -104,8 +104,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 3em 10em 0 7em;
-  width: 20%;
+  margin: 3em 10em 0 8.5em;
+  width: 11%;
 }
 
 #landing-bottom a{

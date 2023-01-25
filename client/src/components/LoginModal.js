@@ -23,7 +23,6 @@ function LoginModal({errors, setErrors, handleLoginModal, handleLogin, setDispla
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // handleLogin(user)
         fetch('/login', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
@@ -36,41 +35,14 @@ function LoginModal({errors, setErrors, handleLoginModal, handleLogin, setDispla
                   setNewData(data.first_name);
                   navigate('/dashboard')
                   setErrors([])
+                  setDisplayLoginForm(false);
                 })
               } else {
                 res.json().then(data => { for (const key in data) { setErrors(data[key]); } })
               }
             })
-
-
-
-
-
-        // if (errors.length > 0) {
-        //     navigate('/dashboard')
-        //     setDisplayLoginForm(false);
-        //     setErrors([])
-        // }
     };
 
-    // const handleLogin = (currentUser) => {
-    //     fetch('/login', {
-    //       method: "POST",
-    //       headers: { 'Content-Type': 'application/json' },
-    //       body: JSON.stringify(currentUser)
-    //     })
-    //       .then(res => {
-    //         if (res.ok) {
-    //           res.json().then(data => {
-    //             setCurrentUser(data);
-    //             setNewData(data.first_name);
-    //           })
-    //         } else {
-    //           res.json().then(data => { for (const key in data) { setErrors(data[key]); } })
-    //         }
-    //       })
-    //   }
-    
 
 
     return(
