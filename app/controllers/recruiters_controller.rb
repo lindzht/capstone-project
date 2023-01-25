@@ -1,6 +1,6 @@
 class RecruitersController < ApplicationController
 
-    skip_before_action :authorized, only: [:create, :show, :update]
+    skip_before_action :authorized, only: [:create]
 
 
     def create
@@ -16,16 +16,18 @@ class RecruitersController < ApplicationController
                 company_id: company.id
                 )
             team = Team.create(name: "All #{company.name} Reqs", company_id: company.id)
-            Recruiterteam.create(recruiter_id: recruiter.id, team_id: team.id)      
+            Recruiterteam.create(recruiter_id: recruiter.id, team_id: team.id)  
+            session[:recruiter_id] = recruiter.id
         else 
-            recruiter = Recruiter.create(recruiter_params)   
+            recruiter = Recruiter.create(recruiter_params)  
+            session[:recruiter_id] = recruiter.id
         end
-        session[:recruiter_id] = recruiter.id
+        # session[:recruiter_id] = recruiter.id
         render json: recruiter, status: :created
     end
 
     def show
-        recruiter = find_recruiter
+        recruiter = Recruiter.find(session[:recruiter_id])
         render json: recruiter, status: :ok
     end
 

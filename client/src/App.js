@@ -50,38 +50,52 @@ function App() {
 
 
   //STAY LOGGED IN:
-  useEffect(() => {
-    fetch("/me")
+  // useEffect(() => {
+  //   fetch("/me")
+  //     .then(res => {
+  //       if (res.ok) {
+  //         res.json()
+  //           .then(user => {
+  //             setCurrentUser(user)
+  //           })
+  //       }
+  //     });
+  // }, [newTeam, newData]);
+
+    useEffect(() => {
+      fetch("/me")
       .then(res => {
-        if (res.ok) {
+        if(res.ok){
           res.json()
-            .then(user => {
-              setCurrentUser(user)
-            })
+          .then((user) => {
+            // setCurrentUser(user)
+            console.log(user)
+          })
+        } else {
+          console.log("no worky")
         }
       });
-  }, []);
-// }, [newTeam, newData]);
+    }, []);
 
 
   // LOGIN 
-  const handleLogin = (currentUser) => {
-    fetch('/login', {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(currentUser)
-    })
-      .then(res => {
-        if (res.ok) {
-          res.json().then(data => {
-            setCurrentUser(data);
-            setNewData(data.first_name);
-          })
-        } else {
-          res.json().then(data => { for (const key in data) { setErrors(data[key]); } })
-        }
-      })
-  }
+  // const handleLogin = (currentUser) => {
+  //   fetch('/login', {
+  //     method: "POST",
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify(currentUser)
+  //   })
+  //     .then(res => {
+  //       if (res.ok) {
+  //         res.json().then(data => {
+  //           setCurrentUser(data);
+  //           setNewData(data.first_name);
+  //         })
+  //       } else {
+  //         res.json().then(data => { for (const key in data) { setErrors(data[key]); } })
+  //       }
+  //     })
+  // }
 
 
   // FETCH COMPANIES 
@@ -348,7 +362,7 @@ function App() {
               setErrors={setErrors}
               errors={errors}
               handleLoginModal={handleLoginModal}
-              handleLogin={handleLogin}
+              // handleLogin={handleLogin}
               setDisplayLoginForm={setDisplayLoginForm} />
             : null}
           <Routes>

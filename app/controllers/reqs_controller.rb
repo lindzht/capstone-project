@@ -1,6 +1,6 @@
 class ReqsController < ApplicationController
 
-    skip_before_action :authorized,  only: [:create, :update, :destroy]
+    skip_before_action :authorized,  only: [:create, :update, :destroy ]
 
     def create
         if params[:id]
@@ -14,6 +14,7 @@ class ReqsController < ApplicationController
     end
 
     def destroy
+        byebug
         req = find_req
         req.destroy
         render json: req, status: :accepted
@@ -23,6 +24,12 @@ class ReqsController < ApplicationController
         req = find_req
         req.update(req_params)
         render json: req, status: :accepted
+    end
+
+    def index
+        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :recruiter_id
+        reqs = Req.all
+        render json: reqs
     end
 
     private
