@@ -4,8 +4,6 @@ import { Table } from 'semantic-ui-react'
 
   
 function MyHiredReqs ( {currentUser}) {
-
-    console.log(currentUser.reqs)
     
     const tableData = currentUser.reqs.filter((req) => {
       return req.hired_status === "Hired"
@@ -45,6 +43,8 @@ function MyHiredReqs ( {currentUser}) {
   
     return (
       <div className='req-container'>
+        <h3>Total Hired Reqs</h3>
+
         <Table sortable celled fixed>
           <Table.Header>
             <Table.Row>

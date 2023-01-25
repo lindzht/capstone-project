@@ -588,6 +588,10 @@ transform: rotate(-10deg);
 
 /*************** MY DASHBOARD: HOME ****************/
 
+.space {
+  width: 2em;
+}
+
 .dashboard-content-container {
   display: flex;
   flex-direction: row;
@@ -814,6 +818,13 @@ transform: rotate(-10deg);
 
 
 /***************** MY & TEAM REQS PAGE  ******************/
+
+.req-container h3{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 1.5em;
+  padding: 0.5em;
+}
 
 .req-container {
   background-color: rgba(255, 255, 255, 0.71);

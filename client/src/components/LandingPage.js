@@ -1,5 +1,5 @@
 import { Button, Icon } from 'semantic-ui-react'
-import { Link, Navigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 
 

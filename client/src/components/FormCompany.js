@@ -1,10 +1,6 @@
-import { useState } from "react";
 import { Icon } from 'semantic-ui-react'
-import FormSignup from "./FormSignup";
 
 function FormCompany ({newCompany, setNewCompany, createNewRecruiter, newCompanyID, setDisplaySignupForm }){
-
-    // const [displaySignupForm, setDisplaySignupForm ] = useState(false)
     
     const handleChange = (e) => {
         const key = e.target.name;
@@ -24,7 +20,6 @@ function FormCompany ({newCompany, setNewCompany, createNewRecruiter, newCompany
         // setNewCompany({name: ""})
     };
 
-// if (displaySignupForm) return <FormSignup createNewRecruiter={createNewRecruiter} newCompanyID={newCompanyID} newCompany={newCompany}/> 
     return(
         <div id="formcompany-container">
             <form onSubmit={handleCompanySubmit}>

@@ -4,9 +4,7 @@ import Loading from './Loading';
 
 
 function TeamMetrics ( {currentUser, currentTeam, setSelectTeamID} ){
-    // let params = useParams();
-    // setSelectTeamID(params.teamId)
-    
+
     console.log(currentTeam)
 
     const renderMetricsDisplay = ()=> {

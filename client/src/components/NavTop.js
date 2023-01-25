@@ -1,6 +1,5 @@
 import { Icon } from "semantic-ui-react";
 import { Link, useNavigate } from 'react-router-dom';
-// import { useState } from "react";
 import hand from "../images/hand.png";
 
 function Nav ({currentUser, handleLogOut, handleLoginModal}){

@@ -42,6 +42,10 @@ class RecruiterSerializer < ActiveModel::Serializer
     end
   end
 
+  def reqs
+    object.reqs.order(hire_goal: :asc)
+  end
+
 
 
   # def req_due_this_month

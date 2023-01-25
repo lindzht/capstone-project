@@ -5,25 +5,6 @@ import { useNavigate} from "react-router-dom";
 function LoginModal({errors, handleLoginModal, handleLogin, setDisplayLoginForm}) {
     let navigate = useNavigate();
 
-    // LOGIN 
-    // const handleLogin = (currentUser) => {
-    //     fetch('/login', {
-    //         method: "POST",
-    //         headers: {'Content-Type': 'application/json'},
-    //         body:JSON.stringify(currentUser)
-    //     })
-    //     .then(res => {
-    //         if (res.ok){
-    //         res.json().then(data => {
-    //             setCurrentUser(data);
-    //             navigate('/dashboard')
-    //         })
-    //         } else {
-    //         res.json().then(data => {for (const key in data){setErrors(data[key]);}})
-    //         }
-    //     })
-    // }
-
     const [user, setUser] = useState({
         email: "",
         password: "",
@@ -43,9 +24,6 @@ function LoginModal({errors, handleLoginModal, handleLogin, setDisplayLoginForm}
     const handleSubmit = (e) => {
         e.preventDefault();
         handleLogin(user)
-       
-        // navigate('/dashboard')
-        console.log(errors)
         if (errors && errors.length === 0) {
             navigate('/dashboard')
         }

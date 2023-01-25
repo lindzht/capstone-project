@@ -3,11 +3,12 @@ import React from 'react'
 import { Table, Icon } from 'semantic-ui-react'
 
 
-function MyReqs({ currentUser, handleDisplayEditIcons, handleDisplayDeleteIcons, deleteReq,  displayEditIcon, displayDeleteIcon}) {
+function MyReqs({ upcomingGoalDates, currentUser, handleDisplayEditIcons, handleDisplayDeleteIcons, deleteReq,  displayEditIcon, displayDeleteIcon}) {
+
+  const newData = upcomingGoalDates ? upcomingGoalDates : currentUser.reqs
 
 
-
-  const tableData = currentUser.reqs.filter((req) => {
+  const tableData = newData.filter((req) => {
     return req.hired_status !== "Hired"
 
   })
@@ -46,6 +47,7 @@ function MyReqs({ currentUser, handleDisplayEditIcons, handleDisplayDeleteIcons,
 
   return (
     <div className='req-container'>
+      <h3>{upcomingGoalDates ? "Upcoming Goal Deadlines" : "Total Open Reqs"}</h3>
       {/* <div id="req-top-container">
         <div id="icons">
           <Icon id="edit" name="pencil" />
@@ -108,7 +110,7 @@ function MyReqs({ currentUser, handleDisplayEditIcons, handleDisplayDeleteIcons,
               <Table.Cell>{org}</Table.Cell>
               <Table.Cell>{hiring_manager}</Table.Cell>
               <Table.Cell>{open_date}</Table.Cell>
-              <Table.Cell >{hire_goal}</Table.Cell>
+              <Table.Cell id={upcomingGoalDates ? "req-row-alert" : null} >{hire_goal}</Table.Cell>
               <Table.Cell>{hired_status}</Table.Cell>
             </Table.Row>
           ))}

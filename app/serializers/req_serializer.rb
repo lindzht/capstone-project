@@ -7,4 +7,5 @@ class ReqSerializer < ActiveModel::Serializer
 
 
 
+
 end

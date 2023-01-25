@@ -1,30 +1,15 @@
 import { Table, Icon, Button } from 'semantic-ui-react'
 import { useState } from 'react'
-import { format, addDays, subDays } from 'date-fns'
+// import { format, addDays, subDays } from 'date-fns'
 
 
 function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hiring_manager, open_date, hire_goal, hired_status, hired_date, candidate, candidate_app, recruiter, displayDeleteIcon, displayEditIcon, currentTeam, updateReq }) {
     
-    // const todaysDate2 = format(addDays(new Date(), 10), 'yyyy-MM-dd')
-    // const twoWeeksAgo = format(subDays(hire_goal, 14), 'yyyy-MM-dd')
-    // console.log(hire_goal)
-
-    // const rowColors = ()=> {
-    //     console.log(hire_goal)
-    //     const today = format(new Date(), 'yyyy-MM-dd')
-    //     const goal = format(new hire_goal, 'yyyy-MM-dd')
-    //     const twoWeeksAgo = format(subDays(hire_goal, 14), 'yyyy-MM-dd')
-    //     console.log(twoWeeksAgo)
-        // if (today >= twoWeeksAgo ) {
-        //     return("req-row-alert")
-        // } else {
-        //     return("req-row")
-        // }
     const now = new Date();
     const goal = new Date(hire_goal)
     const msUntilGoal = goal.getTime() - now.getTime();
     const daysUntilGoal = Math.floor(msUntilGoal / (1000 * 60 * 60 * 24))
-    console.log(daysUntilGoal)
+ 
     
 
     const [displayEditForm, setDisplayEditForm] = useState(false)
