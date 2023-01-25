@@ -71,7 +71,7 @@ function TeamReqs( {currentTeam, deleteReq, deleteReqFromTeam, displayDeleteIcon
                   </Table.HeaderCell>
                   <Table.HeaderCell
                     sorted={column === 'recruiter' ? direction : null}
-                    onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'hiring_manager' })}
+                    onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'recruiter' })}
                   >
                     Recruiter
                   </Table.HeaderCell>

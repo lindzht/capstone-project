@@ -325,7 +325,7 @@ transform: rotate(-10deg);
 #login-page-container {
   z-index: 15;
   top: 20%;
-  right: 30%;
+  right: 33%;
   position: absolute;
   background-color: rgb(255, 255, 255);
   border: 5px solid rgb(255, 255, 255);
@@ -535,7 +535,7 @@ transform: rotate(-10deg);
   position: absolute;
   width: 400px;
   top: 8px;
-  right: -130px;
+  right: -170px;
 }
 
 
@@ -594,6 +594,7 @@ transform: rotate(-10deg);
   justify-content: space-between;
   width: 100%;
   margin-top: 3.8em;
+  margin-right: 5em;
 }
 
 #dashboard-content-top {
@@ -898,7 +899,7 @@ transform: rotate(-10deg);
 }
 
 #dashboard-content-left {
-  width: 75%;
+  width: 73%;
 }
 
 #admin-team-container, 
