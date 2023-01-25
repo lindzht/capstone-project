@@ -24,10 +24,11 @@ function LoginModal({errors, handleLoginModal, handleLogin, setDisplayLoginForm}
     const handleSubmit = (e) => {
         e.preventDefault();
         handleLogin(user)
-        if (errors && errors.length === 0) {
+        if (errors.length > 0) {
             navigate('/dashboard')
+            setDisplayLoginForm(false);
         }
-        setDisplayLoginForm(false);
+
     };
 
 
@@ -58,7 +59,7 @@ function LoginModal({errors, handleLoginModal, handleLogin, setDisplayLoginForm}
                             onChange={handleChange} />
                         <Icon size="big" name='arrow circle right' className="icon-right-arrow" onClick={handleSubmit}/>
                     </form>
-                    {/* {errors ? "error baby" : null} */}
+                    {errors !== [] ? <p>{errors}</p> : null}
                 </div>
                 
             </div>
