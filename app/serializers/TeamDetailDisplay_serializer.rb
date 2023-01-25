@@ -1,5 +1,5 @@
 class TeamDetailDisplaySerializer < ActiveModel::Serializer
-    attributes :id, :name, :recruiters, :reqs, :open_reqs, :hired_reqs, :avg_time_to_fill, :avg_time_to_hire, :metrics_by_recruiter
+    attributes :id, :name, :recruiters, :reqs, :open_reqs, :hired_reqs, :avg_time_to_fill, :avg_time_to_hire, :metrics_by_recruiter, :test
 
     has_one :company, serializer: TeamCompanyDisplaySerializer
     has_many :recruiters, through: :recruiterteams, serializer: RecruiterReqsDisplaySerializer
@@ -43,7 +43,7 @@ class TeamDetailDisplaySerializer < ActiveModel::Serializer
 
 
     def metrics_by_recruiter
-      hired = object.recruiters.map do |recruiter|
+      bloop = object.recruiters.map do |recruiter|
         hired = recruiter.reqs.where(hired_status: "Hired").count
         reqs = recruiter.reqs.where.not(hired_status: "Hired").count
 
@@ -66,6 +66,53 @@ class TeamDetailDisplaySerializer < ActiveModel::Serializer
         {"first_name"=>recruiter.first_name, "last_name"=>recruiter.last_name, "hired"=>hired, "open"=>reqs, "time_to_hire"=>avg_time_to_hire, "time_to_fill"=>avg_time_to_fill}
       end
    end
+
+
+   def test
+    object.recruiters.map do |recruiter|
+      recruiter.reqs.filter do |req|
+        req.reqteams.where(team_id: object.id)
+          
+        
+      end
+
+    end
+    
+
+
+
+  #   bloop = object.recruiters.map do |recruiter|
+  #     hired = recruiter.reqs.where(hired_status: "Hired").reqteams.count
+  #     reqs = recruiter.reqs.where.not(hired_status: "Hired").count
+
+  #     hired_reqs = recruiter.reqs.where.not(hired_date: nil).where.not(candidate_app: nil)
+  #     total_date_difference = hired_reqs.sum do |req|
+  #       (req.hired_date.to_date - req.candidate_app.to_date).to_i
+  #     end
+  #     if hired_reqs.length > 0
+  #       avg_time_to_hire = total_date_difference / hired_reqs.length
+  #     end
+
+  #     hired_reqs = recruiter.reqs.where.not(hired_date: nil)
+  #     total_date_difference = hired_reqs.sum do |req|
+  #       (req.hired_date.to_date - req.open_date.to_date).to_i
+  #     end
+  #     if hired_reqs.length > 0
+  #       avg_time_to_fill = total_date_difference / hired_reqs.length
+  #     end
+
+  #     {"first_name"=>recruiter.first_name, "last_name"=>recruiter.last_name, "hired"=>hired, "open"=>reqs, "time_to_hire"=>avg_time_to_hire, "time_to_fill"=>avg_time_to_fill}
+  #   end
+  #  end
+
+   
+   
+ 
+
+
+
+
+
 
 
     # def open_reqs_by_recruiter
@@ -112,4 +159,5 @@ class TeamDetailDisplaySerializer < ActiveModel::Serializer
 
 
   end
+end
   

@@ -24,13 +24,13 @@ function LoginModal({errors, setErrors, handleLoginModal, handleLogin, setDispla
     const handleSubmit = (e) => {
         e.preventDefault();
         handleLogin(user)
-        if (errors) {
+        if (errors.length > 0) {
             navigate('/dashboard')
             setDisplayLoginForm(false);
+            setErrors([])
         }
     };
 
-    console.log(typeof errors)
 
     return(
         <div id="login-page-container">
