@@ -9,14 +9,14 @@ function TeamMetrics ( {currentUser, currentTeam, setSelectTeamID} ){
 
     const renderMetricsDisplay = ()=> {
       return(
-        currentTeam.recruiters.map((recruiter) => {
+        currentTeam.metrics_by_recruiter.map((recruiter) => {
           return(
             <div id="recruiter-metrics-row" key={recruiter.id}>
               <h3>{recruiter.first_name} {recruiter.last_name}</h3>
-              <h4>{recruiter.open_reqs}</h4>
-              <h4>{recruiter.hired_reqs}</h4>
-              <h4>{recruiter.avg_time_to_fill} <span>Days</span></h4>
-              <h4>{recruiter.avg_time_to_hire} <span>Days</span></h4>
+              <h4>{recruiter.open}</h4>
+              <h4>{recruiter.hired}</h4>
+              <h4>{recruiter.time_to_fill > 0 ? recruiter.time_to_fill : "X"} <span>Days</span></h4>
+              <h4>{recruiter.time_to_hire > 0? recruiter.time_to_hire : "X"} <span>Days</span></h4>
             </div>
           )
         })

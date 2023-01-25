@@ -18,6 +18,7 @@ class RecruiterSerializer < ActiveModel::Serializer
     object.teams.order(name: :asc)
   end
 
+
   def avg_time_to_fill
     hired_reqs = object.reqs.where.not(hired_date: nil)
     total_date_difference = hired_reqs.sum do |req|
@@ -29,6 +30,9 @@ class RecruiterSerializer < ActiveModel::Serializer
       return 0
     end
   end
+
+
+  
 
   def avg_time_to_hire
     hired_reqs = object.reqs.where.not(hired_date: nil).where.not(candidate_app: nil)
@@ -47,11 +51,19 @@ class RecruiterSerializer < ActiveModel::Serializer
   end
 
 
-
-  # def req_due_this_month
-  #   beginning_of_month = Time.current.beginning_of_month
-  #   end_of_month = beginning_of_month.end_of_month  
-  #   object.reqs.where(hire_goal: beginning_of_month..end_of_month )
+  # def avg_time_to_fill_by_team
+  #   object.teams.map do |team|
+  #     hired = team.reqs.where(recruiter_id: object.id).where.not(hired_date: nil)
+  #     date_difference = hired.sum do |req|
+  #       (req.hired_date.to_date - req.open_date.to_date).to_i
+  #     end
+  #     if hired.length > 0
+  #       divide = date_difference/hired.length
+  #     end
+  #     {"id"=>team.id, "fill"=>divide} 
+  #   end
   # end
+
+
 
 end
