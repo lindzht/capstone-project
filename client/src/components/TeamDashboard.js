@@ -5,7 +5,7 @@ import { Link,  useParams } from 'react-router-dom';
 
 
 
-function TeamDashboard ( {currentTeam, currentUser, setSelectTeamID} ){
+function TeamDashboard ( {currentTeam, currentUser, setSelectTeamID, newHire} ){
 
     let params = useParams();
     setSelectTeamID(params.teamId)
@@ -23,7 +23,7 @@ function TeamDashboard ( {currentTeam, currentUser, setSelectTeamID} ){
             <div className="dashboard-header">
                 {currentTeam ? <h1>{currentTeam.name} 's Board</h1> : null}
             </div>
-                <TeamSubNav />
+                <TeamSubNav newHire={newHire}/>
 
         </div> 
     )

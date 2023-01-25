@@ -9,9 +9,7 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
     const goal = new Date(hire_goal)
     const msUntilGoal = goal.getTime() - now.getTime();
     const daysUntilGoal = Math.floor(msUntilGoal / (1000 * 60 * 60 * 24))
- 
     
-
     const [displayEditForm, setDisplayEditForm] = useState(false)
     const [editTeamReq, setEditTeamReq] = useState({
         id: id,
@@ -33,6 +31,7 @@ function TeamReqRow({ deleteReq, deleteReqFromTeam, id, req_id, name, org, hirin
             deleteReq(id)
         } else {
             deleteReqFromTeam({ req_id: id, team_id: currentTeam.id })
+        //    console.log(test)
         }
     }
 

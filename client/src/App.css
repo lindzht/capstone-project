@@ -64,11 +64,11 @@
   /* background-image: linear-gradient(90deg, rgb(227, 231, 208), rgba(255, 164, 36, 0.376)); */
   /* background-image: linear-gradient(155deg, rgb(227, 231, 208) 50%, rgba(255, 164, 36, 0.376) 90%); */
 
-  background: linear-gradient(310deg, #d9e1b3, #fbd49e, #d9e1b3);
+  background: linear-gradient(310deg, #d9e1b3, #ffcd87, #b1b88c);
   background-size: 600% 600%;
-  -webkit-animation: AnimationName 8s ease infinite;
-  -moz-animation: AnimationName 8s ease infinite;
-  animation: AnimationName 8s ease infinite;
+  -webkit-animation: backgroundAnimation 8s ease infinite;
+  -moz-animation: backgroundAnimation 8s ease infinite;
+  animation: backgroundAnimation 8s ease infinite;
   height: 100vh;
   width: 100vw; 
   display: flex;
@@ -78,8 +78,7 @@
 }
 
 
-
-@keyframes AnimationName {
+@keyframes backgroundAnimation {
   0%{background-position:0% 14%}
   50%{background-position:100% 87%}
   100%{background-position:0% 14%}
@@ -442,7 +441,7 @@ transform: rotate(-10deg);
   background-color: white;
   height: 100vh;
   z-index: 10;
-  width: 17%;
+  width: 17em;
   text-align: center;
   border-radius: 50px;
   border: 10px solid white;
@@ -527,7 +526,7 @@ transform: rotate(-10deg);
  #nav-dashboard-content #logout {
   position: relative;
   text-align: center;
-  left: 4%;
+  /* left: 0%; */
  }
 
 /************** MY DASHBOARD CONTAINER **************/
@@ -909,7 +908,7 @@ transform: rotate(-10deg);
   width: 73%;
 }
 
-#admin-team-container, 
+
 #admin-team-container #admin-team-header {
   display: flex;
   flex-direction: column;
@@ -971,29 +970,42 @@ transform: rotate(-10deg);
   margin: 5px;
 }
 
-#admin-team-header .add-icon:hover {
+#admin-team-list .add-icon:hover {
   color: orangered;
   cursor: grab;
 }
 
-.admin-team-card-container {
-  margin: 3px;
-  width: 230px;
+#admin-team-list {
+  /* margin: 3px; */
+  display: flex;
+  align-items: center;
+  width: 210px;
+  height: 30px;
+  text-align: right;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 1px;
+  border-radius: 2px;
+  padding: 0.3em;
+  margin: 8px;
 }
 
-.admin-team-card-container:hover {
+#admin-team-list h5 {
+  margin-top: -2px;
+}
+
+#admin-team-list:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: grab;
 }
 
-.admin-team-card-container #admin-card-content-top {
+/* .admin-team-card-container #admin-card-content-top {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 9px;
-}
+} */
 
-#admin-card-content-top h5:hover {
+#admin-team-list h5:hover {
   color: orangered;
 }
 
@@ -1010,9 +1022,11 @@ transform: rotate(-10deg);
 }
 
 #admin-delete-icon {
-  position: absolute;
-  right: 10px;
-  margin-top: -7px;
+  /* position: relative; */
+  /* margin-left: 30px; */
+  /* right: 10px; */
+  margin-top: -8px;
+  margin-right: 30px;
   color: rgb(169, 169, 169);
 }
 
@@ -1066,7 +1080,9 @@ transform: rotate(-10deg);
 
 
 
-
+#new-hire {
+  color: orangered;
+}
 
 
 
@@ -1090,9 +1106,10 @@ transform: rotate(-10deg);
 
 #settings-left-content h1 {
   font-family: 'Paytone One', sans-serif;
-  font-size: 7em;
-  width: 50%;
-  margin-top: 11%;
+  font-size: 6em;
+  width: 100%;
+  margin-top: 14%;
+  word-wrap: break-word;
   text-align: left;
   line-height: 0.9em;
   text-shadow: -15px 0px 0px rgba(255, 255, 255, 1);

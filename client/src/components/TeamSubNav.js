@@ -1,7 +1,7 @@
 import { Link, Outlet, useParams, useNavigate } from 'react-router-dom';
 
 
-function TeamSubNav(){
+function TeamSubNav({newHire}){
     let params = useParams();
     let navigate = useNavigate();
 

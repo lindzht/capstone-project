@@ -7,7 +7,7 @@ import AddRecruiterCard from './AddRecruiterCard';
 import TeamAddReq from './TeamAddReq';
 import Loading from './Loading';
 
-function TeamDashboardHome({ currentTeam, deleteRecruiterFromTeam, companies, addNewReq, setNewTeamReq, newTeamReq, setNewData, setReqSearchID, reqSearchID, setRecruiterSearchID, recruiterSearchID, createRecTeamRelationship, deleteReq, deleteReqFromTeam, updateReq, displayEditIcon, displayDeleteIcon, handleDisplayAddForm, handleDisplayEditIcons, handleDisplayDeleteIcons, displayAddForm, errors }) {
+function TeamDashboardHome({ currentTeam, deleteRecruiterFromTeam, companies, addNewReq, setNewTeamReq, newTeamReq, setNewData, setReqSearchID, reqSearchID, setRecruiterSearchID, recruiterSearchID, createRecTeamRelationship, deleteReq, deleteReqFromTeam, updateReq, displayEditIcon, displayDeleteIcon, handleDisplayAddForm, handleDisplayEditIcons, handleDisplayDeleteIcons, displayAddForm, errors}) {
 
     const [displayRecruiterForm, setDisplayRecruiterForm] = useState(false)
     let params = useParams();

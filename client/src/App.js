@@ -47,6 +47,7 @@ function App() {
   const [displayAddForm, setDisplayAddForm] = useState(false)
   const [displayEditIcon, setDisplayEditIcon] = useState(false)
   const [displayDeleteIcon, setDisplayDeleteIcon] = useState(false)
+  const [newHire, setNewHire] = useState(false)
 
 
   //STAY LOGGED IN:
@@ -239,7 +240,7 @@ function App() {
 
   // ADD NEW REQ
   const addNewReq = (newReq) => {
-    console.log(newReq);
+    // console.log(newReq);
     fetch('/reqs', {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
@@ -250,7 +251,9 @@ function App() {
           res.json().then(data => {
             setNewData(data);
             setErrors([])
-            console.log(data);
+            if(data.hired_status === "Hired"){
+              setNewHire(data)
+            }
           })
         } else {
           res.json().then(data => {for (const key in data){setErrors(data[key]);}; console.log(errors)})
@@ -275,7 +278,6 @@ function App() {
 
   //  DELETE REQ FROM SPECIFIC TEAM
   const deleteReqFromTeam = (reqObj) => {
-    console.log(reqObj)
     fetch('/reqteamdestroy', {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
@@ -285,7 +287,6 @@ function App() {
         if (res.ok) {
           res.json().then(data => {
             setNewData(data);
-            console.log(data);
           })
         } else {
           res.json().then(data => { setErrors(data.errors); console.log(errors) })
@@ -295,7 +296,6 @@ function App() {
 
   // UPDATE REQ
   const updateReq = (updateReqObj) => {
-    // console.log(updateReqObj);
     fetch(`/reqs/${updateReqObj.id}`, {
       method: "PATCH",
       headers: { 'Content-Type': 'application/json' },
@@ -391,7 +391,8 @@ function App() {
               <Route path='teams/:teamId' element={<TeamDashboard
                 currentUser={currentUser}
                 setSelectTeamID={setSelectTeamID}
-                currentTeam={currentTeam} />} >
+                currentTeam={currentTeam}
+                newHire={newHire} />} >
                 <Route index element={<TeamDashboardHome
                   errors={errors}
                   currentUser={currentUser}
@@ -436,6 +437,7 @@ function App() {
                   handleDisplayDeleteIcons={handleDisplayDeleteIcons}
                   updateReq={updateReq}
                   deleteReq={deleteReq}
+                  deleteReqFromTeam={deleteReqFromTeam}
                 />} />
                 <Route path="metrics" element={<TeamMetrics 
                   currentUser={currentUser}

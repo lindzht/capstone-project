@@ -1,5 +1,5 @@
 class TeamDetailDisplaySerializer < ActiveModel::Serializer
-    attributes :id, :name, :recruiters, :reqs, :open_reqs, :hired_reqs, :avg_time_to_fill, :avg_time_to_hire, :metrics_by_recruiter, :test
+    attributes :id, :name, :recruiters, :reqs, :open_reqs, :hired_reqs, :avg_time_to_fill, :avg_time_to_hire, :metrics_by_recruiter
 
     has_one :company, serializer: TeamCompanyDisplaySerializer
     has_many :recruiters, through: :recruiterteams, serializer: RecruiterReqsDisplaySerializer
@@ -68,15 +68,15 @@ class TeamDetailDisplaySerializer < ActiveModel::Serializer
    end
 
 
-   def test
-    object.recruiters.map do |recruiter|
-      recruiter.reqs.filter do |req|
-        req.reqteams.where(team_id: object.id)
-          
-        
-      end
-
-    end
+  #  def test
+  #     object.recruiters.filter do |recruiter|
+  #       recruiter.reqs.each do |req|
+  #         if req.teams.where(id: object.id)
+  #           req.name
+  #         end
+  #       end
+  #     end
+  #   end
     
 
 
@@ -158,6 +158,6 @@ class TeamDetailDisplaySerializer < ActiveModel::Serializer
 
 
 
-  end
+
 end
   
