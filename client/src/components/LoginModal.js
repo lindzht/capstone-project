@@ -2,7 +2,7 @@ import { Icon } from 'semantic-ui-react'
 import {useState} from "react"
 import { useNavigate} from "react-router-dom";
 
-function LoginModal({errors, handleLoginModal, handleLogin, setDisplayLoginForm}) {
+function LoginModal({errors, setErrors, handleLoginModal, handleLogin, setDisplayLoginForm}) {
     let navigate = useNavigate();
 
     const [user, setUser] = useState({
@@ -24,13 +24,13 @@ function LoginModal({errors, handleLoginModal, handleLogin, setDisplayLoginForm}
     const handleSubmit = (e) => {
         e.preventDefault();
         handleLogin(user)
-        if (errors.length > 0) {
+        if (errors) {
             navigate('/dashboard')
             setDisplayLoginForm(false);
         }
-
     };
 
+    console.log(typeof errors)
 
     return(
         <div id="login-page-container">
@@ -59,7 +59,7 @@ function LoginModal({errors, handleLoginModal, handleLogin, setDisplayLoginForm}
                             onChange={handleChange} />
                         <Icon size="big" name='arrow circle right' className="icon-right-arrow" onClick={handleSubmit}/>
                     </form>
-                    {errors !== [] ? <p>{errors}</p> : null}
+                    {errors !== null ? <p>{errors}</p> : null}
                 </div>
                 
             </div>

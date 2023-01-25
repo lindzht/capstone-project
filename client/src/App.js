@@ -60,7 +60,8 @@ function App() {
             })
         }
       });
-  }, [newTeam, newData]);
+  }, []);
+// }, [newTeam, newData]);
 
 
   // LOGIN 
