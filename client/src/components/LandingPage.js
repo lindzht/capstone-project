@@ -26,8 +26,7 @@ function LandingPage({handleLoginModal, setNewCompany}) {
                     <Button onClick={() => {setNewCompany({name: ""})}} color='black' size='large'>Sign Up</Button>
                 </Link>
                     <Button color='black' size='large' onClick={handleLoginModal}>Login</Button>
-                <Link to="#" onClick={(e) => {window.location.href = "mailto:llindsayttaylor@gmail.com";
-                e.preventDefault();}}>
+                <Link to="#" onClick={() => {window.location.href = "mailto:llindsayttaylor@gmail.com"}}>
                     <Icon name="mail" size='big'></Icon>
                 </Link>
                     

@@ -407,14 +407,14 @@ transform: rotate(-10deg);
 
 #hamburger-content #hamburger-icon:hover {
   animation-name: wave;
-  animation-duration: 0.8s;
+  animation-duration: 0.7s;
   animation-iteration-count: infinite;
 }
 
 @keyframes wave {
-  0%   {transform: rotate(-100deg);}
+  0%   {transform: rotate(-60deg);}
   50%  {transform: rotate(20deg);}
-  100% {transform: rotate(-100deg);}
+  100% {transform: rotate(-70deg);}
 }
 
 #nav-dashboard-content #hamburger-icon {
@@ -591,7 +591,7 @@ transform: rotate(-10deg);
 .dashboard-content-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   margin-top: 3.8em;
 }
@@ -617,6 +617,7 @@ transform: rotate(-10deg);
   flex-direction: column;
   /* position: relative;
   width: 70em; */
+  width: 100%;
   margin: 1em;
   padding: 2em 0 3em 0;
 }
@@ -712,7 +713,7 @@ transform: rotate(-10deg);
   display: flex;
   /* position: relative; */
   overflow-x: scroll;
-  width: 68em;
+  width: 95%;
   height: 25em;
 }
 
@@ -896,9 +897,9 @@ transform: rotate(-10deg);
   height: 100%;
 }
 
-/* #dashboard-content-left {
-  width: 90%;
-} */
+#dashboard-content-left {
+  width: 75%;
+}
 
 #admin-team-container, 
 #admin-team-container #admin-team-header {
@@ -1083,6 +1084,7 @@ transform: rotate(-10deg);
   font-family: 'Paytone One', sans-serif;
   font-size: 7em;
   width: 50%;
+  margin-top: 11%;
   text-align: left;
   line-height: 0.9em;
   text-shadow: -15px 0px 0px rgba(255, 255, 255, 1);

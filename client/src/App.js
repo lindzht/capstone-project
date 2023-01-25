@@ -49,10 +49,6 @@ function App() {
   const [displayDeleteIcon, setDisplayDeleteIcon] = useState(false)
 
 
-  // let params = useParams();
-  // let navigate = useNavigate();
-
-
   //STAY LOGGED IN:
   useEffect(() => {
     fetch("/me")
@@ -262,7 +258,6 @@ function App() {
 
   //  DELETE REQ FROM ALL TEAMS (From the All Reqs board)
   const deleteReq = (reqID) => {
-    // console.log(reqID)
     fetch(`/reqs/${reqID}`, {
       method: "DELETE"
     })
@@ -359,7 +354,6 @@ function App() {
             <Route index element={<LandingPage handleLoginModal={handleLoginModal} setNewCompany={setNewCompany} />} />
             <Route path='signup' element={<SignupPage
               companies={companies}
-              // createNewCompany={createNewCompany}
               createNewRecruiter={createNewRecruiter}
               newCompany={newCompany}
               setNewCompany={setNewCompany}
