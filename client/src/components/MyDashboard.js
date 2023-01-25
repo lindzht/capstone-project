@@ -6,7 +6,6 @@ import Loading from "./Loading";
 
 function MyDashboard ( {currentUser} ){
 
-
 if (!currentUser) return <Loading />
     return(
         <div className="dashboard-container">

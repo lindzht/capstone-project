@@ -526,6 +526,8 @@ transform: rotate(-10deg);
 
  #nav-dashboard-content #logout {
   position: relative;
+  text-align: center;
+  left: 4%;
  }
 
 /************** MY DASHBOARD CONTAINER **************/
@@ -589,8 +591,10 @@ transform: rotate(-10deg);
 /*************** MY DASHBOARD: HOME ****************/
 
 .space {
-  width: 2em;
+  width: 1em;
 }
+
+
 
 .dashboard-content-container {
   display: flex;
@@ -1359,7 +1363,7 @@ transform: rotate(-10deg);
   position: relative;
   background-color: white;
   top: 200px;
-  left: 28%;
+  left: 40%;
   width: 600px;
   padding: 2em;
   border-radius: 20px;
