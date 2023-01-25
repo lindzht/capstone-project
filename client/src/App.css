@@ -64,7 +64,7 @@
   /* background-image: linear-gradient(90deg, rgb(227, 231, 208), rgba(255, 164, 36, 0.376)); */
   /* background-image: linear-gradient(155deg, rgb(227, 231, 208) 50%, rgba(255, 164, 36, 0.376) 90%); */
 
-  background: linear-gradient(310deg, #d9e1b3, #ffcd87, #b1b88c);
+  background: linear-gradient(310deg, #d9e1b3, #ffcd87, #828861);
   background-size: 600% 600%;
   -webkit-animation: backgroundAnimation 8s ease infinite;
   -moz-animation: backgroundAnimation 8s ease infinite;
@@ -324,7 +324,7 @@ transform: rotate(-10deg);
 #login-page-container {
   z-index: 15;
   top: 20%;
-  right: 33%;
+  right: 38%;
   position: absolute;
   background-color: rgb(255, 255, 255);
   border: 5px solid rgb(255, 255, 255);
@@ -536,7 +536,7 @@ transform: rotate(-10deg);
   position: absolute;
   width: 400px;
   top: 8px;
-  right: -170px;
+  right: -8%;
 }
 
 
@@ -1507,12 +1507,12 @@ transform: rotate(-10deg);
 }
 
 #recruiter-metrics-row h3{
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: right;
 }
 
 #recruiter-metrics-row h4 {
-  font-size: 1.3em;
+  font-size: 1.5em;
   margin: 20px 0 10px 0;
 }
 
@@ -1530,8 +1530,9 @@ transform: rotate(-10deg);
   border-bottom: 1px solid rgb(178, 178, 178);
 }
 
-#team-metrics-headers h3 {
-  font-size: 1.5em;
+#team-metrics-headers h3,
+#recruiter-metrics-row h3 {
+  font-size: 1.3em;
 }
 
 #team-metrics-headers :first-child{

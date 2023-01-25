@@ -68,6 +68,14 @@ class TeamDetailDisplaySerializer < ActiveModel::Serializer
    end
 
 
+
+
+  #  def test
+  #     object.reqs.map do |req|
+  #       req.
+  #     end
+  #  end
+
   #  def test
   #     object.recruiters.filter do |recruiter|
   #       recruiter.reqs.each do |req|

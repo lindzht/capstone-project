@@ -61,8 +61,7 @@ function App() {
             })
         }
       });
-  }, [newTeam, newData]);
-// }, [newTeam, newData]);
+  }, [newTeam, newData, updatedReq]);
 
 
   // LOGIN 
@@ -417,6 +416,7 @@ function App() {
                   handleDisplayEditIcons={handleDisplayEditIcons}
                   handleDisplayDeleteIcons={handleDisplayDeleteIcons}
                   displayAddForm={displayAddForm}
+                  setErrors={setErrors}
                 />} />
                 <Route path="hires" element={<TeamHiredReqs
                   currentUser={currentUser}

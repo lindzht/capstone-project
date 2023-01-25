@@ -7,7 +7,7 @@ import AddRecruiterCard from './AddRecruiterCard';
 import TeamAddReq from './TeamAddReq';
 import Loading from './Loading';
 
-function TeamDashboardHome({ currentTeam, deleteRecruiterFromTeam, companies, addNewReq, setNewTeamReq, newTeamReq, setNewData, setReqSearchID, reqSearchID, setRecruiterSearchID, recruiterSearchID, createRecTeamRelationship, deleteReq, deleteReqFromTeam, updateReq, displayEditIcon, displayDeleteIcon, handleDisplayAddForm, handleDisplayEditIcons, handleDisplayDeleteIcons, displayAddForm, errors}) {
+function TeamDashboardHome({ currentTeam, deleteRecruiterFromTeam, companies, addNewReq, setNewTeamReq, newTeamReq, setNewData, setReqSearchID, reqSearchID, setRecruiterSearchID, recruiterSearchID, createRecTeamRelationship, deleteReq, deleteReqFromTeam, updateReq, displayEditIcon, displayDeleteIcon, handleDisplayAddForm, handleDisplayEditIcons, handleDisplayDeleteIcons, displayAddForm, errors, setErrors}) {
 
     const [displayRecruiterForm, setDisplayRecruiterForm] = useState(false)
     let params = useParams();
@@ -84,7 +84,7 @@ function TeamDashboardHome({ currentTeam, deleteRecruiterFromTeam, companies, ad
                                 {renderRecruiters()}
                                 {displayRecruiterForm ?
                                     <>
-                                        <Icon name="minus circle" className='add-icon' onClick={() => { setDisplayRecruiterForm(!displayRecruiterForm) }} />
+                                        <Icon name="minus circle" className='add-icon' onClick={() => { setDisplayRecruiterForm(!displayRecruiterForm); setErrors([]) }} />
 
                                         <AddRecruiterCard companies={companies} currentTeam={currentTeam} setRecruiterSearchID={setRecruiterSearchID}
                                             recruiterSearchID={recruiterSearchID}

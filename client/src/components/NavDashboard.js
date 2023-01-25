@@ -1,10 +1,10 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
 import { useState } from "react";
 
 
 function NavDashboard ({handleLogOut, currentUser}) {
-    let navigate = useNavigate();
+
 
     const [displayNav, setDisplayNav] = useState(false);
     const [displayTeams, setDisplayTeams] = useState(false);
@@ -53,7 +53,7 @@ function NavDashboard ({handleLogOut, currentUser}) {
                         <Link to="settings">Settings</Link>
                         <br />
                         <br />
-                        <h4>{currentUser.admin ? currentUser.company.name : null} Admin</h4>
+                        <h4>{currentUser.admin ? `${currentUser.company.name} Admin` : null}</h4>
                         <Icon id="peaceout-icon" name="hand peace outline" size="large" />
                         <Link id="logout" onClick={handleLogOut} to="/">Logout</Link>
                     </nav>
