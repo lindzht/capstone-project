@@ -4,7 +4,6 @@ import { Button, Icon } from 'semantic-ui-react'
 
 
 function TeamAddReq({ errors, companies, currentTeam, addNewReq, newTeamReq, setNewTeamReq, setNewData, reqSearchID, setReqSearchID, handleDisplayAddForm }) {
-    let params = useParams();
 
     const currentCompanyReqs = companies.filter((company) => {
         if (company.id === currentTeam.company.id) {

@@ -1,7 +1,5 @@
 class TeamsController < ApplicationController
 
-    # skip_before_action :authorized,  only: [:create, :show, :destroy]
-
     def create
         team = Team.create(team_params)
         render json: team, status: :created
@@ -19,9 +17,7 @@ class TeamsController < ApplicationController
         render json: recruiter, status: :accepted
     end
 
-    # def all_team_data
-        
-    # end
+
 
     private
 

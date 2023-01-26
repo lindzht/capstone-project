@@ -162,8 +162,8 @@ function App() {
       .then(res => {
         if (res.ok) {
           res.json().then(data => {
-            setNewTeam(data);
-            console.log(data);
+            // setNewTeam(data);
+            setNewTeam({name: ""});
           })
         } else {
           res.json().then(data => { setErrors(data.errors)})

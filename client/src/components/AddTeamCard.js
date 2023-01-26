@@ -18,6 +18,7 @@ function AddTeamCard ({newTeam, setNewTeam, createNewTeam, currentUser}){
     const handleTeamSubmit = (e) => {
         e.preventDefault();
         createNewTeam(newTeam);
+        setNewTeam({name: ""});
     };
 
     return(
