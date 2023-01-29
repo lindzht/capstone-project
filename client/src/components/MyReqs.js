@@ -46,7 +46,7 @@ function MyReqs({ upcomingGoalDates, currentUser, handleDisplayEditIcons, handle
   const { column, data, direction } = state
 
   return (
-    <div className='req-container'>
+    <div className={upcomingGoalDates ? 'req-container-goals' : 'req-container'}>
       <h3>{upcomingGoalDates ? "Upcoming Goal Deadlines" : "Total Open Reqs"}</h3>
       {/* <div id="req-top-container">
         <div id="icons">
