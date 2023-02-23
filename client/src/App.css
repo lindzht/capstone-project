@@ -105,7 +105,7 @@
   justify-content: space-between;
   align-items: center;
   margin: 3em 10em 0 8.5em;
-  width: 11%;
+  width: 15%;
 }
 
 #landing-bottom a{
@@ -441,7 +441,7 @@ transform: rotate(-10deg);
   background-color: white;
   height: 100vh;
   z-index: 10;
-  width: 17em;
+  width: 300px;
   text-align: center;
   border-radius: 50px;
   border: 10px solid white;
