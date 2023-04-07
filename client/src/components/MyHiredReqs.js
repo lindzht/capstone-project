@@ -10,36 +10,36 @@ function MyHiredReqs ( {currentUser}) {
     })
     
     
-    function exampleReducer(state, action) {
-      switch (action.type) {
-        case 'CHANGE_SORT':
-          if (state.column === action.column) {
-            return {
-              ...state,
-              data: state.data.slice().reverse(),
-              direction:
-                state.direction === 'ascending' ? 'descending' : 'ascending',
-            }
-          }
+    // function exampleReducer(state, action) {
+    //   switch (action.type) {
+    //     case 'CHANGE_SORT':
+    //       if (state.column === action.column) {
+    //         return {
+    //           ...state,
+    //           data: state.data.slice().reverse(),
+    //           direction:
+    //             state.direction === 'ascending' ? 'descending' : 'ascending',
+    //         }
+    //       }
 
-          return {
-            column: action.column,
-            data: _.sortBy(state.data, [action.column]),
-            direction: 'ascending',
-          }
-        default:
-          throw new Error()
-      }
-    }
+    //       return {
+    //         column: action.column,
+    //         data: _.sortBy(state.data, [action.column]),
+    //         direction: 'ascending',
+    //       }
+    //     default:
+    //       throw new Error()
+    //   }
+    // }
 
 
 
-    const [state, dispatch] = React.useReducer(exampleReducer, {
-      column: null,
-      data: tableData,
-      direction: null,
-    })
-    const { column, data, direction } = state
+    // const [state, dispatch] = React.useReducer(exampleReducer, {
+    //   column: null,
+    //   data: tableData,
+    //   direction: null,
+    // })
+    // const { column, data, direction } = state
   
     return (
       <div className='req-container'>
@@ -49,63 +49,63 @@ function MyHiredReqs ( {currentUser}) {
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell
-                sorted={column === 'req_id' ? direction : null}
-                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'req_id' })}
+                // sorted={column === 'req_id' ? direction : null}
+                // onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'req_id' })}
                 id="req-id-column"
               >
                 <p >Req ID</p>
               </Table.HeaderCell>
               <Table.HeaderCell
-                sorted={column === 'name' ? direction : null}
-                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'name' })}
+                // sorted={column === 'name' ? direction : null}
+                // onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'name' })}
               >
                 Name
               </Table.HeaderCell>
               <Table.HeaderCell
-                sorted={column === 'org' ? direction : null}
-                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'org' })}
+                // sorted={column === 'org' ? direction : null}
+                // onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'org' })}
               >
                 Team
               </Table.HeaderCell>
               <Table.HeaderCell
-                sorted={column === 'hiring_manager' ? direction : null}
-                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'hiring_manager' })}
+                // sorted={column === 'hiring_manager' ? direction : null}
+                // onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'hiring_manager' })}
               >
                 Hiring Manager
               </Table.HeaderCell>
               <Table.HeaderCell
-                sorted={column === 'open_date' ? direction : null}
-                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'open_date' })}
+                // sorted={column === 'open_date' ? direction : null}
+                // onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'open_date' })}
               >
                 Role Open Date
               </Table.HeaderCell>
               <Table.HeaderCell
-                sorted={column === 'hire_goal' ? direction : null}
-                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'hire_goal' })}
+                // sorted={column === 'hire_goal' ? direction : null}
+                // onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'hire_goal' })}
               >
                 Goal Hire Date
               </Table.HeaderCell>
               <Table.HeaderCell
-                sorted={column === 'is_hired' ? direction : null}
-                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'is_hired' })}
+                // sorted={column === 'is_hired' ? direction : null}
+                // onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'is_hired' })}
               >
                 Hired Status
               </Table.HeaderCell>
               <Table.HeaderCell
-                sorted={column === 'hired_date' ? direction : null}
-                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'hired_date' })}
+                // sorted={column === 'hired_date' ? direction : null}
+                // onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'hired_date' })}
               >
                 Date Hired
               </Table.HeaderCell>
               <Table.HeaderCell
-                sorted={column === 'candidate' ? direction : null}
-                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'candidate' })}
+                // sorted={column === 'candidate' ? direction : null}
+                // onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'candidate' })}
               >
                 Candidate Hired
               </Table.HeaderCell>
               <Table.HeaderCell
-                sorted={column === 'candidate_app' ? direction : null}
-                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'candidate_app' })}
+                // sorted={column === 'candidate_app' ? direction : null}
+                // onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'candidate_app' })}
               >
                 Candidate Application Date
               </Table.HeaderCell>
